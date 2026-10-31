@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 namespace PurpleGlove
 {
-    /// <summary>View hints and edge navigation, processed before physical pointer input.</summary>
+    /// <summary>View/book hints and edge navigation, processed before physical pointer input.</summary>
     [DefaultExecutionOrder(-300), DisallowMultipleComponent, RequireComponent(typeof(DeskScenePreview))]
     public sealed class DeskViewHud : MonoBehaviour
     {
@@ -12,6 +12,7 @@ namespace PurpleGlove
         [Range(0, 1)] public float arrowHoverOpacity = 0.95f;
         DeskScenePreview view;
         SceneInputGate inputGate;
+        SceneObjectInteractor interactor;
         GUIStyle labelStyle;
         static readonly Color Ink = Color.black;
         static readonly Color Paper = new Color(0.72f, 0.63f, 0.45f);
@@ -23,6 +24,7 @@ namespace PurpleGlove
         {
             view = GetComponent<DeskScenePreview>();
             inputGate = GetComponent<SceneInputGate>();
+            interactor = GetComponent<SceneObjectInteractor>();
             var workbench = GetComponent<CipherWorkbench>();
             // The original hint font is a subset; use the bundled full font for the new return text.
             if (workbench && workbench.uiFont) labelFont = workbench.uiFont;
@@ -64,10 +66,39 @@ namespace PurpleGlove
             return false;
         }
 
-        public bool BlocksPointer(Vector2 screenPosition) => TryPickArrow(screenPosition, out _);
+        NotebookBook InspectedBook
+        {
+            get
+            {
+                if (!isActiveAndEnabled || !interactor || !interactor.isActiveAndEnabled || !interactor.InspectedObject) return null;
+                var book = interactor.InspectedObject.GetComponent<NotebookBook>();
+                return book && book.CanTurnPages ? book : null;
+            }
+        }
+
+        bool TryPickBookArrow(Vector2 screenPosition, out NotebookBook book, out int step)
+        {
+            book = InspectedBook; step = 0;
+            if (!book) return false;
+            Vector2 pointer = new Vector2(screenPosition.x, Screen.height - screenPosition.y);
+            if (book.CurrentSpread > 0 && ArrowBounds(DeskScenePreview.Direction.Left).Contains(pointer)) step = -1;
+            else if (book.CurrentSpread + 1 < book.SpreadCount && ArrowBounds(DeskScenePreview.Direction.Right).Contains(pointer)) step = 1;
+            return step != 0;
+        }
+
+        public bool BlocksPointer(Vector2 screenPosition) => TryPickBookArrow(screenPosition, out _, out _) || TryPickArrow(screenPosition, out _);
 
         bool ProcessPointer(Vector2 screenPosition, bool clicked)
         {
+            if (TryPickBookArrow(screenPosition, out var book, out int step))
+            {
+                if (clicked)
+                {
+                    book.TurnPage(step);
+                    if (inputGate) inputGate.ConsumeFrame();
+                }
+                return true;
+            }
             if (!TryPickArrow(screenPosition, out var target)) return false;
             if (clicked && view.SetView(target) && inputGate) inputGate.ConsumeFrame();
             return true;
@@ -82,18 +113,26 @@ namespace PurpleGlove
 
         void OnGUI()
         {
-            if (!view || !view.CanNavigate) return;
+            var book = InspectedBook;
+            if (!book && (!view || !view.CanNavigate)) return;
             Rect viewport = Viewport(out int scale);
             var panel = new Rect(Mathf.Floor(viewport.xMin + 12 * scale),
                 Mathf.Floor(viewport.yMax - 34 * scale), 220 * scale, 22 * scale);
+            if (labelStyle == null) labelStyle = new GUIStyle { alignment = TextAnchor.MiddleLeft, font = labelFont };
+            labelStyle.fontSize = 14 * scale;
+            labelStyle.normal.textColor = Paper;
+            if (book)
+            {
+                DrawBookNavigation(book, viewport, panel, scale);
+                return;
+            }
             for (int i = 0; i < 4; i++)
             {
                 var direction = (DeskScenePreview.Direction)i;
                 if (view.TryGetNavigationTarget(direction, out _)) DrawArrow(direction, scale);
             }
-            if (labelStyle == null) labelStyle = new GUIStyle { alignment = TextAnchor.MiddleLeft, font = labelFont };
-            labelStyle.fontSize = 14 * scale;
-            labelStyle.normal.textColor = Paper;
+            if (view.CurrentView == DeskScenePreview.View.MatFocus || view.CurrentView == DeskScenePreview.View.DecodeFocus)
+                GUI.Label(new Rect(panel.x, panel.y - 24 * scale, panel.width, panel.height), "滚轮 缩放视角", labelStyle);
             if (view.CurrentView == DeskScenePreview.View.DecodeFocus)
             {
                 GUI.Label(panel, "Esc 返回中桌面视角", labelStyle);
@@ -106,12 +145,25 @@ namespace PurpleGlove
             GUI.Label(new Rect(panel.x + 70 * scale, panel.y, 64 * scale, panel.height), "切换视角", labelStyle);
         }
 
-        void DrawArrow(DeskScenePreview.Direction direction, int scale)
+        void DrawBookNavigation(NotebookBook book, Rect viewport, Rect panel, int scale)
+        {
+            if (book.CurrentSpread > 0) DrawArrow(DeskScenePreview.Direction.Left, scale, book.CanGoBack);
+            if (book.CurrentSpread + 1 < book.SpreadCount) DrawArrow(DeskScenePreview.Direction.Right, scale, book.CanGoForward);
+            Key(panel, scale, 0, 1, KeyCode.A);
+            Key(panel, scale, 16, 3, KeyCode.D);
+            GUI.Label(new Rect(panel.x + 38 * scale, panel.y, 310 * scale, panel.height),
+                "翻页 · ← / → · Esc 放回书本", labelStyle);
+            string pages = book.IsTurning ? "翻页中…" : $"第 {book.CurrentSpread * 2 + 1}–{book.CurrentSpread * 2 + 2} 页 / 共 {book.SpreadCount * 2} 页";
+            float width = labelStyle.CalcSize(new GUIContent(pages)).x;
+            GUI.Label(new Rect(viewport.xMax - width - 12 * scale, panel.y, width, panel.height), pages, labelStyle);
+        }
+
+        void DrawArrow(DeskScenePreview.Direction direction, int scale, bool enabled = true)
         {
             Rect rect = ArrowBounds(direction);
-            bool hovered = Application.isFocused && Input.mousePresent && rect.Contains(Event.current.mousePosition);
+            bool hovered = enabled && Application.isFocused && Input.mousePresent && rect.Contains(Event.current.mousePosition);
             Color color = hovered ? Selected : Paper;
-            color.a = hovered ? arrowHoverOpacity : arrowOpacity;
+            color.a = enabled ? (hovered ? arrowHoverOpacity : arrowOpacity) : arrowOpacity * 0.5f;
             var previous = GUI.color;
             // A pixel chevron with a dark outline remains readable against both paper and wood.
             for (int pass = 0; pass < 2; pass++)

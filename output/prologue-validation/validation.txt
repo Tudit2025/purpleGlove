@@ -1,0 +1,5 @@
+PASS: 83 assertions in Unity 2022.3.62f2 Play Mode.
+11 authored lines; exterior door framing at 4:3, 16:9, 21:9; in-place dialogue/voice; hinge animation; console pause.
+Fade out / opaque black scene swap / chapter title / fade in; chapters 1-5; all phase cancellation, replay, disable cleanup.
+Story input exclusivity, normal visitor/delivery recovery, preserved archive availability, console commands, idempotent saved-scene installer.
+Synthetic input/timing and rendered frames; audio output and OS keyboard not manually tested.

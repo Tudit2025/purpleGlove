@@ -1,6 +1,8 @@
-PASS: 931 assertions in Unity 2022.3.62f2 Play Mode.
+PASS: 975 assertions in Unity 2022.3.62f2 Play Mode.
 Caesar HELLO WORLD/PASSWORD, repeating-key LEMON/ATTACK AT DAWN, reordered affine columns/AFFINECIPHER.
+Pigpen direct plaintext immediately on takeout, landing ink, Backspace/whitespace, return disables input, retake preserves draft.
 26 stable letter identities and all three tiles per stack; configured readiness, reset, actual remapped collider picking.
 Continuous/staggered letter flights, stamping only on landing, cleanup, repeated keys, 32-flight cap, keyword undo, whitespace, 600-character limit.
-Literal setting/manual paper input, physical tile drops, console/dialogue/delivery/toolbox/drag and close-frame gates.
+Preset editable A-Z affine plaintext row; ciphertext-row-only setup; quill keyword input; plaintext clicks cannot enter raw writing.
+Physical tile drops, console/dialogue/delivery/toolbox/drag and close-frame gates.
 Synthetic key/pointer replay; OS keyboard and IME not manually tested.

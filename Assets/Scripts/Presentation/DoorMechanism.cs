@@ -27,7 +27,7 @@ namespace PurpleGlove
         public bool CargoIsInside => mechanism == Mechanism.TransferDrum && AtSecondStop;
 
         bool secondStop, targetStop;
-        float elapsed, fromAngle, currentAngle;
+        float elapsed, fromAngle, currentAngle, moveDuration;
         AudioSource source;
         SceneObject cargoInteraction;
         bool cargoInteractionWasEnabled;
@@ -42,11 +42,15 @@ namespace PurpleGlove
         public override void Activate() => MoveTo(!secondStop);
 
         // First stop = shutter closed / cargo outside; second = shutter open / cargo inside.
-        public bool MoveTo(bool toSecondStop)
+        public bool MoveTo(bool toSecondStop, bool allowReverse = false)
         {
-            if (!isActiveAndEnabled || !pivot || IsMoving || secondStop == toSecondStop) return false;
+            if (!isActiveAndEnabled || !pivot) return false;
+            // Ordinary clicks still ignore an in-flight action; cancellation may return from its current pose.
+            if (IsMoving ? !allowReverse || targetStop == toSecondStop : secondStop == toSecondStop) return false;
             targetStop = toSecondStop;
             fromAngle = currentAngle;
+            float distance = Mathf.Abs((targetStop ? travelAngle : 0) - fromAngle);
+            moveDuration = Mathf.Max(0.05f, travelSeconds * distance / Mathf.Max(0.001f, Mathf.Abs(travelAngle)));
             elapsed = 0;
             IsMoving = true;
             Play(toSecondStop ? openingSound : closingSound);
@@ -59,7 +63,7 @@ namespace PurpleGlove
         {
             if (!IsMoving) return;
             elapsed += Mathf.Max(0, deltaTime);
-            float t = Mathf.Clamp01(elapsed / Mathf.Max(0.05f, travelSeconds));
+            float t = Mathf.Clamp01(elapsed / moveDuration);
             currentAngle = Mathf.Lerp(fromAngle, targetStop ? travelAngle : 0, t * t * (3 - 2 * t));
             ApplyPose();
             if (t < 1) return;

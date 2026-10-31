@@ -1,0 +1,5 @@
+PASS: 171 assertions, Unity Play Mode.
+Book edge hit areas at full/offset viewports; first/last boundaries; A/D and arrow keys; original physical-page clicks.
+Animation/audio, duplicate input, consumed clicks; dialogue/console/story/delivery/typing gates; Esc and retained page.
+All camera arrow routes recover after putting book away. Synthetic pointer/key replay, not OS input testing.
+Game-view screenshot: False

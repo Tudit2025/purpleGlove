@@ -39,7 +39,7 @@ namespace PurpleGlove
         Camera sceneCamera;
         AudioSource sound;
         int editingCell = -1;
-        bool writing, typing, pendingFocus, editingKeyword;
+        bool typing, pendingFocus, editingKeyword;
         Vector3 quillPosition;
         Quaternion quillRotation;
         Collider quillCollider;
@@ -47,7 +47,7 @@ namespace PurpleGlove
         IMECompositionMode previousImeMode;
         public bool IsManipulating => dragTarget || movingTool >= 0;
         bool InWorkspace => view && view.CurrentView == DeskScenePreview.View.DecodeFocus;
-        bool Interrupted => (gate && (gate.DialogueActive || gate.ConsoleOpen || gate.DeliveryActive)) || (view && view.DialogueLocked);
+        bool Interrupted => (gate && (gate.StoryActive || gate.DialogueActive || gate.ConsoleOpen || gate.DeliveryActive)) || (view && view.DialogueLocked);
 
         void Awake()
         {
@@ -55,7 +55,11 @@ namespace PurpleGlove
             interactor = GetComponent<SceneObjectInteractor>(); sceneCamera = GetComponent<Camera>();
             viewHud = GetComponent<DeskViewHud>();
             sound = gameObject.AddComponent<AudioSource>(); sound.playOnAwake = false; sound.spatialBlend = 0; sound.volume = 0.42f;
-            for (int i = 0; i < Affine.Length; i++) Affine[i] = "";
+            for (int i = 0; i < Affine.Length; i++)
+            {
+                Affine[i] = i < 26 ? Alphabet[i].ToString() : "";
+                if (i < affineLetters.Length && affineLetters[i]) affineLetters[i].text = Affine[i];
+            }
             for (int i = 0; i < Rails.Length; i++) Rails[i] = "";
             if (writingQuill)
             {
@@ -70,10 +74,11 @@ namespace PurpleGlove
 
         void Update()
         {
+            if (BookTool && (Interrupted || !InWorkspace || BookTool.archive.DeskAct != 2)) CloseBook();
             if (Interrupted)
             {
                 if (ToolboxOpen) CloseToolbox();
-                if (typing || writing || editingCell >= 0) EndWriting();
+                if (typing || editingCell >= 0) EndWriting();
                 pendingFocus = false;
                 pendingDesktop = false;
                 CancelManipulation();
@@ -98,11 +103,12 @@ namespace PurpleGlove
 
         void LateUpdate()
         {
+            if (BookTool && (Interrupted || !InWorkspace)) CloseBook();
             // A dialogue can start later in Update; release the preview before either object or camera animates.
             if (Interrupted)
             {
                 if (ToolboxOpen) CloseToolbox();
-                if (typing || writing || editingCell >= 0) EndWriting();
+                if (typing || editingCell >= 0) EndWriting();
                 CancelManipulation();
                 SuspendDecodeKeyboard();
                 return;
@@ -138,6 +144,9 @@ namespace PurpleGlove
         public void OpenToolbox()
         {
             if (Interrupted || !toolbox || ToolboxOpen || IsManipulating) return;
+            CloseBook();
+            var memory = toolbox.GetComponent<FirstInteractionMemory>();
+            if (memory && memory.TryBegin(OpenToolbox)) return;
             EndWriting();
             SuspendDecodeKeyboard(); decodedStrokes.Clear();
             pendingDesktop = pendingFocus = false;
@@ -167,6 +176,7 @@ namespace PurpleGlove
         {
             int index = (int)tool;
             if (Interrupted || IsManipulating || index < -1 || index >= tools.Length || (index >= 0 && !tools[index])) return false;
+            CloseBook();
             EndWriting();
             decodedStrokes.Clear();
             CloseToolbox();
@@ -246,25 +256,31 @@ namespace PurpleGlove
             if (Plaintext.Length > 600) Plaintext = Plaintext.Substring(0, 600);
             RefreshPlaintextInk();
         }
-        static string FormatPlaintext(string text)
+        string FormatPlaintext(string text)
         {
-            // Show the latest six lines directly on the paper; the complete draft remains in Plaintext.
-            var visible = new StringBuilder(); int width = 0;
+            // Use actual glyph advances: larger lettering must still fit the physical writing slip.
+            var visible = new StringBuilder(); float width = 0;
+            var font = plaintextInk ? plaintextInk.font : null;
+            int size = plaintextInk ? plaintextInk.fontSize : 96;
+            float unit = plaintextInk ? plaintextInk.characterSize / 10 : 0.00021f;
+            var style = plaintextInk ? plaintextInk.fontStyle : FontStyle.Normal;
+            if (font) font.RequestCharactersInTexture(text, size, style);
             foreach (char c in text)
             {
-                if (c == '\n' || width + (c > 255 ? 2 : 1) > 48)
+                float advance = font && font.GetCharacterInfo(c, out var glyph, size, style) ? glyph.advance * unit : size * unit;
+                if (c == '\n' || (width > 0 && width + advance > 0.55f))
                 {
                     visible.Append('\n'); width = 0;
                     if (c == '\n') continue;
                 }
-                visible.Append(c); width += c > 255 ? 2 : 1;
+                visible.Append(c); width += advance;
             }
             string[] lines = visible.ToString().Split('\n');
-            return string.Join("\n", lines, Mathf.Max(0, lines.Length - 6), Mathf.Min(6, lines.Length));
+            return string.Join("\n", lines, Mathf.Max(0, lines.Length - 3), Mathf.Min(3, lines.Length));
         }
         void EndWriting()
         {
-            editingCell = -1; writing = false; editingKeyword = false;
+            editingCell = -1; editingKeyword = false;
             if (typing)
             {
                 if (gate) gate.SetWorkbenchTyping(false);
@@ -285,6 +301,7 @@ namespace PurpleGlove
         void Play(AudioClip clip) { if (sound && clip) sound.PlayOneShot(clip); }
         void OnDisable()
         {
+            CloseBook();
             CloseToolbox(); EndWriting(); pendingFocus = pendingDesktop = false;
             CancelManipulation();
             SuspendDecodeKeyboard();

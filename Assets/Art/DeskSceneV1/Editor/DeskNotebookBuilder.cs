@@ -24,7 +24,8 @@ namespace PurpleGlove.Editor
         {
             var notebook = GameObject.Find("Notebook_Open");
             if (!notebook) throw new InvalidOperationException("Missing shared notebook.");
-            var font = AssetDatabase.LoadAssetAtPath<Font>(Root + "/Fonts/SourceHanSerifCN-Regular.otf");
+            var font = HandwrittenChinese;
+            var referenceFont = RequiredDocumentFont("SourceHanSerifCN-Regular.otf");
             foreach (string name in new[] { "Alphabet grid", "Handwritten notes", "Notebook contents" })
             {
                 var child = notebook.transform.Find(name);
@@ -48,10 +49,10 @@ namespace PurpleGlove.Editor
             book.spreads = NotebookSpreads();
             book.leftPage = NotebookText(contents, "Left page", "", V(-0.294f, 0.076f, 0.194f), font);
             book.rightPage = NotebookText(contents, "Right page", "", V(0.029f, 0.076f, 0.194f), font);
-            book.leftNumber = NotebookText(contents, "Left page number", "01", V(-0.294f, 0.077f, -0.185f), font);
-            book.rightNumber = NotebookText(contents, "Right page number", "02  >", V(0.229f, 0.077f, -0.185f), font);
+            book.leftNumber = NotebookText(contents, "Left page number", "01", V(-0.294f, 0.077f, -0.185f), referenceFont);
+            book.rightNumber = NotebookText(contents, "Right page number", "02  >", V(0.229f, 0.077f, -0.185f), referenceFont);
             book.leftNumber.characterSize = book.rightNumber.characterSize = 0.0016f;
-            book.pigpenChart = BuildNotebookPigpen(contents, font);
+            book.pigpenChart = BuildNotebookPigpen(contents, referenceFont);
             book.pigpenSpread = 3;
             var pivot = new GameObject("Turning leaf pivot").transform;
             pivot.SetParent(contents, false); pivot.localPosition = V(0, 0.082f, 0);

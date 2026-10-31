@@ -1,0 +1,6 @@
+PASS: 476 assertions in Unity 2022.3.62f2 Play Mode.
+Six solutions in acts 1-4; exact normalized matching, no fifth-act record, one completion dialogue per act.
+Actual Caesar keyboard and letter flights; wait for return; wrong/incomplete text rejected; multi-result and console defer.
+Original record identity/content retained through shelving/revisit; separate drafts; repeated answers do not duplicate.
+Larger text, glyph-width wrapping, three visible lines, full draft retained, stamp alignment, saved-paper bounds and Chinese glyphs.
+Synthetic keyboard/frame replay, not OS input testing.

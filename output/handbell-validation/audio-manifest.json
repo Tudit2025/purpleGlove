@@ -1,0 +1,50 @@
+[
+  {
+    "file": "Assets/Audio/PH/Handbell/handbell_strike_01.wav",
+    "source": "output/audio-library-v1/sources/kenney-impact/impactBell_heavy_000.ogg",
+    "source_sha256": "94b8bb5f2d43ab65e4bcc32b28562416e9bc2c51d9fd4be1e333660ee52f977f",
+    "license": "Kenney Impact Sounds / CC0",
+    "speed": 1.55,
+    "highpass_hz": 170,
+    "lowpass_hz": 9500,
+    "seconds": 0.877375,
+    "peak_dbfs": -9.0,
+    "rms_dbfs": -28.828,
+    "sample_rate": 48000,
+    "channels": 1,
+    "bits": 24,
+    "sha256": "866cdd4b203464b83f3037440f261f89f74cb717d56b51442006a35f8e063e8f"
+  },
+  {
+    "file": "Assets/Audio/PH/Handbell/handbell_strike_02.wav",
+    "source": "output/audio-library-v1/sources/kenney-impact/impactBell_heavy_000.ogg",
+    "source_sha256": "94b8bb5f2d43ab65e4bcc32b28562416e9bc2c51d9fd4be1e333660ee52f977f",
+    "license": "Kenney Impact Sounds / CC0",
+    "speed": 1.53,
+    "highpass_hz": 170,
+    "lowpass_hz": 9500,
+    "seconds": 0.8888333333333334,
+    "peak_dbfs": -9.0,
+    "rms_dbfs": -28.798,
+    "sample_rate": 48000,
+    "channels": 1,
+    "bits": 24,
+    "sha256": "f6322cb182fac8f3e4140014dced0ff73e2d908e5bbae721b2a632b342a7f41d"
+  },
+  {
+    "file": "Assets/Audio/PH/Handbell/handbell_strike_03.wav",
+    "source": "output/audio-library-v1/sources/kenney-impact/impactBell_heavy_000.ogg",
+    "source_sha256": "94b8bb5f2d43ab65e4bcc32b28562416e9bc2c51d9fd4be1e333660ee52f977f",
+    "license": "Kenney Impact Sounds / CC0",
+    "speed": 1.57,
+    "highpass_hz": 170,
+    "lowpass_hz": 9500,
+    "seconds": 0.8662083333333334,
+    "peak_dbfs": -9.0,
+    "rms_dbfs": -28.842,
+    "sample_rate": 48000,
+    "channels": 1,
+    "bits": 24,
+    "sha256": "1cd42221dc7c5800d067b379c62dff84fe864bedd754410c605ecb37c16e4aef"
+  }
+]

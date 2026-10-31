@@ -181,7 +181,7 @@ public static class PhysicalCipherValidation
             Check(tileA.IsReturning && !gate.WorkbenchModal, "Invalid drop lost tile or lock"); tileA.ReturnHome(true);
             var slip = Part(work.mat, CipherWorkbenchTarget.Kind.Plaintext); Click(work, slip);
             Call(work, "HandleWritingInput", new Event { type = EventType.KeyDown, character = 'K', keyCode = KeyCode.K });
-            Check(work.Plaintext == "K" && work.plaintextInk.text == "K", "Physical paper input");
+            Check(!gate.WorkbenchTyping && work.Plaintext == "" && work.plaintextInk.text == "", "Plaintext click entered quill writing");
             Call(work, "EndWriting"); work.SetPlaintext("KEEP THE ORIGINAL\n保留原件。");
             work.SelectTool(CipherWorkbench.Tool.RailFence); Settle(work);
             Click(work, Part(work.tools[4].transform, CipherWorkbenchTarget.Kind.Cell, 81));

@@ -17,6 +17,8 @@ namespace PurpleGlove
         public bool testOnly;
         public DialogueSpeaker initialVisitor;
         public AudioClip arrivalSound;
+        [Tooltip("Close the observation shutter on completion even if the player opened it before the visit.")]
+        public bool closeShutterOnComplete;
         [Min(0)] public float arrivalDelay = 0.8f;
         public Line[] lines = Array.Empty<Line>();
 

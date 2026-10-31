@@ -1,0 +1,5 @@
+Handbell strikes: Kenney Impact Sounds (1.0), CC0.
+Retained source: output/audio-library-v1/sources/kenney-impact/impactBell_heavy_000.ogg
+Processing: mono, 1.55/1.53/1.57x pitch/speed, 170 Hz high-pass, 9.5 kHz low-pass, edge fades, -9 dBFS peak.
+48 kHz / 24-bit PCM. Rebuild: python output/handbell-validation/build_audio.py
+Pickup/setdown reuse PH/Interactions; their provenance remains in PH/SOURCES.txt.

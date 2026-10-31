@@ -95,6 +95,9 @@ namespace PurpleGlove.Editor
             controller.arrivalAudio.volume = 0.6f; controller.arrivalAudio.minDistance = 2; controller.arrivalAudio.maxDistance = 9;
             controller.arrivalAudio.dopplerLevel = 0;
             Add<DialogueTestConsole>(camera.gameObject).font = font;
+            DeskPrologueBuilder.InstallInScene(camera);
+            DeskObjectMemoryBuilder.InstallInScene(camera);
+            if (camera.GetComponent<PlaintextArchiveController>()) DeskFirstActFlowBuilder.InstallInScene(camera);
         }
 
         static void ConfigureTextures()
@@ -166,12 +169,11 @@ namespace PurpleGlove.Editor
                     L("clerk", "若要调档，把检索单送回投递口。"),
                     L("luca", "在核验完成前，这扇门保持封闭。")),
                 Event("beatrice", "02 · 第七号封档", "第二幕：贝阿特丽切给出可核验的档案方向。", false, s["beatrice"], 2,
-                    L("beatrice", "你师父留下的字，未必就是别人让你读到的字。"),
-                    L("luca", "你想让我相信什么？"),
-                    L("beatrice", "先查第七号封档，那里留着换版前的记录。"),
-                    L("luca", "是谁保存了这份记录？"),
-                    L("beatrice", "一个还不能让名字离开封袋的人。"),
-                    L("luca", "我会查来源，也会记下你没有回答的问题。")),
+                    L("clerk", "威尼斯代表贝阿特丽切，封件二号。里面只有一张来自印坊的旧便条。"),
+                    L("beatrice", "我查这件事已经六天。明早是委员会给我的最后期限。"),
+                    L("beatrice", "印刷匠留了一串数字。我没有他用的版本。你桌上的书，也许能解释它。"),
+                    L("luca", "把便条给我。我会核对版本。"),
+                    L("clerk", "合上观察窗后，我把封包从传物舱送进去。")),
                 Event("charles", "03 · 具名否认", "第三幕：正式否认仍需与具体文件相互核对。", false, s["clerk"], 1,
                     L("clerk", "法国代表夏尔已经登记，获准就命令来源答复。"),
                     L("charles", "法国没有签发这道越境命令。"),

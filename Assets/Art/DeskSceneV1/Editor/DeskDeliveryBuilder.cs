@@ -55,6 +55,8 @@ namespace PurpleGlove.Editor
             hitBox.enabled = false;
             var action = packet.GetComponent<SealedPacketAction>() ?? packet.gameObject.AddComponent<SealedPacketAction>();
             action.delivery = delivery;
+            delivery.packet = item;
+            DeskSceneBuilder.BuildFirstActPackets(delivery);
             var landing = root.transform.Find("Packet landing on writing mat");
             if (!landing)
             {

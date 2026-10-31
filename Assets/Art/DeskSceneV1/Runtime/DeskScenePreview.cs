@@ -10,6 +10,7 @@ namespace PurpleGlove
         public enum Direction { Up, Left, Right, Down }
         public const float DoorwayFieldOfView = 28.5f;
         public Camera sceneCamera;
+        [Min(0.1f)] public float doorwayTransitionSeconds = 0.85f;
         public Vector3 desktopEuler = new Vector3(34, 0, 0);
         public Vector3 doorwayEuler = new Vector3(5, 5.5f, 0);
         public Vector3 bookshelfEuler = new Vector3(9, -90, 0);
@@ -52,12 +53,21 @@ namespace PurpleGlove
         Vector3 seatedPosition;
         float matZoom = 1;
         float decodeZoom = 1;
-        public bool CanNavigate => isActiveAndEnabled && !DialogueLocked && !DeliveryLocked
+        public bool CanNavigate => isActiveAndEnabled && !StoryLocked && !DialogueLocked && !DeliveryLocked
             && (!inputGate || !inputGate.BlocksWorldInput)
             && (!objectInteractor || !objectInteractor.BlocksSceneInput)
             && (!workbench || !workbench.IsManipulating);
         public bool DialogueLocked { get; private set; }
         public bool DeliveryLocked { get; private set; }
+        public bool StoryLocked { get; private set; }
+        public bool IsEnteringDoorway { get; private set; }
+        Vector3 doorwayStartPosition;
+        Quaternion doorwayStartRotation;
+        float doorwayStartFov, doorwayElapsed;
+        View viewBeforeStory;
+        Vector3 positionBeforeStory;
+        Quaternion rotationBeforeStory;
+        float fovBeforeStory;
         View viewBeforeDialogue;
         View viewBeforeDelivery;
 
@@ -101,11 +111,11 @@ namespace PurpleGlove
         void LateUpdate()
         {
             if (!sceneCamera) return;
-            if (DialogueLocked) { ApplyDialogueView(); return; }
+            if (StoryLocked) return;
+            if (DialogueLocked) { AnimateView(Time.unscaledDeltaTime, Vector2.zero); return; }
             if (DeliveryLocked)
             {
-                if (currentView == View.Doorway) ApplyDialogueView();
-                else AnimateView(Time.unscaledDeltaTime, Vector2.zero);
+                AnimateView(Time.unscaledDeltaTime, Vector2.zero);
                 return;
             }
             if (objectInteractor && objectInteractor.BlocksSceneInput) return;
@@ -115,6 +125,7 @@ namespace PurpleGlove
 
         void AnimateView(float deltaTime, Vector2 mouseAngles)
         {
+            if (currentView == View.Doorway) { AnimateDoorwayView(deltaTime); return; }
             if (currentView == View.Bookshelf) mouseAngles *= 0.5f;
             if (currentView == View.MatFocus || currentView == View.DecodeFocus) mouseAngles = Vector2.zero;
             Vector3 position = seatedPosition;
@@ -131,6 +142,8 @@ namespace PurpleGlove
             {
                 Vector3 focus = decodeDetailAnchor ? Vector3.Lerp(decodeDetailAnchor.position, decodeFocusAnchor.position, (decodeZoom - 0.60f) / 0.40f)
                     : decodeFocusAnchor.position;
+                if (workbench && workbench.BookTool)
+                    focus = workbench.mat.TransformPoint(new Vector3(-0.20f, 0, 0.01f));
                 position = focus + Vector3.up * (decodeFocusHeight * decodeZoom);
                 viewEuler = new Vector3(90, decodeFocusAnchor.eulerAngles.y, 0);
                 fieldOfView = decodeFocusFieldOfView;
@@ -217,47 +230,107 @@ namespace PurpleGlove
             return true;
         }
 
+        public void FocusBookSpread() { if (currentView == View.DecodeFocus) decodeZoom = 0.60f; }
+
         public void SetDialogueLock(bool locked)
         {
-            if (locked && DeliveryLocked) return;
+            if (locked && (DeliveryLocked || StoryLocked)) return;
             if (DialogueLocked == locked) return;
             DialogueLocked = locked;
             if (locked)
             {
                 if (objectInteractor) objectInteractor.CancelInteraction();
                 viewBeforeDialogue = currentView; currentView = View.Doorway;
-                ApplyDialogueView();
+                BeginDoorwayTransition();
             }
-            else currentView = viewBeforeDialogue;
+            else { IsEnteringDoorway = false; currentView = viewBeforeDialogue; }
         }
 
         public void BeginDeliveryView()
         {
-            if (DialogueLocked || DeliveryLocked) return;
+            if (DialogueLocked || DeliveryLocked || StoryLocked) return;
             if (objectInteractor) objectInteractor.CancelInteraction();
             viewBeforeDelivery = currentView;
             DeliveryLocked = true; currentView = View.Doorway;
-            ApplyDialogueView();
+            BeginDoorwayTransition();
         }
 
         public void FollowDeliveryToDesk()
         {
-            if (DeliveryLocked) currentView = View.Desktop;
+            if (DeliveryLocked) { IsEnteringDoorway = false; currentView = View.Desktop; }
         }
 
         public void EndDeliveryView(bool completed)
         {
             if (!DeliveryLocked) return;
             DeliveryLocked = false;
+            IsEnteringDoorway = false;
             currentView = completed ? View.Desktop : viewBeforeDelivery;
         }
 
-        void ApplyDialogueView()
+        void BeginDoorwayTransition()
         {
             if (!sceneCamera) return;
-            sceneCamera.transform.position = seatedPosition;
-            sceneCamera.transform.rotation = Quaternion.Euler(doorwayEuler);
-            sceneCamera.fieldOfView = DoorwayFieldOfView;
+            doorwayStartPosition = sceneCamera.transform.position;
+            doorwayStartRotation = sceneCamera.transform.rotation;
+            doorwayStartFov = sceneCamera.fieldOfView;
+            doorwayElapsed = 0;
+            IsEnteringDoorway = Vector3.Distance(doorwayStartPosition, seatedPosition) > 0.001f
+                || Quaternion.Angle(doorwayStartRotation, Quaternion.Euler(doorwayEuler)) > 0.05f
+                || Mathf.Abs(doorwayStartFov - DoorwayFieldOfView) > 0.01f;
+        }
+
+        void AnimateDoorwayView(float deltaTime)
+        {
+            doorwayElapsed += Mathf.Max(0, deltaTime);
+            float t = IsEnteringDoorway ? Mathf.Clamp01(doorwayElapsed / Mathf.Max(0.1f, doorwayTransitionSeconds)) : 1;
+            float eased = t * t * (3 - 2 * t);
+            sceneCamera.transform.SetPositionAndRotation(Vector3.Lerp(doorwayStartPosition, seatedPosition, eased),
+                Quaternion.Slerp(doorwayStartRotation, Quaternion.Euler(doorwayEuler), eased));
+            sceneCamera.fieldOfView = Mathf.Lerp(doorwayStartFov, DoorwayFieldOfView, eased);
+            if (t >= 1) IsEnteringDoorway = false;
+        }
+
+        public bool BeginStoryView()
+        {
+            if (!isActiveAndEnabled || !sceneCamera || StoryLocked || DialogueLocked || DeliveryLocked) return false;
+            if (objectInteractor) objectInteractor.CancelInteraction();
+            viewBeforeStory = currentView;
+            positionBeforeStory = sceneCamera.transform.position;
+            rotationBeforeStory = sceneCamera.transform.rotation;
+            fovBeforeStory = sceneCamera.fieldOfView;
+            StoryLocked = true;
+            return true;
+        }
+
+        public void SetStoryPose(Vector3 position, Quaternion rotation, float fieldOfView)
+        {
+            if (!StoryLocked || !sceneCamera) return;
+            sceneCamera.transform.SetPositionAndRotation(position, rotation);
+            sceneCamera.fieldOfView = fieldOfView;
+        }
+
+        public void ShowStoryDesktop()
+        {
+            if (!StoryLocked) return;
+            currentView = View.Desktop;
+            AnimateView(100, Vector2.zero);
+        }
+
+        public void EndStoryView(bool completed)
+        {
+            if (!StoryLocked) return;
+            if (completed) ShowStoryDesktop();
+            else
+            {
+                currentView = viewBeforeStory;
+                if (sceneCamera)
+                {
+                    sceneCamera.transform.SetPositionAndRotation(positionBeforeStory, rotationBeforeStory);
+                    sceneCamera.fieldOfView = fovBeforeStory;
+                }
+            }
+            StoryLocked = false;
         }
 
         Vector2 GetMouseAngles()

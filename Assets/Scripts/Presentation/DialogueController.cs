@@ -20,6 +20,7 @@ namespace PurpleGlove
         public UnityEvent<string> eventCancelled = new UnityEvent<string>();
         public DialogueEvent ActiveEvent { get; private set; }
         public bool IsActive => ActiveEvent;
+        public bool IsClosing { get; private set; }
         public bool IsTyping => IsActive && lineIndex >= 0 && visibleElements < textElements.Length;
         public int LineIndex => lineIndex;
         public string VisibleText => lineIndex < 0 ? string.Empty : CurrentLine.text.Substring(0, VisibleLength);
@@ -33,7 +34,7 @@ namespace PurpleGlove
         int lineIndex = -1, visibleElements;
         int[] textElements = Array.Empty<int>();
         float arrivalRemaining, nextCharacter;
-        bool previousShutterStop, shutterCaptured, paused;
+        bool previousShutterStop, shutterCaptured, shutterOpeningStarted, paused, inPlace;
         int VisibleLength => visibleElements >= textElements.Length ? CurrentLine.text.Length : textElements[visibleElements];
 
         void Awake()
@@ -51,19 +52,32 @@ namespace PurpleGlove
         }
         public void PlayEvent(string id) => Play(id);
 
-        public bool Play(DialogueEvent sequence)
+        public bool Play(DialogueEvent sequence) => Begin(sequence, false);
+        // A story cue may already have played the knock while waiting for another line to finish.
+        public bool PlayAfterKnock(DialogueEvent sequence) => Begin(sequence, false, false, false);
+
+        // Scripted monologues reuse the text/voice pipeline while their caller owns the camera and door.
+        public bool PlayInPlace(DialogueEvent sequence, bool keepInspection = false) => Begin(sequence, true, keepInspection);
+
+        bool Begin(DialogueEvent sequence, bool keepCamera, bool keepInspection = false, bool playArrivalSound = true)
         {
             if (!isActiveAndEnabled || IsActive || !sequence || !sequence.TryValidate(out _)
-                || !view || !interactor || !Overlay || !Voice || !gate || !visitor || !eyeShutter
-                || eyeShutter.IsMoving || gate.DeliveryActive || view.DeliveryLocked) return false;
+                || !view || !interactor || !Overlay || !Voice || !gate
+                || gate.DeliveryActive || view.DeliveryLocked) return false;
+            if (!keepCamera && (gate.StoryActive || !visitor || !eyeShutter || eyeShutter.IsMoving)) return false;
+            inPlace = keepCamera;
             ActiveEvent = sequence; lineIndex = -1;
-            interactor.CancelInteraction();
-            gate.SetDialogue(true); view.SetDialogueLock(true);
-            previousShutterStop = eyeShutter.AtSecondStop; shutterCaptured = true;
-            eyeShutter.MoveTo(true);
-            visitor.Show(sequence.initialVisitor);
-            if (arrivalAudio && sequence.arrivalSound) arrivalAudio.PlayOneShot(sequence.arrivalSound);
-            arrivalRemaining = Mathf.Max(sequence.arrivalDelay, eyeShutter.travelSeconds);
+            if (!keepInspection) interactor.CancelInteraction();
+            gate.SetDialogue(true);
+            if (!inPlace)
+            {
+                view.SetDialogueLock(true);
+                previousShutterStop = eyeShutter.AtSecondStop; shutterCaptured = true;
+                shutterOpeningStarted = false;
+                visitor.Show(sequence.initialVisitor);
+            }
+            if (playArrivalSound && arrivalAudio && sequence.arrivalSound) arrivalAudio.PlayOneShot(sequence.arrivalSound);
+            arrivalRemaining = inPlace ? sequence.arrivalDelay : Mathf.Max(sequence.arrivalDelay, eyeShutter.travelSeconds);
             paused = false;
             return true;
         }
@@ -87,10 +101,24 @@ namespace PurpleGlove
         void AdvanceTime(float seconds)
         {
             if (!IsActive) return;
+            if (IsClosing)
+            {
+                if (eyeShutter && !eyeShutter.isActiveAndEnabled)
+                    eyeShutter.SetPoseImmediately(ActiveEvent.closeShutterOnComplete ? false : previousShutterStop);
+                if (!eyeShutter || !eyeShutter.IsMoving) Complete(true);
+                return;
+            }
             if (lineIndex < 0)
             {
                 arrivalRemaining -= seconds;
-                if (arrivalRemaining <= 0 && !eyeShutter.IsMoving) ShowLine(0);
+                if (!inPlace && !shutterOpeningStarted)
+                {
+                    // Let the player see the entire opening after the camera has settled on the door.
+                    if (view.IsEnteringDoorway) return;
+                    eyeShutter.MoveTo(true);
+                    shutterOpeningStarted = true;
+                }
+                if (arrivalRemaining <= 0 && (inPlace || !eyeShutter.IsMoving)) ShowLine(0);
                 return;
             }
             if (!IsTyping) return;
@@ -104,7 +132,7 @@ namespace PurpleGlove
                     : "。！？.!?…".IndexOf(character) >= 0 ? 5 : 1;
                 nextCharacter += punctuation / Mathf.Clamp(rate, 8, 60);
             }
-            Overlay.Reveal(VisibleLength, !IsTyping);
+            Overlay.Reveal(VisibleLength);
             if (!IsTyping) Voice.Stop();
         }
 
@@ -114,7 +142,7 @@ namespace PurpleGlove
             if (IsTyping)
             {
                 visibleElements = textElements.Length;
-                Voice.Stop(); Overlay.Reveal(VisibleLength, true);
+                Voice.Stop(); Overlay.Reveal(VisibleLength);
             }
             else if (lineIndex + 1 < ActiveEvent.lines.Length) ShowLine(lineIndex + 1);
             else Finish(true);
@@ -126,7 +154,7 @@ namespace PurpleGlove
             var line = CurrentLine;
             textElements = StringInfo.ParseCombiningCharacters(line.text);
             visibleElements = 0; nextCharacter = 0;
-            if (!line.speaker.isProtagonist) visitor.Show(line.speaker);
+            if (!inPlace && !line.speaker.isProtagonist) visitor.Show(line.speaker);
             Voice.BeginLine(line.speaker); Overlay.Show(line.speaker, line.text);
             gate.ConsumeFrame();
         }
@@ -135,16 +163,32 @@ namespace PurpleGlove
         void Finish(bool completed)
         {
             if (!IsActive) return;
-            string id = ActiveEvent.id;
-            ActiveEvent = null; lineIndex = -1;
             Voice.Stop(); Overlay.Hide();
             if (arrivalAudio) arrivalAudio.Stop();
-            if (visitor) visitor.Show(null);
-            // Restore even if cancelled during the opening animation.
-            if (eyeShutter && shutterCaptured) eyeShutter.SetPoseImmediately(previousShutterStop);
+            if (eyeShutter && shutterCaptured)
+            {
+                bool endStop = completed && ActiveEvent.closeShutterOnComplete ? false : previousShutterStop;
+                eyeShutter.MoveTo(endStop, true);
+                if (!eyeShutter.isActiveAndEnabled) eyeShutter.SetPoseImmediately(endStop);
+                if (completed && eyeShutter.IsMoving)
+                {
+                    // Hold the door shot and visitor until the panel has finished closing.
+                    IsClosing = true; lineIndex = -1;
+                    return;
+                }
+            }
+            Complete(completed);
+        }
+
+        void Complete(bool completed)
+        {
+            string id = ActiveEvent.id;
+            ActiveEvent = null; lineIndex = -1; IsClosing = false;
+            if (!inPlace && visitor) visitor.Show(null);
             shutterCaptured = false;
             gate.SetDialogue(false);
-            if (view) view.SetDialogueLock(false);
+            if (!inPlace && view) view.SetDialogueLock(false);
+            inPlace = false;
             if (completed) eventCompleted.Invoke(id); else eventCancelled.Invoke(id);
         }
         void OnDisable() => Finish(false);

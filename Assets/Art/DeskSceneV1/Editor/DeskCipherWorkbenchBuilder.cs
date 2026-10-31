@@ -60,14 +60,11 @@ namespace PurpleGlove.Editor
                 V(0, 0.005f, 0), V(0.76f, 0.01f, 0.68f));
             CipherText(work.mat, "Mat label", "解码工具", V(0, 0.010f, 0.105f), 0.0016f, work.uiFont);
             var slip = Child(work.mat, "Plaintext writing slip", V(0, 0.011f, 0.22f));
-            MeshObject("Cipher_PlaintextSlip", slip, m =>
-            {
-                m.Box(V(0, 0, 0), V(0.60f, 0.002f, 0.165f), M("DecodeIvory"), 0.002f);
-                for (int i = 0; i < 5; i++) CipherRule(m, V(0, 0.0018f, 0.025f - i * 0.022f), 0.55f, 0.0008f, M("Stitch"));
-            }).GetComponent<Renderer>().shadowCastingMode = ShadowCastingMode.Off;
+            BuildPlaintextWritingSurface(slip);
             CipherText(slip, "Writing heading", "明文书写处", V(0, 0.002f, 0.062f), 0.0018f, work.uiFont);
-            work.plaintextInk = CipherText(slip, "Plaintext ink", "", V(-0.275f, 0.002f, 0.039f), 0.0013f, work.uiFont);
+            work.plaintextInk = CipherText(slip, "Plaintext ink", "", V(-0.275f, 0.002f, 0.039f), 0.0021f, work.uiFont);
             work.plaintextInk.anchor = TextAnchor.UpperLeft; work.plaintextInk.alignment = TextAlignment.Left;
+            work.plaintextInk.lineSpacing = 1.05f;
             CipherHit(slip, "Write on paper", CipherWorkbenchTarget.Kind.Plaintext, V(0, 0.003f, 0), V(0.60f, 0.005f, 0.165f));
 
             MoveWritingProp("InkBottle", V(1.36f, 0.801f, 0.12f), 8);
@@ -94,7 +91,7 @@ namespace PurpleGlove.Editor
             box.transform.position = V(0.96f, 0.801f, 0.36f);
             box.transform.rotation = Quaternion.identity;
             work.toolbox = AddCipherAction(box, work, CipherWorkbenchAction.ActionKind.Toolbox, V(0, 0.10f, 0), V(0.51f, 0.2f, 0.33f));
-            work.toolbox.screenFill = 0.46f; work.toolbox.inspectionEuler = new Vector3(-55, 0, 0);
+            work.toolbox.screenFill = 0.68f; work.toolbox.inspectionEuler = new Vector3(-55, 0, 0);
             work.toolbox.inspectionFill = new Color(0.30f, 0.26f, 0.20f);
             work.lid = box.transform.Find("LidPivot"); work.lid.localRotation = Quaternion.identity;
             var oldLidHit = work.lid.Find("Close physical lid");
@@ -121,6 +118,15 @@ namespace PurpleGlove.Editor
             view.decodeDetailAnchor = work.mat;
             view.decodeFocusHeight = 1.68f; view.decodeFocusFieldOfView = 48;
             EditorUtility.SetDirty(view); EditorUtility.SetDirty(work);
+            BuildPlaintextArchives(camera);
+        }
+
+        static void BuildPlaintextWritingSurface(Transform slip)
+        {
+            // The larger glyphs use their own line metrics; old printed rules crossed their strokes.
+            MeshObject("Cipher_PlaintextSlip", slip, m =>
+                m.Box(V(0, 0, 0), V(0.60f, 0.002f, 0.165f), M("DecodeIvory"), 0.002f))
+                .GetComponent<Renderer>().shadowCastingMode = ShadowCastingMode.Off;
         }
 
         static void BuildCaesarTool(CipherWorkbench work)
@@ -226,7 +232,8 @@ namespace PurpleGlove.Editor
             for (int row = 0; row < 2; row++)
             for (int col = 0; col < columns; col++)
             {
-                labels[row * columns + col] = CipherText(root, "Cell " + row + " " + col, "", V(start + (col + 0.5f) * pitch, 0.003f, 0.02f - row * 0.04f), rails ? 0.0015f : 0.0019f, documentFont);
+                string initial = !rails && row == 0 ? ((char)('A' + col)).ToString() : "";
+                labels[row * columns + col] = CipherText(root, "Cell " + row + " " + col, initial, V(start + (col + 0.5f) * pitch, 0.003f, 0.02f - row * 0.04f), rails ? 0.0015f : 0.0019f, documentFont);
                 var cell = CipherHit(root, "Write cell " + row + " " + col, CipherWorkbenchTarget.Kind.Cell,
                     V(start + (col + 0.5f) * pitch, 0.004f, 0.02f - row * 0.04f), V(pitch * 0.98f, 0.006f, 0.039f));
                 cell.index = row * columns + col;

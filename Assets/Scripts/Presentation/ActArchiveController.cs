@@ -14,6 +14,8 @@ namespace PurpleGlove
         {
             public string title;
             public SceneObject[] documents = Array.Empty<SceneObject>();
+            public SceneObject[] deferredDocuments = Array.Empty<SceneObject>();
+            [NonSerialized] public bool supplementReceived;
             public Transform storageAnchor;
             public ActArchiveBundle bundle;
             public TextMesh statusLabel;
@@ -40,6 +42,9 @@ namespace PurpleGlove
         public SceneObjectInteractor interactor;
         [Tooltip("Invoked once after an act has been archived. The argument is the completed act (1-5).")]
         public UnityEvent<int> actCompleted = new UnityEvent<int>();
+        [Tooltip("Invoked when a newly received act's packet has landed and its documents are displayed.")]
+        public UnityEvent<int> actReceived = new UnityEvent<int>();
+        public int LatestReceivedAct { get; private set; }
         public int CurrentAct { get; private set; } = 1;
         public int DeskAct { get; private set; }
         public bool AllActsCompleted => CurrentAct > 5;
@@ -132,13 +137,32 @@ namespace PurpleGlove
         public bool IsAvailable(int act) => initialized && act >= 1 && act <= 5 && acts[act - 1].available;
         public bool IsCompleted(int act) => initialized && act >= 1 && act <= 5 && acts[act - 1].completed;
 
+        public bool HasPendingSupplement(int act) => IsAvailable(act) && !previewAllActs
+            && acts[act - 1].deferredDocuments.Length > 0 && !acts[act - 1].supplementReceived;
+
+        public bool IsDocumentAvailable(int act, SceneObject document) => IsAvailable(act)
+            && Array.IndexOf(acts[act - 1].documents, document) >= 0
+            && (!HasPendingSupplement(act) || Array.IndexOf(acts[act - 1].deferredDocuments, document) < 0);
+
+        public bool ReceiveSupplement(int act)
+        {
+            if (changing || !HasPendingSupplement(act)) return false;
+            if (interactor) interactor.CancelInteraction();
+            acts[act - 1].supplementReceived = true;
+            if (DeskAct == act) PlaceOnDesk(act);
+            return ShowActOnDesk(act);
+        }
+
         /// <summary>Unlock only once the delivery has landed, then use the original authored desk layout.</summary>
         public bool ReceiveAct(int act)
         {
             Initialize();
             if (changing || act < 1 || act > acts.Length || acts[act - 1].available) return false;
             acts[act - 1].available = true;
-            return ShowActOnDesk(act);
+            if (!ShowActOnDesk(act)) return false;
+            LatestReceivedAct = Mathf.Max(LatestReceivedAct, act);
+            actReceived.Invoke(act);
+            return true;
         }
 
         public bool StoreDeskAct()
@@ -205,7 +229,7 @@ namespace PurpleGlove
                 if (!document) continue;
                 var pose = files.poses[i];
                 document.Relocate(pose.parent, pose.position, pose.rotation, pose.scale);
-                document.gameObject.SetActive(true);
+                document.gameObject.SetActive(IsDocumentAvailable(act, document));
             }
             DeskAct = act;
         }

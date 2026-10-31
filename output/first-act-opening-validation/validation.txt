@@ -1,0 +1,4 @@
+PASS: 88 assertions. Unity 2022.3.62f2 Play Mode.
+Actual prologue and fade-in; five-second wait; complete knock before dialogue; busy-line and console waits; authored steward references.
+Pre-opened shutter closes fully before delivery; original two-packet pickup and landing unlock; no duplicate visit/delivery; ending still arms.
+Stop/continue during delay, knock, visit and delivery; additive/idempotent installation preserves dialogue.

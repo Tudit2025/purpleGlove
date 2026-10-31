@@ -29,14 +29,18 @@ namespace PurpleGlove
         public bool IsTurning { get; private set; }
         public bool CanGoBack => !IsTurning && currentSpread > 0;
         public bool CanGoForward => !IsTurning && currentSpread + 1 < SpreadCount;
+        public bool CanTurnPages => isActiveAndEnabled && item && item.State == SceneObject.ObjectState.Inspecting
+            && (!inputGate || !inputGate.BlocksWorldInput);
 
         SceneObject item;
+        SceneInputGate inputGate;
         int targetSpread, direction;
         float elapsed;
 
         void Awake()
         {
             item = GetComponent<SceneObject>();
+            if (Camera.main) inputGate = Camera.main.GetComponent<SceneInputGate>();
             RefreshPages();
         }
 
@@ -49,10 +53,17 @@ namespace PurpleGlove
             }
             if (Application.isFocused)
             {
-                if (Input.GetKeyDown(KeyCode.RightArrow)) TurnPage(1);
-                else if (Input.GetKeyDown(KeyCode.LeftArrow)) TurnPage(-1);
+                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) HandlePageKey(KeyCode.RightArrow);
+                else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) HandlePageKey(KeyCode.LeftArrow);
             }
             AdvanceTurn(Time.unscaledDeltaTime);
+        }
+
+        bool HandlePageKey(KeyCode key)
+        {
+            if (key == KeyCode.RightArrow || key == KeyCode.D) return TurnPage(1);
+            if (key == KeyCode.LeftArrow || key == KeyCode.A) return TurnPage(-1);
+            return false;
         }
 
         public bool TryTurnAtPointer(Camera camera, Vector2 screenPoint)
@@ -68,8 +79,7 @@ namespace PurpleGlove
 
         public bool TurnPage(int step)
         {
-            if (!isActiveAndEnabled || !item || item.State != SceneObject.ObjectState.Inspecting
-                || IsTurning || (step != 1 && step != -1) || !turningLeaf) return false;
+            if (!CanTurnPages || IsTurning || (step != 1 && step != -1) || !turningLeaf) return false;
             int next = currentSpread + step;
             if (next < 0 || next >= SpreadCount) return false;
             direction = step;

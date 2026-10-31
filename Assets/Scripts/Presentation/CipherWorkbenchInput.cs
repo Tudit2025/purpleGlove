@@ -157,7 +157,8 @@ namespace PurpleGlove
                 case CipherWorkbenchTarget.Kind.StoredTool: SelectTool(target.tool); break;
                 case CipherWorkbenchTarget.Kind.CloseBox: CloseToolbox(); break;
                 case CipherWorkbenchTarget.Kind.ReturnTool: SelectTool(Tool.None); break;
-                case CipherWorkbenchTarget.Kind.Plaintext: EndWriting(); writing = true; BeginTyping(); Play(paperSound); break;
+                // The plaintext slip receives decoded stamps and dragged tiles, but is not a typing field.
+                case CipherWorkbenchTarget.Kind.Plaintext: EndWriting(); break;
                 case CipherWorkbenchTarget.Kind.Keyword: EndWriting(); editingKeyword = true; BeginTyping(); break;
                 case CipherWorkbenchTarget.Kind.PreviousKey: EndWriting(); StepKeyword(-1); break;
                 case CipherWorkbenchTarget.Kind.NextKey: EndWriting(); StepKeyword(1); break;
@@ -236,7 +237,7 @@ namespace PurpleGlove
         {
             if (!writingQuill || !typing) return;
             Transform paper = editingCell >= 0 ? (ActiveTool == Tool.Affine ? affineLetters[editingCell] : railLetters[editingCell]).transform
-                : editingKeyword && keywordInk ? keywordInk.transform : plaintextInk ? plaintextInk.transform : null;
+                : editingKeyword && keywordInk ? keywordInk.transform : null;
             if (paper)
             {
                 Quaternion rotation = Quaternion.Euler(-15, -35, 50);
@@ -256,16 +257,18 @@ namespace PurpleGlove
 
         void HandleWritingInput(Event e)
         {
+            if (!typing || e.type != EventType.KeyDown) return;
             if (e.keyCode == KeyCode.Escape) { EndWriting(); e.Use(); return; }
             if (editingCell >= 0) { HandleGridInput(e, ActiveTool == Tool.Affine ? 52 : 82); return; }
-            string value = editingKeyword ? Keyword : Plaintext;
+            if (!editingKeyword) return;
+            string value = Keyword;
             if ((e.control || e.command) && e.keyCode == KeyCode.V) value += GUIUtility.systemCopyBuffer;
             else if (e.keyCode == KeyCode.Backspace) { if (value.Length > 0) value = value.Substring(0, value.Length - 1); }
             else if (e.keyCode == KeyCode.Return || e.keyCode == KeyCode.KeypadEnter)
-            { if (editingKeyword) { EndWriting(); e.Use(); return; } value += "\n"; }
+            { EndWriting(); e.Use(); return; }
             else if (!e.control && !e.command && e.character >= ' ') value += e.character;
             else return;
-            if (editingKeyword) SetKeyword(value); else SetPlaintext(value);
+            SetKeyword(value);
             e.Use();
         }
 

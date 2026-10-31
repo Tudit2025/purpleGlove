@@ -1,0 +1,5 @@
+PASS: 195 assertions. Unity 2022.3.62f2 / Built-in / Direct3D 11.
+Saved prefab, idempotent installation preserving placement/permission, three metric UV meshes with outline normals and standard desk materials; no extra lights; imported 48 kHz mono audio.
+Actual collider picking; hover does not ring; pickup, Luca refusal, automatic return; repeat refusal; allowed six-strike shake, one gameplay call; one-shot permission and revoked permission.
+Persistent navigation/click blockers, exact restoration, cancellation in all motion phases, disable/re-enable, paused clock, missing audio, direct script cancellation, other desk inspection.
+Screenshots and 30 FPS animation frames rendered in Play Mode. Synthetic timing/pointer checks; device listening and OS mouse input are not asserted.

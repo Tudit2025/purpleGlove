@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430074f4a7b53dd4796d71325b7b59c6, type: 3}
+  m_Name: plaintext_complete
+  m_EditorClassIdentifier:
+  id: plaintext_complete
+  title: "\u5362\u5361 \xB7 \u660E\u6587\u5B8C\u6210"
+  context:
+  testOnly: 0
+  initialVisitor: {fileID: 0}
+  arrivalSound: {fileID: 0}
+  arrivalDelay: 0.1
+  lines:
+  - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
+    text: "\u5B8C\u6210\u4E86\u3002\u628A\u8FD9\u4EFD\u660E\u6587\u7559\u597D\u3002"

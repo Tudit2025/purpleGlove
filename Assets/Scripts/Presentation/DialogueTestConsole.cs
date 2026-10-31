@@ -17,6 +17,7 @@ namespace PurpleGlove
         SceneInputGate gate;
         SceneObjectInteractor interactor;
         SealedDeliveryController delivery;
+        PrologueSequence story;
         readonly List<string> log = new List<string>();
         readonly List<string> history = new List<string>();
         string command = string.Empty;
@@ -30,6 +31,7 @@ namespace PurpleGlove
             dialogue = GetComponent<DialogueController>(); gate = GetComponent<SceneInputGate>();
             interactor = GetComponent<SceneObjectInteractor>();
             delivery = GetComponent<SealedDeliveryController>();
+            story = GetComponent<PrologueSequence>();
             Write("输入 help 查看命令；点击按钮试播对话或收件。收件完成后解锁对应幕文件。");
         }
         void Update()
@@ -58,18 +60,32 @@ namespace PurpleGlove
             switch (parts[0].ToLowerInvariant())
             {
                 case "help":
-                    result = "help / list / play <事件ID> / deliver <1–5> / next / stop / speed <0或8–60> / volume <0–1> / clear"; break;
+                    result = "help / list / prologue / transition <1–5> / play <事件ID> / deliver <1–5> / next / stop / continue / speed <0或8–60> / volume <0–1> / clear"; break;
                 case "list":
                     var names = new List<string>();
                     foreach (var sequence in dialogue.events) if (sequence) names.Add(sequence.id + " · " + sequence.title);
+                    names.Add("prologue · 第零幕：门槛（独白、开门、进入第一幕）");
+                    names.Add("transition <1–5> · 黑屏幕名转场预览");
                     for (int act = 1; act <= 5; act++) names.Add("deliver " + act + " · 第 " + act + " 幕封口袋收件");
                     result = string.Join("\n", names); break;
                 case "play":
                     if (parts.Length != 2) result = "用法：play arrival";
+                    else if (string.Equals(parts[1], "prologue", StringComparison.OrdinalIgnoreCase)) result = StartPrologue();
+                    else if (story && story.IsActive) result = "正在演出；请先 stop，或继续当前独白。";
                     else if (dialogue.IsActive) result = "已有对话；请先 stop，或继续当前对话。";
                     else if (delivery && delivery.IsActive) result = "正在收件；请先点击封口袋，或 stop 中止。";
                     else if (dialogue.Play(parts[1])) { SetOpen(false); result = "开始：" + parts[1]; }
                     else result = "无法开始：检查事件 ID、引用，或等待探视窗停止运动。";
+                    break;
+                case "prologue":
+                    result = parts.Length == 1 ? StartPrologue() : "用法：prologue";
+                    break;
+                case "transition":
+                    if (parts.Length != 2 || !int.TryParse(parts[1], out int chapter) || chapter < 1 || chapter > 5)
+                        result = "用法：transition 1（幕号 1–5）";
+                    else if (story && story.PlayActTransition(chapter))
+                    { SetOpen(false); result = "开始转场：" + ActTransitionOverlay.ActTitle(chapter); }
+                    else result = "无法转场：请先结束当前事件，并确认已安装序幕演出。";
                     break;
                 case "deliver":
                     if (parts.Length != 2 || !int.TryParse(parts[1], out int actNumber) || actNumber < 1 || actNumber > 5)
@@ -84,8 +100,21 @@ namespace PurpleGlove
                     else { dialogue.Advance(); result = "已推进（打字中先显示整句）。"; }
                     break;
                 case "stop":
-                    if (delivery && delivery.IsActive) { delivery.Stop(); result = "收件已中止，未解锁文件，已恢复原机位。"; }
-                    else { dialogue.Stop(); result = "对话已结束，机位与探视窗已恢复。"; }
+                    var secondFlow = GetComponent<SecondActFlow>();
+                    if (secondFlow) secondFlow.Stop();
+                    var flow = GetComponent<FirstActFlow>();
+                    bool stoppedFlow = flow && flow.IsRunning;
+                    if (stoppedFlow) flow.Stop();
+                    if (story && story.IsActive) { story.Stop(); result = "演出已中止，黑屏、门和机位已恢复。"; }
+                    else if (delivery && delivery.IsActive) { delivery.Stop(); result = "收件已中止，未解锁文件，已恢复原机位。"; }
+                    else { dialogue.Stop(); result = "对话已中止，机位与探视窗正在恢复。"; }
+                    if (stoppedFlow || (secondFlow && secondFlow.State == SecondActFlow.Phase.Suspended)) result = "自动推进已中止；输入 continue 从当前阶段继续。";
+                    break;
+                case "continue":
+                    var suspended = GetComponent<FirstActFlow>();
+                    if (suspended && suspended.Resume()) { SetOpen(false); result = "继续第一幕至第二幕的自动流程。"; }
+                    else if (GetComponent<SecondActFlow>() && GetComponent<SecondActFlow>().Resume()) { SetOpen(false); result = "继续第二幕调档流程。"; }
+                    else result = "没有被中止的自动流程。";
                     break;
                 case "speed":
                     if (!Number(parts, out float speed) || (speed != 0 && (speed < 8 || speed > 60))) result = "速度范围：8–60 字/秒；0 使用角色默认值。";
@@ -100,6 +129,11 @@ namespace PurpleGlove
             }
             Write("> " + input + "\n" + result);
             return result;
+        }
+        string StartPrologue()
+        {
+            if (!story || !story.PlayPrologue()) return "无法开始序幕：请先结束当前事件，并确认已安装序幕演出。";
+            SetOpen(false); return "开始第零幕：门槛。空格 / 回车 / 左键继续独白，读完后开门进入第一幕。";
         }
         static bool Number(string[] parts, out float number)
         {
@@ -127,7 +161,7 @@ namespace PurpleGlove
             GUI.depth = -1000;
             if (!IsOpen)
             {
-                if (!dialogue.IsActive && (!delivery || !delivery.IsActive)) GUI.Label(new Rect(16, 12, 260, 26), "F1 / `  测试控制台", labelStyle);
+                if (!dialogue.IsActive && (!delivery || !delivery.IsActive) && (!story || !story.IsActive)) GUI.Label(new Rect(16, 12, 260, 26), "F1 / `  测试控制台", labelStyle);
                 return;
             }
             var oldMatrix = GUI.matrix;
@@ -143,22 +177,31 @@ namespace PurpleGlove
             if (GUILayout.Button("关闭 · F1 / Esc", buttonStyle, GUILayout.Width(190))) SetOpen(false);
             GUILayout.EndHorizontal();
             string status = dialogue.IsActive ? dialogue.ActiveEvent.title + "  ·  "
-                + (dialogue.LineIndex < 0 ? "来访中" : "第 " + (dialogue.LineIndex + 1) + " / " + dialogue.ActiveEvent.lines.Length + " 句") : "等待试播";
+                + (dialogue.IsClosing ? "关窗中" : dialogue.LineIndex < 0 ? "来访中" : "第 " + (dialogue.LineIndex + 1) + " / " + dialogue.ActiveEvent.lines.Length + " 句") : "等待试播";
             if (delivery && delivery.IsActive) status = "第 " + delivery.ActiveAct + " 幕收件 · "
                 + (delivery.State == SealedDeliveryController.Phase.AwaitingPickup ? "等待点击封口袋" : "交接中");
+            if (story && story.IsActive) status = story.State == PrologueSequence.Phase.Monologue
+                ? "第零幕 · 门槛 · 独白进行中" : story.State == PrologueSequence.Phase.OpeningDoor ? "第零幕 · 开门" : "幕间转场";
             GUILayout.Label(status, labelStyle);
             GUILayout.Space(10);
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("继续 / 补全", buttonStyle)) dialogue.Advance();
             if (GUILayout.Button("中止当前事件", buttonStyle)) Execute("stop");
             GUILayout.EndHorizontal();
+            bool storyButtonsEnabled = GUI.enabled;
+            GUI.enabled = story && story.CanStart;
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("第零幕 · 门槛", buttonStyle)) Execute("prologue");
+            if (GUILayout.Button("第一幕转场预览", buttonStyle)) Execute("transition 1");
+            GUILayout.EndHorizontal();
+            GUI.enabled = storyButtonsEnabled;
             for (int i = 0; i < dialogue.events.Length; i += 2)
             {
                 GUILayout.BeginHorizontal();
                 for (int j = i; j < Mathf.Min(i + 2, dialogue.events.Length); j++)
                 {
                     var sequence = dialogue.events[j]; if (!sequence) continue;
-                    bool previous = GUI.enabled; GUI.enabled = !dialogue.IsActive && (!delivery || !delivery.IsActive);
+                    bool previous = GUI.enabled; GUI.enabled = !dialogue.IsActive && (!delivery || !delivery.IsActive) && (!story || !story.IsActive);
                     if (GUILayout.Button(sequence.title + (sequence.testOnly ? " [预留测试]" : ""), buttonStyle, GUILayout.Width(469)))
                         Execute("play " + sequence.id);
                     GUI.enabled = previous;

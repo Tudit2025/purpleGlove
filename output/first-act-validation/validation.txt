@@ -1,0 +1,6 @@
+PASS: 265 distinct assertion messages, Unity 2022.3.62f2 Play Mode / Direct3D 11.
+Idempotent installer + scene reload; five console deliveries; real packet ray hover/click; exclusive input + camera lock.
+No early unlock; original 34 documents preserved; prior act stored; completion cannot bypass delivery; received act review.
+Invalid/repeated events rejected; dialogue mutual exclusion; console closing click consumed; cancellation during turn, wait and flight.
+Ducal fonts, glyph coverage and text bounds; exactly three geometric cuts; held-note recollection, cancel/retry, repeat pickup.
+Synthetic pointer/frame replay, not OS input testing. Repeated per-frame assertions are counted once per message.

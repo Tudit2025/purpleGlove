@@ -33,6 +33,7 @@ namespace PurpleGlove
         }
 
         public bool KeyboardDecodeReady { get; private set; }
+        public bool HasPendingPlaintextStamps => letterStamps.Count > 0;
         // Index is the physical A-Z key; value is the plaintext letter displayed in that slot.
         public string KeyboardMapping { get; private set; } = Alphabet;
         public bool UsesDecodeKeyboard => isActiveAndEnabled && InWorkspace && KeyboardDecodeReady
@@ -88,7 +89,8 @@ namespace PurpleGlove
 
         void RefreshKeyboardMapping()
         {
-            bool ready = false;
+            // Pigpen is read from the reference card; the keyboard records the player's plaintext as-is.
+            bool ready = BookTool || ActiveTool == Tool.Pigpen;
             string mapping = Alphabet;
             if ((ActiveTool == Tool.Caesar && caesarConfigured) || (ActiveTool == Tool.SaintCyr && Keyword.Length > 0))
             {
@@ -121,9 +123,10 @@ namespace PurpleGlove
         {
             if (!trayInscription) return;
             string text = originalTrayInscription;
-            if (editingKeyword || editingCell >= 0) text = "Enter 完成设置 · 再键入密文";
-            else if (writing) text = "明文书写 · Esc 落笔";
+            if (BookTool) text = "书本 · 页—行—字母，直接键入明文 · Esc 放回";
+            else if (editingKeyword || editingCell >= 0) text = "Enter 完成设置 · 再键入密文";
             else if (ActiveTool == Tool.Caesar) text = caesarConfigured ? "凯撒 · 键入密文 → 明文" : "转动密码盘后可键入密文";
+            else if (ActiveTool == Tool.Pigpen) text = "猪圈 · 对照图形，直接键入明文";
             else if (ActiveTool == Tool.SaintCyr) text = Keyword.Length > 0
                 ? "密钥 " + (KeywordIndex + 1) + "/" + Keyword.Length + " · 键入密文 → 明文" : "填写密钥后可键入密文";
             else if (ActiveTool == Tool.Affine) text = KeyboardDecodeReady ? "仿射 · 键入密文 → 明文" : "填满两行，每行 A–Z 不重复";
@@ -264,7 +267,16 @@ namespace PurpleGlove
                     if (font.GetCharacterInfo(last[i], out var glyph, plaintextInk.fontSize, plaintextInk.fontStyle))
                         advance += glyph.advance * (i == last.Length - 1 ? 0.5f : 1);
             }
-            Vector3 local = new Vector3(advance * unit, -(lines.Length - 0.5f) * plaintextInk.fontSize * unit * plaintextInk.lineSpacing, 0);
+            float lineHeight = plaintextInk.fontSize, ascent = lineHeight, glyphCenter = lineHeight * 0.5f;
+            if (font)
+            {
+                float ratio = plaintextInk.fontSize / (float)Mathf.Max(1, font.fontSize);
+                lineHeight = font.lineHeight * ratio; ascent = font.ascent * ratio;
+                if (last.Length > 0 && font.GetCharacterInfo(last[last.Length - 1], out var glyph, plaintextInk.fontSize, plaintextInk.fontStyle))
+                    glyphCenter = (glyph.minY + glyph.maxY) * 0.5f;
+            }
+            Vector3 local = new Vector3(advance * unit,
+                (-(lines.Length - 1) * lineHeight * plaintextInk.lineSpacing - ascent + glyphCenter) * unit, 0);
             return plaintextInk.transform.TransformPoint(local) + (mat ? mat.up : Vector3.up) * 0.008f;
         }
 

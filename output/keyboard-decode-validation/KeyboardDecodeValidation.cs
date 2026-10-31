@@ -75,10 +75,23 @@ public static class KeyboardDecodeValidation
             var camera = Camera.main; camera.aspect = 16f / 9;
             var work = camera.GetComponent<CipherWorkbench>(); var view = camera.GetComponent<DeskScenePreview>();
             var gate = camera.GetComponent<SceneInputGate>(); view.followMouse = false; Ungate(gate);
+            // Exercise toolbox input directly; its first-use recollection has separate dialogue coverage.
+            var toolboxMemory = work.toolbox.GetComponent<FirstInteractionMemory>();
+            if (toolboxMemory) toolboxMemory.enabled = false;
             var original = work.letterSamples.Select(t => t.transform.parent.localPosition).ToArray();
+            Check(string.Concat(work.Affine.Take(26)) == Alphabet && work.Affine.Skip(26).All(string.IsNullOrEmpty), "Affine defaults must contain only the plaintext alphabet");
+            Check(string.Concat(work.affineLetters.Take(26).Select(t => t.text)) == Alphabet, "Affine default ink missing");
+            Check(string.Concat(Enumerable.Range(0, 26).Select(i => work.storedTools[3].transform.Find("Cell 0 " + i).GetComponent<TextMesh>().text)) == Alphabet, "Stored affine preview missing A-Z");
+            Check(work.Rails.All(string.IsNullOrEmpty), "Affine defaults changed rail paper");
             Check(!KeyPress(work, Press('a')) && work.Plaintext == "", "Desktop keyboard writes text");
             Select(work, CipherWorkbench.Tool.Caesar);
             Check(!work.KeyboardDecodeReady && !KeyPress(work, Press('a')), "Default unconfigured Caesar accepts input");
+            var paper = Part(work.mat, CipherWorkbenchTarget.Kind.Plaintext);
+            Vector3 quillRest = work.writingQuill.position;
+            Call(work, "ActivateTarget", paper, Point(camera, paper)); Ungate(gate);
+            Call(work, "HandleWritingInput", Press('x')); Call(work, "UpdateQuill");
+            Check(!gate.WorkbenchTyping && work.Plaintext == "" && work.writingQuill.position == quillRest, "Paper click starts quill writing");
+            Check(!KeyPress(work, Press('x')), "Paper click bypasses unconfigured decoder");
             work.SetCaesarShift(3); VerifyTray(work, original);
             Check(work.KeyboardMapping == "XYZABCDEFGHIJKLMNOPQRSTUVW", "Caesar mapping direction wrong");
             Type(work, "KHOOR ZRUOG");
@@ -110,7 +123,7 @@ public static class KeyboardDecodeValidation
             Call(work, "AnimateLetterStamps", 1f); Check(work.plaintextInk.text == "HELLO", "Final queued letters lost");
             work.SetPlaintext(""); Type(work, new string('D', 40));
             Check(stamps.Count == 32 && work.Plaintext.Length == 40, "Rapid input cap lost text or leaked flights");
-            Call(work, "AnimateLetterStamps", 1f); Check(work.plaintextInk.text == new string('A', 40), "Capped flights lost ink");
+            Call(work, "AnimateLetterStamps", 1f); Check(work.plaintextInk.text.Replace("\n", "") == new string('A', 40), "Capped flights lost ink");
             work.SetPlaintext(""); Type(work, "SDVVZRUG"); Check(work.Plaintext == "PASSWORD", "WASD/P letters intercepted");
             Check(work.UsesDecodeKeyboard, "Configured keyboard does not own P shortcut");
             work.SetCaesarShift(0); Check(work.KeyboardDecodeReady && work.KeyboardMapping == Alphabet, "Returning dial to zero should keep it configured");
@@ -119,6 +132,8 @@ public static class KeyboardDecodeValidation
             Check(!work.KeyboardDecodeReady, "Empty keyword accepted");
             var keyword = Part(work.tools[2].transform, CipherWorkbenchTarget.Kind.Keyword);
             Call(work, "ActivateTarget", keyword, Point(camera, keyword)); Ungate(gate);
+            Call(work, "UpdateQuill");
+            Check(gate.WorkbenchTyping && Vector3.Distance(work.writingQuill.position, quillRest) > 0.01f, "Keyword field no longer uses quill");
             foreach (char c in "LEMON") Call(work, "HandleWritingInput", Press(c));
             Check(work.Keyword == "LEMON" && !KeyPress(work, Press('a')), "Keyword editor was intercepted by decoding");
             Call(work, "HandleWritingInput", new Event { type = EventType.KeyDown, keyCode = KeyCode.Return }); Ungate(gate);
@@ -140,6 +155,11 @@ public static class KeyboardDecodeValidation
 
             Select(work, CipherWorkbench.Tool.Affine); work.SetPlaintext("");
             Check(!work.KeyboardDecodeReady, "Empty affine table accepted");
+            // Fill just the ciphertext row against the preset A-Z plaintext row.
+            for (int i = 0; i < 26; i++) work.SetCell(CipherWorkbench.Tool.Affine, 26 + i, Alphabet[(5 * i + 8) % 26].ToString());
+            Type(work, "IHHWVCSWFRCP");
+            Check(work.Plaintext == "AFFINECIPHER", "Preset alphabet does not decode with a completed ciphertext row");
+            work.SetPlaintext(""); work.SetCell(CipherWorkbench.Tool.Affine, 51, "");
             for (int i = 0; i < 26; i++)
             {
                 int plain = (i * 7 + 5) % 26; // Deliberately reorder columns: use pairs, not their indices.
@@ -161,12 +181,13 @@ public static class KeyboardDecodeValidation
             work.SetCell(CipherWorkbench.Tool.Affine, 25, plainCell);
             Check(work.KeyboardDecodeReady, "Corrected table not accepted");
 
-            // Physical writing, drag-and-drop, modal/closing frames remain separate from keyboard decoding.
-            var paper = Part(work.mat, CipherWorkbenchTarget.Kind.Plaintext);
+            // Plaintext clicks must not enter quill writing or intercept the configured decoder.
             Call(work, "ActivateTarget", paper, Point(camera, paper)); Ungate(gate); work.SetPlaintext("");
-            Check(!KeyPress(work, Press('x')), "Manual paper writing was intercepted");
+            Call(work, "UpdateQuill");
+            Check(!gate.WorkbenchTyping && work.writingQuill.position == quillRest, "Paper click still owns quill input");
             Call(work, "HandleWritingInput", Press('x'));
-            Check(work.Plaintext == "x", "Manual writing unexpectedly decoded");
+            Check(work.Plaintext == "", "Plaintext still accepts raw quill writing");
+            Type(work, "x"); Check(work.Plaintext == work.KeyboardMapping['X' - 'A'].ToString(), "Paper click disabled keyboard decoding");
             Call(work, "EndWriting"); Ungate(gate);
             Check(!KeyPress(work, new Event { type = EventType.KeyDown, keyCode = KeyCode.V, control = true }), "Ctrl shortcut decoded");
             gate.ConsumeFrame(); Check(!KeyPress(work, Press('x')), "Closing frame leaked text"); Ungate(gate);
@@ -187,14 +208,28 @@ public static class KeyboardDecodeValidation
             Check(Vector3.Distance(tile.transform.position, loose) < 0.00001f, "Rearranging tray moved a manually composed tile"); tile.ReturnHome(true);
             view.SetView(DeskScenePreview.View.Desktop); Check(!KeyPress(work, Press('x')), "Left workspace still accepts typing");
             Call(work, "UpdateDecodeKeyboard"); Check(((IList)Field(work, "letterStamps")).Count == 0, "Leaving workspace left flying tiles");
-            Select(work, CipherWorkbench.Tool.Pigpen); Check(!work.KeyboardDecodeReady && work.KeyboardMapping == Alphabet, "Pigpen invented a letter mapping");
+            Select(work, CipherWorkbench.Tool.Pigpen); work.SetPlaintext("");
+            Check(work.UsesDecodeKeyboard && !gate.WorkbenchTyping, "Taking out Pigpen did not enable direct keyboard input");
+            Type(work, "left glove");
+            Check(work.Plaintext == "LEFT GLOVE", "Pigpen plaintext inherited the previous tool's substitution");
+            Call(work, "AnimateLetterStamps", 1f);
+            Check(work.plaintextInk.text == "LEFT GLOVE", "Pigpen plaintext did not reach the paper");
+            KeyPress(work, new Event { type = EventType.KeyDown, keyCode = KeyCode.Backspace });
+            Check(work.Plaintext == "LEFT GLOV", "Pigpen plaintext cannot be corrected with Backspace");
+            Type(work, "e \n"); Check(work.Plaintext == "LEFT GLOVE \n", "Pigpen plaintext whitespace failed");
+            Select(work, CipherWorkbench.Tool.None);
+            Check(!KeyPress(work, Press('x')), "Returning Pigpen left direct input enabled");
+            Select(work, CipherWorkbench.Tool.Pigpen); Type(work, "p");
+            Check(work.Plaintext == "LEFT GLOVE \nP", "Taking Pigpen out again did not resume the existing draft");
             Select(work, CipherWorkbench.Tool.RailFence); Check(!work.KeyboardDecodeReady, "Rail fence invented a substitution mapping");
             Select(work, CipherWorkbench.Tool.None); VerifyTray(work, original);
             Finish(true, "PASS: " + checks + " assertions in Unity 2022.3.62f2 Play Mode.\n"
                 + "Caesar HELLO WORLD/PASSWORD, repeating-key LEMON/ATTACK AT DAWN, reordered affine columns/AFFINECIPHER.\n"
+                + "Pigpen direct plaintext immediately on takeout, landing ink, Backspace/whitespace, return disables input, retake preserves draft.\n"
                 + "26 stable letter identities and all three tiles per stack; configured readiness, reset, actual remapped collider picking.\n"
                 + "Continuous/staggered letter flights, stamping only on landing, cleanup, repeated keys, 32-flight cap, keyword undo, whitespace, 600-character limit.\n"
-                + "Literal setting/manual paper input, physical tile drops, console/dialogue/delivery/toolbox/drag and close-frame gates.\n"
+                + "Preset editable A-Z affine plaintext row; ciphertext-row-only setup; quill keyword input; plaintext clicks cannot enter raw writing.\n"
+                + "Physical tile drops, console/dialogue/delivery/toolbox/drag and close-frame gates.\n"
                 + "Synthetic key/pointer replay; OS keyboard and IME not manually tested.\n");
         }
         catch (Exception e) { Finish(false, e.ToString()); }

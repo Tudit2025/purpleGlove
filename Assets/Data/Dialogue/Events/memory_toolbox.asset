@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430074f4a7b53dd4796d71325b7b59c6, type: 3}
+  m_Name: memory_toolbox
+  m_EditorClassIdentifier:
+  id: memory_toolbox
+  title: "\u521D\u89C1\u56DE\u5FC6 \xB7 \u89E3\u5BC6\u5DE5\u5177\u7BB1"
+  context: "\u9996\u6B21\u70B9\u51FB\u7269\u54C1\u65F6\uFF0C\u5362\u5361\u56DE\u5FC6\u5B66\u4E60\u7ECF\u5386\uFF1B\u8BFB\u5B8C\u81EA\u52A8\u7EE7\u7EED\u539F\u6709\u4EA4\u4E92\u3002\u672C\u6B21\u6E38\u73A9\u4EC5\u64AD\u653E\u4E00\u6B21\u3002"
+  testOnly: 0
+  initialVisitor: {fileID: 0}
+  arrivalSound: {fileID: 0}
+  arrivalDelay: 0.1
+  lines:
+  - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
+    text: "\u4ECE\u524D\u7EC3\u4E60\u89E3\u5BC6\uFF0C\u6211\u603B\u6025\u7740\u8F6C\u52A8\u5BC6\u7801\u76D8\uFF0C\u5E08\u7236\u5374\u5148\u8BA9\u6211\u628A\u8FD9\u76D2\u5DE5\u5177\u4E00\u4EF6\u4EF6\u6446\u597D\u3002"

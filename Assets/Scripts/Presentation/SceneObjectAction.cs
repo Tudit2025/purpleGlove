@@ -6,5 +6,7 @@ namespace PurpleGlove
     public abstract class SceneObjectAction : MonoBehaviour
     {
         public abstract void Activate();
+        public virtual bool IsBusy => false;
+        public virtual void Cancel() { }
     }
 }

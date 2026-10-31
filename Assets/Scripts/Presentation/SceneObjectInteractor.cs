@@ -20,6 +20,7 @@ namespace PurpleGlove
 
         Camera sceneCamera;
         SceneObject hovered, inspected;
+        SceneObjectAction activeAction;
         bool waitForPointerExit;
         SceneObject dismissed;
         GUIStyle closeStyle;
@@ -105,19 +106,24 @@ namespace PurpleGlove
         {
             if (!isActiveAndEnabled || !sceneCamera || !item || !item.isActiveAndEnabled || inspected
                 || (inputGate && !inputGate.CanInteract(item))) return;
+            var memory = item.GetComponent<FirstInteractionMemory>();
+            if (memory && !memory.duringInspection && memory.TryBegin(() => Inspect(item))) return;
             SetHovered(null);
             var action = item.GetComponent<SceneObjectAction>();
             if (action && action.isActiveAndEnabled)
             {
+                activeAction = action;
                 action.Activate();
                 return;
             }
             inspected = item;
             item.BeginInspection(sceneCamera);
+            if (memory && memory.duringInspection) memory.TryBegin(null);
         }
 
         public void CloseInspection()
         {
+            if (inputGate && inputGate.BlocksWorldInput) return;
             if (!inspected || inspected.State != SceneObject.ObjectState.Inspecting) return;
             dismissed = inspected;
             waitForPointerExit = true;
@@ -126,8 +132,12 @@ namespace PurpleGlove
 
         public void ClearHover() => SetHovered(null);
 
+        internal void TrackAction(SceneObjectAction action) => activeAction = action;
+
         public void CancelInteraction()
         {
+            if (activeAction) activeAction.Cancel();
+            activeAction = null;
             if (hovered) hovered.RestoreImmediately();
             if (inspected) inspected.RestoreImmediately();
             hovered = inspected = dismissed = null;

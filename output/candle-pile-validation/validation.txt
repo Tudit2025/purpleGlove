@@ -1,0 +1,4 @@
+PASS: 286 assertions. Unity 2022.3.62f2 / Built-in / Direct3D 11.
+Saved scene and idempotent installer; four reusable meshes, metre UVs, prop pixel shader and outline normals; tabletop placement, unchanged lights/documents, no pickup.
+Acts 1-5: 4/3/2/1/0; stable top-first removal; prepared under black; cancellation before/after blackout; delivery-only route; repeated/old delivery and dossier review; completion, disable/re-enable, late enable and scene reload.
+Desktop/detail renders for all five acts. No real-time countdown or extra light; lit candle remains enabled.

@@ -199,6 +199,9 @@ namespace PurpleGlove.Editor
             DeskDialogueBuilder.InstallInScene(camera);
             DeskDeliveryBuilder.InstallInScene(camera);
             BuildCipherWorkbench(camera);
+            BuildActCandlePile(camera);
+            BuildDeskHandbell(camera);
+            ConfigureSecondAct(camera);
 
             CaptureRoomReflections(camera);
 

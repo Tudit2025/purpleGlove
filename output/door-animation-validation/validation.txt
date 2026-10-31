@@ -1,0 +1,5 @@
+PASS: 381 assertions. Unity 2022.3.62f2 Play Mode.
+Real saved scene: animated camera position/rotation/FOV from desktop, bookshelf and both top-down views; 30/60/144 fps.
+Camera arrival -> complete shutter opening -> dialogue -> complete closing -> exactly-once completion and smooth return.
+Duplicate advance/click guards, cancellation in all animation phases, pre-opened window, disable cleanup, in-place monologues and delivery entry.
+Deterministic clock replay and camera renders; no manual OS input.

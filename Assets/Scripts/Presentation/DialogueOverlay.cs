@@ -11,7 +11,7 @@ namespace PurpleGlove
         Camera sceneCamera, overlayCamera;
         bool sceneIncludedUI;
         RectTransform panel;
-        Text body, speakerLabel, hint;
+        Text body;
         string fullText = string.Empty;
         public RectTransform Panel => panel;
         public Text Body => body;
@@ -46,16 +46,10 @@ namespace PurpleGlove
             var accent = Rect("Speaker colour", panel);
             Stretch(accent, new Vector2(0, 0), new Vector2(0, 1), Vector2.zero, new Vector2(3, 0));
             accent.gameObject.AddComponent<Image>().raycastTarget = false;
-            speakerLabel = Label("Speaker", panel, 23);
-            Stretch(speakerLabel.rectTransform, new Vector2(0, 0.73f), Vector2.one, new Vector2(28, 0), new Vector2(-28, -7));
             body = Label("Sentence", panel, 31);
             body.supportRichText = true;
             body.resizeTextForBestFit = true; body.resizeTextMinSize = 18; body.resizeTextMaxSize = 31;
-            Stretch(body.rectTransform, new Vector2(0, 0.21f), new Vector2(1, 0.75f), new Vector2(28, 0), new Vector2(-28, 0));
-            hint = Label("Continue hint", panel, 17);
-            hint.color = new Color(0.67f, 0.64f, 0.58f);
-            hint.alignment = TextAnchor.MiddleRight;
-            Stretch(hint.rectTransform, Vector2.zero, new Vector2(1, 0.22f), new Vector2(28, 6), new Vector2(-28, 0));
+            Stretch(body.rectTransform, Vector2.zero, Vector2.one, new Vector2(28, 22), new Vector2(-28, -22));
             Hide();
         }
 
@@ -65,21 +59,19 @@ namespace PurpleGlove
             float bottom = speaker.isProtagonist ? 0.055f : 0.365f;
             panel.anchorMin = new Vector2(0.12f, bottom); panel.anchorMax = new Vector2(0.88f, bottom + 0.22f);
             panel.offsetMin = panel.offsetMax = Vector2.zero;
-            speakerLabel.text = speaker.displayName;
-            speakerLabel.color = body.color = speaker.textColor;
+            body.color = speaker.textColor;
             panel.GetChild(0).GetComponent<Image>().color = speaker.textColor;
             fullText = text.Replace('<', '＜').Replace('>', '＞');
             canvas.enabled = overlayCamera.enabled = true;
-            Reveal(0, false);
+            Reveal(0);
         }
 
-        public void Reveal(int utf16Length, bool complete)
+        public void Reveal(int utf16Length)
         {
             int count = Mathf.Clamp(utf16Length, 0, fullText.Length);
             // Invisible suffix keeps the full sentence's line wrapping and font size stable during typing.
             body.text = count == fullText.Length ? fullText
                 : fullText.Substring(0, count) + "<color=#00000000>" + fullText.Substring(count) + "</color>";
-            hint.text = complete ? "空格 / 回车 / 左键  ·  继续" : "空格 / 回车 / 左键  ·  显示整句";
         }
         public void Hide()
         {

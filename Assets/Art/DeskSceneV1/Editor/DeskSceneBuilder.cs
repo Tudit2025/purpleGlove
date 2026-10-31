@@ -148,7 +148,7 @@ namespace PurpleGlove.Editor
 
         public static void ExportScenePackage()
         {
-            AssetDatabase.ExportPackage(new[] { Root, "Assets/Scripts/Presentation", Library + "/Materials", Library + "/Textures", "Assets/Audio/PH/Ambience/rain_room_muffled_loop_10s.wav", "Assets/Audio/PH/Trapdoor" }, Output + "/PurpleGlove_DeskScene_V1.unitypackage", ExportPackageOptions.Recurse);
+            AssetDatabase.ExportPackage(new[] { Root, "Assets/Scripts/Presentation", Library + "/Materials", Library + "/Textures", "Assets/Audio/PH/Ambience/rain_room_muffled_loop_10s.wav", "Assets/Audio/PH/Trapdoor" }, Output + "/PurpleGlove_DeskScene_V1.unitypackage", ExportPackageOptions.Recurse | ExportPackageOptions.IncludeDependencies);
         }
 
         public static void VerifyAndPackage()
@@ -426,27 +426,31 @@ namespace PurpleGlove.Editor
 
         static void ClosedBook(string name, string leather, bool flower)
         {
-            Asset(name, go => MeshObject(name + "_Mesh", go.transform, m =>
+            Asset(name, go =>
             {
-                m.Box(V(0, 0.042f, 0), V(0.286f, 0.062f, 0.402f), M("Paper_AgedCream"), 0.004f);
-                m.Box(V(0, 0.008f, 0), V(0.32f, 0.016f, 0.44f), M(leather), 0.004f);
-                m.Box(V(0, 0.084f, 0), V(0.32f, 0.018f, 0.44f), M(leather), 0.005f);
-                m.Box(V(-0.153f, 0.047f, 0), V(0.026f, 0.075f, 0.431f), M(leather), 0.008f);
-                for (int i = 0; i < 8; i++) m.Box(V(0.003f, 0.019f + i * 0.007f, -0.203f), V(0.274f, 0.001f, 0.0015f), M("PageEdge"), 0.0001f);
-                foreach (float z in new[] { -0.15f, -0.08f, 0.08f, 0.15f }) m.Box(V(-0.161f, 0.048f, z), V(0.022f, 0.07f, 0.011f), M(leather), 0.004f);
-                foreach (float x in new[] { -0.136f, 0.136f }) m.Box(V(x, 0.0932f, 0), V(0.0018f, 0.0005f, 0.39f), M("Stitch"), 0.0001f);
-                foreach (float z in new[] { -0.193f, 0.193f }) m.Box(V(0, 0.0932f, z), V(0.273f, 0.0005f, 0.0018f), M("Stitch"), 0.0001f);
-                if (flower)
+                MeshObject(name + "_Mesh", go.transform, m =>
                 {
-                    m.Disc(V(0, 0.094f, 0), 0.009f, 7, M("Metal_AgedBrass"), Vector3.up);
-                    for (int i = 0; i < 7; i++)
+                    m.Box(V(0, 0.042f, 0), V(0.286f, 0.062f, 0.402f), M("Paper_AgedCream"), 0.004f);
+                    m.Box(V(0, 0.008f, 0), V(0.32f, 0.016f, 0.44f), M(leather), 0.004f);
+                    m.Box(V(0, 0.084f, 0), V(0.32f, 0.018f, 0.44f), M(leather), 0.005f);
+                    m.Box(V(-0.153f, 0.047f, 0), V(0.026f, 0.075f, 0.431f), M(leather), 0.008f);
+                    for (int i = 0; i < 8; i++) m.Box(V(0.003f, 0.019f + i * 0.007f, -0.203f), V(0.274f, 0.001f, 0.0015f), M("PageEdge"), 0.0001f);
+                    foreach (float z in new[] { -0.15f, -0.08f, 0.08f, 0.15f }) m.Box(V(-0.161f, 0.048f, z), V(0.022f, 0.07f, 0.011f), M(leather), 0.004f);
+                    foreach (float x in new[] { -0.136f, 0.136f }) m.Box(V(x, 0.0932f, 0), V(0.0018f, 0.0005f, 0.39f), M("Stitch"), 0.0001f);
+                    foreach (float z in new[] { -0.193f, 0.193f }) m.Box(V(0, 0.0932f, z), V(0.273f, 0.0005f, 0.0018f), M("Stitch"), 0.0001f);
+                    if (flower)
                     {
-                        float a = i * Mathf.PI * 2 / 7;
-                        var direction = V(Mathf.Cos(a), 0, Mathf.Sin(a)); var side = V(-direction.z, 0, direction.x);
-                        m.Polygon(new[] { V(0, 0.094f, 0) + direction * 0.012f, V(0, 0.094f, 0) + direction * 0.034f + side * 0.010f, V(0, 0.094f, 0) + direction * 0.055f, V(0, 0.094f, 0) + direction * 0.034f - side * 0.010f }, M("Metal_AgedBrass"), Vector3.up);
+                        m.Disc(V(0, 0.094f, 0), 0.009f, 7, M("Metal_AgedBrass"), Vector3.up);
+                        for (int i = 0; i < 7; i++)
+                        {
+                            float a = i * Mathf.PI * 2 / 7;
+                            var direction = V(Mathf.Cos(a), 0, Mathf.Sin(a)); var side = V(-direction.z, 0, direction.x);
+                            m.Polygon(new[] { V(0, 0.094f, 0) + direction * 0.012f, V(0, 0.094f, 0) + direction * 0.034f + side * 0.010f, V(0, 0.094f, 0) + direction * 0.055f, V(0, 0.094f, 0) + direction * 0.034f - side * 0.010f }, M("Metal_AgedBrass"), Vector3.up);
+                        }
                     }
-                }
-            }));
+                });
+                if (name == "Book_Charcoal" || name == "Book_SevenPetal") AddPrayerBookTitles(go.transform, flower);
+            });
         }
 
         static void Envelope(string name, bool sealedEnvelope)

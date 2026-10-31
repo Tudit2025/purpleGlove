@@ -10,6 +10,7 @@ namespace PurpleGlove
         public enum Phase { Idle, TurningOutside, TurningInside, AwaitingPickup, FlyingToDesk, Landing }
         public DoorMechanism transferDrum;
         public SceneObject packet;
+        public GameObject ordinaryPacketVisual, firstActPacketsVisual;
         public Transform packetHome, deskLanding;
         public ActArchiveController archive;
         [Min(0.1f)] public float flightSeconds = 1.35f;
@@ -27,6 +28,7 @@ namespace PurpleGlove
         AudioSource sound;
         Collider packetCollider;
         bool previousDrumStop;
+        bool supplement;
         float elapsed;
         Vector3 flightStart, packetScale;
         Quaternion flightRotation;
@@ -45,9 +47,10 @@ namespace PurpleGlove
             }
         }
 
-        public bool CanDeliver(int act) => isActiveAndEnabled && !IsActive && archive && archive.isActiveAndEnabled
-            && act >= 1 && act <= archive.acts.Length && !archive.IsAvailable(act)
-            && gate && !gate.DialogueActive && !gate.DeliveryActive && view && view.isActiveAndEnabled && !view.DialogueLocked
+        public bool CanDeliver(int act) => CanDeliver(act, false);
+        bool CanDeliver(int act, bool additional) => isActiveAndEnabled && !IsActive && archive && archive.isActiveAndEnabled
+            && act >= 1 && act <= archive.acts.Length && (additional ? archive.HasPendingSupplement(act) : !archive.IsAvailable(act))
+            && gate && !gate.StoryActive && !gate.DialogueActive && !gate.DeliveryActive && view && view.isActiveAndEnabled && !view.DialogueLocked
             && interactor && interactor.isActiveAndEnabled
             && transferDrum && transferDrum.isActiveAndEnabled && transferDrum.pivot && transferDrum.cargoSocket
             && transferDrum.mechanism == DoorMechanism.Mechanism.TransferDrum && !transferDrum.IsMoving && !transferDrum.Cargo
@@ -55,10 +58,15 @@ namespace PurpleGlove
 
         // Console uses the bool result; Inspector story events can use DeliverAct directly.
         public void DeliverAct(int act) => BeginDelivery(act);
-        public bool BeginDelivery(int act)
+        public bool BeginDelivery(int act) => BeginDelivery(act, false);
+        public bool BeginSupplement(int act) => BeginDelivery(act, true);
+        bool BeginDelivery(int act, bool additional)
         {
-            if (!CanDeliver(act)) return false;
+            if (!CanDeliver(act, additional)) return false;
+            supplement = additional;
             ActiveAct = act; previousDrumStop = transferDrum.AtSecondStop;
+            if (ordinaryPacketVisual) ordinaryPacketVisual.SetActive(act != 1 || !firstActPacketsVisual);
+            if (firstActPacketsVisual) firstActPacketsVisual.SetActive(act == 1);
             interactor.CancelInteraction();
             gate.SetDelivery(true); view.BeginDeliveryView();
             State = Phase.TurningOutside;
@@ -159,7 +167,9 @@ namespace PurpleGlove
             if (!completed && sound) sound.Stop();
             if (view) view.EndDeliveryView(completed);
             if (gate) gate.SetDelivery(false);
-            if (completed && archive && archive.ReceiveAct(act)) deliveryCompleted.Invoke(act);
+            bool received = completed && archive && (supplement ? archive.ReceiveSupplement(act) : archive.ReceiveAct(act));
+            supplement = false;
+            if (received) deliveryCompleted.Invoke(act);
             else deliveryCancelled.Invoke(act);
         }
 

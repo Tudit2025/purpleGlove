@@ -1,0 +1,5 @@
+PASS: 242 assertions in Unity 2022.3.62f2 Play Mode.
+Four distinct single-line Luca memories; hover ignored; actual collider clicks; no door/camera cut; Chinese glyphs verified.
+Original inspect/open action resumes on a later frame; repeat clicks bypass memory; notebook page turn and tool pickup preserved.
+Desktop and decode-view toolbox entry; cancel retries; disable clears dialogue/deferred action; other props, visitor dialogue and prologue preserved.
+State lasts for the current play session; synthetic pointer/timing replay, not OS input testing.

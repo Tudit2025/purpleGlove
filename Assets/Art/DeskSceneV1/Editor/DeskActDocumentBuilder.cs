@@ -31,22 +31,14 @@ namespace PurpleGlove.Editor
         {
             new[]
             {
-                new[] { "公爵的核验委托", "行会收件 · 米兰内廷\n\n请于明晨六点前核验待送军情。\n分别填写明文还原与来源确认，\n不得混签。\n\n若法方越境军情属实，晨会将\n表决由米兰军队接管边境粮站。" },
-                new[] { "师父封袋里的纸", "马泰奥 · 寄存封袋\n\nNHHS WKH RULJLQDO\n\n纸角：三道旧式裁口\n\n纸背浅色蜡痕的压字：\n七瓣花，新版。\n查账时不要只认签名。" },
-                new[] { "代表登记册补页", "行会 · 代表授权范围\n\n卡拉法可以代公爵领取印务材料，\n无权替法方确认军令。\n\n领取人特征：常戴左手紫手套。\n\n印务领取与军令核签，分别登记。" },
-                new[] { "封袋寄存登记", "行会 · 寄存件\n\n寄存人：马泰奥·里奇\n交付对象：卢卡\n\n封袋登记在里奇被扣押之前。\n随袋纸张须保留，以供后续查验。" },
-                new[] { "入场任务便笺", "卢卡 · 本次文书核验人\n\n任务：核验文字与文件来源。\n期限：明晨六点。\n\n师父已被扣押，去向有待核实。\n文书由侧面投递口登记送入。\n正门封纸由三方共同见证。" },
-                new[] { "空白核验表", "明文还原：________________\n\n密码规则：________________\n\n来源确认：________________\n\n依据原件：________________\n\n核验人：________  时间：____" }
+                new[] { "公爵的核验委托", "致行会核验人卢卡：\n军情正文与附件今晚晚些时候送达。\n请于明晨六点前核验文字及其来源。\n\n若法方越境军情属实，晨会将表决\n由米兰军队接管边境粮站。请分别\n填写明文还原与来源确认，不得混签。\n\n卡拉法可代本公爵领取印务材料，\n无权替法方确认军令。他常戴左手\n紫手套，领取时仍须核对登记与签样。" },
+                new[] { "师父封袋里的纸", "NHHS WKH RULJLQDO" }
             },
             new[]
             {
-                new[] { "威尼斯封件二号", "贝阿特丽切 · 附印坊旧便条\n\n我查这件事已经六天。\n明早是委员会给我的最后期限。\n\n印刷匠留了一串数字。\n我没有他用的版本。\n你桌上的书，也许能解释它。" },
-                new[] { "印坊数字便条", "12-4-11 / 12-4-7 / 12-4-4 / 27-2-12\n27-2-2 / 27-2-24 / 27-2-29 / 41-3-10\n12-4-25 / 12-4-9 / 27-2-23 / 27-2-24\n27-2-27 / 27-2-26 / 41-3-2 / 12-4-14\n\n页—行—字母，从一开始计数。\n去掉该行空格与标点。\n\n联系人：━━━━━━━━" },
-                new[] { "印务台账摘要", "装订批号：7—031\n\n原定：商队通行文件\n后改：军情译录件\n\n两次换版由同一名经手人带来。\n经米兰内廷印务账户结算。\n原始签收页已交行会纠纷库。" },
-                new[] { "裁纸边角", "巴尔托洛 · 随台账交存\n\n\n\n\n两次都是他亲手收的。\n姓名在原始签收页，\n不在这张摘要上。" },
-                new[] { "第七号封档目录", "行会纠纷库 · 印坊纠纷\n\n内附：印务台账摘要、裁纸边角。\n\n原始签收页另存，\n涉及委托方私账。\n调阅须提供对应的正式委托案号。" },
-                new[] { "空白检索单", "检索对象：________________\n\n封档编号：________________\n\n调阅用途：________________\n\n正式案号：________________\n\n申请人：__________________" },
-                new[] { "取字工作纸", "使用版本：________________\n\n页 / 行 / 字母：____________\n\n取字记录：________________\n\n明文：____________________\n\n待核事项：________________" }
+                new[] { "印坊数字便条", BookCipherText.Cipher },
+                new[] { "印务台账摘要", "第七号封档 · 印务台账摘要" },
+                new[] { "猪圈密文碎纸", "两次都是他亲手收的。姓名在原始签收页，不在这张摘要上。" }
             },
             new[]
             {
@@ -117,6 +109,18 @@ namespace PurpleGlove.Editor
                 controller.acts[act].documents = new SceneObject[pages.Length];
                 for (int index = 0; index < pages.Length; index++)
                 {
+                    if (act == 0)
+                    {
+                        var firstPaper = CreateFirstActDocument(layout, index);
+                        controller.acts[act].documents[index] = firstPaper;
+                        firstPaper.gameObject.SetActive(false);
+                        continue;
+                    }
+                    if (act == 1)
+                    {
+                        controller.acts[act].documents[index] = CreateSecondActDocument(layout, index);
+                        continue;
+                    }
                     var paper = Place("Paper_Blank", layout, Vector3.zero);
                     paper.name = "Act" + (act + 1) + "_" + (index + 1).ToString("00") + "_" + pages[index][0];
                     paper.transform.localScale = Vector3.one * 0.44f;
@@ -128,7 +132,7 @@ namespace PurpleGlove.Editor
                     }
                     else AddDocumentInk(paper.transform, "Body", pages[index][1], 0.077f, 0.205f);
                     AddDocumentInk(paper.transform, "Folio", roman[act] + "  /  " + (index + 1).ToString("00"), -0.151f, 0.017f);
-                    if (act == 1 && index == 3) AddPigpenCipher(paper.transform);
+                    ApplyActDocumentFonts(paper.transform, pages[index][0]);
                     var item = paper.GetComponent<SceneObject>();
                     item.screenFill = 0.82f;
                     item.minimumViewDistance = 0.18f;
@@ -142,6 +146,7 @@ namespace PurpleGlove.Editor
             }
             ArrangeDocumentsOnMat(controller);
             BuildMasterNotebook();
+            if (Camera.main.GetComponent<SecondActFlow>()) ConfigureSecondAct(Camera.main);
             controller.previewAllActs = !controller.requireDelivery;
             EditorUtility.SetDirty(controller);
         }
@@ -154,6 +159,9 @@ namespace PurpleGlove.Editor
             // The 1.02 x 1.12 m mat is the document area. Keep all four paper corners
             // inside its stitching, including after the mat has been moved or rotated.
             foreach (var act in controller.acts)
+            {
+                if (act == controller.acts[0]) { ArrangeFirstActDocuments(controller); continue; }
+                if (act == controller.acts[1]) { ArrangeSecondActDocuments(controller); continue; }
                 for (int i = 0; i < act.documents.Length; i++)
                 {
                     var paper = act.documents[i].transform;
@@ -161,6 +169,7 @@ namespace PurpleGlove.Editor
                     paper.rotation = mat.rotation;
                     paper.localScale = Vector3.one * 0.44f;
                 }
+            }
         }
 
         static string WrapCipher(string value, int width) => string.Join("\n", Enumerable.Range(0, (value.Length + width - 1) / width)
