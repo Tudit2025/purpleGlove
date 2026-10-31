@@ -58,8 +58,8 @@ namespace PurpleGlove.Editor
             }).GetComponent<Renderer>().shadowCastingMode = ShadowCastingMode.Off;
             AddCipherAction(Child(work.mat, "Interaction surface", Vector3.zero).gameObject, work, CipherWorkbenchAction.ActionKind.Focus,
                 V(0, 0.005f, 0), V(0.76f, 0.01f, 0.68f));
-            CipherText(work.mat, "Mat label", "解码工具", V(0, 0.010f, 0.287f), 0.0016f, work.uiFont);
-            var slip = Child(work.mat, "Plaintext writing slip", V(0, 0.011f, -0.222f));
+            CipherText(work.mat, "Mat label", "解码工具", V(0, 0.010f, 0.105f), 0.0016f, work.uiFont);
+            var slip = Child(work.mat, "Plaintext writing slip", V(0, 0.011f, 0.22f));
             MeshObject("Cipher_PlaintextSlip", slip, m =>
             {
                 m.Box(V(0, 0, 0), V(0.60f, 0.002f, 0.165f), M("DecodeIvory"), 0.002f);
@@ -77,7 +77,7 @@ namespace PurpleGlove.Editor
             work.writingQuill = GameObject.Find("Quill")?.transform;
 
             work.tools = new GameObject[5]; work.storedTools = new GameObject[5];
-            for (int i = 0; i < 5; i++) work.tools[i] = Child(work.mat, "Tool " + (CipherWorkbench.Tool)i, V(0, 0.015f, 0.065f)).gameObject;
+            for (int i = 0; i < 5; i++) work.tools[i] = Child(work.mat, "Tool " + (CipherWorkbench.Tool)i, V(0, 0.015f, -0.10f)).gameObject;
             BuildCaesarTool(work);
             BuildPigpenTool(work);
             BuildSaintCyrTool(work);

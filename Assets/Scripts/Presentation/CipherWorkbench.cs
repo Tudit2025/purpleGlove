@@ -35,6 +35,7 @@ namespace PurpleGlove
         DeskScenePreview view;
         SceneInputGate gate;
         SceneObjectInteractor interactor;
+        DeskViewHud viewHud;
         Camera sceneCamera;
         AudioSource sound;
         int editingCell = -1;
@@ -52,6 +53,7 @@ namespace PurpleGlove
         {
             view = GetComponent<DeskScenePreview>(); gate = GetComponent<SceneInputGate>();
             interactor = GetComponent<SceneObjectInteractor>(); sceneCamera = GetComponent<Camera>();
+            viewHud = GetComponent<DeskViewHud>();
             sound = gameObject.AddComponent<AudioSource>(); sound.playOnAwake = false; sound.spatialBlend = 0; sound.volume = 0.42f;
             for (int i = 0; i < Affine.Length; i++) Affine[i] = "";
             for (int i = 0; i < Rails.Length; i++) Rails[i] = "";
@@ -86,7 +88,7 @@ namespace PurpleGlove
             }
             if (pendingFocus && (!gate || !gate.BlocksWorldInput))
             {
-                pendingFocus = false; view.SetView(DeskScenePreview.View.DecodeFocus);
+                pendingFocus = !view.SetView(DeskScenePreview.View.DecodeFocus);
             }
             ProcessPhysicalInput();
         }

@@ -4,8 +4,10 @@
 
 ## 打开与查看
 
+解密桌垫采用上方书写、下方操作的布局：明文纸位于上半部分，五种解密工具共用下半部分，工具标题位于两区之间。
+
 1. 打开 `Scenes/PH_DeskRoom.unity`，切到 Game 视图并选择 16:9。
-2. 点击 Play：**A** 看左侧书架，**W** 聚焦文书桌垫，**D** 正俯视右侧解密区，**S / Esc** 回普通桌面。W 机位约 73° 向下看；D 机位在解密区锚点上方 1.68 米、90° 向下看、视野角 48°，同时容纳工具垫、字母盘与工具盒，不随鼠标偏转。切换位置、朝向与视野角时平滑过渡。解密区隐藏视角提示及全部额外屏幕 UI；其他机位保留小号“WASD 切换视角”提示。**P** 切换像素采样；D 解码机位默认使用屏幕原分辨率。鼠标轻微偏转默认左右各最多 6°、上下各最多 4°，书架减半，W 机位减至 20%。相机只在预设机位间切换，不提供自由行走。
+2. 点击 Play：**W / A / S / D** 分别沿上／左／下／右方向切换相邻机位，与屏幕边缘箭头共用跳转关系；该方向没有相邻机位时不切换。在主桌面按 **A** 看左侧书架，按 **W** 或点击档案垫空白处进入档案俯视，按 **D** 进入右侧解密俯视；在柜子视角按 **D** 返回主桌面，在档案俯视按 **D** 进入解密俯视、按 **S** 返回主桌面。档案机位在垫子中心上方 1.45 米，解密机位在锚点上方 1.68 米，两者均为 90° 正俯视、视野角 48°，不随鼠标偏转；滚轮向前降低镜头、向后恢复全景，重新进入时重置高度。解密视角内 **WASD 不切换机位**，**Esc** 返回中桌面视角；其他机位可用 **Esc** 返回桌面。屏幕边缘箭头平时淡显、悬停高亮：桌面 **↑ 档案俯视 / ← 柜子 / → 解密俯视**，柜子 **→ 桌面**，解密 **← 档案俯视**，档案俯视 **→ 解密俯视 / ↓ 桌面**。解密视角左下角显示“Esc 返回中桌面视角”，其他机位保留“WASD 切换视角”。检视、书写、拖拽、工具转移、对话及收件时锁定镜头导航；箭头点击不会穿透到场景物件。切换位置、朝向与视野角时平滑过渡。**P** 切换像素采样；D 解码机位默认使用屏幕原分辨率。普通桌面鼠标偏转默认左右各最多 6°、上下各最多 4°，书架减半。相机只在预设机位间切换，不提供自由行走。
 3. 默认按 960×540 采样后放大。书本、笔记本、纸张与信封悬停时抽出，点击后拉到镜头前转正；**Esc / 右上角 X** 放回。检视期间锁定镜头；带文字的物品使用屏幕原分辨率渲染，保证中文与密码数字可读。
 4. 左侧书架从上到下对应第一幕至第五幕，侧面有一只小烛台，书架与卷宗不显示文字说明。五幕文件等待封口袋收件后解锁：按 **F1** 点击对应幕收件按钮，或输入 `deliver 1`～`deliver 5`。镜头锁定看门，袋子经活门转入后可悬停、点击；点击后飞回桌面，落下消失并展开该幕文书。已收幕的卷宗可从书架取回，同时收起前一幕。文书按桌垫自身的坐标与朝向排成三列，纸张四角均留在缝线内；桌面没有收起按钮。左侧师父笔记、普通版与七瓣花版《祷文集》（祷言集）为公共物品，不参与章节收纳。雨声与烛光连续运行。
 5. 本场景已设为 Build Settings 中启用的第 0 个场景，也是编辑器 Play 的默认入口。`DeskSceneStartup` 在脚本加载后恢复 Play 入口，不强行关闭当前正在编辑的场景。菜单 `Purple Glove > Scene > Set Desk Room as Default` 可重新设置。
@@ -14,11 +16,11 @@
 8. 点击桌面木盒打开盒盖，直接点击五个实物槽位取出工具，自动进入 D 机位；更换时先收回旧工具再取出新工具。点击工具上的皮革拉片或在空处右键归盒。盒盖、盒外空处、右键或 Esc 都能合盒。按住凯撒盘内盘沿圆周拖动，松手按字母刻度定位；圣西尔尺在下行窗口左右拖动，限制在 0–25 格。点击尺下方纸签填写关键词，点击左右黄铜销逐位对齐。猪圈表直接阅读实体图形。仿射表为 26 列 × 2 行，栅栏纸条为 41 列 × 2 行；点击格子输入 A–Z，支持自动前进、方向键、Tab、粘贴和擦除。点击明文纸直接书写，羽毛笔移动到当前书写位置，纸面显示最近六行，完整草稿保留在 `Plaintext`。Esc／右键先落笔或取消拿取，再次 Esc 返回桌面。设置与草稿在本次运行内保留；来访、收件、控制台和窗口失焦会结束操作并归还手中木片。
 9. 字母盘位于工具垫后方，采用 `QWERTYUIOP / ASDFGHJKL / ZXCVBNM` 三行错位布局，每格叠放三片独立木片，共 78 片。拖动顶部木片到表格、关键词纸签或明文纸，在纸面留下字母后归盘，可反复使用；拖到桌垫最前沿可摆放字母，右键木片归位，无效落点自动归盘。木片使用已有橡木、盘底使用胡桃木与皮革，沿用米制 UV、32 texels/m 像素采样、描边与场景光照。D 机位滚轮向前靠近工具查看细字，向后回到完整解密区；书写和拖动物件期间锁定滚轮，重新进入 D 机位恢复全景。
 
-`Purple Glove > Scene > Install Cipher Toolbox` 可重复安装／更新解密区，保留文书、书架和房间。`CipherWorkbench` 与 `CipherWorkbenchInput` 管理实物射线拾取、工具取放和纸面输入；没有屏幕按钮、滑条、面板或输入框。`DeskCipherWorkbenchBuilder.cs`、`DeskLetterTrayBuilder.cs` 维护模型和布局。`Prefabs/PF_LetterTray_QWERTY.prefab` 为整盘，`PF_LetterTile_A.prefab` 至 `PF_LetterTile_Z.prefab` 为各字母独立样例；每片都有 `CipherLetterTile.alphabetIndex`、`AnimationPivot`，盘中实例另有 `homeSocket`，便于后续动画绑定。`CipherWorkbench.letterSamples[0..25]` 始终按 A–Z 索引。独立样例不引用场景中的归位点；需要自动归盘时显式指定 `homeSocket`。验证脚本、结果与渲染截图见 `output/physical-cipher-validation/`；目前以 Play Mode 合成指针／按键验证，尚未进行系统鼠标和中文输入法手动测试。
+`Purple Glove > Scene > Install Cipher Toolbox` 可重复安装／更新解密区，保留文书、书架和房间。`CipherWorkbench` 与 `CipherWorkbenchInput` 管理实物射线拾取、工具取放和纸面输入；工具本身没有屏幕按钮、滑条、面板或输入框，屏幕边缘机位导航由 `DeskViewHud` 管理。`DeskCipherWorkbenchBuilder.cs`、`DeskLetterTrayBuilder.cs` 维护模型和布局。`Prefabs/PF_LetterTray_QWERTY.prefab` 为整盘，`PF_LetterTile_A.prefab` 至 `PF_LetterTile_Z.prefab` 为各字母独立样例；每片都有 `CipherLetterTile.alphabetIndex`、`AnimationPivot`，盘中实例另有 `homeSocket`，便于后续动画绑定。`CipherWorkbench.letterSamples[0..25]` 始终按 A–Z 索引。独立样例不引用场景中的归位点；需要自动归盘时显式指定 `homeSocket`。验证脚本、结果与渲染截图见 `output/physical-cipher-validation/`；目前以 Play Mode 合成指针／按键验证，尚未进行系统鼠标和中文输入法手动测试。
 
 相机上的 `DeskScenePreview > Mouse Look` 可调整鼠标跟随：`Follow Mouse` 开关、`Horizontal Mouse Angle` / `Vertical Mouse Angle` 最大偏转角、`Mouse Dead Zone` 中心静止区（默认每个半屏的 5%）、`Mouse Response Curve` 响应曲线，以及 `Camera Follow Speed` 旋转跟随速度（越大越快，0 为立即到位，同时影响 WASD 机位切换）。曲线横轴为离开静止区后到画面边缘的归一化距离 0–1，纵轴为最大偏转角的比例 0–1，默认缓入缓出；自定义曲线输出会限制在 0–1 内。鼠标离开相机画面或窗口失焦时回正。
 
-`Table focus (W)` 配置桌垫引用、相对机位偏移和视野角，默认偏移 `(0, 1.45, -0.45)`、视野角 `48°`。`Purple Glove > Scene > Configure Table Focus View` 可更新已保存场景的配置。`View.MatFocus` 追加在原有枚举末尾，保持旧场景的枚举值。现有 `DialogueController` 通过 `SetDialogueLock(true/false)` 进入／结束门口事件；入口会收回正在检视的物品，并恢复座位位置，避免从俯视高度看门。验证和截图位于 `output/table-focus-validation/`。
+`Table focus (W)` 配置桌垫引用、俯视中心及高度和视野角，默认偏移 `(0, 1.45, 0)`、视野角 `48°`；X/Z 是相对桌垫的俯视中心，Y 是全景高度。滚轮高度限制为全景的 60%～100%，与解密区一致。`Purple Glove > Scene > Configure Table Focus View` 可更新已保存场景的配置。`View.MatFocus` 保持枚举值 3，兼容已有场景。`DeskViewHud` 的 `Arrow Opacity` / `Arrow Hover Opacity` 调整箭头淡显及高亮透明度。现有 `DialogueController` 通过 `SetDialogueLock(true/false)` 进入／结束门口事件；入口会收回正在检视的物品，并恢复座位位置，避免从俯视高度看门。本次导航验证和截图位于 `output/camera-navigation-validation/`。
 
 ## 幕次归档接入与模拟
 

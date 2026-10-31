@@ -15,6 +15,8 @@ namespace PurpleGlove
         public bool BlocksSceneInput => isActiveAndEnabled && (inspected || (inputGate && inputGate.BlocksWorldInput));
         SceneInputGate inputGate;
         CipherWorkbench workbench;
+        DeskScenePreview view;
+        DeskViewHud viewHud;
 
         Camera sceneCamera;
         SceneObject hovered, inspected;
@@ -29,6 +31,8 @@ namespace PurpleGlove
             sceneCamera = GetComponent<Camera>();
             inputGate = GetComponent<SceneInputGate>();
             workbench = GetComponent<CipherWorkbench>();
+            view = GetComponent<DeskScenePreview>();
+            viewHud = GetComponent<DeskViewHud>();
         }
 
         void Update()
@@ -62,12 +66,19 @@ namespace PurpleGlove
 
         void ProcessPointer(Vector2 position, bool canPoint, bool clicked)
         {
+            canPoint &= !viewHud || !viewHud.BlocksPointer(position);
             SceneObject candidate = null;
             // Props animate in LateUpdate; pick their current pose even between physics steps.
             if (canPoint) Physics.SyncTransforms();
             if (canPoint && Physics.Raycast(sceneCamera.ScreenPointToRay(position), out RaycastHit hit,
                 interactionDistance, interactionLayers, QueryTriggerInteraction.Ignore))
             {
+                if (clicked && view && view.TryFocusMat(hit.collider))
+                {
+                    SetHovered(null);
+                    if (inputGate) inputGate.ConsumeFrame();
+                    return;
+                }
                 candidate = hit.collider.GetComponentInParent<SceneObject>();
                 if (candidate && (!candidate.isActiveAndEnabled || (inputGate && !inputGate.CanInteract(candidate)))) candidate = null;
             }

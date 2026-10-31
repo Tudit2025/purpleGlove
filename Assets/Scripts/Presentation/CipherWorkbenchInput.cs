@@ -86,6 +86,7 @@ namespace PurpleGlove
         {
             if ((!InWorkspace && !ToolboxOpen) || Interrupted || !sceneCamera || !Application.isFocused) return;
             bool canPoint = Input.mousePresent && Cursor.lockState != CursorLockMode.Locked && sceneCamera.pixelRect.Contains(Input.mousePosition)
+                && (!viewHud || !viewHud.BlocksPointer(Input.mousePosition))
                 && (!EventSystem.current || !EventSystem.current.IsPointerOverGameObject());
             if (Input.GetMouseButtonDown(1))
             {

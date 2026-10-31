@@ -1,0 +1,6 @@
+PASS: 296 assertions in Unity 2022.3.62f2 Play Mode.
+Saved scene: real mat collider click, 90-degree top-down, height limits/reset and 4:3/16:9/21:9 framing.
+All edge routes including archive right-to-decode, inactive edges, offset viewport hit areas, click consumption.
+Relative WASD navigation matches the arrows; bookshelf D returns to desktop; decode keyboard lock and Esc return retained.
+Typing WASD, layered Escape, tool transfer, dragging, console, dialogue, delivery and inspection gates.
+Rendered camera screenshots exclude IMGUI; pointer/key replay is synthetic, not manual OS input.

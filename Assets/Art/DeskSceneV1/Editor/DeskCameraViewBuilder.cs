@@ -23,7 +23,7 @@ namespace PurpleGlove.Editor
             var mat = GameObject.Find("WritingMat");
             if (!view || !mat) throw new InvalidOperationException("Missing desk camera or writing mat.");
             view.matFocusAnchor = mat.transform;
-            view.matFocusOffset = new Vector3(0, 1.45f, -0.45f);
+            view.matFocusOffset = new Vector3(0, 1.45f, 0);
             view.matFocusFieldOfView = 48;
             EditorUtility.SetDirty(view);
         }

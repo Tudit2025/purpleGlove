@@ -7,6 +7,7 @@ namespace PurpleGlove
     {
         // Keep existing serialized values; Doorway is reserved for event-driven visits.
         public enum View { Desktop = 0, Doorway = 1, Bookshelf = 2, MatFocus = 3, DecodeFocus = 4 }
+        public enum Direction { Up, Left, Right, Down }
         public const float DoorwayFieldOfView = 28.5f;
         public Camera sceneCamera;
         public Vector3 desktopEuler = new Vector3(34, 0, 0);
@@ -15,7 +16,8 @@ namespace PurpleGlove
         [Range(30, 100)] public float bookshelfFieldOfView = 84;
         [Header("Table focus (W)")]
         public Transform matFocusAnchor;
-        public Vector3 matFocusOffset = new Vector3(0, 1.45f, -0.45f);
+        [Tooltip("X/Z select the top-down center; Y is the full-view camera height.")]
+        public Vector3 matFocusOffset = new Vector3(0, 1.45f, 0);
         [Range(30, 80)] public float matFocusFieldOfView = 48;
         [Header("Decoding mat (D)")]
         public Transform decodeFocusAnchor;
@@ -46,8 +48,14 @@ namespace PurpleGlove
         Vector3 flameScale;
         SceneObjectInteractor objectInteractor;
         SceneInputGate inputGate;
+        CipherWorkbench workbench;
         Vector3 seatedPosition;
+        float matZoom = 1;
         float decodeZoom = 1;
+        public bool CanNavigate => isActiveAndEnabled && !DialogueLocked && !DeliveryLocked
+            && (!inputGate || !inputGate.BlocksWorldInput)
+            && (!objectInteractor || !objectInteractor.BlocksSceneInput)
+            && (!workbench || !workbench.IsManipulating);
         public bool DialogueLocked { get; private set; }
         public bool DeliveryLocked { get; private set; }
         View viewBeforeDialogue;
@@ -65,22 +73,22 @@ namespace PurpleGlove
             }
             if (currentView == View.Doorway) currentView = View.Desktop;
             inputGate = GetComponent<SceneInputGate>();
+            workbench = GetComponent<CipherWorkbench>();
             if (candleLight) candleIntensity = candleLight.intensity;
             if (flame) flameScale = flame.localScale;
         }
 
         void Update()
         {
-            if (!DialogueLocked && !DeliveryLocked && (!inputGate || !inputGate.BlocksWorldInput)
-                && (!objectInteractor || !objectInteractor.BlocksSceneInput))
+            if (CanNavigate)
             {
-                if (currentView == View.DecodeFocus && sceneCamera && sceneCamera.pixelRect.Contains(Input.mousePosition))
-                    AdjustDecodeZoom(Input.GetAxis("Mouse ScrollWheel"));
-                if (Input.GetKeyDown(KeyCode.A)) HandleViewKey(KeyCode.A);
+                if (sceneCamera && sceneCamera.pixelRect.Contains(Input.mousePosition))
+                    AdjustFocusZoom(Input.GetAxis("Mouse ScrollWheel"));
+                if (Input.GetKeyDown(KeyCode.Escape)) HandleViewKey(KeyCode.Escape);
+                else if (Input.GetKeyDown(KeyCode.A)) HandleViewKey(KeyCode.A);
                 else if (Input.GetKeyDown(KeyCode.W)) HandleViewKey(KeyCode.W);
                 else if (Input.GetKeyDown(KeyCode.D)) HandleViewKey(KeyCode.D);
-                else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Escape))
-                    HandleViewKey(KeyCode.S);
+                else if (Input.GetKeyDown(KeyCode.S)) HandleViewKey(KeyCode.S);
             }
             if (candleLight)
             {
@@ -108,16 +116,15 @@ namespace PurpleGlove
         void AnimateView(float deltaTime, Vector2 mouseAngles)
         {
             if (currentView == View.Bookshelf) mouseAngles *= 0.5f;
-            if (currentView == View.MatFocus) mouseAngles *= 0.2f;
-            if (currentView == View.DecodeFocus) mouseAngles = Vector2.zero;
+            if (currentView == View.MatFocus || currentView == View.DecodeFocus) mouseAngles = Vector2.zero;
             Vector3 position = seatedPosition;
             Vector3 viewEuler = currentView == View.Bookshelf ? bookshelfEuler : desktopEuler;
             float fieldOfView = currentView == View.Bookshelf ? bookshelfFieldOfView : 60;
             if (currentView == View.MatFocus && matFocusAnchor)
             {
-                position = matFocusAnchor.TransformPoint(matFocusOffset);
-                Vector3 focus = matFocusAnchor.TransformPoint(new Vector3(0, 0.01f, 0));
-                viewEuler = Quaternion.LookRotation(focus - position, matFocusAnchor.up).eulerAngles;
+                Vector3 focus = matFocusAnchor.TransformPoint(new Vector3(matFocusOffset.x, 0, matFocusOffset.z));
+                position = focus + Vector3.up * (matFocusOffset.y * matZoom);
+                viewEuler = new Vector3(90, matFocusAnchor.eulerAngles.y, 0);
                 fieldOfView = matFocusFieldOfView;
             }
             if (currentView == View.DecodeFocus && decodeFocusAnchor)
@@ -138,21 +145,60 @@ namespace PurpleGlove
 
         bool HandleViewKey(KeyCode key)
         {
+            // Letter keys belong to the decoding workspace once entered; Esc still leaves it.
+            if (currentView == View.DecodeFocus && key != KeyCode.Escape) return false;
+            if (key == KeyCode.Escape) return SetView(View.Desktop);
+            Direction direction;
             switch (key)
             {
-                case KeyCode.W: return SetView(View.MatFocus);
-                case KeyCode.A: return SetView(View.Bookshelf);
-                case KeyCode.D: return SetView(View.DecodeFocus);
-                case KeyCode.S:
-                case KeyCode.Escape: return SetView(View.Desktop);
+                case KeyCode.W: direction = Direction.Up; break;
+                case KeyCode.A: direction = Direction.Left; break;
+                case KeyCode.D: direction = Direction.Right; break;
+                case KeyCode.S: direction = Direction.Down; break;
                 default: return false;
             }
+            return TryGetNavigationTarget(direction, out var target) && SetView(target);
         }
 
-        void AdjustDecodeZoom(float scroll)
+        void AdjustFocusZoom(float scroll)
         {
-            if (currentView != View.DecodeFocus || !decodeDetailAnchor || (inputGate && inputGate.BlocksWorldInput)) return;
-            decodeZoom = Mathf.Clamp(decodeZoom - scroll * 0.65f, 0.60f, 1);
+            if (!CanNavigate) return;
+            if (currentView == View.MatFocus)
+                matZoom = Mathf.Clamp(matZoom - scroll * 0.65f, 0.60f, 1);
+            else if (currentView == View.DecodeFocus)
+                decodeZoom = Mathf.Clamp(decodeZoom - scroll * 0.65f, 0.60f, 1);
+        }
+
+        public bool TryGetNavigationTarget(Direction direction, out View target)
+        {
+            target = currentView;
+            switch (currentView)
+            {
+                case View.Desktop:
+                    if (direction == Direction.Up) target = View.MatFocus;
+                    else if (direction == Direction.Left) target = View.Bookshelf;
+                    else if (direction == Direction.Right) target = View.DecodeFocus;
+                    break;
+                case View.Bookshelf:
+                    if (direction == Direction.Right) target = View.Desktop;
+                    break;
+                case View.DecodeFocus:
+                    if (direction == Direction.Left) target = View.MatFocus;
+                    break;
+                case View.MatFocus:
+                    if (direction == Direction.Right) target = View.DecodeFocus;
+                    else if (direction == Direction.Down) target = View.Desktop;
+                    break;
+            }
+            return target != currentView && (target != View.MatFocus || matFocusAnchor)
+                && (target != View.DecodeFocus || decodeFocusAnchor);
+        }
+
+        public bool TryFocusMat(Collider surface)
+        {
+            if (currentView == View.MatFocus || !matFocusAnchor || !surface
+                || !surface.transform.IsChildOf(matFocusAnchor)) return false;
+            return SetView(View.MatFocus);
         }
 
         public bool SetView(View view)
@@ -160,12 +206,12 @@ namespace PurpleGlove
             if (view != View.Desktop && view != View.Bookshelf && view != View.MatFocus && view != View.DecodeFocus) return false;
             if (view == View.MatFocus && !matFocusAnchor) return false;
             if (view == View.DecodeFocus && !decodeFocusAnchor) return false;
-            if (DialogueLocked || DeliveryLocked || (inputGate && inputGate.BlocksWorldInput)) return false;
-            if (objectInteractor && objectInteractor.BlocksSceneInput) return false;
+            if (!CanNavigate) return false;
             if (currentView != view)
             {
                 if (objectInteractor) objectInteractor.ClearHover();
                 if (view == View.DecodeFocus) decodeZoom = 1;
+                if (view == View.MatFocus) matZoom = 1;
             }
             currentView = view;
             return true;
