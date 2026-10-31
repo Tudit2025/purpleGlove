@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "unity": "PASS: 1095 assertions. Unity 2022.3.62f2 / Play Mode / D3D11.",
+  "assets": [
+    {
+      "id": "clerk",
+      "path": "Assets/Art/Dialogue/Textures/visitor_clerk.png",
+      "sha256": "dd3f59bf7048e8136722d16bc89a0e72d335b4bd98dddef1382a3770dbdff6c1"
+    },
+    {
+      "id": "beatrice",
+      "path": "Assets/Art/Dialogue/Textures/visitor_beatrice.png",
+      "sha256": "e4cde53e0257118090dd846f31b3e5689e1bef1a0e5dabc018d9fea91b357857"
+    },
+    {
+      "id": "duke",
+      "path": "Assets/Art/Dialogue/Textures/visitor_duke.png",
+      "sha256": "b2532f345fa7024c3aed560dd2fa1e7fbd0c85242c3a9d71463134b43dd4087c"
+    },
+    {
+      "id": "charles",
+      "path": "Assets/Art/Dialogue/Textures/visitor_charles.png",
+      "sha256": "b583d10ff0f361ee3321461f71c726c6cc3f0cd4aa66564f412a6a2e6f0513bc"
+    },
+    {
+      "id": "carafa",
+      "path": "Assets/Art/Dialogue/Textures/visitor_carafa.png",
+      "sha256": "b0c76da466161c99db1d51ceaeb55ab39e719a627472a16ad3c266c15a75fc89"
+    },
+    {
+      "id": "matteo",
+      "path": "Assets/Art/Dialogue/Textures/visitor_matteo.png",
+      "sha256": "0a22cd1839b188982d508fa29979ad45769eb2ae003e608a1260aa4eacd2bf1c"
+    },
+    {
+      "id": "bartolo",
+      "path": "Assets/Art/Dialogue/Textures/visitor_bartolo.png",
+      "sha256": "ed27e5c4b56a75242b5b41512d3c8b0b796b90c15b72d682c61e89013962c67c"
+    }
+  ],
+  "visitor_scene_changes": [
+    "644005093",
+    "644005094",
+    "848910796",
+    "848910797"
+  ],
+  "preserved": "Final transfer checked only visitor pose/reference/children and its new light changed"
+}

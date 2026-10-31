@@ -41,7 +41,7 @@ public static class VisitationDoorValidation
             Check(Physics.Raycast(eyeOrigin + Vector3.up * 0.20f, Vector3.forward, out hit, 0.5f), "Upper face is not occluded");
             Check(Physics.Raycast(eyeOrigin - Vector3.up * 0.20f, Vector3.forward, out hit, 0.5f), "Lower face is not occluded");
             Check(Mathf.Abs(eye.transform.position.y - 1.66f) < 0.001f, "Eye height changed");
-            camera.transform.rotation = Quaternion.Euler(view.doorwayEuler); camera.fieldOfView = 38;
+            camera.transform.rotation = Quaternion.Euler(view.doorwayEuler); camera.fieldOfView = DeskScenePreview.DoorwayFieldOfView;
             CheckPick(camera, eye, eye.transform.TransformPoint(new Vector3(0, -0.111f, -0.11f)));
             eye.SetPoseImmediately(false); Physics.SyncTransforms();
             CheckPick(camera, eye, eye.transform.TransformPoint(new Vector3(0, 0, -0.10f)));

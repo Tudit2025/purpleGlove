@@ -28,6 +28,8 @@ namespace PurpleGlove.Editor
             door.transform.localScale = scale;
             BuildExteriorCorridor(architecture.transform);
             foreach (var t in door.GetComponentsInChildren<Transform>(true)) t.gameObject.layer = 8;
+            if (Camera.main && Camera.main.GetComponent<SealedDeliveryController>())
+                DeskDeliveryBuilder.InstallInScene(Camera.main);
             CaptureRoomReflections(Camera.main);
             AssetDatabase.SaveAssets();
             EditorSceneManager.SaveScene(scene);

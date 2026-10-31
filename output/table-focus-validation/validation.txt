@@ -1,0 +1,6 @@
+PASS: 187 assertions; Unity 2022.3.62f2 Play Mode / Direct3D 11.
+W enters a centered ~73-degree mat view; smooth movement; all mat corners visible at maximum mouse offsets.
+All 38 papers remain ray-clickable and inspectable in mat focus; inspection locks camera.
+Ordinary doorway/invalid view requests rejected; event lock enters seated doorway and blocks WASD/Esc.
+Event completion restores desktop, bookshelf or mat focus; entry cancels active inspection.
+A returns to seated shelf; S/D/Esc return to seated desktop; repeat configuration and saved-scene reload verified.

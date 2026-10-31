@@ -1,0 +1,4 @@
+PASS: 166927 assertions, Unity 2022.3.62f2 Play Mode / Direct3D 11.
+Idempotent installer + scene reload; five console deliveries; real packet ray hover/click; exclusive input + camera lock.
+No early unlock; original 38 documents preserved; prior act stored; completion cannot bypass delivery; received act review.
+Invalid/repeated events rejected; dialogue mutual exclusion; console closing click consumed; cancellation during turn, wait and flight.

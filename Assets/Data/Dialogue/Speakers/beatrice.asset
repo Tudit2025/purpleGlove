@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae1c8a40696510448a8d0c5c01bfcb4, type: 3}
+  m_Name: beatrice
+  m_EditorClassIdentifier: 
+  id: beatrice
+  displayName: "\u8D1D\u963F\u7279\u4E3D\u5207"
+  isProtagonist: 0
+  textColor: {r: 0.5647059, g: 0.8352941, b: 0.6901961, a: 1}
+  charactersPerSecond: 28
+  eyes: {fileID: 2800000, guid: b69327334e37434f9e81d01969f90fb3, type: 3}
+  eyeDescription: "\u9510\u5229\u7709\u5CF0\u3001\u6A44\u6984\u7EFF\u773C\u775B\uFF0C\u8B66\u89C9\u514B\u5236\u3002"
+  typingClips:
+  - {fileID: 8300000, guid: 1100b36528b959a38f681ecc16ba2b60, type: 3}
+  - {fileID: 8300000, guid: a42bc661405f590abd53e2794e158df8, type: 3}
+  - {fileID: 8300000, guid: bf37d6b011db55fbb9ed5b8a1ef0a60e, type: 3}
+  - {fileID: 8300000, guid: 7aa44aa02dc75278a84998f3c36ab9af, type: 3}
+  pitch: 1.24
+  volume: 0.52
+  lowPassHz: 7600
+  soundInterval: 0.065

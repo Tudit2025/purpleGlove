@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -29,12 +30,18 @@ namespace PurpleGlove
         }
 
         public ActFiles[] acts = new ActFiles[5];
+        [Tooltip("Reference books and the master's notebook never enter an act dossier.")]
+        public SceneObject[] sharedDocuments = Array.Empty<SceneObject>();
+        [Tooltip("Preview all five document sets. Disable when story delivery controls availability.")]
+        public bool previewAllActs = true;
+        [Tooltip("Keep every act locked until its sealed packet has been collected, including act one.")]
+        public bool requireDelivery;
         public DeskScenePreview view;
         public SceneObjectInteractor interactor;
         [Tooltip("Invoked once after an act has been archived. The argument is the completed act (1-5).")]
         public UnityEvent<int> actCompleted = new UnityEvent<int>();
         public int CurrentAct { get; private set; } = 1;
-        public int DeskAct { get; private set; } = 1;
+        public int DeskAct { get; private set; }
         public bool AllActsCompleted => CurrentAct > 5;
         bool initialized, changing;
 
@@ -46,6 +53,7 @@ namespace PurpleGlove
             if (acts == null || acts.Length != 5)
                 throw new InvalidOperationException("The archive must have exactly five act shelves.");
             // Validate all references before touching any objects.
+            var registered = new HashSet<SceneObject>(sharedDocuments);
             for (int i = 0; i < acts.Length; i++)
             {
                 var files = acts[i];
@@ -55,6 +63,8 @@ namespace PurpleGlove
                 for (int j = 0; j < files.documents.Length; j++)
                 {
                     if (!files.documents[j]) throw new InvalidOperationException("Missing document in act " + (i + 1));
+                    if (!registered.Add(files.documents[j]))
+                        throw new InvalidOperationException("A document is shared or assigned to more than one act: " + files.documents[j].name);
                     var t = files.documents[j].transform;
                     files.poses[j] = new DeskPose { parent = t.parent, position = t.localPosition, rotation = t.localRotation, scale = t.localScale };
                 }
@@ -62,11 +72,10 @@ namespace PurpleGlove
             initialized = true;
             for (int i = 0; i < acts.Length; i++)
             {
-                acts[i].available = i == 0;
+                acts[i].available = previewAllActs || (!requireDelivery && i == 0);
                 acts[i].bundle.archive = this;
                 acts[i].bundle.act = i + 1;
-                acts[i].bundle.gameObject.SetActive(false);
-                foreach (var document in acts[i].documents) document.gameObject.SetActive(i == 0);
+                Store(i + 1);
             }
             RefreshLabels();
         }
@@ -84,10 +93,10 @@ namespace PurpleGlove
                 acts[act - 1].completed = true;
                 CurrentAct++;
                 DeskAct = 0;
-                if (!AllActsCompleted)
+                if (!AllActsCompleted && !requireDelivery)
                 {
                     acts[CurrentAct - 1].available = true;
-                    PlaceOnDesk(CurrentAct);
+                    acts[CurrentAct - 1].bundle.gameObject.SetActive(true);
                 }
                 RefreshLabels();
             }
@@ -123,11 +132,37 @@ namespace PurpleGlove
         public bool IsAvailable(int act) => initialized && act >= 1 && act <= 5 && acts[act - 1].available;
         public bool IsCompleted(int act) => initialized && act >= 1 && act <= 5 && acts[act - 1].completed;
 
+        /// <summary>Unlock only once the delivery has landed, then use the original authored desk layout.</summary>
+        public bool ReceiveAct(int act)
+        {
+            Initialize();
+            if (changing || act < 1 || act > acts.Length || acts[act - 1].available) return false;
+            acts[act - 1].available = true;
+            return ShowActOnDesk(act);
+        }
+
+        public bool StoreDeskAct()
+        {
+            Initialize();
+            if (changing || DeskAct == 0) return false;
+            changing = true;
+            try
+            {
+                if (interactor) interactor.CancelInteraction();
+                Store(DeskAct);
+                DeskAct = 0;
+                RefreshLabels();
+            }
+            finally { changing = false; }
+            return true;
+        }
+
         /// <summary>Register a document delivered by the story at its intended desk pose.</summary>
         public bool RegisterDocument(int act, SceneObject document)
         {
             Initialize();
-            if (changing || !document || act < 1 || act > 5 || !acts[act - 1].available) return false;
+            if (changing || !document || act < 1 || act > 5 || !acts[act - 1].available
+                || Array.IndexOf(sharedDocuments, document) >= 0) return false;
             foreach (var entry in acts)
                 if (Array.IndexOf(entry.documents, document) >= 0) return false;
             if (interactor) interactor.CancelInteraction();
@@ -157,7 +192,7 @@ namespace PurpleGlove
                 document.Relocate(files.storageAnchor, new Vector3(0, 0.015f * i, 0), Quaternion.identity, Vector3.one * 0.65f);
                 document.gameObject.SetActive(false);
             }
-            files.bundle.gameObject.SetActive(true);
+            files.bundle.gameObject.SetActive(files.available);
         }
 
         void PlaceOnDesk(int act)

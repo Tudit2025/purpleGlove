@@ -57,13 +57,13 @@ namespace PurpleGlove.Editor
                     throw new InvalidDataException("Expected exactly one active AudioListener.");
                 VerifyStyle();
                 Capture(camera, "desktop", 1920, 1080);
-                camera.transform.rotation = Quaternion.Euler(camera.GetComponent<DeskScenePreview>().doorwayEuler); camera.fieldOfView = 38;
+                camera.transform.rotation = Quaternion.Euler(camera.GetComponent<DeskScenePreview>().doorwayEuler); camera.fieldOfView = DeskScenePreview.DoorwayFieldOfView;
                 Capture(camera, "doorway", 1920, 1080);
                 camera.transform.position = V(1.60f, 2.30f, -1.50f); camera.transform.LookAt(V(0, 0.72f, 0.1f)); camera.fieldOfView = 76;
                 camera.GetComponent<PixelSceneView>().pixelate = false;
                 Capture(camera, "overview", 1920, 1080);
                 if (ShaderUtil.ShaderHasError(Shader.Find(SurfaceShader))) throw new InvalidDataException("Outline shader rendering errors.");
-                File.WriteAllText(Output + "/saved-scene-validation.txt", "PASS: saved scene reopened in a fresh Unity process.\nNo missing scripts, meshes, materials or rain clip.\nTriangle winding, nondegenerate geometry and metric UV verified.\nMaterial pixel size = 4 (32 texels/m); outline shader and UV3 normals verified.\nAll six scene lights and ambient colours = 50% of v1.\nBuild scene 0 and editor Play start scene = PH_DeskRoom.\nFlame protrudes above wax; desktop, doorway and overview rendered from saved assets.\nUnity 2022.3.62f2 / Built-in / Direct3D 11.\n");
+                File.WriteAllText(Output + "/saved-scene-validation.txt", "PASS: saved scene reopened in a fresh Unity process.\nNo missing scripts, meshes, materials or rain clip.\nTriangle winding, nondegenerate geometry and metric UV verified.\nMaterial pixel size = 2 for architecture (64 texels/m), 4 for props (32 texels/m); outline shader and UV3 normals verified.\nAll six scene lights and ambient colours = 50% of v1.\nBuild scene 0 and editor Play start scene = PH_DeskRoom.\nFlame protrudes above wax; desktop, doorway and overview rendered from saved assets.\nUnity 2022.3.62f2 / Built-in / Direct3D 11.\n");
                 Debug.Log("SAVED_DESK_SCENE_PASS");
             }
             catch (Exception exception) { Debug.LogException(exception); if (Application.isBatchMode) EditorApplication.Exit(1); throw; }
@@ -82,7 +82,8 @@ namespace PurpleGlove.Editor
                 foreach (var material in filter.GetComponent<Renderer>().sharedMaterials)
                 {
                     if (material.shader.name == "Standard") throw new InvalidDataException("Unstyled mesh material: " + material.name);
-                    if (material.shader == shader && material.GetFloat("_PixelSize") != 4) throw new InvalidDataException("Inconsistent material pixel size.");
+                    float pixelSize = material.name.EndsWith("_Architecture", StringComparison.Ordinal) ? 2 : 4;
+                    if (material.shader == shader && material.GetFloat("_PixelSize") != pixelSize) throw new InvalidDataException("Inconsistent material pixel size.");
                 }
             }
             var expected = new Dictionary<string, float>
@@ -181,7 +182,7 @@ namespace PurpleGlove.Editor
             Solid("Ink", new Color(0.012f, 0.016f, 0.017f), 0, 0.74f);
             Solid("Soot", new Color(0.025f, 0.021f, 0.016f), 0, 0.08f);
             Solid("Mark", new Color(0.11f, 0.065f, 0.033f), 0, 0.05f);
-            Solid("WindowNight", Color.white, 0, 0.1f, new Color(0.04f, 0.12f, 0.26f));
+            ConfigureWindowGlass();
             Solid("FlameOuter", Color.white, 0, 0, new Color(1, 0.55f, 0.10f));
             Solid("FlameCore", Color.white, 0, 0, new Color(1, 0.93f, 0.58f));
             Solid("DoorLight", Color.white, 0, 0, new Color(0.8f, 0.45f, 0.14f));
@@ -246,9 +247,42 @@ namespace PurpleGlove.Editor
             if (parent) go.transform.SetParent(parent, false);
             go.AddComponent<MeshFilter>().sharedMesh = mesh;
             var renderer = go.AddComponent<MeshRenderer>(); renderer.sharedMaterials = data.Materials;
+            ApplyArchitecturePixelStyle(renderer);
             renderer.shadowCastingMode = ShadowCastingMode.On;
             if (collider) go.AddComponent<MeshCollider>().sharedMesh = mesh;
             return go;
+        }
+
+        // Walls and door fittings use twice the sampling density on each axis.
+        // Separate materials keep shared wood/iron on desk props at their authored density.
+        public static void ApplyArchitecturePixelStyle(MeshRenderer renderer)
+        {
+            switch (renderer.name)
+            {
+                case "Room_WallsAndFloor":
+                case "Room_TimberFraming":
+                case "DoorFrame_Timber":
+                case "Door_PlanksAndIron":
+                case "Door_EyeWindowFrame":
+                case "Door_EyeShutterPanel":
+                case "Door_TransferHousing":
+                case "Door_TransferRotor":
+                case "Door_ExteriorWalls":
+                case "Door_ExteriorTimber":
+                    break;
+                default: return;
+            }
+            var surfaces = renderer.sharedMaterials;
+            for (int i = 0; i < surfaces.Length; i++)
+            {
+                var source = surfaces[i];
+                if (!source || source.shader.name != SurfaceShader) continue;
+                if (source.name.EndsWith("_Architecture", StringComparison.Ordinal)) continue;
+                var material = new Material(source);
+                material.SetFloat("_PixelSize", 2);
+                surfaces[i] = SaveMaterial(source.name.Substring("M_Desk_".Length) + "_Architecture", material);
+            }
+            renderer.sharedMaterials = surfaces;
         }
 
         static void Asset(string name, Action<GameObject> build, bool collider = true)

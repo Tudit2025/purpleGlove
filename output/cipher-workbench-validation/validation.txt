@@ -1,0 +1,8 @@
+PASS: 128 assertions; Unity 2022.3.62f2 Play Mode / Direct3D 11.
+Saved scene reload and idempotent installer; actual original-box ray click; physical lid/preview; five mutually exclusive tools.
+D is closer, exactly top-down, stable under mouse motion; 4:3, 16:9 and 21:9 framing; W/S and dialogue restoration.
+Caesar physical alignment and wrap; Saint-Cyr two-alphabet alignment and full script ciphertext with SOIE.
+52 affine cells, 82 rail cells, independent plaintext; contents survive repeated tool switches; typing blocks WASD.
+Console/dialogue interruption releases modal and writing locks without losing work.
+Keyboard event handler: letters, auto-advance, deletion, arrows, reverse Tab, last-cell bounds.
+Limit: camera captures exclude IMGUI overlays. Batch EditorWindow pointer replay was inconclusive; full Game view mouse interaction was not manually verified.

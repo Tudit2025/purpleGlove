@@ -7,6 +7,9 @@
 /[Mm]emoryCaptures/
 /[Rr]ecordings/
 
+# Local Unity validation logs (reports and screenshots remain versioned).
+/output/**/*.log
+
 # Build output.
 /[Bb]uild/
 /[Bb]uilds/

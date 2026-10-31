@@ -7,15 +7,27 @@ namespace PurpleGlove
     {
         [Range(240, 1080)] public int verticalResolution = 540;
         public bool pixelate = true;
+        [Tooltip("Render inspected document text at the display resolution for readable Chinese and cipher digits.")]
+        public bool fullResolutionDocuments = true;
+        SceneObjectInteractor interactor;
+        SceneInputGate inputGate;
+        DeskScenePreview view;
 
         void Update()
         {
-            if (Application.isPlaying && Input.GetKeyDown(KeyCode.P)) pixelate = !pixelate;
+            if (!inputGate) inputGate = GetComponent<SceneInputGate>();
+            if (Application.isPlaying && (!inputGate || !inputGate.BlocksWorldInput) && Input.GetKeyDown(KeyCode.P)) pixelate = !pixelate;
         }
 
         void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
-            if (!pixelate) { Graphics.Blit(source, destination); return; }
+            if (!interactor) interactor = GetComponent<SceneObjectInteractor>();
+            bool reading = fullResolutionDocuments && interactor && interactor.InspectedObject
+                && interactor.InspectedObject.GetComponentInChildren<TextMesh>();
+            if (!view) view = GetComponent<DeskScenePreview>();
+            reading |= fullResolutionDocuments && view && view.CurrentView == DeskScenePreview.View.DecodeFocus;
+            reading |= fullResolutionDocuments && inputGate && inputGate.WorkbenchModal;
+            if (!pixelate || reading) { Graphics.Blit(source, destination); return; }
             int height = Mathf.Min(verticalResolution, source.height);
             int width = Mathf.Max(1, Mathf.RoundToInt(height * source.width / (float)source.height));
             var small = RenderTexture.GetTemporary(width, height, 0, source.format);

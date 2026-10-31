@@ -63,6 +63,7 @@ namespace PurpleGlove.Editor
             hatch.transform.Find("HatchPivot").localRotation = Quaternion.Euler(68, 0, 0);
             MeshObject("Door_CorridorGlow", architecture, m => m.Box(V(0.445f, 0.032f, 3.37f), V(0.91f, 0.014f, 0.008f), M("DoorLight"), 0.001f));
 
+            BuildNightSky();
             BuildRoomContents(scene, architecture);
         }
 
@@ -179,6 +180,7 @@ namespace PurpleGlove.Editor
             camera.gameObject.AddComponent<AudioListener>();
             var pixel = camera.gameObject.AddComponent<PixelSceneView>(); pixel.verticalResolution = 540;
             var preview = camera.gameObject.AddComponent<DeskScenePreview>(); preview.sceneCamera = camera;
+            ConfigureDeskViews(camera);
             camera.gameObject.AddComponent<SceneObjectInteractor>();
             preview.candleLight = candle.GetComponentInChildren<Light>(); preview.flame = candle.transform.Find("Candle_Flame");
             BuildArchive(camera);
@@ -193,6 +195,10 @@ namespace PurpleGlove.Editor
             var ambience = audio.gameObject.AddComponent<SceneAmbience>();
             ambience.volume = 0.8f; ambience.fadeSeconds = 1.25f;
 
+            DeskDialogueBuilder.InstallInScene(camera);
+            DeskDeliveryBuilder.InstallInScene(camera);
+            BuildCipherWorkbench(camera);
+
             CaptureRoomReflections(camera);
 
             var allRenderers = UnityEngine.Object.FindObjectsOfType<MeshRenderer>();
@@ -201,7 +207,7 @@ namespace PurpleGlove.Editor
             report.Add("SCENE | mesh_renderers=" + allRenderers.Length + " | geometry_triangles=" + sceneTriangles + " | missing_materials=0 | cameras=1 | audio=1");
             EditorSceneManager.SaveScene(scene, Root + "/Scenes/PH_DeskRoom.unity");
             Capture(camera, "desktop", 1920, 1080);
-            camera.transform.rotation = Quaternion.Euler(preview.doorwayEuler); camera.fieldOfView = 38;
+            camera.transform.rotation = Quaternion.Euler(preview.doorwayEuler); camera.fieldOfView = DeskScenePreview.DoorwayFieldOfView;
             Capture(camera, "doorway", 1920, 1080);
             camera.transform.position = V(1.60f, 2.30f, -1.50f); camera.transform.LookAt(V(0, 0.72f, 0.1f)); camera.fieldOfView = 76;
             pixel.pixelate = false;

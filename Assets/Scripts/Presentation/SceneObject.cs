@@ -43,7 +43,7 @@ namespace PurpleGlove
             restScale = transform.localScale;
             hitBox = GetComponent<BoxCollider>();
             hasRestPose = true;
-            surfaces = GetComponentsInChildren<Renderer>();
+            surfaces = GetComponentsInChildren<Renderer>(true);
             originalProperties = new MaterialPropertyBlock[surfaces.Length];
             inspectionProperties = new MaterialPropertyBlock[surfaces.Length];
             for (int i = 0; i < surfaces.Length; i++)

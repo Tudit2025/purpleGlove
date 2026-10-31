@@ -5,17 +5,28 @@ namespace PurpleGlove
     [DisallowMultipleComponent]
     public sealed class DeskScenePreview : MonoBehaviour
     {
-        public enum View { Desktop, Doorway, Bookshelf }
+        // Keep existing serialized values; Doorway is reserved for event-driven visits.
+        public enum View { Desktop = 0, Doorway = 1, Bookshelf = 2, MatFocus = 3, DecodeFocus = 4 }
+        public const float DoorwayFieldOfView = 28.5f;
         public Camera sceneCamera;
         public Vector3 desktopEuler = new Vector3(34, 0, 0);
         public Vector3 doorwayEuler = new Vector3(5, 5.5f, 0);
         public Vector3 bookshelfEuler = new Vector3(9, -90, 0);
         [Range(30, 100)] public float bookshelfFieldOfView = 84;
+        [Header("Table focus (W)")]
+        public Transform matFocusAnchor;
+        public Vector3 matFocusOffset = new Vector3(0, 1.45f, -0.45f);
+        [Range(30, 80)] public float matFocusFieldOfView = 48;
+        [Header("Decoding mat (D)")]
+        public Transform decodeFocusAnchor;
+        public float decodeFocusHeight = 1.06f;
+        [Range(30, 80)] public float decodeFocusFieldOfView = 45;
         [SerializeField] View currentView;
         public Light candleLight;
         public Transform flame;
         public View CurrentView => currentView;
-        public bool lookingAtDoor { get => currentView == View.Doorway; set => SetView(value ? View.Doorway : View.Desktop); }
+        // Compatibility entry for explicit story triggers, never a player view shortcut.
+        public bool lookingAtDoor { get => currentView == View.Doorway; set => SetDialogueLock(value); }
 
         [Header("Mouse Look")]
         public bool followMouse = true;
@@ -33,23 +44,39 @@ namespace PurpleGlove
         float candleIntensity;
         Vector3 flameScale;
         SceneObjectInteractor objectInteractor;
+        SceneInputGate inputGate;
+        Vector3 seatedPosition;
+        public bool DialogueLocked { get; private set; }
+        public bool DeliveryLocked { get; private set; }
+        View viewBeforeDialogue;
+        View viewBeforeDelivery;
 
         void Awake()
         {
             if (!sceneCamera) sceneCamera = GetComponent<Camera>();
             if (sceneCamera) objectInteractor = sceneCamera.GetComponent<SceneObjectInteractor>();
+            if (sceneCamera) seatedPosition = sceneCamera.transform.position;
+            if (!matFocusAnchor)
+            {
+                var mat = GameObject.Find("WritingMat");
+                if (mat) matFocusAnchor = mat.transform;
+            }
+            if (currentView == View.Doorway) currentView = View.Desktop;
+            inputGate = GetComponent<SceneInputGate>();
             if (candleLight) candleIntensity = candleLight.intensity;
             if (flame) flameScale = flame.localScale;
         }
 
         void Update()
         {
-            if (!objectInteractor || !objectInteractor.BlocksSceneInput)
+            if (!DialogueLocked && !DeliveryLocked && (!inputGate || !inputGate.BlocksWorldInput)
+                && (!objectInteractor || !objectInteractor.BlocksSceneInput))
             {
-                if (Input.GetKeyDown(KeyCode.A)) SetView(View.Bookshelf);
-                else if (Input.GetKeyDown(KeyCode.W)) SetView(View.Doorway);
-                else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Escape))
-                    SetView(View.Desktop);
+                if (Input.GetKeyDown(KeyCode.A)) HandleViewKey(KeyCode.A);
+                else if (Input.GetKeyDown(KeyCode.W)) HandleViewKey(KeyCode.W);
+                else if (Input.GetKeyDown(KeyCode.D)) HandleViewKey(KeyCode.D);
+                else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Escape))
+                    HandleViewKey(KeyCode.S);
             }
             if (candleLight)
             {
@@ -62,25 +89,113 @@ namespace PurpleGlove
         void LateUpdate()
         {
             if (!sceneCamera) return;
+            if (DialogueLocked) { ApplyDialogueView(); return; }
+            if (DeliveryLocked)
+            {
+                if (currentView == View.Doorway) ApplyDialogueView();
+                else AnimateView(Time.unscaledDeltaTime, Vector2.zero);
+                return;
+            }
             if (objectInteractor && objectInteractor.BlocksSceneInput) return;
 
-            Vector2 mouseAngles = GetMouseAngles();
+            AnimateView(Time.unscaledDeltaTime, GetMouseAngles());
+        }
+
+        void AnimateView(float deltaTime, Vector2 mouseAngles)
+        {
             if (currentView == View.Bookshelf) mouseAngles *= 0.5f;
-            Vector3 viewEuler = currentView == View.Bookshelf ? bookshelfEuler : lookingAtDoor ? doorwayEuler : desktopEuler;
+            if (currentView == View.MatFocus) mouseAngles *= 0.2f;
+            if (currentView == View.DecodeFocus) mouseAngles = Vector2.zero;
+            Vector3 position = seatedPosition;
+            Vector3 viewEuler = currentView == View.Bookshelf ? bookshelfEuler : desktopEuler;
+            float fieldOfView = currentView == View.Bookshelf ? bookshelfFieldOfView : 60;
+            if (currentView == View.MatFocus && matFocusAnchor)
+            {
+                position = matFocusAnchor.TransformPoint(matFocusOffset);
+                Vector3 focus = matFocusAnchor.TransformPoint(new Vector3(0, 0.01f, 0));
+                viewEuler = Quaternion.LookRotation(focus - position, matFocusAnchor.up).eulerAngles;
+                fieldOfView = matFocusFieldOfView;
+            }
+            if (currentView == View.DecodeFocus && decodeFocusAnchor)
+            {
+                position = decodeFocusAnchor.position + Vector3.up * decodeFocusHeight;
+                viewEuler = new Vector3(90, decodeFocusAnchor.eulerAngles.y, 0);
+                fieldOfView = decodeFocusFieldOfView;
+            }
             // Always offset the authored view, so mouse movement cannot accumulate rotation.
             var target = Quaternion.Euler(viewEuler + new Vector3(-mouseAngles.y, mouseAngles.x, 0));
-            float blend = cameraFollowSpeed <= 0 ? 1 : 1 - Mathf.Exp(-Time.unscaledDeltaTime * cameraFollowSpeed);
+            float blend = cameraFollowSpeed <= 0 ? 1 : 1 - Mathf.Exp(-deltaTime * cameraFollowSpeed);
+            sceneCamera.transform.position = Vector3.Lerp(sceneCamera.transform.position, position, blend);
             sceneCamera.transform.rotation = Quaternion.Slerp(sceneCamera.transform.rotation, target, blend);
-            float fieldOfView = currentView == View.Bookshelf ? bookshelfFieldOfView : lookingAtDoor ? 38 : 60;
-            sceneCamera.fieldOfView = Mathf.Lerp(sceneCamera.fieldOfView, fieldOfView, 1 - Mathf.Exp(-Time.unscaledDeltaTime * 5));
+            sceneCamera.fieldOfView = Mathf.Lerp(sceneCamera.fieldOfView, fieldOfView, blend);
+        }
+
+        bool HandleViewKey(KeyCode key)
+        {
+            switch (key)
+            {
+                case KeyCode.W: return SetView(View.MatFocus);
+                case KeyCode.A: return SetView(View.Bookshelf);
+                case KeyCode.D: return SetView(View.DecodeFocus);
+                case KeyCode.S:
+                case KeyCode.Escape: return SetView(View.Desktop);
+                default: return false;
+            }
         }
 
         public bool SetView(View view)
         {
+            if (view != View.Desktop && view != View.Bookshelf && view != View.MatFocus && view != View.DecodeFocus) return false;
+            if (view == View.MatFocus && !matFocusAnchor) return false;
+            if (view == View.DecodeFocus && !decodeFocusAnchor) return false;
+            if (DialogueLocked || DeliveryLocked || (inputGate && inputGate.BlocksWorldInput)) return false;
             if (objectInteractor && objectInteractor.BlocksSceneInput) return false;
             if (currentView != view && objectInteractor) objectInteractor.ClearHover();
             currentView = view;
             return true;
+        }
+
+        public void SetDialogueLock(bool locked)
+        {
+            if (locked && DeliveryLocked) return;
+            if (DialogueLocked == locked) return;
+            DialogueLocked = locked;
+            if (locked)
+            {
+                if (objectInteractor) objectInteractor.CancelInteraction();
+                viewBeforeDialogue = currentView; currentView = View.Doorway;
+                ApplyDialogueView();
+            }
+            else currentView = viewBeforeDialogue;
+        }
+
+        public void BeginDeliveryView()
+        {
+            if (DialogueLocked || DeliveryLocked) return;
+            if (objectInteractor) objectInteractor.CancelInteraction();
+            viewBeforeDelivery = currentView;
+            DeliveryLocked = true; currentView = View.Doorway;
+            ApplyDialogueView();
+        }
+
+        public void FollowDeliveryToDesk()
+        {
+            if (DeliveryLocked) currentView = View.Desktop;
+        }
+
+        public void EndDeliveryView(bool completed)
+        {
+            if (!DeliveryLocked) return;
+            DeliveryLocked = false;
+            currentView = completed ? View.Desktop : viewBeforeDelivery;
+        }
+
+        void ApplyDialogueView()
+        {
+            if (!sceneCamera) return;
+            sceneCamera.transform.position = seatedPosition;
+            sceneCamera.transform.rotation = Quaternion.Euler(doorwayEuler);
+            sceneCamera.fieldOfView = DoorwayFieldOfView;
         }
 
         Vector2 GetMouseAngles()

@@ -1,0 +1,6 @@
+PASS: Unity 2022.3.62f2 / Built-in / Direct3D 11.
+Saved scene reopened; sky installed twice with exactly one sphere.
+Night sky and glass shaders supported, compiled and rendered.
+Sphere triangle winding and metric UV verified; no collider or shadows.
+Original lights, audio source count and gameplay camera preserved.
+Captured desktop, bookshelf, doorway, window close-up and sky.

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae1c8a40696510448a8d0c5c01bfcb4, type: 3}
+  m_Name: duke
+  m_EditorClassIdentifier: 
+  id: duke
+  displayName: "\u5B54\u8482\u516C\u7235"
+  isProtagonist: 0
+  textColor: {r: 0.89411765, g: 0.6862745, b: 0.49803922, a: 1}
+  charactersPerSecond: 17
+  eyes: {fileID: 2800000, guid: d513531b67ca4bf6b07987e289c41c9d, type: 3}
+  eyeDescription: "\u4F4E\u538B\u7070\u7709\u3001\u7070\u8272\u6DF1\u773C\u7A9D\uFF0C\u5A01\u4E25\u800C\u5BA1\u89C6\u3002"
+  typingClips:
+  - {fileID: 8300000, guid: 31184944e45a50ee97b8c572248b1137, type: 3}
+  - {fileID: 8300000, guid: dd07b848adcb5165af4b831ffdab8e99, type: 3}
+  - {fileID: 8300000, guid: 68fbc46aa494516ca3f790ef8d8ae14c, type: 3}
+  - {fileID: 8300000, guid: 8214194bbd30578a90f724d058683d02, type: 3}
+  pitch: 0.69
+  volume: 0.65
+  lowPassHz: 2100
+  soundInterval: 0.12

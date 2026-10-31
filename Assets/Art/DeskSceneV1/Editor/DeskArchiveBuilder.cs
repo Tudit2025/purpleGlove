@@ -71,6 +71,8 @@ namespace PurpleGlove.Editor
             if (existing)
             {
                 RefreshArchiveAppearance(existing.transform);
+                if (!existing.transform.Find("Act documents - authored desk layout"))
+                    BuildActDocuments(existing.GetComponent<ActArchiveController>());
                 return;
             }
             if (!camera) throw new InvalidOperationException("Missing desk camera.");
@@ -88,10 +90,6 @@ namespace PurpleGlove.Editor
             hud.labelFont = font;
             controller.acts = new ActArchiveController.ActFiles[5];
 
-            var currentDocuments = new[] { "Letter_Cipher", "Paper_Blank", "Envelope_Open", "Envelope_RedSeal", "IncomingEnvelope_Second" }
-                .Select(name => GameObject.Find(name).GetComponent<SceneObject>()).ToArray();
-            var futureDocuments = new GameObject("Act documents - desktop poses").transform;
-            futureDocuments.SetParent(group, false);
             for (int i = 0; i < 5; i++)
             {
                 float board = 0.16f + (4 - i) * 0.4f;
@@ -100,31 +98,14 @@ namespace PurpleGlove.Editor
                 var bundle = Place("ActDossier", anchor, Vector3.zero).AddComponent<ActArchiveBundle>();
                 bundle.name = "Act " + (i + 1) + " dossier";
                 bundle.archive = controller; bundle.act = i + 1;
-                SceneObject[] documents = i == 0 ? currentDocuments : CreateActDocuments(i + 1, futureDocuments);
                 controller.acts[i] = new ActArchiveController.ActFiles
                 {
-                    title = ActNames[i], storageAnchor = anchor, bundle = bundle, documents = documents
+                    title = ActNames[i], storageAnchor = anchor, bundle = bundle
                 };
-                bundle.gameObject.SetActive(false);
+                bundle.gameObject.SetActive(true);
             }
+            BuildActDocuments(controller);
             RefreshArchiveAppearance(group);
-        }
-
-        static SceneObject[] CreateActDocuments(int act, Transform parent)
-        {
-            var cipher = Place("Letter_Cipher", parent, V(0.015f, 0.813f, -0.19f), -3);
-            cipher.name = "Act" + act + "_Cipher";
-            var text = cipher.GetComponentInChildren<TextMesh>();
-            string[] contents = { "", "", "12-4-11 / 12-4-7 / 12-4-4 / 27-2-12\n27-2-2 / 27-2-24 / 27-2-29 / 41-3-10\n12-4-25 / 12-4-9 / 27-2-23 / 27-2-24\n27-2-27 / 27-2-26 / 41-3-2 / 12-4-14",
-                "XFIRUSEMDZKVGGAELRIAF", "VAPZRMIZCUIWVZQIPZWV", "FORMAL REPLIES\nMILANO / VENEZIA / FRANCIA" };
-            text.text = contents[act];
-            text.characterSize *= 17f / Mathf.Max(17, text.text.Split('\n').Max(line => line.Length));
-            var transcript = Place("Paper_Blank", parent, V(0.02f, 0.813f, -0.67f), 2);
-            transcript.name = "Act" + act + "_Transcript";
-            // The transcript stays blank for the player's work; archiving never invents a solved answer.
-            var result = new[] { cipher.GetComponent<SceneObject>(), transcript.GetComponent<SceneObject>() };
-            foreach (var document in result) document.gameObject.SetActive(false);
-            return result;
         }
 
         static void RefreshArchiveAppearance(Transform group)

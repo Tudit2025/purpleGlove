@@ -8,6 +8,7 @@ namespace PurpleGlove
     {
         public Font labelFont;
         DeskScenePreview view;
+        SceneInputGate inputGate;
         GUIStyle labelStyle;
         static readonly Color Ink = Color.black;
         static readonly Color Paper = new Color(0.72f, 0.63f, 0.45f);
@@ -18,6 +19,7 @@ namespace PurpleGlove
         void Awake()
         {
             view = GetComponent<DeskScenePreview>();
+            inputGate = GetComponent<SceneInputGate>();
         }
 
         Rect Bounds(out int scale)
@@ -31,7 +33,7 @@ namespace PurpleGlove
 
         void OnGUI()
         {
-            if (!view) return;
+            if (!view || view.DialogueLocked || (inputGate && inputGate.BlocksWorldInput)) return;
             Rect panel = Bounds(out int scale);
             if (labelStyle == null) labelStyle = new GUIStyle { alignment = TextAnchor.MiddleLeft, font = labelFont };
             labelStyle.fontSize = 14 * scale;

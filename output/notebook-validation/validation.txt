@@ -1,0 +1,7 @@
+PASS: 1720 assertions; Unity 2022.3.62f2 Play Mode / Direct3D 11.
+All 38 document bounds inside mat; every paper ray-clickable; mutually exclusive acts.
+No return button; notebook outside mat with bottom facing camera; both prayer books preserved.
+14 pages / 7 spreads; all Chinese glyphs; complete geometric pigpen alphabet; text fits physical pages.
+Left/right page pointer input; forward/backward animation and sound; first/last boundaries; duplicate input ignored.
+Page retained after close/reinspect/act switch; closing/disabling during turn settles safely.
+Repeated builder and saved-scene reopen verified; screenshots captured.

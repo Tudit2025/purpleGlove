@@ -1,0 +1,7 @@
+PASS: 1095 assertions. Unity 2022.3.62f2 / Play Mode / D3D11.
+8 unique speaker colours/voices; 7 pixel eye assets; 7 valid events / 40 single-sentence lines.
+Installer idempotence; saved scene reopen; all Chinese glyphs; shader and texture settings.
+Inspection cancellation, ray/direct interaction blocking, exact doorway lock, previous view/shutter restoration.
+Grapheme reveal; skip without audio burst; single panel/thirds/colour; visitor persists on protagonist reply.
+Console pause/settings/invalid commands/input suppression; every event completes; cancel/disable/arrival interruption cleanup.
+Portrait width 20 cm / setback 40 cm / RGBA silhouettes / all image borders occluded / bounce lifecycle. Screenshots contain actual camera + dialogue canvas; audio scheduling verified, subjective listening still recommended.

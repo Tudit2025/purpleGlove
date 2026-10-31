@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae1c8a40696510448a8d0c5c01bfcb4, type: 3}
+  m_Name: matteo
+  m_EditorClassIdentifier: 
+  id: matteo
+  displayName: "\u9A6C\u6CF0\u5965"
+  isProtagonist: 0
+  textColor: {r: 0.7254902, g: 0.7490196, b: 0.9411765, a: 1}
+  charactersPerSecond: 16
+  eyes: {fileID: 2800000, guid: 87c8ea0f7dad42d695d4b1a93a591df7, type: 3}
+  eyeDescription: "\u84EC\u677E\u94F6\u7709\u3001\u7070\u84DD\u773C\u775B\u4E0E\u6DF1\u7EB9\uFF0C\u75B2\u60EB\u800C\u6E29\u548C\uFF1B\u7ED3\u5C40\u9884\u7559\u3002"
+  typingClips:
+  - {fileID: 8300000, guid: bf37d6b011db55fbb9ed5b8a1ef0a60e, type: 3}
+  - {fileID: 8300000, guid: 7aa44aa02dc75278a84998f3c36ab9af, type: 3}
+  - {fileID: 8300000, guid: 1100b36528b959a38f681ecc16ba2b60, type: 3}
+  - {fileID: 8300000, guid: a42bc661405f590abd53e2794e158df8, type: 3}
+  pitch: 0.77
+  volume: 0.52
+  lowPassHz: 2700
+  soundInterval: 0.13

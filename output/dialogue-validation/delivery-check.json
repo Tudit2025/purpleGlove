@@ -1,0 +1,158 @@
+{
+  "result": "PASS",
+  "verified_files": 38,
+  "files": [
+    {
+      "path": "Assets/Data/Dialogue/Events/archive.asset",
+      "sha256": "f7e6ca6ea3a3300f49a9539cd894909513e85f6c811c3d94fc6759dd588706da"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/arrival.asset",
+      "sha256": "27f065f465f38f237a3733cdf1ef9c0c6abdba85d942c2ab7a41f512d8923d17"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/bartolo.asset",
+      "sha256": "6e3312329e5d12f74e34190db8d76517ab8fd3c96152c54103c51e6552525837"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/beatrice.asset",
+      "sha256": "74a55ebc1c2324b5f03130cddbf68106bd255bf87dc5e96f6deb7880161f63ca"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/charles.asset",
+      "sha256": "89ee52c278dbb99c0ab88d76dd371b315a5987c4136b2de0cd7715e32f711095"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/matteo.asset",
+      "sha256": "9e3c8e2351db515bd7a82341317f58d496da9689923ff7eec57f7b75b0d1b410"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/pressure.asset",
+      "sha256": "6a2da81854db18fdc098b61a62ce1a95d9337c37e4328c1ee58a256e5b795707"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Speakers/bartolo.asset",
+      "sha256": "aee5f47d428e69149b8010ee5f855bbb481edcc7e0069def6ed0bc4a4fd1d86e"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Speakers/beatrice.asset",
+      "sha256": "28d0ae846d6772ab201d181b19ee821c41912af91c9b3a84f085b20910efe77e"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Speakers/carafa.asset",
+      "sha256": "8e9fce8146300059bd8df2dc762f29fc0d896dadcf737faaa4471364cd901162"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Speakers/charles.asset",
+      "sha256": "a972d34c62c1beb15ad2b66e039d67ef31420e7552a0d8b5853347aca1860c35"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Speakers/clerk.asset",
+      "sha256": "8c75dd181388c050ec6873b9228aa91fe35fbda284c6c71391b4211457c7070a"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Speakers/duke.asset",
+      "sha256": "d89bf96955d1345441d1424269d428b35f5bdbfe6b9e13b07a0e9886763626c1"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Speakers/luca.asset",
+      "sha256": "817b2af230f97c1b97bfa7e7b2392560a292210b138f2ef3f8b012ee79742124"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Speakers/matteo.asset",
+      "sha256": "a49d565f83332ef405b271a5a50e93fab5372628202af6be2ffbdc6af3791221"
+    },
+    {
+      "path": "Assets/Art/Dialogue/Textures/eyes_bartolo.png",
+      "sha256": "af75b7e7807fbfb46c91ec99822df4c6e63dca70ce40cd131ba55b1425415223"
+    },
+    {
+      "path": "Assets/Art/Dialogue/Textures/eyes_beatrice.png",
+      "sha256": "efbf81879e53410879b26995ba2000e724f275d541efd305e5c1e0b4bb84480e"
+    },
+    {
+      "path": "Assets/Art/Dialogue/Textures/eyes_carafa.png",
+      "sha256": "4360492cfeed1a15058fbf246592a08bb159ba0857cac8b631fc2d35ccf7a9aa"
+    },
+    {
+      "path": "Assets/Art/Dialogue/Textures/eyes_charles.png",
+      "sha256": "b6126605f3fbdd025fe79ea16a34f241d74a1156f1a108d7406c1997ef45c896"
+    },
+    {
+      "path": "Assets/Art/Dialogue/Textures/eyes_clerk.png",
+      "sha256": "58d5e9355fe60b8586027864502a56614310eb4f1e263911e094d05f8d71e192"
+    },
+    {
+      "path": "Assets/Art/Dialogue/Textures/eyes_duke.png",
+      "sha256": "e253dc414b43162368472765a480ab62240e71ddebf0b1f8f43283f5d762e8e1"
+    },
+    {
+      "path": "Assets/Art/Dialogue/Textures/eyes_matteo.png",
+      "sha256": "0c7bc5df3cbf2c9913eed8b3e9e96208042ee73b332419dac8d3a571997a472e"
+    },
+    {
+      "path": "Assets/Art/Dialogue/VisitorEyes.mat",
+      "sha256": "a3815f85806f401c818aae2456553fb8df8f1757d6506151b52031092bc6f41c"
+    },
+    {
+      "path": "Assets/Art/Dialogue/VisitorEyes.shader",
+      "sha256": "48bddf7a4ce06358f560acb98252e47194a286805d2d1c5fcd6b2eb84e4af9b8"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DialogueController.cs",
+      "sha256": "60c01415f4e14fd33b1686e2328fcf2c818534b20d2cf567925e4839d3a5f89d"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DialogueEvent.cs",
+      "sha256": "5b4affb1218d43516c8d71c5cbbb43b180a24605896a64878219546bb861c00a"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DialogueOverlay.cs",
+      "sha256": "e4c1b9568799f67d951311701c693f922e31e3e5541db01be0ec7d65514ca092"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DialogueSpeaker.cs",
+      "sha256": "93d80679748b2ce0fc4339a05115ad74bee3ae35eaf20cd7172093663c358427"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DialogueTestConsole.cs",
+      "sha256": "5e2fffc0c98a8e2975d1388c2d56d84968ca0b50e0d44ff8a625555c7e425788"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DialogueVoice.cs",
+      "sha256": "8ade13eb660a5a664fd2deed7d1147f2d2caee9d6babc86a63db9471dbfeae25"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/SceneInputGate.cs",
+      "sha256": "94a229ca3f76647c167a20c661a5670716fe8f33cf21ccde927f611caa246509"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/VisitorEyes.cs",
+      "sha256": "892dd421a8f8bfeab7415b389e5a2cf026bbf5dc06c9d7b512ddbee27e0353e1"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/SceneObjectInteractor.cs",
+      "sha256": "1b1638931a7b1b7997f7392bc2e4a67edb882c3973eeb76fbc699b8d4a55d49a"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DeskViewHud.cs",
+      "sha256": "5add5012fdb495df62dea04a0aa42300dba8f877c23c8ee3eaad10bc409af855"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Runtime/DeskScenePreview.cs",
+      "sha256": "eacb287723b68868f73628146686c05493f891e918d755b42b0fbae4db559d06"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Runtime/PixelSceneView.cs",
+      "sha256": "b3e086b817bdee9905f2b442e05f6d1f8aec1cdc2262b4fe37c88879d3ddfa76"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskDialogueBuilder.cs",
+      "sha256": "db44f3e1a7f2f950120bd785aac7247867fd2e6492cdfe6ca31a98c975e09dbc"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity",
+      "sha256": "18c4aaa8aca010fdbd53fcfd06c3a87464a0dad05f8dc5e2519e3a87c2f68c25"
+    }
+  ]
+}

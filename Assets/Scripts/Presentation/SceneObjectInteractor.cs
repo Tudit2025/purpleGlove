@@ -12,7 +12,9 @@ namespace PurpleGlove
         public LayerMask interactionLayers = Physics.DefaultRaycastLayers;
 
         public SceneObject InspectedObject => inspected;
-        public bool BlocksSceneInput => isActiveAndEnabled && inspected;
+        public bool BlocksSceneInput => isActiveAndEnabled && (inspected || (inputGate && inputGate.BlocksWorldInput));
+        SceneInputGate inputGate;
+        CipherWorkbench workbench;
 
         Camera sceneCamera;
         SceneObject hovered, inspected;
@@ -25,6 +27,8 @@ namespace PurpleGlove
         void Awake()
         {
             sceneCamera = GetComponent<Camera>();
+            inputGate = GetComponent<SceneInputGate>();
+            workbench = GetComponent<CipherWorkbench>();
         }
 
         void Update()
@@ -32,18 +36,25 @@ namespace PurpleGlove
             bool canPoint = sceneCamera && sceneCamera.isActiveAndEnabled && Application.isFocused
                 && Input.mousePresent && Cursor.lockState != CursorLockMode.Locked
                 && sceneCamera.pixelRect.Contains(Input.mousePosition)
+                && (!workbench || !workbench.BlocksPointer(Input.mousePosition))
                 && (!EventSystem.current || !EventSystem.current.IsPointerOverGameObject());
             ProcessInput(Input.mousePosition, canPoint, Input.GetMouseButtonDown(0), Input.GetKeyDown(KeyCode.Escape));
         }
 
         void ProcessInput(Vector2 position, bool canPoint, bool clicked, bool close)
         {
+            if (inputGate && inputGate.BlocksObjectInput) { SetHovered(null); return; }
             if (inspected && (!inspected.isActiveAndEnabled || inspected.State == SceneObject.ObjectState.Resting))
                 inspected = null;
 
             if (inspected)
             {
                 if (close) CloseInspection();
+                else if (canPoint && clicked)
+                {
+                    var notebook = inspected.GetComponent<NotebookBook>();
+                    if (notebook) notebook.TryTurnAtPointer(sceneCamera, position);
+                }
                 return;
             }
             ProcessPointer(position, canPoint, clicked);
@@ -58,7 +69,7 @@ namespace PurpleGlove
                 interactionDistance, interactionLayers, QueryTriggerInteraction.Ignore))
             {
                 candidate = hit.collider.GetComponentInParent<SceneObject>();
-                if (candidate && !candidate.isActiveAndEnabled) candidate = null;
+                if (candidate && (!candidate.isActiveAndEnabled || (inputGate && !inputGate.CanInteract(candidate)))) candidate = null;
             }
 
             // Esc must actually put the prop away even if the pointer is still over its home position.
@@ -81,7 +92,8 @@ namespace PurpleGlove
 
         public void Inspect(SceneObject item)
         {
-            if (!isActiveAndEnabled || !sceneCamera || !item || !item.isActiveAndEnabled || inspected) return;
+            if (!isActiveAndEnabled || !sceneCamera || !item || !item.isActiveAndEnabled || inspected
+                || (inputGate && !inputGate.CanInteract(item))) return;
             SetHovered(null);
             var action = item.GetComponent<SceneObjectAction>();
             if (action && action.isActiveAndEnabled)

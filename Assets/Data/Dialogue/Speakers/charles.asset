@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae1c8a40696510448a8d0c5c01bfcb4, type: 3}
+  m_Name: charles
+  m_EditorClassIdentifier: 
+  id: charles
+  displayName: "\u590F\u5C14"
+  isProtagonist: 0
+  textColor: {r: 0.6117647, g: 0.7882353, b: 0.9411765, a: 1}
+  charactersPerSecond: 23
+  eyes: {fileID: 2800000, guid: 93f998a549ef4d828ba5de84524196b6, type: 3}
+  eyeDescription: "\u4E00\u4FA7\u7709\u6BDB\u5FAE\u6311\u3001\u6DE1\u84DD\u773C\u775B\u4E0E\u96C0\u6591\uFF0C\u8C28\u614E\u7684\u5916\u4EA4\u5B98\u3002"
+  typingClips:
+  - {fileID: 8300000, guid: a42bc661405f590abd53e2794e158df8, type: 3}
+  - {fileID: 8300000, guid: bf37d6b011db55fbb9ed5b8a1ef0a60e, type: 3}
+  - {fileID: 8300000, guid: 7aa44aa02dc75278a84998f3c36ab9af, type: 3}
+  - {fileID: 8300000, guid: 1100b36528b959a38f681ecc16ba2b60, type: 3}
+  pitch: 1.13
+  volume: 0.52
+  lowPassHz: 8700
+  soundInterval: 0.08

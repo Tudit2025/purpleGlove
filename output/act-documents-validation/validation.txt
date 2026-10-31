@@ -1,0 +1,5 @@
+PASS: 3699 assertions; Unity 2022.3.62f2 Play Mode / Direct3D 11.
+38 distinct papers; repeat build and saved-scene reopen; Chinese glyphs and text bounds.
+Default five shelf dossiers; ray-click every shelf and all 38 papers; one act at a time.
+Inspect/return; physical return folder; original instances/content retained; shared notebook and books protected.
+Late delivery, invalid/duplicate registrations, act completion and completed-act review.

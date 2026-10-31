@@ -1,0 +1,62 @@
+{
+  "result": "PASS",
+  "verified_files": 14,
+  "files": [
+    {
+      "path": "Assets/Scripts/Presentation/SealedDeliveryController.cs",
+      "sha256": "6ec50d06b69ecd794cb80906221de4ee037ba766d070210aef50390aeac550fd"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/SealedPacketAction.cs",
+      "sha256": "c897e46815ef6985176aeb205b4455c6c8ab433025cc180539e3a2182014070d"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/SceneInputGate.cs",
+      "sha256": "d93cabb6dcf6c85abd08ed2af736e2e090bcb7ead49e052dcc2d90febd0e03b5"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/SceneObjectInteractor.cs",
+      "sha256": "91cb7b172966f7ed61e670ac9d0da54e7a7600eb884f9ecee68441b362a26875"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/ActArchiveController.cs",
+      "sha256": "45fd8cc847b5d456e76aa2104577e05c733b8ff02017cd67b998912188205564"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DialogueController.cs",
+      "sha256": "e321f2d7f291a06e3fc31b6a4a1bd0255af4fb2ec9db43c80505219f25a65391"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DialogueTestConsole.cs",
+      "sha256": "249a7234a4db1d72de343471543364ca88e4e2ec48b5317cdd032f2f818e09e6"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/CipherWorkbench.cs",
+      "sha256": "76cdd45c1f15abf309477f2b54171c2144fad9d01ea195255f38625408b6728c"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Runtime/DeskScenePreview.cs",
+      "sha256": "a7325ad7e52cb96e0eb6f0d4efb2801aae964699ababf93d017dc5c9fc602d86"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskDeliveryBuilder.cs",
+      "sha256": "2ccbd4d76467949d96dd228409a3a638300bdcc98ab9ede8e64b88b3a415bc8d"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskRoomBuilder.cs",
+      "sha256": "e58a6f87c1516653750cc2c408fb975862fc3ead0f8287a4a19d521b7fbff3f7"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskDoorBuilder.cs",
+      "sha256": "ac8170eef3ba9910c5fb9f098da6bc745831108ed58edc762e5fcc5e10a1b7b8"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskActDocumentBuilder.cs",
+      "sha256": "8fa22ce02059dc78fdd986bc13eea8a04884740336f74592dfde87c32427ce6d"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity",
+      "sha256": "0ec53ddc92477942af03c121427165dd050f057a3339ae9692bbd71f5b874961"
+    }
+  ]
+}

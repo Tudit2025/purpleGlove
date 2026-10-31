@@ -28,7 +28,8 @@ Shader "PurpleGlove/Pixel Outlined"
         struct Input { float2 uv_MainTex; };
         void surf(Input IN, inout SurfaceOutputStandard o)
         {
-            // Group each 4x4 source texels into one cell without scaling the wood/stone motifs.
+            // Group source texels into cells without scaling the wood/stone motifs.
+            // Architecture uses 2x2; other surfaces retain their authored pixel size.
             float2 grid = max(float2(1,1), _MainTex_TexelSize.zw / max(1, _PixelSize));
             float2 uv = (floor(IN.uv_MainTex * grid) + 0.5) / grid;
             fixed4 c = tex2D(_MainTex, uv) * _Color;

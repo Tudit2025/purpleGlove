@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "unity": "PASS: 1230 assertions. Unity 2022.3.62f2 / Play Mode / D3D11.",
+  "scene_and_prefab_changes": {
+    "Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity": [
+      "1196477190",
+      "1901599316",
+      "1931896130",
+      "1961286292"
+    ],
+    "Assets/Art/DeskSceneV1/Prefabs/PF_DoorLeaf.prefab": [
+      "5077079922722518255",
+      "7724697493861139328",
+      "8645306002110064434",
+      "6907587024228129838",
+      "1603426649609001368"
+    ],
+    "Assets/Art/DeskSceneV1/Prefabs/PF_DoorFrame.prefab": [
+      "317620239901685826"
+    ]
+  },
+  "scope": "Only material references on 10 wall/door renderers; face scale 0.25 x 0.375 m; sampling 96 x 144.",
+  "tested_asset_hashes": {
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_Iron_Blackened_Architecture.mat": "5205dbdc5bdc1a637be66344ea43b1bba5ba16a3fb75a402f1d3c6442a00db3e",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_Iron_Blackened_Architecture.mat.meta": "b04da146af4f181270c0135db017766371076871df903595384af7ae770eca96",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_SceneBrass_Architecture.mat": "d53513870e0c7389d9bb3eda5718ec538ffdde104cea289121246e9cef841c15",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_SceneBrass_Architecture.mat.meta": "fac5145f8a22794056fc8d033b2973096d42c749e97896785855856089f970c9",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_Steel_Architecture.mat": "635137a0e4326ef3e940130268a4047159f824c201acd37a0bb4716d2f48fa7a",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_Steel_Architecture.mat.meta": "2138c488b9507d65e284286550cf0d92b72a133e6a32f7bb21be39e043ba8753",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_Wall_GreyStone_Architecture.mat": "3917568884434c06d04d83d22c15a52407ce4f6f2e8107386c50c4a259b3edb5",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_Wall_GreyStone_Architecture.mat.meta": "c5f3d473b453fd843663fb423c095111e521b73d4660059155fbd9c82dd68def",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_Wall_LimePlaster_Architecture.mat": "5fcf0773348f312635d00d70dfff0850e96b0e4dc62dbf533cede8205f1bdca9",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_Wall_LimePlaster_Architecture.mat.meta": "6824b9e06bf2e6d218064a8d6af305dd21b86e6b129dff9c97dfd3461e497b0f",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_WalnutDark_Architecture.mat": "5f8f69c71d0adab0c7765a315420e67602bcc55d0ef28e0c03674e8b59069d53",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_WalnutDark_Architecture.mat.meta": "462ea04f778e16e46b823fe075219fea0551c88c229946e37349a9ca8289afc3",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_Wood_DarkWalnut_Architecture.mat": "003e3f0b17cab3174c796bf57e37cd039ee0538d5a2be93ec0df5d7c6a091285",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_Wood_DarkWalnut_Architecture.mat.meta": "bcaec5423aced2d7ded4dd5e403261ac07a70a96a05136114ce2ac474109179c",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_Wood_Weathered_Architecture.mat": "6bba17427293e38e3598c45d93b31652958ee76f53282455fcc9bdd7856f3b2b",
+    "Assets\\Art\\DeskSceneV1\\Materials\\M_Desk_Wood_Weathered_Architecture.mat.meta": "7b72286db12f3b6f9cb6094a1c8d5e03dad774e0ce06446812aafcbe578d92d5",
+    "Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity": "9722a6f3b4e8fbae2634736da336ca79a4fb58b4f814619e33eb72f7aefbe75d",
+    "Assets/Art/DeskSceneV1/Prefabs/PF_DoorLeaf.prefab": "1298b6e9e84d53f2fd7ae30bca46f50a87971b023f5d727e4a18acd377695c0b",
+    "Assets/Art/DeskSceneV1/Prefabs/PF_DoorFrame.prefab": "59260f45b3a41a053d6996d729af01b41f046c08bf83e12ae2d48e8e10a395ec",
+    "Assets/Art/Dialogue/VisitorEyes.shader": "de039b3e6ae2459a9e8f171297bd146efcdd802b8be527f7e65c6701be027b4e",
+    "Assets/Art/DeskSceneV1/Editor/DeskDialogueBuilder.cs": "bd30ae6ca145aa31d35830a0e718043cd812f2016fc34fe264ad1f3c5c3857a8",
+    "Assets/Art/DeskSceneV1/Editor/DeskSceneBuilder.cs": "3364130167c808e7e21129ddc3b410fa04694dc828407e9c36b00fe822593b3a"
+  }
+}
