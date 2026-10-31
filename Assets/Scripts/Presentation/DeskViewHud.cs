@@ -33,7 +33,7 @@ namespace PurpleGlove
 
         void OnGUI()
         {
-            if (!view || view.DialogueLocked || (inputGate && inputGate.BlocksWorldInput)) return;
+            if (!view || view.CurrentView == DeskScenePreview.View.DecodeFocus || view.DialogueLocked || (inputGate && inputGate.BlocksWorldInput)) return;
             Rect panel = Bounds(out int scale);
             if (labelStyle == null) labelStyle = new GUIStyle { alignment = TextAnchor.MiddleLeft, font = labelFont };
             labelStyle.fontSize = 14 * scale;

@@ -13,6 +13,7 @@ namespace PurpleGlove
         public bool DeliveryActive { get; private set; }
         public SceneObject DeliveryTarget { get; private set; }
         int ignoreThroughFrame = -1;
+        public bool FrameConsumed => Time.frameCount <= ignoreThroughFrame;
         public bool BlocksObjectInput => DialogueActive || ConsoleOpen || WorkbenchModal || WorkbenchTyping || Time.frameCount <= ignoreThroughFrame;
         public bool BlocksWorldInput => DeliveryActive || BlocksObjectInput;
         public bool CanInteract(SceneObject item) => !BlocksObjectInput && (!DeliveryActive || (item && item == DeliveryTarget));

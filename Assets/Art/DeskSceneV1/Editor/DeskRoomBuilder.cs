@@ -165,7 +165,8 @@ namespace PurpleGlove.Editor
             roomFill.transform.rotation = Quaternion.Euler(55,-25,0); roomFill.cullingMask = 1 << 8;
             var moon = AddLight(lighting, "Window moonlight", LightType.Spot, V(-1.63f, 1.95f, 0.52f), new Color(0.30f, 0.48f, 0.82f), 1.45f, 6);
             moon.transform.LookAt(V(0.35f, 0.65f, -0.15f)); moon.spotAngle = 100; moon.innerSpotAngle = 48; moon.shadows = LightShadows.Soft;
-            var bounce = AddLight(lighting, "Candle bounce across papers", LightType.Point, V(-0.15f, 1.6f, -0.70f), new Color(1, 0.80f, 0.57f), 0.72f, 2.7f);
+            // Spread the existing candle bounce over the right-hand tools and writing slip.
+            var bounce = AddLight(lighting, "Candle bounce across papers", LightType.Point, V(0.65f, 1.6f, -0.50f), new Color(1, 0.80f, 0.57f), 1.44f, 3.2f);
             bounce.shadows = LightShadows.None;
             bounce.cullingMask = ~(1 << 8);
             var corridor = AddLight(lighting, "Door sill spill", LightType.Point, V(0.45f, 0.13f, 3.23f), new Color(1, 0.62f, 0.28f), 0.65f, 1.2f);

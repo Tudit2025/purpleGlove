@@ -19,6 +19,7 @@ namespace PurpleGlove
         [Range(30, 80)] public float matFocusFieldOfView = 48;
         [Header("Decoding mat (D)")]
         public Transform decodeFocusAnchor;
+        public Transform decodeDetailAnchor;
         public float decodeFocusHeight = 1.06f;
         [Range(30, 80)] public float decodeFocusFieldOfView = 45;
         [SerializeField] View currentView;
@@ -46,6 +47,7 @@ namespace PurpleGlove
         SceneObjectInteractor objectInteractor;
         SceneInputGate inputGate;
         Vector3 seatedPosition;
+        float decodeZoom = 1;
         public bool DialogueLocked { get; private set; }
         public bool DeliveryLocked { get; private set; }
         View viewBeforeDialogue;
@@ -72,6 +74,8 @@ namespace PurpleGlove
             if (!DialogueLocked && !DeliveryLocked && (!inputGate || !inputGate.BlocksWorldInput)
                 && (!objectInteractor || !objectInteractor.BlocksSceneInput))
             {
+                if (currentView == View.DecodeFocus && sceneCamera && sceneCamera.pixelRect.Contains(Input.mousePosition))
+                    AdjustDecodeZoom(Input.GetAxis("Mouse ScrollWheel"));
                 if (Input.GetKeyDown(KeyCode.A)) HandleViewKey(KeyCode.A);
                 else if (Input.GetKeyDown(KeyCode.W)) HandleViewKey(KeyCode.W);
                 else if (Input.GetKeyDown(KeyCode.D)) HandleViewKey(KeyCode.D);
@@ -118,7 +122,9 @@ namespace PurpleGlove
             }
             if (currentView == View.DecodeFocus && decodeFocusAnchor)
             {
-                position = decodeFocusAnchor.position + Vector3.up * decodeFocusHeight;
+                Vector3 focus = decodeDetailAnchor ? Vector3.Lerp(decodeDetailAnchor.position, decodeFocusAnchor.position, (decodeZoom - 0.60f) / 0.40f)
+                    : decodeFocusAnchor.position;
+                position = focus + Vector3.up * (decodeFocusHeight * decodeZoom);
                 viewEuler = new Vector3(90, decodeFocusAnchor.eulerAngles.y, 0);
                 fieldOfView = decodeFocusFieldOfView;
             }
@@ -143,6 +149,12 @@ namespace PurpleGlove
             }
         }
 
+        void AdjustDecodeZoom(float scroll)
+        {
+            if (currentView != View.DecodeFocus || !decodeDetailAnchor || (inputGate && inputGate.BlocksWorldInput)) return;
+            decodeZoom = Mathf.Clamp(decodeZoom - scroll * 0.65f, 0.60f, 1);
+        }
+
         public bool SetView(View view)
         {
             if (view != View.Desktop && view != View.Bookshelf && view != View.MatFocus && view != View.DecodeFocus) return false;
@@ -150,7 +162,11 @@ namespace PurpleGlove
             if (view == View.DecodeFocus && !decodeFocusAnchor) return false;
             if (DialogueLocked || DeliveryLocked || (inputGate && inputGate.BlocksWorldInput)) return false;
             if (objectInteractor && objectInteractor.BlocksSceneInput) return false;
-            if (currentView != view && objectInteractor) objectInteractor.ClearHover();
+            if (currentView != view)
+            {
+                if (objectInteractor) objectInteractor.ClearHover();
+                if (view == View.DecodeFocus) decodeZoom = 1;
+            }
             currentView = view;
             return true;
         }

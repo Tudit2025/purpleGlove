@@ -1,0 +1,32 @@
+Unity 2022.3.62f2 / Play Mode / saved scene / Direct3D 11
+Cipher_LinenMat | layer=0 | cast=Off | receive=True
+  M_Desk_DecodeLinen | texture=T_Leather_Umber | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+  M_Desk_Stitch | texture=T_Leather_Umber | fill=RGBA(0.000, 0.000, 0.000, 0.000) | pixelSize=4
+Cipher_PlaintextSlip | layer=0 | cast=Off | receive=True
+  M_Desk_DecodeIvory | texture=T_Paper_RagIvory | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+  M_Desk_Stitch | texture=T_Leather_Umber | fill=RGBA(0.000, 0.000, 0.000, 0.000) | pixelSize=4
+Cipher_CaesarBody | layer=0 | cast=On | receive=True
+  M_Desk_Metal_AgedBrass | texture=T_Metal_AgedBrass | fill=RGBA(0.000, 0.000, 0.000, 0.000) | pixelSize=4
+  M_Desk_DecodeIvory | texture=T_Paper_RagIvory | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+  M_Desk_DecodeInk | texture=none | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+Cipher_CaesarRotor | layer=0 | cast=On | receive=True
+  M_Desk_Wood_HoneyOak | texture=T_Wood_HoneyOak | fill=RGBA(0.000, 0.000, 0.000, 0.000) | pixelSize=4
+  M_Desk_DecodeIvory | texture=T_Paper_RagIvory | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+  M_Desk_Metal_AgedBrass | texture=T_Metal_AgedBrass | fill=RGBA(0.000, 0.000, 0.000, 0.000) | pixelSize=4
+Cipher_PigpenCard | layer=0 | cast=Off | receive=True
+  M_Desk_DecodeIvory | texture=T_Paper_RagIvory | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+  M_Desk_Ink | texture=none | fill=RGBA(0.000, 0.000, 0.000, 0.000) | pixelSize=4
+Cipher_SaintCyrFrame | layer=0 | cast=On | receive=True
+  M_Desk_Wood_HoneyOak | texture=T_Wood_HoneyOak | fill=RGBA(0.000, 0.000, 0.000, 0.000) | pixelSize=4
+  M_Desk_DecodeIvory | texture=T_Paper_RagIvory | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+  M_Desk_DecodeInk | texture=none | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+Cipher_SaintCyrSlide | layer=0 | cast=On | receive=True
+  M_Desk_DecodeIvory | texture=T_Paper_RagIvory | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+Cipher_AffinePaper | layer=0 | cast=Off | receive=True
+  M_Desk_DecodeIvory | texture=T_Paper_RagIvory | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+  M_Desk_DecodeInk | texture=none | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+Cipher_RailPaper | layer=0 | cast=Off | receive=True
+  M_Desk_DecodeIvory | texture=T_Paper_RagIvory | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+  M_Desk_DecodeInk | texture=none | fill=RGBA(0.000, 0.000, 0.000, 1.000) | pixelSize=4
+
+Rendered desktop, handwritten slip, five tools, and half-light comparison.

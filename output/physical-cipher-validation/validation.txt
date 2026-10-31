@@ -1,0 +1,6 @@
+PASS: 547 assertions in Unity 2022.3.62f2 Play Mode.
+Idempotent scene generation; 78 individual wood tiles; 26 reusable prefabs; QWERTY identity and metre UV material standard.
+Actual collider picking for toolbox slots, keyword pegs, all 26 letters, grid and writing paper; physical drag handlers for rotation, slide and letter drops.
+Tool exclusivity/animated exchange, field input, persistence across switches, invalid drops, typing and drag input gates, console/dialogue interruption.
+4:3 / 16:9 / 21:9 camera framing and real rendered screenshots.
+Limit: synthetic pointer/key replay in Play Mode; no manual OS mouse or IME testing.

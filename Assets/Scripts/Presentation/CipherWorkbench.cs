@@ -17,7 +17,9 @@ namespace PurpleGlove
         public GameObject[] storedTools = new GameObject[5];
         public TextMesh[] affineLetters = new TextMesh[52];
         public TextMesh[] railLetters = new TextMesh[82];
-        public TextMesh plaintextInk;
+        public TextMesh plaintextInk, keywordInk;
+        public Transform letterTray, writingQuill;
+        public CipherLetterTile[] letterSamples = new CipherLetterTile[26];
         public AudioClip takeSound, returnSound, paperSound;
         public float slidePitch = 0.0093f;
         public Tool ActiveTool { get; private set; } = Tool.None;
@@ -36,7 +38,13 @@ namespace PurpleGlove
         Camera sceneCamera;
         AudioSource sound;
         int editingCell = -1;
-        bool writing, typing, pendingFocus;
+        bool writing, typing, pendingFocus, editingKeyword;
+        Vector3 quillPosition;
+        Quaternion quillRotation;
+        Collider quillCollider;
+        bool quillColliderEnabled;
+        IMECompositionMode previousImeMode;
+        public bool IsManipulating => dragTarget || movingTool >= 0;
         bool InWorkspace => view && view.CurrentView == DeskScenePreview.View.DecodeFocus;
         bool Interrupted => (gate && (gate.DialogueActive || gate.ConsoleOpen || gate.DeliveryActive)) || (view && view.DialogueLocked);
 
@@ -47,6 +55,13 @@ namespace PurpleGlove
             sound = gameObject.AddComponent<AudioSource>(); sound.playOnAwake = false; sound.spatialBlend = 0; sound.volume = 0.42f;
             for (int i = 0; i < Affine.Length; i++) Affine[i] = "";
             for (int i = 0; i < Rails.Length; i++) Rails[i] = "";
+            if (writingQuill)
+            {
+                quillPosition = writingQuill.position; quillRotation = writingQuill.rotation;
+                quillCollider = writingQuill.GetComponent<Collider>();
+                quillColliderEnabled = quillCollider && quillCollider.enabled;
+            }
+            RememberToolPoses();
             ApplySelection();
         }
 
@@ -58,14 +73,13 @@ namespace PurpleGlove
                 if (typing || writing || editingCell >= 0) EndWriting();
                 pendingFocus = false;
                 pendingDesktop = false;
+                CancelManipulation();
                 return;
             }
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (ToolboxOpen) CloseToolbox();
-                else if (typing || writing || editingCell >= 0) EndWriting();
-            }
-            if (!InWorkspace && (writing || typing || editingCell >= 0)) EndWriting();
+            // Respect the same-frame close of another modal (console/dialogue/inspection).
+            if (gate && gate.FrameConsumed) return;
+            if (Input.GetKeyDown(KeyCode.Escape) && HandleEscape()) return;
+            if (!InWorkspace && !ToolboxOpen && !pendingFocus) { if (typing) EndWriting(); if (IsManipulating) CancelManipulation(); }
             if (pendingDesktop && (!gate || !gate.BlocksWorldInput))
             {
                 pendingDesktop = false; view.SetView(DeskScenePreview.View.Desktop);
@@ -74,6 +88,7 @@ namespace PurpleGlove
             {
                 pendingFocus = false; view.SetView(DeskScenePreview.View.DecodeFocus);
             }
+            ProcessPhysicalInput();
         }
 
         void LateUpdate()
@@ -83,49 +98,73 @@ namespace PurpleGlove
             {
                 if (ToolboxOpen) CloseToolbox();
                 if (typing || writing || editingCell >= 0) EndWriting();
+                CancelManipulation();
                 return;
             }
             float blend = 1 - Mathf.Exp(-12 * Time.unscaledDeltaTime);
-            if (lid) lid.localRotation = Quaternion.Slerp(lid.localRotation, Quaternion.Euler(ToolboxOpen ? 108 : 0, 0, 0), blend);
+            if (lid) lid.localRotation = Quaternion.Slerp(lid.localRotation, Quaternion.Euler(ToolboxOpen || movingTool >= 0 ? 108 : 0, 0, 0), blend);
             if (caesarRotor) caesarRotor.localRotation = Quaternion.Slerp(caesarRotor.localRotation,
                 Quaternion.Euler(0, CaesarShift * 360f / 26, 0), blend);
             if (saintCyrSlide) saintCyrSlide.localPosition = Vector3.Lerp(saintCyrSlide.localPosition,
                 new Vector3(-SlideShift * slidePitch, 0, 0), blend);
+            AnimateToolTransfer(Time.unscaledDeltaTime);
+            UpdateQuill();
         }
 
-        public bool BlocksPointer(Vector2 position) => ToolboxOpen || InWorkspace;
+        bool pendingDesktop;
+
+        bool HandleEscape()
+        {
+            bool busy = ToolboxOpen || IsManipulating || typing;
+            if (!busy && !InWorkspace) return false;
+            if (IsManipulating) CancelManipulation();
+            else if (ToolboxOpen) CloseToolbox();
+            else if (typing) EndWriting();
+            if (gate) gate.ConsumeFrame();
+            if (!busy) pendingDesktop = true;
+            return true;
+        }
+
+        public bool BlocksPointer(Vector2 position) => isActiveAndEnabled && (ToolboxOpen || InWorkspace);
 
         public void OpenToolbox()
         {
-            if (Interrupted || !toolbox || ToolboxOpen) return;
+            if (Interrupted || !toolbox || ToolboxOpen || IsManipulating) return;
             EndWriting();
             pendingDesktop = pendingFocus = false;
             if (interactor) interactor.CancelInteraction();
             ToolboxOpen = true;
+            var closeHit = lid ? lid.Find("Close physical lid") : null;
+            if (closeHit) closeHit.gameObject.SetActive(true);
             toolbox.BeginInspection(sceneCamera);
+            toolbox.GetComponent<BoxCollider>().enabled = false;
             if (gate) gate.SetWorkbenchModal(true);
             Play(takeSound);
         }
 
         public void CloseToolbox()
         {
+            bool wasOpen = ToolboxOpen;
             ToolboxOpen = false;
             if (toolbox) toolbox.RestoreImmediately();
+            if (toolbox) toolbox.GetComponent<BoxCollider>().enabled = true;
             if (lid) lid.localRotation = Quaternion.identity;
-            if (gate) gate.SetWorkbenchModal(false);
+            var closeHit = lid ? lid.Find("Close physical lid") : null;
+            if (closeHit) closeHit.gameObject.SetActive(false);
+            if (wasOpen && gate) gate.SetWorkbenchModal(false);
         }
 
         public bool SelectTool(Tool tool)
         {
             int index = (int)tool;
-            if (Interrupted || index < -1 || index >= tools.Length || (index >= 0 && !tools[index])) return false;
+            if (Interrupted || IsManipulating || index < -1 || index >= tools.Length || (index >= 0 && !tools[index])) return false;
             EndWriting();
-            // Deactivate the previous object before exposing its replacement. No second tool can occupy the mat.
-            foreach (var item in tools) if (item) item.SetActive(false);
-            ActiveTool = tool; ApplySelection();
             CloseToolbox();
             pendingFocus = true;
-            Play(tool == Tool.None ? returnSound : takeSound);
+            requestedTool = tool;
+            if (ActiveTool == tool) return true;
+            if (ActiveTool != Tool.None) StartToolTransfer((int)ActiveTool, true);
+            else if (tool != Tool.None) StartToolTransfer(index, false);
             return true;
         }
 
@@ -159,12 +198,19 @@ namespace PurpleGlove
         {
             Keyword = LettersOnly(value, 24); KeywordIndex = 0;
             if (Keyword.Length > 0) SetSlideShift(Keyword[0] - 'A');
+            RefreshKeyword();
         }
         public void StepKeyword(int direction)
         {
             if (Keyword.Length == 0) return;
             KeywordIndex = (KeywordIndex + direction % Keyword.Length + Keyword.Length) % Keyword.Length;
             SetSlideShift(Keyword[KeywordIndex] - 'A');
+            RefreshKeyword();
+        }
+        void RefreshKeyword()
+        {
+            if (keywordInk) keywordInk.text = Keyword.Length == 0 ? "________________________" :
+                Keyword + "\n" + new string(' ', KeywordIndex) + "^";
         }
         public void SetCell(Tool tool, int index, string value)
         {
@@ -179,31 +225,49 @@ namespace PurpleGlove
             Plaintext = (value ?? "").Replace("\r", "");
             if (Plaintext.Length > 600) Plaintext = Plaintext.Substring(0, 600);
             if (!plaintextInk) return;
-            // Keep the entire draft in the editor; the physical slip shows its first six wrapped lines.
+            // Show the latest six lines directly on the paper; the complete draft remains in Plaintext.
             var visible = new StringBuilder(); int width = 0, line = 0;
             foreach (char c in Plaintext)
             {
                 if (c == '\n' || width + (c > 255 ? 2 : 1) > 48)
                 {
-                    if (++line >= 6) { visible.Append(" …"); break; }
+                    ++line;
                     visible.Append('\n'); width = 0;
                     if (c == '\n') continue;
                 }
                 visible.Append(c); width += c > 255 ? 2 : 1;
             }
-            plaintextInk.text = visible.ToString();
+            string[] lines = visible.ToString().Split('\n');
+            plaintextInk.text = string.Join("\n", lines, Mathf.Max(0, lines.Length - 6), Mathf.Min(6, lines.Length));
         }
         void EndWriting()
         {
-            editingCell = -1; writing = false; typing = false; focusField = false;
-            if (gate) gate.SetWorkbenchTyping(false);
-            clearFocus = true;
+            editingCell = -1; writing = false; editingKeyword = false;
+            if (typing)
+            {
+                if (gate) gate.SetWorkbenchTyping(false);
+                Input.imeCompositionMode = previousImeMode;
+            }
+            typing = false;
+            if (quillCollider) quillCollider.enabled = quillColliderEnabled;
+            if (writingQuill) writingQuill.SetPositionAndRotation(quillPosition, quillRotation);
         }
-        void BeginTyping() { typing = true; if (gate && !gate.WorkbenchTyping) gate.SetWorkbenchTyping(true); }
+        void BeginTyping()
+        {
+            if (!typing) previousImeMode = Input.imeCompositionMode;
+            typing = true; Input.imeCompositionMode = IMECompositionMode.On;
+            if (quillCollider) quillCollider.enabled = false;
+            if (gate && !gate.WorkbenchTyping) gate.SetWorkbenchTyping(true);
+        }
         void Play(AudioClip clip) { if (sound && clip) sound.PlayOneShot(clip); }
         void OnDisable()
         {
-            CloseToolbox(); EndWriting(); pendingFocus = false;
+            CloseToolbox(); EndWriting(); pendingFocus = pendingDesktop = false;
+            CancelManipulation();
+        }
+        void OnApplicationFocus(bool focused)
+        {
+            if (!focused) { CancelManipulation(); EndWriting(); CloseToolbox(); }
         }
     }
 }

@@ -63,7 +63,7 @@ namespace PurpleGlove.Editor
                 camera.GetComponent<PixelSceneView>().pixelate = false;
                 Capture(camera, "overview", 1920, 1080);
                 if (ShaderUtil.ShaderHasError(Shader.Find(SurfaceShader))) throw new InvalidDataException("Outline shader rendering errors.");
-                File.WriteAllText(Output + "/saved-scene-validation.txt", "PASS: saved scene reopened in a fresh Unity process.\nNo missing scripts, meshes, materials or rain clip.\nTriangle winding, nondegenerate geometry and metric UV verified.\nMaterial pixel size = 2 for architecture (64 texels/m), 4 for props (32 texels/m); outline shader and UV3 normals verified.\nAll six scene lights and ambient colours = 50% of v1.\nBuild scene 0 and editor Play start scene = PH_DeskRoom.\nFlame protrudes above wax; desktop, doorway and overview rendered from saved assets.\nUnity 2022.3.62f2 / Built-in / Direct3D 11.\n");
+                File.WriteAllText(Output + "/saved-scene-validation.txt", "PASS: saved scene reopened in a fresh Unity process.\nNo missing scripts, meshes, materials or rain clip.\nTriangle winding, nondegenerate geometry and metric UV verified.\nMaterial pixel size = 2 for architecture (64 texels/m), 4 for props (32 texels/m); outline shader and UV3 normals verified.\nScene light intensities and right-desk paper bounce verified; ambient colours = 50% of v1.\nBuild scene 0 and editor Play start scene = PH_DeskRoom.\nFlame protrudes above wax; desktop, doorway and overview rendered from saved assets.\nUnity 2022.3.62f2 / Built-in / Direct3D 11.\n");
                 Debug.Log("SAVED_DESK_SCENE_PASS");
             }
             catch (Exception exception) { Debug.LogException(exception); if (Application.isBatchMode) EditorApplication.Exit(1); throw; }
@@ -89,12 +89,12 @@ namespace PurpleGlove.Editor
             var expected = new Dictionary<string, float>
             {
                 { "Dim candle spill on room", 0.11f }, { "Cool room ambient fill", 0.08f },
-                { "Window moonlight", 0.725f }, { "Candle bounce across papers", 0.36f }, { "Door sill spill", 0.325f }
+                { "Window moonlight", 0.725f }, { "Candle bounce across papers", 0.72f }, { "Door sill spill", 0.325f }
             };
             foreach (var entry in expected)
             {
                 var light = GameObject.Find(entry.Key).GetComponent<Light>();
-                if (Mathf.Abs(light.intensity - entry.Value) > 0.0001f) throw new InvalidDataException("Light not halved: " + entry.Key);
+                if (Mathf.Abs(light.intensity - entry.Value) > 0.0001f) throw new InvalidDataException("Unexpected scene light intensity: " + entry.Key);
             }
             if (Mathf.Abs(Camera.main.GetComponent<DeskScenePreview>().candleLight.intensity - 0.95f) > 0.0001f)
                 throw new InvalidDataException("Candle intensity not halved.");
