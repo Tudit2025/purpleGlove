@@ -249,8 +249,9 @@ namespace PurpleGlove
         // IMGUI receives key/IME events only. It draws no labels, buttons, fields, panels or overlays.
         void OnGUI()
         {
-            if (!typing || Interrupted || !InWorkspace || Event.current.type != EventType.KeyDown) return;
-            HandleWritingInput(Event.current);
+            if (Interrupted || !InWorkspace || Event.current.type != EventType.KeyDown) return;
+            if (typing) HandleWritingInput(Event.current);
+            else HandleDecodeKey(Event.current);
         }
 
         void HandleWritingInput(Event e)

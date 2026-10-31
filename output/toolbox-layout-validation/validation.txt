@@ -1,0 +1,10 @@
+PASS: 385 assertions in Unity 2022.3.62f2 Play Mode.
+Repeated layout is stable; surrounding props and working tools preserved.
+Five enlarged flat tools fit below the lid without overlap; texture density and click regions checked.
+Actual collider picking at five points per tool from desktop/decode at 4:3, 16:9 and 21:9; take/return all tools.
+Caesar: scale=0.333, enlarged=1.67x, tray bounds=Center: (-0.15, 0.01, 0.06), Extents: (0.06, 0.00, 0.06)
+Pigpen: scale=0.207, enlarged=1.59x, tray bounds=Center: (-0.15, 0.01, -0.07), Extents: (0.06, 0.00, 0.03)
+SaintCyr: scale=0.302, enlarged=2.33x, tray bounds=Center: (-0.02, 0.01, 0.01), Extents: (0.04, 0.01, 0.11)
+Affine: scale=0.333, enlarged=2.56x, tray bounds=Center: (0.07, 0.01, 0.01), Extents: (0.04, 0.00, 0.10)
+RailFence: scale=0.333, enlarged=2.56x, tray bounds=Center: (0.17, 0.01, 0.01), Extents: (0.04, 0.00, 0.10)
+Synthetic pointer replay; screenshots rendered from the saved scene.

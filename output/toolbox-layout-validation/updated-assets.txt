@@ -1,0 +1,16 @@
+Assets/Art/DeskSceneV1/Meshes/Stored_0_Cipher_CaesarBody.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_0_Cipher_CaesarRotor.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_0_Cipher_ReturnGrip_0.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_1_Cipher_PigpenCard.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_1_Cipher_ReturnGrip_1.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_2_Cipher_SaintCyrFrame.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_2_Cipher_SaintCyrSlide.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_2_Cipher_KeyPeg_Previous.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_2_Cipher_KeyPeg_Next.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_2_Cipher_ReturnGrip_2.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_3_Cipher_AffinePaper.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_3_Cipher_ReturnGrip_3.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_4_Cipher_RailPaper.asset
+Assets/Art/DeskSceneV1/Meshes/Stored_4_Cipher_ReturnGrip_4.asset
+Assets/Art/DeskSceneV1/Meshes/Cipher_BoxTray.asset
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity

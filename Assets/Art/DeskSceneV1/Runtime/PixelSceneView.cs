@@ -12,11 +12,14 @@ namespace PurpleGlove
         SceneObjectInteractor interactor;
         SceneInputGate inputGate;
         DeskScenePreview view;
+        CipherWorkbench workbench;
 
         void Update()
         {
             if (!inputGate) inputGate = GetComponent<SceneInputGate>();
-            if (Application.isPlaying && (!inputGate || !inputGate.BlocksWorldInput) && Input.GetKeyDown(KeyCode.P)) pixelate = !pixelate;
+            if (!workbench) workbench = GetComponent<CipherWorkbench>();
+            if (Application.isPlaying && (!inputGate || !inputGate.BlocksWorldInput)
+                && (!workbench || !workbench.UsesDecodeKeyboard) && Input.GetKeyDown(KeyCode.P)) pixelate = !pixelate;
         }
 
         void OnRenderImage(RenderTexture source, RenderTexture destination)

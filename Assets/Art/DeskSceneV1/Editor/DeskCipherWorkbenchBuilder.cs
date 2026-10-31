@@ -101,42 +101,20 @@ namespace PurpleGlove.Editor
             if (oldLidHit) UnityEngine.Object.DestroyImmediate(oldLidHit.gameObject);
             CipherHit(work.lid, "Close physical lid", CipherWorkbenchTarget.Kind.CloseBox, V(0, 0.01f, -0.15f), V(0.51f, 0.025f, 0.30f)).gameObject.SetActive(false);
             var tray = Child(box.transform, "Cipher tray", V(0, 0.13f, 0));
-            MeshObject("Cipher_BoxTray", tray, m =>
-            {
-                m.Box(Vector3.zero, V(0.44f, 0.008f, 0.255f), M("Leather_Umber"), 0.002f);
-                for (int i = 0; i < 4; i++) m.Box(V(-0.132f + i * 0.088f, 0.015f, 0), V(0.004f, 0.025f, 0.255f), M("Wood_HoneyOak"));
-            });
             for (int i = 0; i < work.tools.Length; i++)
             {
                 var miniature = UnityEngine.Object.Instantiate(work.tools[i], tray);
                 miniature.name = "Stored " + (CipherWorkbench.Tool)i;
-                miniature.transform.localPosition = V(-0.176f + i * 0.088f, 0.01f, 0);
-                miniature.transform.localScale = Vector3.one * (i == 0 ? 0.20f : 0.13f);
-                miniature.transform.localRotation = Quaternion.Euler(0, 90, 0);
                 foreach (var target in miniature.GetComponentsInChildren<CipherWorkbenchTarget>(true)) UnityEngine.Object.DestroyImmediate(target.gameObject);
-                // Miniatures also use metre UVs; scaling a full-size tool must not shrink the wood grain.
-                foreach (var filter in miniature.GetComponentsInChildren<MeshFilter>(true))
-                {
-                    var source = filter.sharedMesh;
-                    string path = Root + "/Meshes/Stored_" + i + "_" + source.name + ".asset";
-                    var mesh = UnityEngine.Object.Instantiate(source); mesh.name = "Stored_" + i + "_" + source.name;
-                    var uv = mesh.uv;
-                    for (int u = 0; u < uv.Length; u++) uv[u] *= miniature.transform.localScale.x;
-                    mesh.uv = uv;
-                    var saved = AssetDatabase.LoadAssetAtPath<Mesh>(path);
-                    if (saved) { EditorUtility.CopySerialized(mesh, saved); UnityEngine.Object.DestroyImmediate(mesh); }
-                    else { AssetDatabase.CreateAsset(mesh, path); saved = mesh; }
-                    filter.sharedMesh = saved;
-                }
                 work.storedTools[i] = miniature;
                 var pick = CipherHit(tray, "Take " + (CipherWorkbench.Tool)i, CipherWorkbenchTarget.Kind.StoredTool,
-                    V(-0.176f + i * 0.088f, 0.030f, 0), V(0.080f, 0.035f, 0.19f));
+                    Vector3.zero, Vector3.one * 0.01f);
                 pick.tool = (CipherWorkbench.Tool)i;
                 CipherText(tray, "Slot " + i, new[] { "转盘", "猪圈", "滑尺", "仿射", "栅栏" }[i],
-                    V(-0.176f + i * 0.088f, 0.008f, -0.105f), 0.0018f, work.uiFont);
+                    Vector3.zero, 0.0011f, work.uiFont);
                 work.tools[i].SetActive(false);
             }
-            CipherText(tray, "Toolbox title", "解密工具盒", V(0, 0.012f, 0.103f), 0.0018f, work.uiFont);
+            LayoutCipherToolboxContents(work, tray);
             BuildLetterTray(root, work);
             var view = camera.GetComponent<DeskScenePreview>();
             view.decodeFocusAnchor = Child(root, "Decode camera anchor", V(0.96f, 0.802f, -0.16f));

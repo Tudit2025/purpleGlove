@@ -64,6 +64,7 @@ namespace PurpleGlove
                 quillColliderEnabled = quillCollider && quillCollider.enabled;
             }
             RememberToolPoses();
+            InitializeKeyboardTray();
             ApplySelection();
         }
 
@@ -76,6 +77,7 @@ namespace PurpleGlove
                 pendingFocus = false;
                 pendingDesktop = false;
                 CancelManipulation();
+                SuspendDecodeKeyboard();
                 return;
             }
             // Respect the same-frame close of another modal (console/dialogue/inspection).
@@ -91,6 +93,7 @@ namespace PurpleGlove
                 pendingFocus = !view.SetView(DeskScenePreview.View.DecodeFocus);
             }
             ProcessPhysicalInput();
+            UpdateDecodeKeyboard();
         }
 
         void LateUpdate()
@@ -101,6 +104,7 @@ namespace PurpleGlove
                 if (ToolboxOpen) CloseToolbox();
                 if (typing || writing || editingCell >= 0) EndWriting();
                 CancelManipulation();
+                SuspendDecodeKeyboard();
                 return;
             }
             float blend = 1 - Mathf.Exp(-12 * Time.unscaledDeltaTime);
@@ -110,6 +114,8 @@ namespace PurpleGlove
             if (saintCyrSlide) saintCyrSlide.localPosition = Vector3.Lerp(saintCyrSlide.localPosition,
                 new Vector3(-SlideShift * slidePitch, 0, 0), blend);
             AnimateToolTransfer(Time.unscaledDeltaTime);
+            AnimateKeyboardTray(Time.unscaledDeltaTime);
+            AnimateLetterStamps(Time.unscaledDeltaTime);
             UpdateQuill();
         }
 
@@ -133,6 +139,7 @@ namespace PurpleGlove
         {
             if (Interrupted || !toolbox || ToolboxOpen || IsManipulating) return;
             EndWriting();
+            SuspendDecodeKeyboard(); decodedStrokes.Clear();
             pendingDesktop = pendingFocus = false;
             if (interactor) interactor.CancelInteraction();
             ToolboxOpen = true;
@@ -161,6 +168,7 @@ namespace PurpleGlove
             int index = (int)tool;
             if (Interrupted || IsManipulating || index < -1 || index >= tools.Length || (index >= 0 && !tools[index])) return false;
             EndWriting();
+            decodedStrokes.Clear();
             CloseToolbox();
             pendingFocus = true;
             requestedTool = tool;
@@ -177,6 +185,7 @@ namespace PurpleGlove
                 if (tools[i]) tools[i].SetActive((int)ActiveTool == i);
                 if (i < storedTools.Length && storedTools[i]) storedTools[i].SetActive((int)ActiveTool != i);
             }
+            RefreshKeyboardMapping();
         }
 
         public void FocusWorkspace()
@@ -187,8 +196,13 @@ namespace PurpleGlove
         }
 
         public static int Wrap(int value) => (value % 26 + 26) % 26;
-        public void SetCaesarShift(int value) => CaesarShift = Wrap(value);
-        public void SetSlideShift(int value) => SlideShift = Wrap(value);
+        public void SetCaesarShift(int value)
+        {
+            int next = Wrap(value);
+            if (next != CaesarShift) caesarConfigured = true;
+            CaesarShift = next; RefreshKeyboardMapping();
+        }
+        public void SetSlideShift(int value) { SlideShift = Wrap(value); RefreshKeyboardMapping(); }
         public static string LettersOnly(string value, int limit)
         {
             var result = new StringBuilder();
@@ -198,8 +212,10 @@ namespace PurpleGlove
         }
         public void SetKeyword(string value)
         {
+            decodedStrokes.Clear();
             Keyword = LettersOnly(value, 24); KeywordIndex = 0;
             if (Keyword.Length > 0) SetSlideShift(Keyword[0] - 'A');
+            else RefreshKeyboardMapping();
             RefreshKeyword();
         }
         public void StepKeyword(int direction)
@@ -221,26 +237,30 @@ namespace PurpleGlove
             if (data == null || index < 0 || index >= data.Length) return;
             data[index] = LettersOnly(value, 1);
             if (index < ink.Length && ink[index]) ink[index].text = data[index];
+            if (tool == Tool.Affine) { decodedStrokes.Clear(); RefreshKeyboardMapping(); }
         }
         public void SetPlaintext(string value)
         {
+            if (!applyingDecodedText) { decodedStrokes.Clear(); ClearLetterStamps(); }
             Plaintext = (value ?? "").Replace("\r", "");
             if (Plaintext.Length > 600) Plaintext = Plaintext.Substring(0, 600);
-            if (!plaintextInk) return;
+            RefreshPlaintextInk();
+        }
+        static string FormatPlaintext(string text)
+        {
             // Show the latest six lines directly on the paper; the complete draft remains in Plaintext.
-            var visible = new StringBuilder(); int width = 0, line = 0;
-            foreach (char c in Plaintext)
+            var visible = new StringBuilder(); int width = 0;
+            foreach (char c in text)
             {
                 if (c == '\n' || width + (c > 255 ? 2 : 1) > 48)
                 {
-                    ++line;
                     visible.Append('\n'); width = 0;
                     if (c == '\n') continue;
                 }
                 visible.Append(c); width += c > 255 ? 2 : 1;
             }
             string[] lines = visible.ToString().Split('\n');
-            plaintextInk.text = string.Join("\n", lines, Mathf.Max(0, lines.Length - 6), Mathf.Min(6, lines.Length));
+            return string.Join("\n", lines, Mathf.Max(0, lines.Length - 6), Mathf.Min(6, lines.Length));
         }
         void EndWriting()
         {
@@ -256,6 +276,7 @@ namespace PurpleGlove
         }
         void BeginTyping()
         {
+            ReleaseDecoderIme(); ClearLetterStamps();
             if (!typing) previousImeMode = Input.imeCompositionMode;
             typing = true; Input.imeCompositionMode = IMECompositionMode.On;
             if (quillCollider) quillCollider.enabled = false;
@@ -266,10 +287,11 @@ namespace PurpleGlove
         {
             CloseToolbox(); EndWriting(); pendingFocus = pendingDesktop = false;
             CancelManipulation();
+            SuspendDecodeKeyboard();
         }
         void OnApplicationFocus(bool focused)
         {
-            if (!focused) { CancelManipulation(); EndWriting(); CloseToolbox(); }
+            if (!focused) { CancelManipulation(); EndWriting(); CloseToolbox(); SuspendDecodeKeyboard(); }
         }
     }
 }
