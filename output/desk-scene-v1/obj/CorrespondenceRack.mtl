@@ -1,0 +1,11 @@
+newmtl M_Desk_Wood_HoneyOak
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Wood_HoneyOak.png
+
+newmtl M_Desk_Mark
+Kd 0.11 0.065 0.033
+d 1
+illum 2
+

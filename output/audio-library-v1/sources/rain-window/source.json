@@ -1,0 +1,15 @@
+{
+  "pack": "rain-window",
+  "author": "alxl",
+  "source_page": "https://opengameart.org/content/rain-on-window-loop",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "retrieved_date": "2026-10-31",
+  "files": [
+    {
+      "filename": "rain_on_window_loop.wav",
+      "download_or_pack_url": "https://opengameart.org/sites/default/files/rain_on_window_loop.wav",
+      "sha256": "97b9405025e5ed7ed8a58d24dd7146d06e925519b1f718efda94bb85dcd1a61a"
+    }
+  ]
+}

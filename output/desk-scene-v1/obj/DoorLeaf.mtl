@@ -1,0 +1,54 @@
+newmtl M_Desk_WalnutDark
+Kd 0.72 0.69 0.64
+d 1
+illum 2
+map_Kd Textures/T_Wood_DarkWalnut.png
+
+newmtl M_Desk_Wood_Weathered
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Wood_Weathered.png
+
+newmtl M_Desk_Iron_Blackened
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Iron_Blackened.png
+
+newmtl M_Desk_Steel
+Kd 1.75 1.8 1.8
+d 1
+illum 2
+map_Kd Textures/T_Iron_Blackened.png
+
+newmtl M_Desk_Wood_DarkWalnut
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Wood_DarkWalnut.png
+
+newmtl M_Desk_SceneBrass
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Metal_AgedBrass.png
+
+newmtl M_Desk_Paper_AgedCream
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Paper_AgedCream.png
+
+newmtl M_Desk_Stitch
+Kd 1.7 1.5 1.2
+d 1
+illum 2
+map_Kd Textures/T_Leather_Umber.png
+
+newmtl M_Desk_Wax_Oxblood
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Wax_Oxblood.png
+

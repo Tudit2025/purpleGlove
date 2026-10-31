@@ -1,0 +1,15 @@
+{
+  "pack": "rain-outside",
+  "author": "Ove Melaa",
+  "source_page": "https://opengameart.org/content/rain-ambient-not-loopable-2-versions-available",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "retrieved_date": "2026-10-31",
+  "files": [
+    {
+      "filename": "rain_long.ogg",
+      "download_or_pack_url": "https://opengameart.org/sites/default/files/Ove%20Melaa%20-%20Rainy%20%28NOT%20loopable%29%20Long%20Version.ogg",
+      "sha256": "0022bccf5a8ade5fdcbb7e99ca3437ee6520a3951fd1c442298c38d90a05e2a3"
+    }
+  ]
+}

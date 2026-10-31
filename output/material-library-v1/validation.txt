@@ -1,0 +1,24 @@
+Material library V1 validation
+128x128 RGB | 12-color palette maximum | Point | Repeat | no mipmaps | uncompressed | sRGB
+Glass_InkBlack | PASS | colors=12 | opposite edge mismatch=0
+Metal_AgedBrass | PASS | colors=12 | opposite edge mismatch=0
+Wax_Ivory | PASS | colors=12 | opposite edge mismatch=0
+Wax_Oxblood | PASS | colors=12 | opposite edge mismatch=0
+Wax_Ochre | PASS | colors=12 | opposite edge mismatch=0
+Wax_Indigo | PASS | colors=12 | opposite edge mismatch=0
+Leather_Umber | PASS | colors=12 | opposite edge mismatch=0
+Leather_Oxblood | PASS | colors=12 | opposite edge mismatch=0
+Leather_Moss | PASS | colors=12 | opposite edge mismatch=0
+Leather_Charcoal | PASS | colors=12 | opposite edge mismatch=0
+Wood_DarkWalnut | PASS | colors=12 | opposite edge mismatch=0
+Wood_HoneyOak | PASS | colors=12 | opposite edge mismatch=0
+Wood_AgedPine | PASS | colors=12 | opposite edge mismatch=0
+Wood_Weathered | PASS | colors=12 | opposite edge mismatch=0
+Paper_RagIvory | PASS | colors=12 | opposite edge mismatch=0
+Paper_AgedCream | PASS | colors=12 | opposite edge mismatch=0
+Parchment_Vellum | PASS | colors=12 | opposite edge mismatch=0
+Parchment_Aged | PASS | colors=12 | opposite edge mismatch=0
+Wall_LimePlaster | PASS | colors=12 | opposite edge mismatch=0
+Wall_GreyStone | PASS | colors=12 | opposite edge mismatch=0
+Iron_Blackened | PASS | colors=12 | opposite edge mismatch=0
+Iron_Rusted | PASS | colors=12 | opposite edge mismatch=0

@@ -1,0 +1,669 @@
+{
+  "passed": true,
+  "asset_count": 90,
+  "categories": {
+    "Wood": 12,
+    "PaperBook": 15,
+    "Ambience": 3,
+    "Doors": 9,
+    "Trapdoor": 10,
+    "Bag": 11,
+    "Interactions": 14,
+    "Typewriter/Clean": 8,
+    "Typewriter/Short": 8
+  },
+  "original_source_files_used": 56,
+  "dialogue_overlap": [
+    {
+      "spacing_s": 0.06,
+      "peak_dbfs": -15.17
+    },
+    {
+      "spacing_s": 0.095,
+      "peak_dbfs": -15.59
+    }
+  ],
+  "failures": [],
+  "checks": [
+    {
+      "id": "wood_collision_light_01",
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -29.12,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_collision_light_02",
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -28.89,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_collision_light_03",
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -28.94,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_collision_light_04",
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -30.53,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_collision_medium_01",
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -26.33,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_collision_medium_02",
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -26.09,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_collision_medium_03",
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -27.53,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_collision_medium_04",
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -26.98,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_collision_heavy_01",
+      "peak_dbfs": -5.0,
+      "rms_dbfs": -22.17,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_collision_heavy_02",
+      "peak_dbfs": -5.0,
+      "rms_dbfs": -22.34,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_collision_heavy_03",
+      "peak_dbfs": -5.0,
+      "rms_dbfs": -21.79,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_collision_heavy_04",
+      "peak_dbfs": -5.0,
+      "rms_dbfs": -23.01,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "page_turn_01",
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -43.11,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "page_turn_slow_01",
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -44.4,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "book_setdown_01",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -28.31,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "page_turn_02",
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -41.13,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "page_turn_slow_02",
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -42.35,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "book_setdown_02",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -28.29,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "page_turn_03",
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -39.63,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "page_turn_slow_03",
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -40.88,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "book_setdown_03",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -29.66,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "book_open_01",
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -31.3,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "book_close_01",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -30.54,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "paper_pickup_01",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -44.39,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "paper_setdown_01",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -43.86,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "paper_pickup_02",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -42.67,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "paper_setdown_02",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -44.03,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "rain_outside_loop_40s",
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -32.75,
+      "loop_join": {
+        "wrap_delta": 0.00403678,
+        "wrap_over_typical_sample_delta": 0.913
+      },
+      "issues": []
+    },
+    {
+      "id": "rain_window_loop_10s",
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -30.82,
+      "loop_join": {
+        "wrap_delta": 0.00163174,
+        "wrap_over_typical_sample_delta": 0.295
+      },
+      "issues": []
+    },
+    {
+      "id": "rain_room_muffled_loop_10s",
+      "peak_dbfs": -19.16,
+      "rms_dbfs": -34.0,
+      "loop_join": {
+        "wrap_delta": 0.00128329,
+        "wrap_over_typical_sample_delta": 0.524
+      },
+      "issues": []
+    },
+    {
+      "id": "wood_door_open_01",
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -31.12,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_door_open_02",
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -33.11,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_door_close_01",
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -24.98,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_door_close_02",
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -25.02,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_door_close_03",
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -23.79,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "wood_door_close_heavy_01",
+      "peak_dbfs": -5.0,
+      "rms_dbfs": -22.36,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "door_knock_pattern_01",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -29.09,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "door_knock_pattern_02",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -28.79,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "door_knock_pattern_03",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -29.32,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "trapdoor_open_01",
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -26.28,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "trapdoor_close_01",
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -27.4,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "hinge_creak_01",
+      "peak_dbfs": -15.0,
+      "rms_dbfs": -32.19,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "trapdoor_open_02",
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -26.17,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "trapdoor_close_02",
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -25.98,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "hinge_creak_02",
+      "peak_dbfs": -15.0,
+      "rms_dbfs": -32.16,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "trapdoor_open_03",
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -25.86,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "trapdoor_close_03",
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -26.38,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "hinge_creak_03",
+      "peak_dbfs": -15.0,
+      "rms_dbfs": -28.76,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "trapdoor_latch_01",
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -35.57,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "bag_heavy_pickup_01",
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -35.31,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "bag_heavy_setdown_01",
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -24.24,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "bag_heavy_drop_01",
+      "peak_dbfs": -6.0,
+      "rms_dbfs": -22.11,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "bag_heavy_pickup_02",
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -33.06,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "bag_heavy_setdown_02",
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -23.92,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "bag_heavy_drop_02",
+      "peak_dbfs": -6.0,
+      "rms_dbfs": -20.96,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "bag_heavy_pickup_03",
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -32.97,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "bag_heavy_setdown_03",
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -23.3,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "bag_heavy_drop_03",
+      "peak_dbfs": -6.0,
+      "rms_dbfs": -20.47,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "bag_drag_01",
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -37.01,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "bag_rummage_01",
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -33.88,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "drawer_open_01",
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -28.78,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "drawer_close_01",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -31.04,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "letter_deliver_01",
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -40.33,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "drawer_open_02",
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -29.36,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "drawer_close_02",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -30.86,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "letter_deliver_02",
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -39.34,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "lock_open_01",
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -35.51,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "lock_close_01",
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -37.02,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "seal_stamp_01",
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -30.07,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "seal_break_01",
+      "peak_dbfs": -15.0,
+      "rms_dbfs": -40.61,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "object_pickup_01",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -38.1,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "object_setdown_01",
+      "peak_dbfs": -15.0,
+      "rms_dbfs": -31.6,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "interact_confirm_01",
+      "peak_dbfs": -18.0,
+      "rms_dbfs": -35.91,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "interact_blocked_01",
+      "peak_dbfs": -17.0,
+      "rms_dbfs": -38.25,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_clean_01",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -33.9,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_short_01",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -34.92,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_clean_02",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -36.52,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_short_02",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -38.82,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_clean_03",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -33.27,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_short_03",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -37.08,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_clean_04",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -33.6,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_short_04",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -36.5,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_clean_05",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -34.12,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_short_05",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -35.81,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_clean_06",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -32.76,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_short_06",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -35.87,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_clean_07",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -30.78,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_short_07",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -36.0,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_clean_08",
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -28.6,
+      "loop_join": null,
+      "issues": []
+    },
+    {
+      "id": "typewriter_key_short_08",
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -34.98,
+      "loop_join": null,
+      "issues": []
+    }
+  ],
+  "scope": "File/DSP validation only; subjective listening and Unity scene mixing are not verified."
+}

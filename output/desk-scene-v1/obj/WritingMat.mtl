@@ -1,0 +1,12 @@
+newmtl M_Desk_Leather_Charcoal
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Leather_Charcoal.png
+
+newmtl M_Desk_Stitch
+Kd 1.7 1.5 1.2
+d 1
+illum 2
+map_Kd Textures/T_Leather_Umber.png
+

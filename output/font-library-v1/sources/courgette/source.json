@@ -1,0 +1,23 @@
+{
+  "id": "courgette",
+  "name": "Courgette",
+  "language": "en",
+  "source_page": "https://github.com/google/fonts",
+  "source_revision": "6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec",
+  "source_ref": "main",
+  "license": "OFL-1.1",
+  "license_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/courgette/OFL.txt",
+  "license_path": "fonts/courgette/OFL.txt",
+  "license_sha256": "0836fd874230b17f840efcf7d3bb529f5a7b5befbfeef94478519cfe2d8551c2",
+  "collected_date": "2026-10-31",
+  "notes": "Short personal handwriting; never mandatory cipher glyphs.",
+  "files": [
+    {
+      "path": "fonts/courgette/Courgette-Regular.ttf",
+      "bytes": 122072,
+      "sha256": "099739d22e66ee2b80656bba63847f9ed419ad7e3969ba2c1d3c437c0d08f3e3",
+      "url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/courgette/Courgette-Regular.ttf",
+      "modified": false
+    }
+  ]
+}

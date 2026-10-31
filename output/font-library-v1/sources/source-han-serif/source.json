@@ -1,0 +1,30 @@
+{
+  "id": "source-han-serif",
+  "name": "Source Han Serif CN / 思源宋体",
+  "language": "zh-Hans",
+  "source_page": "https://github.com/adobe-fonts/source-han-serif",
+  "source_revision": "7889f11bf31170b5d092a083b357c8c8130f89e0",
+  "source_ref": "release",
+  "license": "OFL-1.1",
+  "license_url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/LICENSE.txt",
+  "license_path": "fonts/source-han-serif/OFL.txt",
+  "license_sha256": "9ff5bb567e1b92c801fc1069e5fbf992ff8efccacb9db94e5959a5b3ba9bb903",
+  "collected_date": "2026-10-31",
+  "notes": "Official upstream CN regional subset; body and institutional headings.",
+  "files": [
+    {
+      "path": "fonts/source-han-serif/SourceHanSerifCN-Regular.otf",
+      "bytes": 11626108,
+      "sha256": "3754ea669c530e2473354f8f6d9f79680a44d7e26ec7d00eeabee4a7e0753c5d",
+      "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/SubsetOTF/CN/SourceHanSerifCN-Regular.otf",
+      "modified": false
+    },
+    {
+      "path": "fonts/source-han-serif/SourceHanSerifCN-SemiBold.otf",
+      "bytes": 11771824,
+      "sha256": "50d3f12201ce2dd840650b6bfa47ebb8572ecf767eec0e5ccb20a247b5bfa805",
+      "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/SubsetOTF/CN/SourceHanSerifCN-SemiBold.otf",
+      "modified": false
+    }
+  ]
+}

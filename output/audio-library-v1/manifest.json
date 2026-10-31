@@ -1,0 +1,3451 @@
+{
+  "version": 1,
+  "date": "2026-10-31",
+  "sample_rate": 48000,
+  "source_license": "CC0-1.0",
+  "assets": [
+    {
+      "id": "wood_collision_light_01",
+      "category": "Wood",
+      "label_zh": "木材碰撞／轻 1",
+      "file": "Assets/Audio/PH/Wood/wood_collision_light_01.wav",
+      "duration_s": 0.1489,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -29.12,
+      "sources": [
+        "kenney-impact/impactWood_light_000.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_light_000.ogg",
+          "speed": 0.97,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "b4f36958e0beb02cd23d1e93ffbb34c96fc2b023270ae0cd9a0d38355a13b3c8"
+    },
+    {
+      "id": "wood_collision_light_02",
+      "category": "Wood",
+      "label_zh": "木材碰撞／轻 2",
+      "file": "Assets/Audio/PH/Wood/wood_collision_light_02.wav",
+      "duration_s": 0.1191,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -28.89,
+      "sources": [
+        "kenney-impact/impactWood_light_001.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_light_001.ogg",
+          "speed": 0.97,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "e82126209bb1ae397ca1eb1ab77251297a35b67177d18b4f6043a0ca5779160e"
+    },
+    {
+      "id": "wood_collision_light_03",
+      "category": "Wood",
+      "label_zh": "木材碰撞／轻 3",
+      "file": "Assets/Audio/PH/Wood/wood_collision_light_03.wav",
+      "duration_s": 0.1485,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -28.94,
+      "sources": [
+        "kenney-impact/impactWood_light_002.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_light_002.ogg",
+          "speed": 0.97,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "6ddb94ad594d3ab9f5870dee1c0c707d138a964f4c4fbf4e1658552e8c8ed9db"
+    },
+    {
+      "id": "wood_collision_light_04",
+      "category": "Wood",
+      "label_zh": "木材碰撞／轻 4",
+      "file": "Assets/Audio/PH/Wood/wood_collision_light_04.wav",
+      "duration_s": 0.1348,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -30.53,
+      "sources": [
+        "kenney-impact/impactWood_light_003.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_light_003.ogg",
+          "speed": 0.97,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "6b46b87984a1ace576e3a157bf79653a6c3c4ec7c73b8c9734a1d3847610fede"
+    },
+    {
+      "id": "wood_collision_medium_01",
+      "category": "Wood",
+      "label_zh": "木材碰撞／中 1",
+      "file": "Assets/Audio/PH/Wood/wood_collision_medium_01.wav",
+      "duration_s": 0.229,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -26.33,
+      "sources": [
+        "kenney-impact/impactWood_medium_000.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_medium_000.ogg",
+          "speed": 0.93,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "cccfa1f2f49b026364f1e855f481cea59b6c35ef098c76a7359fcc1281b2e830"
+    },
+    {
+      "id": "wood_collision_medium_02",
+      "category": "Wood",
+      "label_zh": "木材碰撞／中 2",
+      "file": "Assets/Audio/PH/Wood/wood_collision_medium_02.wav",
+      "duration_s": 0.2291,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -26.09,
+      "sources": [
+        "kenney-impact/impactWood_medium_001.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_medium_001.ogg",
+          "speed": 0.93,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "028218ee6c0542f142e3854f657041f36af91a1da3bdc77a8c0c48ebf4d5f63e"
+    },
+    {
+      "id": "wood_collision_medium_03",
+      "category": "Wood",
+      "label_zh": "木材碰撞／中 3",
+      "file": "Assets/Audio/PH/Wood/wood_collision_medium_03.wav",
+      "duration_s": 0.2655,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -27.53,
+      "sources": [
+        "kenney-impact/impactWood_medium_002.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_medium_002.ogg",
+          "speed": 0.93,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "c16a247e63bd4c3f103ba547aa5fb86b118d63c30c8ee6291716c4b886c46225"
+    },
+    {
+      "id": "wood_collision_medium_04",
+      "category": "Wood",
+      "label_zh": "木材碰撞／中 4",
+      "file": "Assets/Audio/PH/Wood/wood_collision_medium_04.wav",
+      "duration_s": 0.2273,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -26.98,
+      "sources": [
+        "kenney-impact/impactWood_medium_003.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_medium_003.ogg",
+          "speed": 0.93,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "6c7e4212508ecd07cc4c13c987b6c1fe3cf7f7387b112cb2b536eed6a05ca8ab"
+    },
+    {
+      "id": "wood_collision_heavy_01",
+      "category": "Wood",
+      "label_zh": "木材碰撞／重 1",
+      "file": "Assets/Audio/PH/Wood/wood_collision_heavy_01.wav",
+      "duration_s": 0.2245,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -5.0,
+      "rms_dbfs": -22.17,
+      "sources": [
+        "kenney-impact/impactWood_heavy_000.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_heavy_000.ogg",
+          "speed": 0.87,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "6edfd2586e42b4c0d26531a6f859f4d13a3b2f0b2ffa82c39be29b727ade2bf2"
+    },
+    {
+      "id": "wood_collision_heavy_02",
+      "category": "Wood",
+      "label_zh": "木材碰撞／重 2",
+      "file": "Assets/Audio/PH/Wood/wood_collision_heavy_02.wav",
+      "duration_s": 0.2196,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -5.0,
+      "rms_dbfs": -22.34,
+      "sources": [
+        "kenney-impact/impactWood_heavy_001.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_heavy_001.ogg",
+          "speed": 0.87,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "b7a08ca9fb5a88b656bbde19545799c827540ebd0df4dd4e181e55cc2dc1b7a7"
+    },
+    {
+      "id": "wood_collision_heavy_03",
+      "category": "Wood",
+      "label_zh": "木材碰撞／重 3",
+      "file": "Assets/Audio/PH/Wood/wood_collision_heavy_03.wav",
+      "duration_s": 0.2618,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -5.0,
+      "rms_dbfs": -21.79,
+      "sources": [
+        "kenney-impact/impactWood_heavy_002.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_heavy_002.ogg",
+          "speed": 0.87,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "621c0e9378067bdaedc5e79388a52bc60ec48a421215883d9b7230e96b037799"
+    },
+    {
+      "id": "wood_collision_heavy_04",
+      "category": "Wood",
+      "label_zh": "木材碰撞／重 4",
+      "file": "Assets/Audio/PH/Wood/wood_collision_heavy_04.wav",
+      "duration_s": 0.2295,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -5.0,
+      "rms_dbfs": -23.01,
+      "sources": [
+        "kenney-impact/impactWood_heavy_003.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_heavy_003.ogg",
+          "speed": 0.87,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "2da55673b1be063c8c44e001e40359ba96121c305e246704d8bdf4bb7bbb506a"
+    },
+    {
+      "id": "page_turn_01",
+      "category": "PaperBook",
+      "label_zh": "翻书页 1",
+      "file": "Assets/Audio/PH/PaperBook/page_turn_01.wav",
+      "duration_s": 0.7002,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -43.11,
+      "sources": [
+        "kenney-rpg/bookFlip1.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/bookFlip1.ogg",
+          "speed": 0.94,
+          "highpass_hz": 65,
+          "lowpass_hz": 7200,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "7f72dcf7dce0770e71a8cf5b1e8e536a2bba33257486f6f6e17604cb752197a3"
+    },
+    {
+      "id": "page_turn_slow_01",
+      "category": "PaperBook",
+      "label_zh": "慢翻厚书页 1",
+      "file": "Assets/Audio/PH/PaperBook/page_turn_slow_01.wav",
+      "duration_s": 0.8355,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -44.4,
+      "sources": [
+        "kenney-rpg/bookFlip1.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/bookFlip1.ogg",
+          "speed": 0.78,
+          "highpass_hz": 65,
+          "lowpass_hz": 5300,
+          "channels": 1
+        }
+      ],
+      "note_zh": "由对应翻页录音降速制作；不是独立录音。",
+      "sha256": "3a2e00c8dfc56e78fdfc7ef9e4435f0559aa2064f096023e2088c3a7b22c1ed3"
+    },
+    {
+      "id": "book_setdown_01",
+      "category": "PaperBook",
+      "label_zh": "书本放上木桌 1",
+      "file": "Assets/Audio/PH/PaperBook/book_setdown_01.wav",
+      "duration_s": 0.2578,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -28.31,
+      "sources": [
+        "kenney-rpg/bookPlace1.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/bookPlace1.ogg",
+          "speed": 0.92,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "20821ce9ee6dbc0a96a860417b0b73da9d4facfd96753f17a7341caa043d7624"
+    },
+    {
+      "id": "page_turn_02",
+      "category": "PaperBook",
+      "label_zh": "翻书页 2",
+      "file": "Assets/Audio/PH/PaperBook/page_turn_02.wav",
+      "duration_s": 0.4413,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -41.13,
+      "sources": [
+        "kenney-rpg/bookFlip2.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/bookFlip2.ogg",
+          "speed": 0.94,
+          "highpass_hz": 65,
+          "lowpass_hz": 7200,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "950b074ed678123b870114ed492c17a0a75c766ceeae3b982117f1a09a262864"
+    },
+    {
+      "id": "page_turn_slow_02",
+      "category": "PaperBook",
+      "label_zh": "慢翻厚书页 2",
+      "file": "Assets/Audio/PH/PaperBook/page_turn_slow_02.wav",
+      "duration_s": 0.5247,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -42.35,
+      "sources": [
+        "kenney-rpg/bookFlip2.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/bookFlip2.ogg",
+          "speed": 0.78,
+          "highpass_hz": 65,
+          "lowpass_hz": 5300,
+          "channels": 1
+        }
+      ],
+      "note_zh": "由对应翻页录音降速制作；不是独立录音。",
+      "sha256": "3997172c0e95e677b96f9258205e5fe95c964b0b62118e9ef1f2ec1e7bb7b076"
+    },
+    {
+      "id": "book_setdown_02",
+      "category": "PaperBook",
+      "label_zh": "书本放上木桌 2",
+      "file": "Assets/Audio/PH/PaperBook/book_setdown_02.wav",
+      "duration_s": 0.2936,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -28.29,
+      "sources": [
+        "kenney-rpg/bookPlace2.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/bookPlace2.ogg",
+          "speed": 0.92,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "eeccc59dab9376a974c430cff419b8a9b22bc442d753bc017d4a30e7f1e734a3"
+    },
+    {
+      "id": "page_turn_03",
+      "category": "PaperBook",
+      "label_zh": "翻书页 3",
+      "file": "Assets/Audio/PH/PaperBook/page_turn_03.wav",
+      "duration_s": 0.2192,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -39.63,
+      "sources": [
+        "kenney-rpg/bookFlip3.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/bookFlip3.ogg",
+          "speed": 0.94,
+          "highpass_hz": 65,
+          "lowpass_hz": 7200,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "7a930bdf2efaa76857b7faff5ff700bc371b7e55b9b4b2e115a1e0342289a994"
+    },
+    {
+      "id": "page_turn_slow_03",
+      "category": "PaperBook",
+      "label_zh": "慢翻厚书页 3",
+      "file": "Assets/Audio/PH/PaperBook/page_turn_slow_03.wav",
+      "duration_s": 0.263,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -40.88,
+      "sources": [
+        "kenney-rpg/bookFlip3.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/bookFlip3.ogg",
+          "speed": 0.78,
+          "highpass_hz": 65,
+          "lowpass_hz": 5300,
+          "channels": 1
+        }
+      ],
+      "note_zh": "由对应翻页录音降速制作；不是独立录音。",
+      "sha256": "67b4ad13ea88292d7c3c4c3eec87d6286e6996e08b934f12be2a5b65f9452503"
+    },
+    {
+      "id": "book_setdown_03",
+      "category": "PaperBook",
+      "label_zh": "书本放上木桌 3",
+      "file": "Assets/Audio/PH/PaperBook/book_setdown_03.wav",
+      "duration_s": 0.2704,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -29.66,
+      "sources": [
+        "kenney-rpg/bookPlace3.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/bookPlace3.ogg",
+          "speed": 0.92,
+          "highpass_hz": 65,
+          "lowpass_hz": 4900,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "c74a4f129864a11232fc2843a7161f316a6ef64fdf37c20e155260189ece8797"
+    },
+    {
+      "id": "book_open_01",
+      "category": "PaperBook",
+      "label_zh": "打开旧书",
+      "file": "Assets/Audio/PH/PaperBook/book_open_01.wav",
+      "duration_s": 0.2887,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -31.3,
+      "sources": [
+        "kenney-rpg/bookFlip3.ogg",
+        "kenney-rpg/bookOpen.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.7,
+          "edits": [
+            {
+              "source": "kenney-rpg/bookOpen.ogg",
+              "speed": 0.85,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.06,
+          "gain": 0.25,
+          "edits": [
+            {
+              "source": "kenney-rpg/bookFlip3.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "85b40b4644aaa606fa797fb0ec9e647976dacc6f8444f7801533317982ca096e"
+    },
+    {
+      "id": "book_close_01",
+      "category": "PaperBook",
+      "label_zh": "合上旧书",
+      "file": "Assets/Audio/PH/PaperBook/book_close_01.wav",
+      "duration_s": 0.254,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -30.54,
+      "sources": [
+        "kenney-rpg/bookClose.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/bookClose.ogg",
+          "speed": 0.83,
+          "highpass_hz": 65,
+          "lowpass_hz": 4500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "ec74c05cce441c6c9721eea6bded0eefe238706e4e1fb951a409b2b70a7b9885"
+    },
+    {
+      "id": "paper_pickup_01",
+      "category": "PaperBook",
+      "label_zh": "拿起信纸 1",
+      "file": "Assets/Audio/PH/PaperBook/paper_pickup_01.wav",
+      "duration_s": 0.3822,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -44.39,
+      "sources": [
+        "kenney-rpg/bookFlip2.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/bookFlip2.ogg",
+          "speed": 1.1,
+          "highpass_hz": 65,
+          "lowpass_hz": 7500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "16f3fafc5295a05338d4aef23b5eec9ab7b7581fe5c56015c05fd3c1fa770d38"
+    },
+    {
+      "id": "paper_setdown_01",
+      "category": "PaperBook",
+      "label_zh": "放下信纸 1",
+      "file": "Assets/Audio/PH/PaperBook/paper_setdown_01.wav",
+      "duration_s": 0.4547,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -43.86,
+      "sources": [
+        "kenney-rpg/bookFlip2.ogg",
+        "kenney-rpg/bookPlace1.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.75,
+          "edits": [
+            {
+              "source": "kenney-rpg/bookFlip2.ogg",
+              "speed": 0.91,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.1,
+          "gain": 0.12,
+          "edits": [
+            {
+              "source": "kenney-rpg/bookPlace1.ogg",
+              "speed": 1.12,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "ed3974bee19f3d7152efe0653546a38bf94419fe146b5de3a3a3ffe49a5a982b"
+    },
+    {
+      "id": "paper_pickup_02",
+      "category": "PaperBook",
+      "label_zh": "拿起信纸 2",
+      "file": "Assets/Audio/PH/PaperBook/paper_pickup_02.wav",
+      "duration_s": 0.1882,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -42.67,
+      "sources": [
+        "kenney-rpg/bookFlip3.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/bookFlip3.ogg",
+          "speed": 1.1,
+          "highpass_hz": 65,
+          "lowpass_hz": 7500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "a61b2c3d7a1927fbe9619d1ab6b531a9b9ece667d7915f0afe5b3a91d16afa59"
+    },
+    {
+      "id": "paper_setdown_02",
+      "category": "PaperBook",
+      "label_zh": "放下信纸 2",
+      "file": "Assets/Audio/PH/PaperBook/paper_setdown_02.wav",
+      "duration_s": 0.3475,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -44.03,
+      "sources": [
+        "kenney-rpg/bookFlip3.ogg",
+        "kenney-rpg/bookPlace2.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.75,
+          "edits": [
+            {
+              "source": "kenney-rpg/bookFlip3.ogg",
+              "speed": 0.91,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.1,
+          "gain": 0.12,
+          "edits": [
+            {
+              "source": "kenney-rpg/bookPlace2.ogg",
+              "speed": 1.12,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "297311d83d5b26cd491014250f185188426ce56290683429d419d13f4b42fa2f"
+    },
+    {
+      "id": "rain_outside_loop_40s",
+      "category": "Ambience",
+      "label_zh": "屋外雨声／40 秒循环",
+      "file": "Assets/Audio/PH/Ambience/rain_outside_loop_40s.wav",
+      "duration_s": 40.0,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 2,
+      "loop": true,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -32.75,
+      "sources": [
+        "rain-outside/rain_long.ogg"
+      ],
+      "processing": [
+        {
+          "source": "rain-outside/rain_long.ogg",
+          "speed": 1,
+          "highpass_hz": 100,
+          "lowpass_hz": 7200,
+          "channels": 2
+        },
+        {
+          "loop_start_s": 54,
+          "loop_duration_s": 40,
+          "equal_power_crossfade_s": 2
+        }
+      ],
+      "note_zh": "取自原始非循环长录音；选取稳定片段并用 2 秒交叉淡化制作循环。",
+      "sha256": "917cee0b3e94ecc7c2de1642494fffd1e2cf632fa826e6822c2130623308cc5f"
+    },
+    {
+      "id": "rain_window_loop_10s",
+      "category": "Ambience",
+      "label_zh": "窗边雨声／10 秒循环",
+      "file": "Assets/Audio/PH/Ambience/rain_window_loop_10s.wav",
+      "duration_s": 10.0,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 2,
+      "loop": true,
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -30.82,
+      "sources": [
+        "rain-window/rain_on_window_loop.wav"
+      ],
+      "processing": [
+        {
+          "source": "rain-window/rain_on_window_loop.wav",
+          "speed": 1,
+          "highpass_hz": 110,
+          "lowpass_hz": 5600,
+          "channels": 2
+        },
+        {
+          "loop_start_s": 0,
+          "loop_duration_s": 10,
+          "equal_power_crossfade_s": 0.8
+        }
+      ],
+      "note_zh": "两种窗雨共用同一录音；按机位切换或交叉淡化，避免长时间同相叠加。",
+      "sha256": "1e8cfebad0bd2bb8caf4167936e0e6f21d179337cebc4d564513ffffead59ece"
+    },
+    {
+      "id": "rain_room_muffled_loop_10s",
+      "category": "Ambience",
+      "label_zh": "室内隔窗雨声／10 秒循环",
+      "file": "Assets/Audio/PH/Ambience/rain_room_muffled_loop_10s.wav",
+      "duration_s": 10.0,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 2,
+      "loop": true,
+      "peak_dbfs": -19.16,
+      "rms_dbfs": -34.0,
+      "sources": [
+        "rain-window/rain_on_window_loop.wav"
+      ],
+      "processing": [
+        {
+          "source": "rain-window/rain_on_window_loop.wav",
+          "speed": 1,
+          "highpass_hz": 110,
+          "lowpass_hz": 1900,
+          "channels": 2
+        },
+        {
+          "loop_start_s": 0,
+          "loop_duration_s": 10,
+          "equal_power_crossfade_s": 0.8
+        }
+      ],
+      "note_zh": "两种窗雨共用同一录音；按机位切换或交叉淡化，避免长时间同相叠加。",
+      "sha256": "61b597de2884990241e8221b0125e7ce98a92cd6c7fc4b8af1f5baebb81c6798"
+    },
+    {
+      "id": "wood_door_open_01",
+      "category": "Doors",
+      "label_zh": "木门打开 1",
+      "file": "Assets/Audio/PH/Doors/wood_door_open_01.wav",
+      "duration_s": 1.0078,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -31.12,
+      "sources": [
+        "kenney-rpg/doorOpen_1.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/doorOpen_1.ogg",
+          "speed": 0.91,
+          "highpass_hz": 65,
+          "lowpass_hz": 4800,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "9a1dc751dddaad69d98a4fbaa984fe007e34844c5467a1307242fa2db5f82820"
+    },
+    {
+      "id": "wood_door_open_02",
+      "category": "Doors",
+      "label_zh": "木门打开 2",
+      "file": "Assets/Audio/PH/Doors/wood_door_open_02.wav",
+      "duration_s": 1.5224,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -33.11,
+      "sources": [
+        "kenney-rpg/doorOpen_2.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/doorOpen_2.ogg",
+          "speed": 0.91,
+          "highpass_hz": 65,
+          "lowpass_hz": 4800,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "64ba0b05875070a32de69b72faadc35432750b5241b3f7c9652fe391ea8bb53e"
+    },
+    {
+      "id": "wood_door_close_01",
+      "category": "Doors",
+      "label_zh": "木门关闭 1",
+      "file": "Assets/Audio/PH/Doors/wood_door_close_01.wav",
+      "duration_s": 0.5226,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -24.98,
+      "sources": [
+        "kenney-rpg/doorClose_1.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/doorClose_1.ogg",
+          "speed": 0.9,
+          "highpass_hz": 65,
+          "lowpass_hz": 4500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "e3691aca0fe274ad9fbe56ec79191887ea2f6eaa13d32617d3745c1df67dd406"
+    },
+    {
+      "id": "wood_door_close_02",
+      "category": "Doors",
+      "label_zh": "木门关闭 2",
+      "file": "Assets/Audio/PH/Doors/wood_door_close_02.wav",
+      "duration_s": 0.6138,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -25.02,
+      "sources": [
+        "kenney-rpg/doorClose_2.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/doorClose_2.ogg",
+          "speed": 0.9,
+          "highpass_hz": 65,
+          "lowpass_hz": 4500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "2fe7938b669d1a9459ade31c9f74395f56f1089175b0a290976e5a913ce605cd"
+    },
+    {
+      "id": "wood_door_close_03",
+      "category": "Doors",
+      "label_zh": "木门关闭 3",
+      "file": "Assets/Audio/PH/Doors/wood_door_close_03.wav",
+      "duration_s": 0.7744,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -23.79,
+      "sources": [
+        "kenney-rpg/doorClose_3.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/doorClose_3.ogg",
+          "speed": 0.9,
+          "highpass_hz": 65,
+          "lowpass_hz": 4500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "dc6063aacba286fda66a3bb2ccdc668c7debb3d815c55cdee7e7e9bca271bfad"
+    },
+    {
+      "id": "wood_door_close_heavy_01",
+      "category": "Doors",
+      "label_zh": "木门重关",
+      "file": "Assets/Audio/PH/Doors/wood_door_close_heavy_01.wav",
+      "duration_s": 0.6751,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -5.0,
+      "rms_dbfs": -22.36,
+      "sources": [
+        "kenney-impact/impactWood_heavy_003.ogg",
+        "kenney-rpg/doorClose_4.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.75,
+          "edits": [
+            {
+              "source": "kenney-rpg/doorClose_4.ogg",
+              "speed": 0.8,
+              "highpass_hz": 65,
+              "lowpass_hz": 4000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.07,
+          "gain": 0.35,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_heavy_003.ogg",
+              "speed": 0.81,
+              "highpass_hz": 65,
+              "lowpass_hz": 3000,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "54acd03174d0a5f2178fb36bffca8e4b0e133f53f29b77d6e4cb15e0f63c50f9"
+    },
+    {
+      "id": "door_knock_pattern_01",
+      "category": "Doors",
+      "label_zh": "两下克制敲门",
+      "file": "Assets/Audio/PH/Doors/door_knock_pattern_01.wav",
+      "duration_s": 0.5449,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -29.09,
+      "sources": [
+        "kenney-impact/impactWood_medium_000.ogg",
+        "kenney-impact/impactWood_medium_001.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 1.0,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_000.ogg",
+              "speed": 0.86,
+              "highpass_hz": 65,
+              "lowpass_hz": 2500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.3,
+          "gain": 0.9,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_001.ogg",
+              "speed": 0.86,
+              "highpass_hz": 65,
+              "lowpass_hz": 2500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "db8611b8e1b4a70a5c6860b4a356124da0aae6bf4f7134f98ec905a2da5fa2c7"
+    },
+    {
+      "id": "door_knock_pattern_02",
+      "category": "Doors",
+      "label_zh": "三下常规敲门",
+      "file": "Assets/Audio/PH/Doors/door_knock_pattern_02.wav",
+      "duration_s": 0.7643,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -28.79,
+      "sources": [
+        "kenney-impact/impactWood_medium_000.ogg",
+        "kenney-impact/impactWood_medium_001.ogg",
+        "kenney-impact/impactWood_medium_002.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 1.0,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_000.ogg",
+              "speed": 0.86,
+              "highpass_hz": 65,
+              "lowpass_hz": 2500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.22,
+          "gain": 0.9,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_001.ogg",
+              "speed": 0.86,
+              "highpass_hz": 65,
+              "lowpass_hz": 2500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.48,
+          "gain": 1.0,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_002.ogg",
+              "speed": 0.86,
+              "highpass_hz": 65,
+              "lowpass_hz": 2500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "a923abea58d2c6336d5190d6c73fe56bbf58389c7926e403731fb3e9f9a4fd43"
+    },
+    {
+      "id": "door_knock_pattern_03",
+      "category": "Doors",
+      "label_zh": "急促敲门",
+      "file": "Assets/Audio/PH/Doors/door_knock_pattern_03.wav",
+      "duration_s": 1.073,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -29.32,
+      "sources": [
+        "kenney-impact/impactWood_medium_000.ogg",
+        "kenney-impact/impactWood_medium_001.ogg",
+        "kenney-impact/impactWood_medium_002.ogg",
+        "kenney-impact/impactWood_medium_003.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 1.0,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_000.ogg",
+              "speed": 0.86,
+              "highpass_hz": 65,
+              "lowpass_hz": 2500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.18,
+          "gain": 0.9,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_001.ogg",
+              "speed": 0.86,
+              "highpass_hz": 65,
+              "lowpass_hz": 2500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.36,
+          "gain": 1.0,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_002.ogg",
+              "speed": 0.86,
+              "highpass_hz": 65,
+              "lowpass_hz": 2500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.83,
+          "gain": 0.9,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_003.ogg",
+              "speed": 0.86,
+              "highpass_hz": 65,
+              "lowpass_hz": 2500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "a3c4224779ad3a90123d000d7096449c5a214bc1babe0205598b3c7b5420af65"
+    },
+    {
+      "id": "trapdoor_open_01",
+      "category": "Trapdoor",
+      "label_zh": "活板门／投递口打开 1",
+      "file": "Assets/Audio/PH/Trapdoor/trapdoor_open_01.wav",
+      "duration_s": 0.8133,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -26.28,
+      "sources": [
+        "kenney-impact/impactPlank_medium_000.ogg",
+        "kenney-rpg/creak1.ogg",
+        "kenney-rpg/metalLatch.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.28,
+          "edits": [
+            {
+              "source": "kenney-rpg/metalLatch.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 4700,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.1,
+          "gain": 0.6,
+          "edits": [
+            {
+              "source": "kenney-rpg/creak1.ogg",
+              "speed": 0.85,
+              "highpass_hz": 65,
+              "lowpass_hz": 4300,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.38,
+          "gain": 0.25,
+          "edits": [
+            {
+              "source": "kenney-impact/impactPlank_medium_000.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 5500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "复合拟音：锁扣＋木铰链吱响＋板材限位轻撞。",
+      "sha256": "0a3cd119008e4ebb51919612bda5a1fcb8ef74d589386f8651825d4ce53636da"
+    },
+    {
+      "id": "trapdoor_close_01",
+      "category": "Trapdoor",
+      "label_zh": "活板门／投递口合上 1",
+      "file": "Assets/Audio/PH/Trapdoor/trapdoor_close_01.wav",
+      "duration_s": 0.5659,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -27.4,
+      "sources": [
+        "kenney-impact/impactPlank_medium_000.ogg",
+        "kenney-rpg/creak1.ogg",
+        "kenney-rpg/metalLatch.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.2,
+          "edits": [
+            {
+              "source": "kenney-rpg/creak1.ogg",
+              "speed": 1.1,
+              "highpass_hz": 65,
+              "lowpass_hz": 3900,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.25,
+          "gain": 0.9,
+          "edits": [
+            {
+              "source": "kenney-impact/impactPlank_medium_000.ogg",
+              "speed": 0.84,
+              "highpass_hz": 65,
+              "lowpass_hz": 5500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.35,
+          "gain": 0.22,
+          "edits": [
+            {
+              "source": "kenney-rpg/metalLatch.ogg",
+              "speed": 1,
+              "highpass_hz": 65,
+              "lowpass_hz": 4500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "复合拟音；主要板材落点在 0.25 秒，动画据此对齐。",
+      "sha256": "66114efe4c227299d6ef1242e545703dd7f9aa9fd93e5642c65594b518ff8b80"
+    },
+    {
+      "id": "hinge_creak_01",
+      "category": "Trapdoor",
+      "label_zh": "木铰链吱响层 1",
+      "file": "Assets/Audio/PH/Trapdoor/hinge_creak_01.wav",
+      "duration_s": 0.7391,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -15.0,
+      "rms_dbfs": -32.19,
+      "sources": [
+        "kenney-rpg/creak1.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/creak1.ogg",
+          "speed": 0.82,
+          "highpass_hz": 65,
+          "lowpass_hz": 4500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "a706025d306d67f2fac5ffb8ad743cbdfd1d838d66db7677e9afc5719d3929e1"
+    },
+    {
+      "id": "trapdoor_open_02",
+      "category": "Trapdoor",
+      "label_zh": "活板门／投递口打开 2",
+      "file": "Assets/Audio/PH/Trapdoor/trapdoor_open_02.wav",
+      "duration_s": 1.0082,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -26.17,
+      "sources": [
+        "kenney-impact/impactPlank_medium_001.ogg",
+        "kenney-rpg/creak2.ogg",
+        "kenney-rpg/metalLatch.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.28,
+          "edits": [
+            {
+              "source": "kenney-rpg/metalLatch.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 4700,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.1,
+          "gain": 0.6,
+          "edits": [
+            {
+              "source": "kenney-rpg/creak2.ogg",
+              "speed": 0.85,
+              "highpass_hz": 65,
+              "lowpass_hz": 4300,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.38,
+          "gain": 0.25,
+          "edits": [
+            {
+              "source": "kenney-impact/impactPlank_medium_001.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 5500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "复合拟音：锁扣＋木铰链吱响＋板材限位轻撞。",
+      "sha256": "8ce00b86758bb6c4b3b3485a02c51e107940266c9d887efb6e988dd4e83e6819"
+    },
+    {
+      "id": "trapdoor_close_02",
+      "category": "Trapdoor",
+      "label_zh": "活板门／投递口合上 2",
+      "file": "Assets/Audio/PH/Trapdoor/trapdoor_close_02.wav",
+      "duration_s": 0.7426,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -25.98,
+      "sources": [
+        "kenney-impact/impactPlank_medium_001.ogg",
+        "kenney-rpg/creak2.ogg",
+        "kenney-rpg/metalLatch.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.2,
+          "edits": [
+            {
+              "source": "kenney-rpg/creak2.ogg",
+              "speed": 1.1,
+              "highpass_hz": 65,
+              "lowpass_hz": 3900,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.25,
+          "gain": 0.9,
+          "edits": [
+            {
+              "source": "kenney-impact/impactPlank_medium_001.ogg",
+              "speed": 0.84,
+              "highpass_hz": 65,
+              "lowpass_hz": 5500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.35,
+          "gain": 0.22,
+          "edits": [
+            {
+              "source": "kenney-rpg/metalLatch.ogg",
+              "speed": 1,
+              "highpass_hz": 65,
+              "lowpass_hz": 4500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "复合拟音；主要板材落点在 0.25 秒，动画据此对齐。",
+      "sha256": "bce3d2a5fc9a8d785b155af05b7059740586967d52e9eae30da3be4b3e9823ff"
+    },
+    {
+      "id": "hinge_creak_02",
+      "category": "Trapdoor",
+      "label_zh": "木铰链吱响层 2",
+      "file": "Assets/Audio/PH/Trapdoor/hinge_creak_02.wav",
+      "duration_s": 0.9402,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -15.0,
+      "rms_dbfs": -32.16,
+      "sources": [
+        "kenney-rpg/creak2.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/creak2.ogg",
+          "speed": 0.82,
+          "highpass_hz": 65,
+          "lowpass_hz": 4500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "375af58190d61b781e867be885574bf2c02a8df8118f1d0ba4c90109366e64b4"
+    },
+    {
+      "id": "trapdoor_open_03",
+      "category": "Trapdoor",
+      "label_zh": "活板门／投递口打开 3",
+      "file": "Assets/Audio/PH/Trapdoor/trapdoor_open_03.wav",
+      "duration_s": 0.847,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -25.86,
+      "sources": [
+        "kenney-impact/impactPlank_medium_002.ogg",
+        "kenney-rpg/creak3.ogg",
+        "kenney-rpg/metalLatch.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.28,
+          "edits": [
+            {
+              "source": "kenney-rpg/metalLatch.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 4700,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.1,
+          "gain": 0.6,
+          "edits": [
+            {
+              "source": "kenney-rpg/creak3.ogg",
+              "speed": 0.85,
+              "highpass_hz": 65,
+              "lowpass_hz": 4300,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.38,
+          "gain": 0.25,
+          "edits": [
+            {
+              "source": "kenney-impact/impactPlank_medium_002.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 5500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "复合拟音：锁扣＋木铰链吱响＋板材限位轻撞。",
+      "sha256": "2f9aac5ae446ee2268898bad2bbcfe28c7145fa3ec6320d70e9f82d718a80388"
+    },
+    {
+      "id": "trapdoor_close_03",
+      "category": "Trapdoor",
+      "label_zh": "活板门／投递口合上 3",
+      "file": "Assets/Audio/PH/Trapdoor/trapdoor_close_03.wav",
+      "duration_s": 0.7478,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -26.38,
+      "sources": [
+        "kenney-impact/impactPlank_medium_002.ogg",
+        "kenney-rpg/creak3.ogg",
+        "kenney-rpg/metalLatch.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.2,
+          "edits": [
+            {
+              "source": "kenney-rpg/creak3.ogg",
+              "speed": 1.1,
+              "highpass_hz": 65,
+              "lowpass_hz": 3900,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.25,
+          "gain": 0.9,
+          "edits": [
+            {
+              "source": "kenney-impact/impactPlank_medium_002.ogg",
+              "speed": 0.84,
+              "highpass_hz": 65,
+              "lowpass_hz": 5500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.35,
+          "gain": 0.22,
+          "edits": [
+            {
+              "source": "kenney-rpg/metalLatch.ogg",
+              "speed": 1,
+              "highpass_hz": 65,
+              "lowpass_hz": 4500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "复合拟音；主要板材落点在 0.25 秒，动画据此对齐。",
+      "sha256": "665d037e4326298914a1a350fa36ba0e24f63e41e668a0e2d02315305a87a5e1"
+    },
+    {
+      "id": "hinge_creak_03",
+      "category": "Trapdoor",
+      "label_zh": "木铰链吱响层 3",
+      "file": "Assets/Audio/PH/Trapdoor/hinge_creak_03.wav",
+      "duration_s": 0.3901,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -15.0,
+      "rms_dbfs": -28.76,
+      "sources": [
+        "kenney-rpg/creak3.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/creak3.ogg",
+          "speed": 0.82,
+          "highpass_hz": 65,
+          "lowpass_hz": 4500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "d73feec3d38d610adccc8ecfe37265da8c3169889ba2067da50dbb9c9300fe11"
+    },
+    {
+      "id": "trapdoor_latch_01",
+      "category": "Trapdoor",
+      "label_zh": "活板门小锁扣",
+      "file": "Assets/Audio/PH/Trapdoor/trapdoor_latch_01.wav",
+      "duration_s": 0.2376,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -35.57,
+      "sources": [
+        "kenney-rpg/metalLatch.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/metalLatch.ogg",
+          "speed": 0.89,
+          "highpass_hz": 65,
+          "lowpass_hz": 4200,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "c9f541613db5bc96c80403f280af932c9726ceaac46cc6aafb81a38e8df80ed6"
+    },
+    {
+      "id": "bag_heavy_pickup_01",
+      "category": "Bag",
+      "label_zh": "提起装重物的布袋 1",
+      "file": "Assets/Audio/PH/Bag/bag_heavy_pickup_01.wav",
+      "duration_s": 0.7476,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -35.31,
+      "sources": [
+        "kenney-rpg/cloth1.ogg",
+        "kenney-rpg/dropLeather.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.12,
+          "edits": [
+            {
+              "source": "kenney-rpg/dropLeather.ogg",
+              "speed": 0.95,
+              "highpass_hz": 65,
+              "lowpass_hz": 3200,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.04,
+          "gain": 0.8,
+          "edits": [
+            {
+              "source": "kenney-rpg/cloth1.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 4200,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "复合拟音；布料摩擦为主，软质低频为辅。",
+      "sha256": "2a46c5bc0580f85bee309ea04bd98984b984a4def19f2118a618c1c3d34f3f7a"
+    },
+    {
+      "id": "bag_heavy_setdown_01",
+      "category": "Bag",
+      "label_zh": "重物布袋放在木桌 1",
+      "file": "Assets/Audio/PH/Bag/bag_heavy_setdown_01.wav",
+      "duration_s": 0.7076,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -24.24,
+      "sources": [
+        "kenney-impact/impactSoft_heavy_000.ogg",
+        "kenney-impact/impactWood_medium_000.ogg",
+        "kenney-rpg/cloth1.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.25,
+          "edits": [
+            {
+              "source": "kenney-rpg/cloth1.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 4200,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.15,
+          "gain": 0.85,
+          "edits": [
+            {
+              "source": "kenney-impact/impactSoft_heavy_000.ogg",
+              "speed": 0.76,
+              "highpass_hz": 65,
+              "lowpass_hz": 2800,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.17,
+          "gain": 0.18,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_000.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 2800,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "f7b320d84c4a20f59198c6c4d54e5efaa7d409c69a52aa0673b45a698a089005"
+    },
+    {
+      "id": "bag_heavy_drop_01",
+      "category": "Bag",
+      "label_zh": "重物布袋落地 1",
+      "file": "Assets/Audio/PH/Bag/bag_heavy_drop_01.wav",
+      "duration_s": 0.7326,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -6.0,
+      "rms_dbfs": -22.11,
+      "sources": [
+        "kenney-impact/impactSoft_heavy_000.ogg",
+        "kenney-rpg/cloth1.ogg",
+        "kenney-rpg/dropLeather.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 1,
+          "edits": [
+            {
+              "source": "kenney-impact/impactSoft_heavy_000.ogg",
+              "speed": 0.76,
+              "highpass_hz": 65,
+              "lowpass_hz": 2800,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.025,
+          "gain": 0.3,
+          "edits": [
+            {
+              "source": "kenney-rpg/cloth1.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 4200,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.1,
+          "gain": 0.24,
+          "edits": [
+            {
+              "source": "kenney-rpg/dropLeather.ogg",
+              "speed": 0.8,
+              "highpass_hz": 65,
+              "lowpass_hz": 3200,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "048e47659af2a430330142aa11a75c6ff2c748e489222a6d4a6cedadb1e96252"
+    },
+    {
+      "id": "bag_heavy_pickup_02",
+      "category": "Bag",
+      "label_zh": "提起装重物的布袋 2",
+      "file": "Assets/Audio/PH/Bag/bag_heavy_pickup_02.wav",
+      "duration_s": 0.4927,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -33.06,
+      "sources": [
+        "kenney-rpg/cloth2.ogg",
+        "kenney-rpg/dropLeather.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.12,
+          "edits": [
+            {
+              "source": "kenney-rpg/dropLeather.ogg",
+              "speed": 0.95,
+              "highpass_hz": 65,
+              "lowpass_hz": 3200,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.04,
+          "gain": 0.8,
+          "edits": [
+            {
+              "source": "kenney-rpg/cloth2.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 4200,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "复合拟音；布料摩擦为主，软质低频为辅。",
+      "sha256": "e53537c03bbe7e98e7d9d4386e94d8fb71f7ce57f08c2d546cac596c03c636e9"
+    },
+    {
+      "id": "bag_heavy_setdown_02",
+      "category": "Bag",
+      "label_zh": "重物布袋放在木桌 2",
+      "file": "Assets/Audio/PH/Bag/bag_heavy_setdown_02.wav",
+      "duration_s": 0.7336,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -23.92,
+      "sources": [
+        "kenney-impact/impactSoft_heavy_001.ogg",
+        "kenney-impact/impactWood_medium_001.ogg",
+        "kenney-rpg/cloth2.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.25,
+          "edits": [
+            {
+              "source": "kenney-rpg/cloth2.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 4200,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.15,
+          "gain": 0.85,
+          "edits": [
+            {
+              "source": "kenney-impact/impactSoft_heavy_001.ogg",
+              "speed": 0.76,
+              "highpass_hz": 65,
+              "lowpass_hz": 2800,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.17,
+          "gain": 0.18,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_001.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 2800,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "60f830b65501a4ba4a5d801acf9d7100c093759fa68b6aff8ed792747f5149fb"
+    },
+    {
+      "id": "bag_heavy_drop_02",
+      "category": "Bag",
+      "label_zh": "重物布袋落地 2",
+      "file": "Assets/Audio/PH/Bag/bag_heavy_drop_02.wav",
+      "duration_s": 0.5836,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -6.0,
+      "rms_dbfs": -20.96,
+      "sources": [
+        "kenney-impact/impactSoft_heavy_001.ogg",
+        "kenney-rpg/cloth2.ogg",
+        "kenney-rpg/dropLeather.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 1,
+          "edits": [
+            {
+              "source": "kenney-impact/impactSoft_heavy_001.ogg",
+              "speed": 0.76,
+              "highpass_hz": 65,
+              "lowpass_hz": 2800,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.025,
+          "gain": 0.3,
+          "edits": [
+            {
+              "source": "kenney-rpg/cloth2.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 4200,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.1,
+          "gain": 0.24,
+          "edits": [
+            {
+              "source": "kenney-rpg/dropLeather.ogg",
+              "speed": 0.8,
+              "highpass_hz": 65,
+              "lowpass_hz": 3200,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "75544c5aebe3746490899e938531901d74305a6d74cecd089ae773624918adf1"
+    },
+    {
+      "id": "bag_heavy_pickup_03",
+      "category": "Bag",
+      "label_zh": "提起装重物的布袋 3",
+      "file": "Assets/Audio/PH/Bag/bag_heavy_pickup_03.wav",
+      "duration_s": 0.6161,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -32.97,
+      "sources": [
+        "kenney-rpg/cloth3.ogg",
+        "kenney-rpg/dropLeather.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.12,
+          "edits": [
+            {
+              "source": "kenney-rpg/dropLeather.ogg",
+              "speed": 0.95,
+              "highpass_hz": 65,
+              "lowpass_hz": 3200,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.04,
+          "gain": 0.8,
+          "edits": [
+            {
+              "source": "kenney-rpg/cloth3.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 4200,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "复合拟音；布料摩擦为主，软质低频为辅。",
+      "sha256": "76aa59a704d1c8350706f128e10514ea5bafe0caaf5a63469b8c01b7a675b554"
+    },
+    {
+      "id": "bag_heavy_setdown_03",
+      "category": "Bag",
+      "label_zh": "重物布袋放在木桌 3",
+      "file": "Assets/Audio/PH/Bag/bag_heavy_setdown_03.wav",
+      "duration_s": 0.7559,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -23.3,
+      "sources": [
+        "kenney-impact/impactSoft_heavy_002.ogg",
+        "kenney-impact/impactWood_medium_002.ogg",
+        "kenney-rpg/cloth3.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.25,
+          "edits": [
+            {
+              "source": "kenney-rpg/cloth3.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 4200,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.15,
+          "gain": 0.85,
+          "edits": [
+            {
+              "source": "kenney-impact/impactSoft_heavy_002.ogg",
+              "speed": 0.76,
+              "highpass_hz": 65,
+              "lowpass_hz": 2800,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.17,
+          "gain": 0.18,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_002.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 2800,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "8f127cf823665ca49cd4c043a2aadfed495d9a2709d5a4be6eb42178fb36f8a3"
+    },
+    {
+      "id": "bag_heavy_drop_03",
+      "category": "Bag",
+      "label_zh": "重物布袋落地 3",
+      "file": "Assets/Audio/PH/Bag/bag_heavy_drop_03.wav",
+      "duration_s": 0.6059,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -6.0,
+      "rms_dbfs": -20.47,
+      "sources": [
+        "kenney-impact/impactSoft_heavy_002.ogg",
+        "kenney-rpg/cloth3.ogg",
+        "kenney-rpg/dropLeather.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 1,
+          "edits": [
+            {
+              "source": "kenney-impact/impactSoft_heavy_002.ogg",
+              "speed": 0.76,
+              "highpass_hz": 65,
+              "lowpass_hz": 2800,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.025,
+          "gain": 0.3,
+          "edits": [
+            {
+              "source": "kenney-rpg/cloth3.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 4200,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.1,
+          "gain": 0.24,
+          "edits": [
+            {
+              "source": "kenney-rpg/dropLeather.ogg",
+              "speed": 0.8,
+              "highpass_hz": 65,
+              "lowpass_hz": 3200,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "cb25300f515b7eb025e336676094dc1fb66251729a9710031d0ec2c9b5f96ccc"
+    },
+    {
+      "id": "bag_drag_01",
+      "category": "Bag",
+      "label_zh": "拖动布袋",
+      "file": "Assets/Audio/PH/Bag/bag_drag_01.wav",
+      "duration_s": 1.4304,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -37.01,
+      "sources": [
+        "kenney-rpg/cloth4.ogg",
+        "kenney-rpg/clothBelt.ogg",
+        "kenney-rpg/clothBelt2.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.8,
+          "edits": [
+            {
+              "source": "kenney-rpg/clothBelt.ogg",
+              "speed": 0.7,
+              "highpass_hz": 65,
+              "lowpass_hz": 3700,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.45,
+          "gain": 0.65,
+          "edits": [
+            {
+              "source": "kenney-rpg/clothBelt2.ogg",
+              "speed": 0.72,
+              "highpass_hz": 65,
+              "lowpass_hz": 3500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.95,
+          "gain": 0.4,
+          "edits": [
+            {
+              "source": "kenney-rpg/cloth4.ogg",
+              "speed": 0.8,
+              "highpass_hz": 65,
+              "lowpass_hz": 3900,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "b0c16498cfb7ba97c12dda36ac25f397eed0c170d3b377b6302563f9da070df0"
+    },
+    {
+      "id": "bag_rummage_01",
+      "category": "Bag",
+      "label_zh": "翻找布袋",
+      "file": "Assets/Audio/PH/Bag/bag_rummage_01.wav",
+      "duration_s": 0.77,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -33.88,
+      "sources": [
+        "kenney-rpg/cloth2.ogg",
+        "kenney-rpg/cloth4.ogg",
+        "kenney-rpg/handleSmallLeather.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.7,
+          "edits": [
+            {
+              "source": "kenney-rpg/cloth2.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.24,
+          "gain": 0.55,
+          "edits": [
+            {
+              "source": "kenney-rpg/cloth4.ogg",
+              "speed": 0.86,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.52,
+          "gain": 0.3,
+          "edits": [
+            {
+              "source": "kenney-rpg/handleSmallLeather.ogg",
+              "speed": 0.95,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "1e3785852abc391f52c892dd76aea572d53c1e8a5f11f4c1bcb6c47d678f29bd"
+    },
+    {
+      "id": "drawer_open_01",
+      "category": "Interactions",
+      "label_zh": "浅木抽屉拉开 1",
+      "file": "Assets/Audio/PH/Interactions/drawer_open_01.wav",
+      "duration_s": 0.7239,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -28.78,
+      "sources": [
+        "kenney-impact/impactWood_light_000.ogg",
+        "kenney-rpg/creak1.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.25,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_light_000.ogg",
+              "speed": 0.95,
+              "highpass_hz": 65,
+              "lowpass_hz": 5500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.05,
+          "gain": 0.8,
+          "edits": [
+            {
+              "source": "kenney-rpg/creak1.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 3500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "由木碰撞与吱响组合，适合旧木抽屉。",
+      "sha256": "df97d6080274057714cca75ed3e73d5e5cbeda72df5ff62c550564671eca0adb"
+    },
+    {
+      "id": "drawer_close_01",
+      "category": "Interactions",
+      "label_zh": "浅木抽屉推回 1",
+      "file": "Assets/Audio/PH/Interactions/drawer_close_01.wav",
+      "duration_s": 0.5355,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -31.04,
+      "sources": [
+        "kenney-impact/impactWood_medium_000.ogg",
+        "kenney-rpg/creak1.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.4,
+          "edits": [
+            {
+              "source": "kenney-rpg/creak1.ogg",
+              "speed": 1.15,
+              "highpass_hz": 65,
+              "lowpass_hz": 3500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.3,
+          "gain": 0.7,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_000.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 5500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "c6e4f922e6b23a7a7a831055df0289b898825ca92b22bc4c3f69584da1a8044b"
+    },
+    {
+      "id": "letter_deliver_01",
+      "category": "Interactions",
+      "label_zh": "信件落入收发盘 1",
+      "file": "Assets/Audio/PH/Interactions/letter_deliver_01.wav",
+      "duration_s": 0.5954,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -40.33,
+      "sources": [
+        "kenney-impact/impactWood_light_000.ogg",
+        "kenney-rpg/bookFlip1.ogg",
+        "kenney-rpg/bookPlace1.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.6,
+          "edits": [
+            {
+              "source": "kenney-rpg/bookFlip1.ogg",
+              "speed": 1.12,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.2,
+          "gain": 0.22,
+          "edits": [
+            {
+              "source": "kenney-rpg/bookPlace1.ogg",
+              "speed": 1.1,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.22,
+          "gain": 0.1,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_light_000.ogg",
+              "speed": 1.05,
+              "highpass_hz": 65,
+              "lowpass_hz": 5500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "4d826073da3b14cb850b9ea9c59bcf679a47db114369282693836326e899d0d7"
+    },
+    {
+      "id": "drawer_open_02",
+      "category": "Interactions",
+      "label_zh": "浅木抽屉拉开 2",
+      "file": "Assets/Audio/PH/Interactions/drawer_open_02.wav",
+      "duration_s": 0.9097,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -29.36,
+      "sources": [
+        "kenney-impact/impactWood_light_001.ogg",
+        "kenney-rpg/creak2.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.25,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_light_001.ogg",
+              "speed": 0.95,
+              "highpass_hz": 65,
+              "lowpass_hz": 5500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.05,
+          "gain": 0.8,
+          "edits": [
+            {
+              "source": "kenney-rpg/creak2.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 3500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "由木碰撞与吱响组合，适合旧木抽屉。",
+      "sha256": "1f8af67bb5bdd67c9f19cf9dcb6ba66715c7114dc9a6c9443a78006e730818a2"
+    },
+    {
+      "id": "drawer_close_02",
+      "category": "Interactions",
+      "label_zh": "浅木抽屉推回 2",
+      "file": "Assets/Audio/PH/Interactions/drawer_close_02.wav",
+      "duration_s": 0.6804,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -30.86,
+      "sources": [
+        "kenney-impact/impactWood_medium_001.ogg",
+        "kenney-rpg/creak2.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.4,
+          "edits": [
+            {
+              "source": "kenney-rpg/creak2.ogg",
+              "speed": 1.15,
+              "highpass_hz": 65,
+              "lowpass_hz": 3500,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.3,
+          "gain": 0.7,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_001.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 5500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "854f07a0afb3585bbf4d7f9b5fb34caef43377b4203ca3138f2763375ea7c4be"
+    },
+    {
+      "id": "letter_deliver_02",
+      "category": "Interactions",
+      "label_zh": "信件落入收发盘 2",
+      "file": "Assets/Audio/PH/Interactions/letter_deliver_02.wav",
+      "duration_s": 0.4513,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -13.0,
+      "rms_dbfs": -39.34,
+      "sources": [
+        "kenney-impact/impactWood_light_001.ogg",
+        "kenney-rpg/bookFlip2.ogg",
+        "kenney-rpg/bookPlace2.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.6,
+          "edits": [
+            {
+              "source": "kenney-rpg/bookFlip2.ogg",
+              "speed": 1.12,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.2,
+          "gain": 0.22,
+          "edits": [
+            {
+              "source": "kenney-rpg/bookPlace2.ogg",
+              "speed": 1.1,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.22,
+          "gain": 0.1,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_light_001.ogg",
+              "speed": 1.05,
+              "highpass_hz": 65,
+              "lowpass_hz": 5500,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "5fbbfb990dc1fee271fd6da442c64a5c41bfd77c7bb872f9c8266263b7ee4954"
+    },
+    {
+      "id": "lock_open_01",
+      "category": "Interactions",
+      "label_zh": "封存匣开锁",
+      "file": "Assets/Audio/PH/Interactions/lock_open_01.wav",
+      "duration_s": 0.4415,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -35.51,
+      "sources": [
+        "kenney-rpg/metalClick.ogg",
+        "kenney-rpg/metalLatch.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.5,
+          "edits": [
+            {
+              "source": "kenney-rpg/metalClick.ogg",
+              "speed": 0.88,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.15,
+          "gain": 0.8,
+          "edits": [
+            {
+              "source": "kenney-rpg/metalLatch.ogg",
+              "speed": 0.9,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "cd0d0d9f8c746158b2bc87d1c0cac30911ecebbc45fd4ecb64321b29eeeb50a9"
+    },
+    {
+      "id": "lock_close_01",
+      "category": "Interactions",
+      "label_zh": "封存匣锁合",
+      "file": "Assets/Audio/PH/Interactions/lock_close_01.wav",
+      "duration_s": 0.5356,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -37.02,
+      "sources": [
+        "kenney-rpg/metalClick.ogg",
+        "kenney-rpg/metalLatch.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.8,
+          "edits": [
+            {
+              "source": "kenney-rpg/metalLatch.ogg",
+              "speed": 0.88,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.12,
+          "gain": 0.35,
+          "edits": [
+            {
+              "source": "kenney-rpg/metalClick.ogg",
+              "speed": 0.94,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "cc26da71410bbdfa20d089058fb14d7001203e3554ae000b0da983824f692b60"
+    },
+    {
+      "id": "seal_stamp_01",
+      "category": "Interactions",
+      "label_zh": "封印压下",
+      "file": "Assets/Audio/PH/Interactions/seal_stamp_01.wav",
+      "duration_s": 0.255,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -30.07,
+      "sources": [
+        "kenney-impact/impactWood_medium_001.ogg",
+        "kenney-rpg/bookClose.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.8,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_medium_001.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 4200,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.04,
+          "gain": 0.2,
+          "edits": [
+            {
+              "source": "kenney-rpg/bookClose.ogg",
+              "speed": 1.1,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "复合拟音，用于盖章动作，不是热蜡滴落录音。",
+      "sha256": "2a55df6b0a27a2538e27b9fb0975af59d4965c86f7fb2324354bd089ffdb62d2"
+    },
+    {
+      "id": "seal_break_01",
+      "category": "Interactions",
+      "label_zh": "拆开封口",
+      "file": "Assets/Audio/PH/Interactions/seal_break_01.wav",
+      "duration_s": 0.2732,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -15.0,
+      "rms_dbfs": -40.61,
+      "sources": [
+        "kenney-impact/impactWood_light_004.ogg",
+        "kenney-rpg/bookFlip3.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.7,
+          "edits": [
+            {
+              "source": "kenney-rpg/bookFlip3.ogg",
+              "speed": 0.75,
+              "highpass_hz": 65,
+              "lowpass_hz": 6000,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.05,
+          "gain": 0.22,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_light_004.ogg",
+              "speed": 1.4,
+              "highpass_hz": 65,
+              "lowpass_hz": 6800,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "纸张和短促脆响组合。",
+      "sha256": "0f0bcd29845700e3d8fdc473ad4ec9b286d2dbab248140671b9068e510328dbe"
+    },
+    {
+      "id": "object_pickup_01",
+      "category": "Interactions",
+      "label_zh": "拿取小物件",
+      "file": "Assets/Audio/PH/Interactions/object_pickup_01.wav",
+      "duration_s": 0.23,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -38.1,
+      "sources": [
+        "kenney-rpg/handleSmallLeather.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-rpg/handleSmallLeather.ogg",
+          "speed": 1.05,
+          "highpass_hz": 65,
+          "lowpass_hz": 4800,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "0e4315b800e7da70b80101a47a597ddb6a7c889b56d190e33e9dce38d67ed3a2"
+    },
+    {
+      "id": "object_setdown_01",
+      "category": "Interactions",
+      "label_zh": "小物件放回木桌",
+      "file": "Assets/Audio/PH/Interactions/object_setdown_01.wav",
+      "duration_s": 0.1106,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -15.0,
+      "rms_dbfs": -31.6,
+      "sources": [
+        "kenney-impact/impactWood_light_004.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_light_004.ogg",
+          "speed": 1.08,
+          "highpass_hz": 65,
+          "lowpass_hz": 4700,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "7ad5741a8404ac033cd07c702656b84fc50e4de376939d83c1527228060a1d1d"
+    },
+    {
+      "id": "interact_confirm_01",
+      "category": "Interactions",
+      "label_zh": "操作确认／木质轻点",
+      "file": "Assets/Audio/PH/Interactions/interact_confirm_01.wav",
+      "duration_s": 0.1205,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -18.0,
+      "rms_dbfs": -35.91,
+      "sources": [
+        "kenney-impact/impactWood_light_002.ogg"
+      ],
+      "processing": [
+        {
+          "source": "kenney-impact/impactWood_light_002.ogg",
+          "speed": 1.2,
+          "highpass_hz": 65,
+          "lowpass_hz": 3800,
+          "channels": 1
+        }
+      ],
+      "note_zh": "",
+      "sha256": "4f90c80e8306f379d738c248e44626966e221896513415ba048dbfe1a7f3f205"
+    },
+    {
+      "id": "interact_blocked_01",
+      "category": "Interactions",
+      "label_zh": "操作受阻／锁扣轻响",
+      "file": "Assets/Audio/PH/Interactions/interact_blocked_01.wav",
+      "duration_s": 0.4713,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -17.0,
+      "rms_dbfs": -38.25,
+      "sources": [
+        "kenney-impact/impactWood_light_001.ogg",
+        "kenney-rpg/metalClick.ogg"
+      ],
+      "processing": [
+        {
+          "offset_s": 0,
+          "gain": 0.5,
+          "edits": [
+            {
+              "source": "kenney-rpg/metalClick.ogg",
+              "speed": 0.82,
+              "highpass_hz": 65,
+              "lowpass_hz": 2600,
+              "channels": 1
+            }
+          ]
+        },
+        {
+          "offset_s": 0.095,
+          "gain": 0.35,
+          "edits": [
+            {
+              "source": "kenney-impact/impactWood_light_001.ogg",
+              "speed": 0.85,
+              "highpass_hz": 65,
+              "lowpass_hz": 3100,
+              "channels": 1
+            }
+          ]
+        }
+      ],
+      "note_zh": "",
+      "sha256": "c85c9f9e20424133a9363d0f7c8064da1d12a212d121a20cec0f56c40379197d"
+    },
+    {
+      "id": "typewriter_key_clean_01",
+      "category": "Typewriter/Clean",
+      "label_zh": "打字机完整单键素材 1",
+      "file": "Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_01.wav",
+      "duration_s": 0.659,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -33.9,
+      "sources": [
+        "typewriter/typewriter1.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter1.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。",
+      "sha256": "4cebab848ba05c88ed6c6de12f791e3c5162f910f3bb9eb304a0f372348965a0"
+    },
+    {
+      "id": "typewriter_key_short_01",
+      "category": "Typewriter/Short",
+      "label_zh": "打字机短敲击 1",
+      "file": "Assets/Audio/PH/Typewriter/Short/typewriter_key_short_01.wav",
+      "duration_s": 0.12,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -34.92,
+      "sources": [
+        "typewriter/typewriter1.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter1.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        },
+        {
+          "excerpt_start_s": 0.08579166666666667,
+          "duration_s": 0.12
+        }
+      ],
+      "note_zh": "供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。",
+      "sha256": "144269dfb21b4fff3250a46446283a966db8a4f4eb913a130a077ad57e70039d"
+    },
+    {
+      "id": "typewriter_key_clean_02",
+      "category": "Typewriter/Clean",
+      "label_zh": "打字机完整单键素材 2",
+      "file": "Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_02.wav",
+      "duration_s": 0.659,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -36.52,
+      "sources": [
+        "typewriter/typewriter2.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter2.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。",
+      "sha256": "3cb659a1fa4a26ed7e33643022a5a38783a6087727776c2f21cf1c96145e3404"
+    },
+    {
+      "id": "typewriter_key_short_02",
+      "category": "Typewriter/Short",
+      "label_zh": "打字机短敲击 2",
+      "file": "Assets/Audio/PH/Typewriter/Short/typewriter_key_short_02.wav",
+      "duration_s": 0.13,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -38.82,
+      "sources": [
+        "typewriter/typewriter2.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter2.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        },
+        {
+          "excerpt_start_s": 0.10429166666666667,
+          "duration_s": 0.13
+        }
+      ],
+      "note_zh": "供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。",
+      "sha256": "060052845eb84fc80c3f5713ab15e0f7383a33285a435d6a2d0f134805293ed3"
+    },
+    {
+      "id": "typewriter_key_clean_03",
+      "category": "Typewriter/Clean",
+      "label_zh": "打字机完整单键素材 3",
+      "file": "Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_03.wav",
+      "duration_s": 0.4963,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -33.27,
+      "sources": [
+        "typewriter/typewriter3.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter3.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。",
+      "sha256": "cdadf829a6e82ffc58a8f63d081205f21862576c2f7df09e216f9e0ad6be4008"
+    },
+    {
+      "id": "typewriter_key_short_03",
+      "category": "Typewriter/Short",
+      "label_zh": "打字机短敲击 3",
+      "file": "Assets/Audio/PH/Typewriter/Short/typewriter_key_short_03.wav",
+      "duration_s": 0.14,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -37.08,
+      "sources": [
+        "typewriter/typewriter3.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter3.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        },
+        {
+          "excerpt_start_s": 0.10358333333333333,
+          "duration_s": 0.14
+        }
+      ],
+      "note_zh": "供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。",
+      "sha256": "3cf031fcbb8419db27ab54cf1d6984eccee42c16b2de51b3dff645676c90c682"
+    },
+    {
+      "id": "typewriter_key_clean_04",
+      "category": "Typewriter/Clean",
+      "label_zh": "打字机完整单键素材 4",
+      "file": "Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_04.wav",
+      "duration_s": 0.4062,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -33.6,
+      "sources": [
+        "typewriter/typewriter4.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter4.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。",
+      "sha256": "34e37e5efae5e3b39b68fb808a5ee57e650596791af1a2705165ba285a95ab2e"
+    },
+    {
+      "id": "typewriter_key_short_04",
+      "category": "Typewriter/Short",
+      "label_zh": "打字机短敲击 4",
+      "file": "Assets/Audio/PH/Typewriter/Short/typewriter_key_short_04.wav",
+      "duration_s": 0.12,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -36.5,
+      "sources": [
+        "typewriter/typewriter4.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter4.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        },
+        {
+          "excerpt_start_s": 0.066,
+          "duration_s": 0.12
+        }
+      ],
+      "note_zh": "供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。",
+      "sha256": "8343b0f7716bab1d4aff533ff309e6474d81067a2d6eb07eb6d102b34aadb717"
+    },
+    {
+      "id": "typewriter_key_clean_05",
+      "category": "Typewriter/Clean",
+      "label_zh": "打字机完整单键素材 5",
+      "file": "Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_05.wav",
+      "duration_s": 0.6234,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -34.12,
+      "sources": [
+        "typewriter/typewriter5.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter5.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。",
+      "sha256": "234cb78986168092bce93581b7353915e46283af6dbcc9f2794f7c635bd6a0fc"
+    },
+    {
+      "id": "typewriter_key_short_05",
+      "category": "Typewriter/Short",
+      "label_zh": "打字机短敲击 5",
+      "file": "Assets/Audio/PH/Typewriter/Short/typewriter_key_short_05.wav",
+      "duration_s": 0.13,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -35.81,
+      "sources": [
+        "typewriter/typewriter5.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter5.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        },
+        {
+          "excerpt_start_s": 0.21866666666666665,
+          "duration_s": 0.13
+        }
+      ],
+      "note_zh": "供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。",
+      "sha256": "2499cb2fe16e347ff609c0477bb0b42790b77066503fb203a9a09f3a3f5db0f8"
+    },
+    {
+      "id": "typewriter_key_clean_06",
+      "category": "Typewriter/Clean",
+      "label_zh": "打字机完整单键素材 6",
+      "file": "Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_06.wav",
+      "duration_s": 0.2811,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -32.76,
+      "sources": [
+        "typewriter/typewriter6.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter6.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。",
+      "sha256": "4bd58f629d5cfe403603175a935532623033dd9f15a64b5a76751ea4468d4325"
+    },
+    {
+      "id": "typewriter_key_short_06",
+      "category": "Typewriter/Short",
+      "label_zh": "打字机短敲击 6",
+      "file": "Assets/Audio/PH/Typewriter/Short/typewriter_key_short_06.wav",
+      "duration_s": 0.11,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -35.87,
+      "sources": [
+        "typewriter/typewriter6.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter6.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        },
+        {
+          "excerpt_start_s": 0.06370833333333334,
+          "duration_s": 0.11
+        }
+      ],
+      "note_zh": "供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。",
+      "sha256": "7a322beed0822405c413251cb46c1c8b8a2129e1d71a4d2a36dd82a2bec543ae"
+    },
+    {
+      "id": "typewriter_key_clean_07",
+      "category": "Typewriter/Clean",
+      "label_zh": "打字机完整单键素材 7",
+      "file": "Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_07.wav",
+      "duration_s": 0.277,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -30.78,
+      "sources": [
+        "typewriter/typewriter7.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter7.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。",
+      "sha256": "855aaaafdc8cb4d9c1fa4654086c3df1fe13ed84cb21a338d96bd03cbbe29e83"
+    },
+    {
+      "id": "typewriter_key_short_07",
+      "category": "Typewriter/Short",
+      "label_zh": "打字机短敲击 7",
+      "file": "Assets/Audio/PH/Typewriter/Short/typewriter_key_short_07.wav",
+      "duration_s": 0.1101,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -36.0,
+      "sources": [
+        "typewriter/typewriter7.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter7.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        },
+        {
+          "excerpt_start_s": 0.1669375,
+          "duration_s": 0.12
+        }
+      ],
+      "note_zh": "供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。",
+      "sha256": "ecb056e3929d3a94223455214ec5b79c0865288cab7a6763f8920e3a8be7268a"
+    },
+    {
+      "id": "typewriter_key_clean_08",
+      "category": "Typewriter/Clean",
+      "label_zh": "打字机完整单键素材 8",
+      "file": "Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_08.wav",
+      "duration_s": 0.4308,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -28.6,
+      "sources": [
+        "typewriter/typewriter8.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter8.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        }
+      ],
+      "note_zh": "保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。",
+      "sha256": "48a479d37ed29ac3d7a4673ef60126724118b6299097ce945bf664f95ae7b6c5"
+    },
+    {
+      "id": "typewriter_key_short_08",
+      "category": "Typewriter/Short",
+      "label_zh": "打字机短敲击 8",
+      "file": "Assets/Audio/PH/Typewriter/Short/typewriter_key_short_08.wav",
+      "duration_s": 0.14,
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "channels": 1,
+      "loop": false,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -34.98,
+      "sources": [
+        "typewriter/typewriter8.wav"
+      ],
+      "processing": [
+        {
+          "source": "typewriter/typewriter8.wav",
+          "speed": 1,
+          "highpass_hz": 130,
+          "lowpass_hz": 8500,
+          "channels": 1
+        },
+        {
+          "excerpt_start_s": 0.26141666666666663,
+          "duration_s": 0.14
+        }
+      ],
+      "note_zh": "供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。",
+      "sha256": "2fe97af0264f4590b5a46ba1109f1c715c77a5bbaa6ca1a81f613ac01a47a0bf"
+    }
+  ]
+}

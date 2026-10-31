@@ -1,0 +1,50 @@
+{
+  "pack": "typewriter",
+  "author": "Cassie-OrbitGames",
+  "source_page": "https://opengameart.org/content/typewriter-sounds",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "retrieved_date": "2026-10-31",
+  "files": [
+    {
+      "filename": "typewriter1.wav",
+      "download_or_pack_url": "https://opengameart.org/sites/default/files/typewriter1.wav",
+      "sha256": "f860766aa7922afbf1523ea1a41504c64f3f6362fa03a60b6497c75c1d0d0344"
+    },
+    {
+      "filename": "typewriter2.wav",
+      "download_or_pack_url": "https://opengameart.org/sites/default/files/typewriter2.wav",
+      "sha256": "b40c17fe45c9e3a6ad8a617f7831da5ccb3c8baab1fa0eb368f8ba3ade52c8a4"
+    },
+    {
+      "filename": "typewriter3.wav",
+      "download_or_pack_url": "https://opengameart.org/sites/default/files/typewriter3.wav",
+      "sha256": "c9bb2c6245bdd60b996fe39f2fb74c810309ee03bbe2d8ae1ee6715888df9c69"
+    },
+    {
+      "filename": "typewriter4.wav",
+      "download_or_pack_url": "https://opengameart.org/sites/default/files/typewriter4.wav",
+      "sha256": "28d4c07732fbd6f324f257c27a92d8a3c14ea5c26517972295b288bb75d5a2c3"
+    },
+    {
+      "filename": "typewriter5.wav",
+      "download_or_pack_url": "https://opengameart.org/sites/default/files/typewriter5.wav",
+      "sha256": "f52a889a483985d40ca31ed97ddd86227a776650f4666f5899c86dfec6de2edf"
+    },
+    {
+      "filename": "typewriter6.wav",
+      "download_or_pack_url": "https://opengameart.org/sites/default/files/typewriter6.wav",
+      "sha256": "825b668508448212edbf8ddcff2801b0a6251528aaccdf8ab85427023cf0797f"
+    },
+    {
+      "filename": "typewriter7.wav",
+      "download_or_pack_url": "https://opengameart.org/sites/default/files/typewriter7.wav",
+      "sha256": "113210a80c394cb3ad0d8b7d773ff752b81cb42bb193efb4d11eb8379f736144"
+    },
+    {
+      "filename": "typewriter8.wav",
+      "download_or_pack_url": "https://opengameart.org/sites/default/files/typewriter8.wav",
+      "sha256": "c29966383e602df84db68577758e34f830deb01aff6a208579ee943511217118"
+    }
+  ]
+}

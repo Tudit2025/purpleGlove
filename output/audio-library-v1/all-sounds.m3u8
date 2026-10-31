@@ -1,0 +1,181 @@
+#EXTM3U
+#EXTINF:0.1489,木材碰撞／轻 1 | wood_collision_light_01
+../../Assets/Audio/PH/Wood/wood_collision_light_01.wav
+#EXTINF:0.1191,木材碰撞／轻 2 | wood_collision_light_02
+../../Assets/Audio/PH/Wood/wood_collision_light_02.wav
+#EXTINF:0.1485,木材碰撞／轻 3 | wood_collision_light_03
+../../Assets/Audio/PH/Wood/wood_collision_light_03.wav
+#EXTINF:0.1348,木材碰撞／轻 4 | wood_collision_light_04
+../../Assets/Audio/PH/Wood/wood_collision_light_04.wav
+#EXTINF:0.229,木材碰撞／中 1 | wood_collision_medium_01
+../../Assets/Audio/PH/Wood/wood_collision_medium_01.wav
+#EXTINF:0.2291,木材碰撞／中 2 | wood_collision_medium_02
+../../Assets/Audio/PH/Wood/wood_collision_medium_02.wav
+#EXTINF:0.2655,木材碰撞／中 3 | wood_collision_medium_03
+../../Assets/Audio/PH/Wood/wood_collision_medium_03.wav
+#EXTINF:0.2273,木材碰撞／中 4 | wood_collision_medium_04
+../../Assets/Audio/PH/Wood/wood_collision_medium_04.wav
+#EXTINF:0.2245,木材碰撞／重 1 | wood_collision_heavy_01
+../../Assets/Audio/PH/Wood/wood_collision_heavy_01.wav
+#EXTINF:0.2196,木材碰撞／重 2 | wood_collision_heavy_02
+../../Assets/Audio/PH/Wood/wood_collision_heavy_02.wav
+#EXTINF:0.2618,木材碰撞／重 3 | wood_collision_heavy_03
+../../Assets/Audio/PH/Wood/wood_collision_heavy_03.wav
+#EXTINF:0.2295,木材碰撞／重 4 | wood_collision_heavy_04
+../../Assets/Audio/PH/Wood/wood_collision_heavy_04.wav
+#EXTINF:0.7002,翻书页 1 | page_turn_01
+../../Assets/Audio/PH/PaperBook/page_turn_01.wav
+#EXTINF:0.8355,慢翻厚书页 1 | page_turn_slow_01
+../../Assets/Audio/PH/PaperBook/page_turn_slow_01.wav
+#EXTINF:0.2578,书本放上木桌 1 | book_setdown_01
+../../Assets/Audio/PH/PaperBook/book_setdown_01.wav
+#EXTINF:0.4413,翻书页 2 | page_turn_02
+../../Assets/Audio/PH/PaperBook/page_turn_02.wav
+#EXTINF:0.5247,慢翻厚书页 2 | page_turn_slow_02
+../../Assets/Audio/PH/PaperBook/page_turn_slow_02.wav
+#EXTINF:0.2936,书本放上木桌 2 | book_setdown_02
+../../Assets/Audio/PH/PaperBook/book_setdown_02.wav
+#EXTINF:0.2192,翻书页 3 | page_turn_03
+../../Assets/Audio/PH/PaperBook/page_turn_03.wav
+#EXTINF:0.263,慢翻厚书页 3 | page_turn_slow_03
+../../Assets/Audio/PH/PaperBook/page_turn_slow_03.wav
+#EXTINF:0.2704,书本放上木桌 3 | book_setdown_03
+../../Assets/Audio/PH/PaperBook/book_setdown_03.wav
+#EXTINF:0.2887,打开旧书 | book_open_01
+../../Assets/Audio/PH/PaperBook/book_open_01.wav
+#EXTINF:0.254,合上旧书 | book_close_01
+../../Assets/Audio/PH/PaperBook/book_close_01.wav
+#EXTINF:0.3822,拿起信纸 1 | paper_pickup_01
+../../Assets/Audio/PH/PaperBook/paper_pickup_01.wav
+#EXTINF:0.4547,放下信纸 1 | paper_setdown_01
+../../Assets/Audio/PH/PaperBook/paper_setdown_01.wav
+#EXTINF:0.1882,拿起信纸 2 | paper_pickup_02
+../../Assets/Audio/PH/PaperBook/paper_pickup_02.wav
+#EXTINF:0.3475,放下信纸 2 | paper_setdown_02
+../../Assets/Audio/PH/PaperBook/paper_setdown_02.wav
+#EXTINF:40.0,屋外雨声／40 秒循环 | rain_outside_loop_40s
+../../Assets/Audio/PH/Ambience/rain_outside_loop_40s.wav
+#EXTINF:10.0,窗边雨声／10 秒循环 | rain_window_loop_10s
+../../Assets/Audio/PH/Ambience/rain_window_loop_10s.wav
+#EXTINF:10.0,室内隔窗雨声／10 秒循环 | rain_room_muffled_loop_10s
+../../Assets/Audio/PH/Ambience/rain_room_muffled_loop_10s.wav
+#EXTINF:1.0078,木门打开 1 | wood_door_open_01
+../../Assets/Audio/PH/Doors/wood_door_open_01.wav
+#EXTINF:1.5224,木门打开 2 | wood_door_open_02
+../../Assets/Audio/PH/Doors/wood_door_open_02.wav
+#EXTINF:0.5226,木门关闭 1 | wood_door_close_01
+../../Assets/Audio/PH/Doors/wood_door_close_01.wav
+#EXTINF:0.6138,木门关闭 2 | wood_door_close_02
+../../Assets/Audio/PH/Doors/wood_door_close_02.wav
+#EXTINF:0.7744,木门关闭 3 | wood_door_close_03
+../../Assets/Audio/PH/Doors/wood_door_close_03.wav
+#EXTINF:0.6751,木门重关 | wood_door_close_heavy_01
+../../Assets/Audio/PH/Doors/wood_door_close_heavy_01.wav
+#EXTINF:0.5449,两下克制敲门 | door_knock_pattern_01
+../../Assets/Audio/PH/Doors/door_knock_pattern_01.wav
+#EXTINF:0.7643,三下常规敲门 | door_knock_pattern_02
+../../Assets/Audio/PH/Doors/door_knock_pattern_02.wav
+#EXTINF:1.073,急促敲门 | door_knock_pattern_03
+../../Assets/Audio/PH/Doors/door_knock_pattern_03.wav
+#EXTINF:0.8133,活板门／投递口打开 1 | trapdoor_open_01
+../../Assets/Audio/PH/Trapdoor/trapdoor_open_01.wav
+#EXTINF:0.5659,活板门／投递口合上 1 | trapdoor_close_01
+../../Assets/Audio/PH/Trapdoor/trapdoor_close_01.wav
+#EXTINF:0.7391,木铰链吱响层 1 | hinge_creak_01
+../../Assets/Audio/PH/Trapdoor/hinge_creak_01.wav
+#EXTINF:1.0082,活板门／投递口打开 2 | trapdoor_open_02
+../../Assets/Audio/PH/Trapdoor/trapdoor_open_02.wav
+#EXTINF:0.7426,活板门／投递口合上 2 | trapdoor_close_02
+../../Assets/Audio/PH/Trapdoor/trapdoor_close_02.wav
+#EXTINF:0.9402,木铰链吱响层 2 | hinge_creak_02
+../../Assets/Audio/PH/Trapdoor/hinge_creak_02.wav
+#EXTINF:0.847,活板门／投递口打开 3 | trapdoor_open_03
+../../Assets/Audio/PH/Trapdoor/trapdoor_open_03.wav
+#EXTINF:0.7478,活板门／投递口合上 3 | trapdoor_close_03
+../../Assets/Audio/PH/Trapdoor/trapdoor_close_03.wav
+#EXTINF:0.3901,木铰链吱响层 3 | hinge_creak_03
+../../Assets/Audio/PH/Trapdoor/hinge_creak_03.wav
+#EXTINF:0.2376,活板门小锁扣 | trapdoor_latch_01
+../../Assets/Audio/PH/Trapdoor/trapdoor_latch_01.wav
+#EXTINF:0.7476,提起装重物的布袋 1 | bag_heavy_pickup_01
+../../Assets/Audio/PH/Bag/bag_heavy_pickup_01.wav
+#EXTINF:0.7076,重物布袋放在木桌 1 | bag_heavy_setdown_01
+../../Assets/Audio/PH/Bag/bag_heavy_setdown_01.wav
+#EXTINF:0.7326,重物布袋落地 1 | bag_heavy_drop_01
+../../Assets/Audio/PH/Bag/bag_heavy_drop_01.wav
+#EXTINF:0.4927,提起装重物的布袋 2 | bag_heavy_pickup_02
+../../Assets/Audio/PH/Bag/bag_heavy_pickup_02.wav
+#EXTINF:0.7336,重物布袋放在木桌 2 | bag_heavy_setdown_02
+../../Assets/Audio/PH/Bag/bag_heavy_setdown_02.wav
+#EXTINF:0.5836,重物布袋落地 2 | bag_heavy_drop_02
+../../Assets/Audio/PH/Bag/bag_heavy_drop_02.wav
+#EXTINF:0.6161,提起装重物的布袋 3 | bag_heavy_pickup_03
+../../Assets/Audio/PH/Bag/bag_heavy_pickup_03.wav
+#EXTINF:0.7559,重物布袋放在木桌 3 | bag_heavy_setdown_03
+../../Assets/Audio/PH/Bag/bag_heavy_setdown_03.wav
+#EXTINF:0.6059,重物布袋落地 3 | bag_heavy_drop_03
+../../Assets/Audio/PH/Bag/bag_heavy_drop_03.wav
+#EXTINF:1.4304,拖动布袋 | bag_drag_01
+../../Assets/Audio/PH/Bag/bag_drag_01.wav
+#EXTINF:0.77,翻找布袋 | bag_rummage_01
+../../Assets/Audio/PH/Bag/bag_rummage_01.wav
+#EXTINF:0.7239,浅木抽屉拉开 1 | drawer_open_01
+../../Assets/Audio/PH/Interactions/drawer_open_01.wav
+#EXTINF:0.5355,浅木抽屉推回 1 | drawer_close_01
+../../Assets/Audio/PH/Interactions/drawer_close_01.wav
+#EXTINF:0.5954,信件落入收发盘 1 | letter_deliver_01
+../../Assets/Audio/PH/Interactions/letter_deliver_01.wav
+#EXTINF:0.9097,浅木抽屉拉开 2 | drawer_open_02
+../../Assets/Audio/PH/Interactions/drawer_open_02.wav
+#EXTINF:0.6804,浅木抽屉推回 2 | drawer_close_02
+../../Assets/Audio/PH/Interactions/drawer_close_02.wav
+#EXTINF:0.4513,信件落入收发盘 2 | letter_deliver_02
+../../Assets/Audio/PH/Interactions/letter_deliver_02.wav
+#EXTINF:0.4415,封存匣开锁 | lock_open_01
+../../Assets/Audio/PH/Interactions/lock_open_01.wav
+#EXTINF:0.5356,封存匣锁合 | lock_close_01
+../../Assets/Audio/PH/Interactions/lock_close_01.wav
+#EXTINF:0.255,封印压下 | seal_stamp_01
+../../Assets/Audio/PH/Interactions/seal_stamp_01.wav
+#EXTINF:0.2732,拆开封口 | seal_break_01
+../../Assets/Audio/PH/Interactions/seal_break_01.wav
+#EXTINF:0.23,拿取小物件 | object_pickup_01
+../../Assets/Audio/PH/Interactions/object_pickup_01.wav
+#EXTINF:0.1106,小物件放回木桌 | object_setdown_01
+../../Assets/Audio/PH/Interactions/object_setdown_01.wav
+#EXTINF:0.1205,操作确认／木质轻点 | interact_confirm_01
+../../Assets/Audio/PH/Interactions/interact_confirm_01.wav
+#EXTINF:0.4713,操作受阻／锁扣轻响 | interact_blocked_01
+../../Assets/Audio/PH/Interactions/interact_blocked_01.wav
+#EXTINF:0.659,打字机完整单键素材 1 | typewriter_key_clean_01
+../../Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_01.wav
+#EXTINF:0.12,打字机短敲击 1 | typewriter_key_short_01
+../../Assets/Audio/PH/Typewriter/Short/typewriter_key_short_01.wav
+#EXTINF:0.659,打字机完整单键素材 2 | typewriter_key_clean_02
+../../Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_02.wav
+#EXTINF:0.13,打字机短敲击 2 | typewriter_key_short_02
+../../Assets/Audio/PH/Typewriter/Short/typewriter_key_short_02.wav
+#EXTINF:0.4963,打字机完整单键素材 3 | typewriter_key_clean_03
+../../Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_03.wav
+#EXTINF:0.14,打字机短敲击 3 | typewriter_key_short_03
+../../Assets/Audio/PH/Typewriter/Short/typewriter_key_short_03.wav
+#EXTINF:0.4062,打字机完整单键素材 4 | typewriter_key_clean_04
+../../Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_04.wav
+#EXTINF:0.12,打字机短敲击 4 | typewriter_key_short_04
+../../Assets/Audio/PH/Typewriter/Short/typewriter_key_short_04.wav
+#EXTINF:0.6234,打字机完整单键素材 5 | typewriter_key_clean_05
+../../Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_05.wav
+#EXTINF:0.13,打字机短敲击 5 | typewriter_key_short_05
+../../Assets/Audio/PH/Typewriter/Short/typewriter_key_short_05.wav
+#EXTINF:0.2811,打字机完整单键素材 6 | typewriter_key_clean_06
+../../Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_06.wav
+#EXTINF:0.11,打字机短敲击 6 | typewriter_key_short_06
+../../Assets/Audio/PH/Typewriter/Short/typewriter_key_short_06.wav
+#EXTINF:0.277,打字机完整单键素材 7 | typewriter_key_clean_07
+../../Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_07.wav
+#EXTINF:0.1101,打字机短敲击 7 | typewriter_key_short_07
+../../Assets/Audio/PH/Typewriter/Short/typewriter_key_short_07.wav
+#EXTINF:0.4308,打字机完整单键素材 8 | typewriter_key_clean_08
+../../Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_08.wav
+#EXTINF:0.14,打字机短敲击 8 | typewriter_key_short_08
+../../Assets/Audio/PH/Typewriter/Short/typewriter_key_short_08.wav

@@ -1,0 +1,23 @@
+{
+  "id": "cinzel",
+  "name": "Cinzel",
+  "language": "en",
+  "source_page": "https://github.com/NDISCOVER/Cinzel",
+  "source_revision": "dd598495b0fb2ad84270d5cc75d642d2f1e8eabf",
+  "source_ref": "master",
+  "license": "OFL-1.1",
+  "license_url": "https://raw.githubusercontent.com/NDISCOVER/Cinzel/dd598495b0fb2ad84270d5cc75d642d2f1e8eabf/OFL.txt",
+  "license_path": "fonts/cinzel/OFL.txt",
+  "license_sha256": "a46624198eeb4c2e442c38b0ff3bd8f52caeefd76675c36f410e2fb69014a239",
+  "collected_date": "2026-10-31",
+  "notes": "Large cover and institutional headings only, not body text.",
+  "files": [
+    {
+      "path": "fonts/cinzel/Cinzel-Regular.ttf",
+      "bytes": 66996,
+      "sha256": "af0031129f27dc752e8629a80b793d27abea94027faa27cc660c3fc33f607a1f",
+      "url": "https://raw.githubusercontent.com/NDISCOVER/Cinzel/dd598495b0fb2ad84270d5cc75d642d2f1e8eabf/fonts/ttf/Cinzel-Regular.ttf",
+      "modified": false
+    }
+  ]
+}

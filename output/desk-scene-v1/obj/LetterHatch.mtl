@@ -1,0 +1,17 @@
+newmtl M_Desk_Soot
+Kd 0.025 0.021 0.016
+d 1
+illum 2
+
+newmtl M_Desk_Wood_Weathered
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Wood_Weathered.png
+
+newmtl M_Desk_Iron_Blackened
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Iron_Blackened.png
+

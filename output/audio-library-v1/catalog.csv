@@ -1,0 +1,91 @@
+﻿id,category,label_zh,file,duration_s,channels,loop,peak_dbfs,rms_dbfs,sources,note_zh
+wood_collision_light_01,Wood,木材碰撞／轻 1,Assets/Audio/PH/Wood/wood_collision_light_01.wav,0.1489,1,False,-12.0,-29.12,['kenney-impact/impactWood_light_000.ogg'],
+wood_collision_light_02,Wood,木材碰撞／轻 2,Assets/Audio/PH/Wood/wood_collision_light_02.wav,0.1191,1,False,-12.0,-28.89,['kenney-impact/impactWood_light_001.ogg'],
+wood_collision_light_03,Wood,木材碰撞／轻 3,Assets/Audio/PH/Wood/wood_collision_light_03.wav,0.1485,1,False,-12.0,-28.94,['kenney-impact/impactWood_light_002.ogg'],
+wood_collision_light_04,Wood,木材碰撞／轻 4,Assets/Audio/PH/Wood/wood_collision_light_04.wav,0.1348,1,False,-12.0,-30.53,['kenney-impact/impactWood_light_003.ogg'],
+wood_collision_medium_01,Wood,木材碰撞／中 1,Assets/Audio/PH/Wood/wood_collision_medium_01.wav,0.229,1,False,-8.0,-26.33,['kenney-impact/impactWood_medium_000.ogg'],
+wood_collision_medium_02,Wood,木材碰撞／中 2,Assets/Audio/PH/Wood/wood_collision_medium_02.wav,0.2291,1,False,-8.0,-26.09,['kenney-impact/impactWood_medium_001.ogg'],
+wood_collision_medium_03,Wood,木材碰撞／中 3,Assets/Audio/PH/Wood/wood_collision_medium_03.wav,0.2655,1,False,-8.0,-27.53,['kenney-impact/impactWood_medium_002.ogg'],
+wood_collision_medium_04,Wood,木材碰撞／中 4,Assets/Audio/PH/Wood/wood_collision_medium_04.wav,0.2273,1,False,-8.0,-26.98,['kenney-impact/impactWood_medium_003.ogg'],
+wood_collision_heavy_01,Wood,木材碰撞／重 1,Assets/Audio/PH/Wood/wood_collision_heavy_01.wav,0.2245,1,False,-5.0,-22.17,['kenney-impact/impactWood_heavy_000.ogg'],
+wood_collision_heavy_02,Wood,木材碰撞／重 2,Assets/Audio/PH/Wood/wood_collision_heavy_02.wav,0.2196,1,False,-5.0,-22.34,['kenney-impact/impactWood_heavy_001.ogg'],
+wood_collision_heavy_03,Wood,木材碰撞／重 3,Assets/Audio/PH/Wood/wood_collision_heavy_03.wav,0.2618,1,False,-5.0,-21.79,['kenney-impact/impactWood_heavy_002.ogg'],
+wood_collision_heavy_04,Wood,木材碰撞／重 4,Assets/Audio/PH/Wood/wood_collision_heavy_04.wav,0.2295,1,False,-5.0,-23.01,['kenney-impact/impactWood_heavy_003.ogg'],
+page_turn_01,PaperBook,翻书页 1,Assets/Audio/PH/PaperBook/page_turn_01.wav,0.7002,1,False,-13.0,-43.11,['kenney-rpg/bookFlip1.ogg'],
+page_turn_slow_01,PaperBook,慢翻厚书页 1,Assets/Audio/PH/PaperBook/page_turn_slow_01.wav,0.8355,1,False,-14.0,-44.4,['kenney-rpg/bookFlip1.ogg'],由对应翻页录音降速制作；不是独立录音。
+book_setdown_01,PaperBook,书本放上木桌 1,Assets/Audio/PH/PaperBook/book_setdown_01.wav,0.2578,1,False,-10.0,-28.31,['kenney-rpg/bookPlace1.ogg'],
+page_turn_02,PaperBook,翻书页 2,Assets/Audio/PH/PaperBook/page_turn_02.wav,0.4413,1,False,-13.0,-41.13,['kenney-rpg/bookFlip2.ogg'],
+page_turn_slow_02,PaperBook,慢翻厚书页 2,Assets/Audio/PH/PaperBook/page_turn_slow_02.wav,0.5247,1,False,-14.0,-42.35,['kenney-rpg/bookFlip2.ogg'],由对应翻页录音降速制作；不是独立录音。
+book_setdown_02,PaperBook,书本放上木桌 2,Assets/Audio/PH/PaperBook/book_setdown_02.wav,0.2936,1,False,-10.0,-28.29,['kenney-rpg/bookPlace2.ogg'],
+page_turn_03,PaperBook,翻书页 3,Assets/Audio/PH/PaperBook/page_turn_03.wav,0.2192,1,False,-13.0,-39.63,['kenney-rpg/bookFlip3.ogg'],
+page_turn_slow_03,PaperBook,慢翻厚书页 3,Assets/Audio/PH/PaperBook/page_turn_slow_03.wav,0.263,1,False,-14.0,-40.88,['kenney-rpg/bookFlip3.ogg'],由对应翻页录音降速制作；不是独立录音。
+book_setdown_03,PaperBook,书本放上木桌 3,Assets/Audio/PH/PaperBook/book_setdown_03.wav,0.2704,1,False,-10.0,-29.66,['kenney-rpg/bookPlace3.ogg'],
+book_open_01,PaperBook,打开旧书,Assets/Audio/PH/PaperBook/book_open_01.wav,0.2887,1,False,-12.0,-31.3,"['kenney-rpg/bookFlip3.ogg', 'kenney-rpg/bookOpen.ogg']",
+book_close_01,PaperBook,合上旧书,Assets/Audio/PH/PaperBook/book_close_01.wav,0.254,1,False,-10.0,-30.54,['kenney-rpg/bookClose.ogg'],
+paper_pickup_01,PaperBook,拿起信纸 1,Assets/Audio/PH/PaperBook/paper_pickup_01.wav,0.3822,1,False,-16.0,-44.39,['kenney-rpg/bookFlip2.ogg'],
+paper_setdown_01,PaperBook,放下信纸 1,Assets/Audio/PH/PaperBook/paper_setdown_01.wav,0.4547,1,False,-16.0,-43.86,"['kenney-rpg/bookFlip2.ogg', 'kenney-rpg/bookPlace1.ogg']",
+paper_pickup_02,PaperBook,拿起信纸 2,Assets/Audio/PH/PaperBook/paper_pickup_02.wav,0.1882,1,False,-16.0,-42.67,['kenney-rpg/bookFlip3.ogg'],
+paper_setdown_02,PaperBook,放下信纸 2,Assets/Audio/PH/PaperBook/paper_setdown_02.wav,0.3475,1,False,-16.0,-44.03,"['kenney-rpg/bookFlip3.ogg', 'kenney-rpg/bookPlace2.ogg']",
+rain_outside_loop_40s,Ambience,屋外雨声／40 秒循环,Assets/Audio/PH/Ambience/rain_outside_loop_40s.wav,40.0,2,True,-12.0,-32.75,['rain-outside/rain_long.ogg'],取自原始非循环长录音；选取稳定片段并用 2 秒交叉淡化制作循环。
+rain_window_loop_10s,Ambience,窗边雨声／10 秒循环,Assets/Audio/PH/Ambience/rain_window_loop_10s.wav,10.0,2,True,-14.0,-30.82,['rain-window/rain_on_window_loop.wav'],两种窗雨共用同一录音；按机位切换或交叉淡化，避免长时间同相叠加。
+rain_room_muffled_loop_10s,Ambience,室内隔窗雨声／10 秒循环,Assets/Audio/PH/Ambience/rain_room_muffled_loop_10s.wav,10.0,2,True,-19.16,-34.0,['rain-window/rain_on_window_loop.wav'],两种窗雨共用同一录音；按机位切换或交叉淡化，避免长时间同相叠加。
+wood_door_open_01,Doors,木门打开 1,Assets/Audio/PH/Doors/wood_door_open_01.wav,1.0078,1,False,-8.0,-31.12,['kenney-rpg/doorOpen_1.ogg'],
+wood_door_open_02,Doors,木门打开 2,Assets/Audio/PH/Doors/wood_door_open_02.wav,1.5224,1,False,-8.0,-33.11,['kenney-rpg/doorOpen_2.ogg'],
+wood_door_close_01,Doors,木门关闭 1,Assets/Audio/PH/Doors/wood_door_close_01.wav,0.5226,1,False,-7.0,-24.98,['kenney-rpg/doorClose_1.ogg'],
+wood_door_close_02,Doors,木门关闭 2,Assets/Audio/PH/Doors/wood_door_close_02.wav,0.6138,1,False,-7.0,-25.02,['kenney-rpg/doorClose_2.ogg'],
+wood_door_close_03,Doors,木门关闭 3,Assets/Audio/PH/Doors/wood_door_close_03.wav,0.7744,1,False,-7.0,-23.79,['kenney-rpg/doorClose_3.ogg'],
+wood_door_close_heavy_01,Doors,木门重关,Assets/Audio/PH/Doors/wood_door_close_heavy_01.wav,0.6751,1,False,-5.0,-22.36,"['kenney-impact/impactWood_heavy_003.ogg', 'kenney-rpg/doorClose_4.ogg']",
+door_knock_pattern_01,Doors,两下克制敲门,Assets/Audio/PH/Doors/door_knock_pattern_01.wav,0.5449,1,False,-10.0,-29.09,"['kenney-impact/impactWood_medium_000.ogg', 'kenney-impact/impactWood_medium_001.ogg']",
+door_knock_pattern_02,Doors,三下常规敲门,Assets/Audio/PH/Doors/door_knock_pattern_02.wav,0.7643,1,False,-10.0,-28.79,"['kenney-impact/impactWood_medium_000.ogg', 'kenney-impact/impactWood_medium_001.ogg', 'kenney-impact/impactWood_medium_002.ogg']",
+door_knock_pattern_03,Doors,急促敲门,Assets/Audio/PH/Doors/door_knock_pattern_03.wav,1.073,1,False,-10.0,-29.32,"['kenney-impact/impactWood_medium_000.ogg', 'kenney-impact/impactWood_medium_001.ogg', 'kenney-impact/impactWood_medium_002.ogg', 'kenney-impact/impactWood_medium_003.ogg']",
+trapdoor_open_01,Trapdoor,活板门／投递口打开 1,Assets/Audio/PH/Trapdoor/trapdoor_open_01.wav,0.8133,1,False,-9.0,-26.28,"['kenney-impact/impactPlank_medium_000.ogg', 'kenney-rpg/creak1.ogg', 'kenney-rpg/metalLatch.ogg']",复合拟音：锁扣＋木铰链吱响＋板材限位轻撞。
+trapdoor_close_01,Trapdoor,活板门／投递口合上 1,Assets/Audio/PH/Trapdoor/trapdoor_close_01.wav,0.5659,1,False,-7.0,-27.4,"['kenney-impact/impactPlank_medium_000.ogg', 'kenney-rpg/creak1.ogg', 'kenney-rpg/metalLatch.ogg']",复合拟音；主要板材落点在 0.25 秒，动画据此对齐。
+hinge_creak_01,Trapdoor,木铰链吱响层 1,Assets/Audio/PH/Trapdoor/hinge_creak_01.wav,0.7391,1,False,-15.0,-32.19,['kenney-rpg/creak1.ogg'],
+trapdoor_open_02,Trapdoor,活板门／投递口打开 2,Assets/Audio/PH/Trapdoor/trapdoor_open_02.wav,1.0082,1,False,-9.0,-26.17,"['kenney-impact/impactPlank_medium_001.ogg', 'kenney-rpg/creak2.ogg', 'kenney-rpg/metalLatch.ogg']",复合拟音：锁扣＋木铰链吱响＋板材限位轻撞。
+trapdoor_close_02,Trapdoor,活板门／投递口合上 2,Assets/Audio/PH/Trapdoor/trapdoor_close_02.wav,0.7426,1,False,-7.0,-25.98,"['kenney-impact/impactPlank_medium_001.ogg', 'kenney-rpg/creak2.ogg', 'kenney-rpg/metalLatch.ogg']",复合拟音；主要板材落点在 0.25 秒，动画据此对齐。
+hinge_creak_02,Trapdoor,木铰链吱响层 2,Assets/Audio/PH/Trapdoor/hinge_creak_02.wav,0.9402,1,False,-15.0,-32.16,['kenney-rpg/creak2.ogg'],
+trapdoor_open_03,Trapdoor,活板门／投递口打开 3,Assets/Audio/PH/Trapdoor/trapdoor_open_03.wav,0.847,1,False,-9.0,-25.86,"['kenney-impact/impactPlank_medium_002.ogg', 'kenney-rpg/creak3.ogg', 'kenney-rpg/metalLatch.ogg']",复合拟音：锁扣＋木铰链吱响＋板材限位轻撞。
+trapdoor_close_03,Trapdoor,活板门／投递口合上 3,Assets/Audio/PH/Trapdoor/trapdoor_close_03.wav,0.7478,1,False,-7.0,-26.38,"['kenney-impact/impactPlank_medium_002.ogg', 'kenney-rpg/creak3.ogg', 'kenney-rpg/metalLatch.ogg']",复合拟音；主要板材落点在 0.25 秒，动画据此对齐。
+hinge_creak_03,Trapdoor,木铰链吱响层 3,Assets/Audio/PH/Trapdoor/hinge_creak_03.wav,0.3901,1,False,-15.0,-28.76,['kenney-rpg/creak3.ogg'],
+trapdoor_latch_01,Trapdoor,活板门小锁扣,Assets/Audio/PH/Trapdoor/trapdoor_latch_01.wav,0.2376,1,False,-13.0,-35.57,['kenney-rpg/metalLatch.ogg'],
+bag_heavy_pickup_01,Bag,提起装重物的布袋 1,Assets/Audio/PH/Bag/bag_heavy_pickup_01.wav,0.7476,1,False,-13.0,-35.31,"['kenney-rpg/cloth1.ogg', 'kenney-rpg/dropLeather.ogg']",复合拟音；布料摩擦为主，软质低频为辅。
+bag_heavy_setdown_01,Bag,重物布袋放在木桌 1,Assets/Audio/PH/Bag/bag_heavy_setdown_01.wav,0.7076,1,False,-8.0,-24.24,"['kenney-impact/impactSoft_heavy_000.ogg', 'kenney-impact/impactWood_medium_000.ogg', 'kenney-rpg/cloth1.ogg']",
+bag_heavy_drop_01,Bag,重物布袋落地 1,Assets/Audio/PH/Bag/bag_heavy_drop_01.wav,0.7326,1,False,-6.0,-22.11,"['kenney-impact/impactSoft_heavy_000.ogg', 'kenney-rpg/cloth1.ogg', 'kenney-rpg/dropLeather.ogg']",
+bag_heavy_pickup_02,Bag,提起装重物的布袋 2,Assets/Audio/PH/Bag/bag_heavy_pickup_02.wav,0.4927,1,False,-13.0,-33.06,"['kenney-rpg/cloth2.ogg', 'kenney-rpg/dropLeather.ogg']",复合拟音；布料摩擦为主，软质低频为辅。
+bag_heavy_setdown_02,Bag,重物布袋放在木桌 2,Assets/Audio/PH/Bag/bag_heavy_setdown_02.wav,0.7336,1,False,-8.0,-23.92,"['kenney-impact/impactSoft_heavy_001.ogg', 'kenney-impact/impactWood_medium_001.ogg', 'kenney-rpg/cloth2.ogg']",
+bag_heavy_drop_02,Bag,重物布袋落地 2,Assets/Audio/PH/Bag/bag_heavy_drop_02.wav,0.5836,1,False,-6.0,-20.96,"['kenney-impact/impactSoft_heavy_001.ogg', 'kenney-rpg/cloth2.ogg', 'kenney-rpg/dropLeather.ogg']",
+bag_heavy_pickup_03,Bag,提起装重物的布袋 3,Assets/Audio/PH/Bag/bag_heavy_pickup_03.wav,0.6161,1,False,-13.0,-32.97,"['kenney-rpg/cloth3.ogg', 'kenney-rpg/dropLeather.ogg']",复合拟音；布料摩擦为主，软质低频为辅。
+bag_heavy_setdown_03,Bag,重物布袋放在木桌 3,Assets/Audio/PH/Bag/bag_heavy_setdown_03.wav,0.7559,1,False,-8.0,-23.3,"['kenney-impact/impactSoft_heavy_002.ogg', 'kenney-impact/impactWood_medium_002.ogg', 'kenney-rpg/cloth3.ogg']",
+bag_heavy_drop_03,Bag,重物布袋落地 3,Assets/Audio/PH/Bag/bag_heavy_drop_03.wav,0.6059,1,False,-6.0,-20.47,"['kenney-impact/impactSoft_heavy_002.ogg', 'kenney-rpg/cloth3.ogg', 'kenney-rpg/dropLeather.ogg']",
+bag_drag_01,Bag,拖动布袋,Assets/Audio/PH/Bag/bag_drag_01.wav,1.4304,1,False,-13.0,-37.01,"['kenney-rpg/cloth4.ogg', 'kenney-rpg/clothBelt.ogg', 'kenney-rpg/clothBelt2.ogg']",
+bag_rummage_01,Bag,翻找布袋,Assets/Audio/PH/Bag/bag_rummage_01.wav,0.77,1,False,-14.0,-33.88,"['kenney-rpg/cloth2.ogg', 'kenney-rpg/cloth4.ogg', 'kenney-rpg/handleSmallLeather.ogg']",
+drawer_open_01,Interactions,浅木抽屉拉开 1,Assets/Audio/PH/Interactions/drawer_open_01.wav,0.7239,1,False,-12.0,-28.78,"['kenney-impact/impactWood_light_000.ogg', 'kenney-rpg/creak1.ogg']",由木碰撞与吱响组合，适合旧木抽屉。
+drawer_close_01,Interactions,浅木抽屉推回 1,Assets/Audio/PH/Interactions/drawer_close_01.wav,0.5355,1,False,-10.0,-31.04,"['kenney-impact/impactWood_medium_000.ogg', 'kenney-rpg/creak1.ogg']",
+letter_deliver_01,Interactions,信件落入收发盘 1,Assets/Audio/PH/Interactions/letter_deliver_01.wav,0.5954,1,False,-13.0,-40.33,"['kenney-impact/impactWood_light_000.ogg', 'kenney-rpg/bookFlip1.ogg', 'kenney-rpg/bookPlace1.ogg']",
+drawer_open_02,Interactions,浅木抽屉拉开 2,Assets/Audio/PH/Interactions/drawer_open_02.wav,0.9097,1,False,-12.0,-29.36,"['kenney-impact/impactWood_light_001.ogg', 'kenney-rpg/creak2.ogg']",由木碰撞与吱响组合，适合旧木抽屉。
+drawer_close_02,Interactions,浅木抽屉推回 2,Assets/Audio/PH/Interactions/drawer_close_02.wav,0.6804,1,False,-10.0,-30.86,"['kenney-impact/impactWood_medium_001.ogg', 'kenney-rpg/creak2.ogg']",
+letter_deliver_02,Interactions,信件落入收发盘 2,Assets/Audio/PH/Interactions/letter_deliver_02.wav,0.4513,1,False,-13.0,-39.34,"['kenney-impact/impactWood_light_001.ogg', 'kenney-rpg/bookFlip2.ogg', 'kenney-rpg/bookPlace2.ogg']",
+lock_open_01,Interactions,封存匣开锁,Assets/Audio/PH/Interactions/lock_open_01.wav,0.4415,1,False,-12.0,-35.51,"['kenney-rpg/metalClick.ogg', 'kenney-rpg/metalLatch.ogg']",
+lock_close_01,Interactions,封存匣锁合,Assets/Audio/PH/Interactions/lock_close_01.wav,0.5356,1,False,-12.0,-37.02,"['kenney-rpg/metalClick.ogg', 'kenney-rpg/metalLatch.ogg']",
+seal_stamp_01,Interactions,封印压下,Assets/Audio/PH/Interactions/seal_stamp_01.wav,0.255,1,False,-12.0,-30.07,"['kenney-impact/impactWood_medium_001.ogg', 'kenney-rpg/bookClose.ogg']",复合拟音，用于盖章动作，不是热蜡滴落录音。
+seal_break_01,Interactions,拆开封口,Assets/Audio/PH/Interactions/seal_break_01.wav,0.2732,1,False,-15.0,-40.61,"['kenney-impact/impactWood_light_004.ogg', 'kenney-rpg/bookFlip3.ogg']",纸张和短促脆响组合。
+object_pickup_01,Interactions,拿取小物件,Assets/Audio/PH/Interactions/object_pickup_01.wav,0.23,1,False,-16.0,-38.1,['kenney-rpg/handleSmallLeather.ogg'],
+object_setdown_01,Interactions,小物件放回木桌,Assets/Audio/PH/Interactions/object_setdown_01.wav,0.1106,1,False,-15.0,-31.6,['kenney-impact/impactWood_light_004.ogg'],
+interact_confirm_01,Interactions,操作确认／木质轻点,Assets/Audio/PH/Interactions/interact_confirm_01.wav,0.1205,1,False,-18.0,-35.91,['kenney-impact/impactWood_light_002.ogg'],
+interact_blocked_01,Interactions,操作受阻／锁扣轻响,Assets/Audio/PH/Interactions/interact_blocked_01.wav,0.4713,1,False,-17.0,-38.25,"['kenney-impact/impactWood_light_001.ogg', 'kenney-rpg/metalClick.ogg']",
+typewriter_key_clean_01,Typewriter/Clean,打字机完整单键素材 1,Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_01.wav,0.659,1,False,-10.0,-33.9,['typewriter/typewriter1.wav'],保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。
+typewriter_key_short_01,Typewriter/Short,打字机短敲击 1,Assets/Audio/PH/Typewriter/Short/typewriter_key_short_01.wav,0.12,1,False,-16.0,-34.92,['typewriter/typewriter1.wav'],供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。
+typewriter_key_clean_02,Typewriter/Clean,打字机完整单键素材 2,Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_02.wav,0.659,1,False,-10.0,-36.52,['typewriter/typewriter2.wav'],保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。
+typewriter_key_short_02,Typewriter/Short,打字机短敲击 2,Assets/Audio/PH/Typewriter/Short/typewriter_key_short_02.wav,0.13,1,False,-16.0,-38.82,['typewriter/typewriter2.wav'],供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。
+typewriter_key_clean_03,Typewriter/Clean,打字机完整单键素材 3,Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_03.wav,0.4963,1,False,-10.0,-33.27,['typewriter/typewriter3.wav'],保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。
+typewriter_key_short_03,Typewriter/Short,打字机短敲击 3,Assets/Audio/PH/Typewriter/Short/typewriter_key_short_03.wav,0.14,1,False,-16.0,-37.08,['typewriter/typewriter3.wav'],供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。
+typewriter_key_clean_04,Typewriter/Clean,打字机完整单键素材 4,Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_04.wav,0.4062,1,False,-10.0,-33.6,['typewriter/typewriter4.wav'],保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。
+typewriter_key_short_04,Typewriter/Short,打字机短敲击 4,Assets/Audio/PH/Typewriter/Short/typewriter_key_short_04.wav,0.12,1,False,-16.0,-36.5,['typewriter/typewriter4.wav'],供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。
+typewriter_key_clean_05,Typewriter/Clean,打字机完整单键素材 5,Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_05.wav,0.6234,1,False,-10.0,-34.12,['typewriter/typewriter5.wav'],保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。
+typewriter_key_short_05,Typewriter/Short,打字机短敲击 5,Assets/Audio/PH/Typewriter/Short/typewriter_key_short_05.wav,0.13,1,False,-16.0,-35.81,['typewriter/typewriter5.wav'],供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。
+typewriter_key_clean_06,Typewriter/Clean,打字机完整单键素材 6,Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_06.wav,0.2811,1,False,-10.0,-32.76,['typewriter/typewriter6.wav'],保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。
+typewriter_key_short_06,Typewriter/Short,打字机短敲击 6,Assets/Audio/PH/Typewriter/Short/typewriter_key_short_06.wav,0.11,1,False,-16.0,-35.87,['typewriter/typewriter6.wav'],供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。
+typewriter_key_clean_07,Typewriter/Clean,打字机完整单键素材 7,Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_07.wav,0.277,1,False,-10.0,-30.78,['typewriter/typewriter7.wav'],保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。
+typewriter_key_short_07,Typewriter/Short,打字机短敲击 7,Assets/Audio/PH/Typewriter/Short/typewriter_key_short_07.wav,0.1101,1,False,-16.0,-36.0,['typewriter/typewriter7.wav'],供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。
+typewriter_key_clean_08,Typewriter/Clean,打字机完整单键素材 8,Assets/Audio/PH/Typewriter/Clean/typewriter_key_clean_08.wav,0.4308,1,False,-10.0,-28.6,['typewriter/typewriter8.wav'],保留机械回弹尾音；仅单声道化、轻度滤波和边缘整理。未添加角色音高、失真或混响；原录音另存。
+typewriter_key_short_08,Typewriter/Short,打字机短敲击 8,Assets/Audio/PH/Typewriter/Short/typewriter_key_short_08.wav,0.14,1,False,-16.0,-34.98,['typewriter/typewriter8.wav'],供对话系统后续加工的短样本；与同编号 Clean 同源，不是新的独立录音。

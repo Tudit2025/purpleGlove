@@ -1,0 +1,18 @@
+newmtl M_Desk_Paper_AgedCream
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Paper_AgedCream.png
+
+newmtl M_Desk_Paper_RagIvory
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Paper_RagIvory.png
+
+newmtl M_Desk_Wax_Oxblood
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Wax_Oxblood.png
+

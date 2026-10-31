@@ -1,0 +1,3 @@
+PASS: Unity 2022.3.62f2 compilation and saved-scene references.
+PASS: audible audio samples, entry fade, 10-second loop, camera change, mute/unmute at timeScale=0, disable/re-enable, zero-duration fade.
+Observed source peak: 0.0881836

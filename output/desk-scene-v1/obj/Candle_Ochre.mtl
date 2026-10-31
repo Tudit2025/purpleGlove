@@ -1,0 +1,17 @@
+newmtl M_Desk_Wax_Ochre
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Wax_Ochre.png
+
+newmtl M_Desk_PageEdge
+Kd 0.73 0.68 0.58
+d 1
+illum 2
+map_Kd Textures/T_Paper_AgedCream.png
+
+newmtl M_Desk_Soot
+Kd 0.025 0.021 0.016
+d 1
+illum 2
+

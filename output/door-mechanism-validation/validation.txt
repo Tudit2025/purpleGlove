@@ -1,0 +1,7 @@
+PASS: saved scene reopened; no missing scripts/meshes/materials; metric UV, normals and shaders.
+PASS: 54 x 16 cm eye opening at 1.66 m, closed occlusion, open through-ray to exterior wall, face masked above/below.
+PASS: seated camera can pick closed panel, open-window rail and transfer handle.
+PASS: animated intermediate poses, duplicate-click guard, both end stops and one-shot completion event.
+PASS: same cargo object crosses outside/inside, returns exactly, loads/unloads only while stationary.
+PASS: full 180-degree rotor/cargo sweep clears housing at 5-degree intervals.
+PASS: initial shutter closed, cargo outside; five Unity renders captured.

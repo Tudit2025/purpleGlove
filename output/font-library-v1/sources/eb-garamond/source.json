@@ -1,0 +1,37 @@
+{
+  "id": "eb-garamond",
+  "name": "EB Garamond",
+  "language": "en",
+  "source_page": "https://github.com/octaviopardo/EBGaramond12",
+  "source_revision": "106a4a6d377987459ae5e68673a4570f13b957fb",
+  "source_ref": "master",
+  "license": "OFL-1.1",
+  "license_url": "https://raw.githubusercontent.com/octaviopardo/EBGaramond12/106a4a6d377987459ae5e68673a4570f13b957fb/OFL.txt",
+  "license_path": "fonts/eb-garamond/OFL.txt",
+  "license_sha256": "058611bd968817d532cedeab6acaa055e882d365a88523df00e7917ad7a0f704",
+  "collected_date": "2026-10-31",
+  "notes": "Formal document body; Medium for dim paper; Italic for long letters.",
+  "files": [
+    {
+      "path": "fonts/eb-garamond/EBGaramond-Regular.otf",
+      "bytes": 316832,
+      "sha256": "8d618a6bc6e1f4444e1990c39770a62ccbc29394e57afcc58acd530c16489275",
+      "url": "https://raw.githubusercontent.com/octaviopardo/EBGaramond12/106a4a6d377987459ae5e68673a4570f13b957fb/fonts/otf/EBGaramond-Regular.otf",
+      "modified": false
+    },
+    {
+      "path": "fonts/eb-garamond/EBGaramond-Medium.otf",
+      "bytes": 425756,
+      "sha256": "e0bd0a740f5d3d5eca3205ca0d927eebb0cb8f8e8a7d35fa5a24b31cf2e2063d",
+      "url": "https://raw.githubusercontent.com/octaviopardo/EBGaramond12/106a4a6d377987459ae5e68673a4570f13b957fb/fonts/otf/EBGaramond-Medium.otf",
+      "modified": false
+    },
+    {
+      "path": "fonts/eb-garamond/EBGaramond-Italic.otf",
+      "bytes": 304844,
+      "sha256": "296feee09f6fa157f913cf3d75460b5e282b3c43dff4ddffbcc5c1a924f4fd14",
+      "url": "https://raw.githubusercontent.com/octaviopardo/EBGaramond12/106a4a6d377987459ae5e68673a4570f13b957fb/fonts/otf/EBGaramond-Italic.otf",
+      "modified": false
+    }
+  ]
+}

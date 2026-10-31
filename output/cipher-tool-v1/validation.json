@@ -1,0 +1,111 @@
+{
+  "script": "doc/ph-revised.md",
+  "checks": [
+    {
+      "name": "Caesar script ciphertext",
+      "passed": true,
+      "letters": 15
+    },
+    {
+      "name": "Caesar script plaintext",
+      "passed": true
+    },
+    {
+      "name": "Seven-petal book",
+      "passed": true,
+      "letters": 16,
+      "output": "REQUESTCASESEVEN"
+    },
+    {
+      "name": "Ordinary book",
+      "passed": true,
+      "letters": 16,
+      "output": "CVSLELSKSNOLOHHR"
+    },
+    {
+      "name": "Pigpen script plaintext",
+      "passed": true,
+      "letters": 9
+    },
+    {
+      "name": "Pigpen drawn letter order",
+      "passed": true
+    },
+    {
+      "name": "Vigenere script ciphertext",
+      "passed": true,
+      "letters": 21
+    },
+    {
+      "name": "Vigenere script plaintext",
+      "passed": true
+    },
+    {
+      "name": "Affine script ciphertext",
+      "passed": true,
+      "letters": 20
+    },
+    {
+      "name": "Affine script plaintext",
+      "passed": true
+    },
+    {
+      "name": "Rail script ciphertext",
+      "passed": true,
+      "letters": 82,
+      "top": 41,
+      "bottom": 41
+    },
+    {
+      "name": "Rail script plaintext",
+      "passed": true
+    },
+    {
+      "name": "Rail odd-length handling",
+      "passed": true
+    },
+    {
+      "name": "Rail blank handling",
+      "passed": true
+    },
+    {
+      "name": "Physical a=1 disk, every shift, both directions",
+      "passed": true,
+      "letter_shift_pairs": 676,
+      "clockwise_inner": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    },
+    {
+      "name": "Physical a=5 disk, every shift, both directions",
+      "passed": true,
+      "letter_shift_pairs": 676,
+      "clockwise_inner": "AVQLGBWRMHCXSNIDYTOJEZUPKF"
+    }
+  ],
+  "status": "passed",
+  "limits": [
+    "No physical print or assembly test yet.",
+    "No Unity integration or in-engine readability test."
+  ],
+  "svg_pages": [
+    {
+      "file": "overview.svg",
+      "xml_valid": true
+    },
+    {
+      "file": "print-01-outer.svg",
+      "xml_valid": true
+    },
+    {
+      "file": "print-02-inner.svg",
+      "xml_valid": true
+    },
+    {
+      "file": "print-03-accessories.svg",
+      "xml_valid": true
+    },
+    {
+      "file": "print-04-rails.svg",
+      "xml_valid": true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+PASS: shelf mesh winding, UV metrics, geometry, vertex normals.
+M_Desk_Wood_DarkWalnut: shader=PurpleGlove/Pixel Outlined, texture=T_Wood_DarkWalnut, metallic=0, smoothness=0.14, pixelSize=4, inspectionFill=RGBA(0.000, 0.000, 0.000, 0.000)
+M_Desk_WalnutDark: shader=PurpleGlove/Pixel Outlined, texture=T_Wood_DarkWalnut, metallic=0, smoothness=0.14, pixelSize=4, inspectionFill=RGBA(0.000, 0.000, 0.000, 0.000)
+M_Desk_Wood_HoneyOak: shader=PurpleGlove/Pixel Outlined, texture=T_Wood_HoneyOak, metallic=0, smoothness=0.16, pixelSize=4, inspectionFill=RGBA(0.000, 0.000, 0.000, 0.000)
+Front fill: intensity=1.15, shadows=None, mask=512
+Candle: intensity=0.55, shadows=None, local position=(0.64, 1.31, -0.04)
+Candle -> tier 1 first occluder: Archive_FiveShelfFrame
+Candle -> tier 2 first occluder: Archive_FiveShelfFrame
+Candle -> tier 3 first occluder: Archive_FiveShelfFrame
+Candle -> tier 4 first occluder: Archive_CandleBracket
+Candle -> tier 5 first occluder: Archive_CandleBracket

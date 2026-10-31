@@ -1,0 +1,24 @@
+{
+  "id": "zhuque-fangsong",
+  "name": "Zhuque Fangsong / 朱雀仿宋",
+  "language": "zh-Hans",
+  "source_page": "https://github.com/TrionesType/zhuque",
+  "source_revision": "803217b9663d1c6e1402e91acc94e4f572713d73",
+  "source_ref": "v0.212",
+  "license": "OFL-1.1",
+  "license_url": "https://raw.githubusercontent.com/TrionesType/zhuque/803217b9663d1c6e1402e91acc94e4f572713d73/LICENSE.txt",
+  "license_path": "fonts/zhuque-fangsong/OFL.txt",
+  "license_sha256": "66cc01ad4df62fca6936431a426104cb32a52ce8da49de9a7d643e02d7659043",
+  "collected_date": "2026-10-31",
+  "notes": "Technical preview v0.212; old book and ledger body; use Source Han Serif fallback.",
+  "files": [
+    {
+      "path": "fonts/zhuque-fangsong/ZhuqueFangsong-Regular.ttf",
+      "bytes": 8824084,
+      "sha256": "558c62730844fe54ba220146ed62f859d4e2880188d92d985f8921c6e3743bc4",
+      "url": "https://github.com/TrionesType/zhuque/releases/download/v0.212/ZhuqueFangsong-v0.212.zip",
+      "modified": false,
+      "archive_member": "ZhuqueFangsong-Regular.ttf"
+    }
+  ]
+}

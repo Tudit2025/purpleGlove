@@ -1,0 +1,8 @@
+PASS: saved scene reopened in a fresh Unity process.
+No missing scripts, meshes, materials or rain clip.
+Triangle winding, nondegenerate geometry and metric UV verified.
+Material pixel size = 4 (32 texels/m); outline shader and UV3 normals verified.
+All six scene lights and ambient colours = 50% of v1.
+Build scene 0 and editor Play start scene = PH_DeskRoom.
+Flame protrudes above wax; desktop, doorway and overview rendered from saved assets.
+Unity 2022.3.62f2 / Built-in / Direct3D 11.

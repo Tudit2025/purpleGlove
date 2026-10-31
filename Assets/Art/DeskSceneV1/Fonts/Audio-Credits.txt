@@ -1,0 +1,15 @@
+Scene ambience: rain_room_muffled_loop_10s.wav
+Original recording: Rain on Window Loop by alxl
+Source: https://opengameart.org/content/rain-on-window-loop
+Selected license: CC0 1.0, one of the alternatives offered by the author.
+License: https://creativecommons.org/publicdomain/zero/1.0/
+
+The existing PH audio library made this derivative: 110 Hz high-pass,
+1900 Hz low-pass, 0.8-second equal-power loop crossfade, adjusted level,
+48 kHz / 24-bit stereo WAV, 10 seconds. No new audio edit in this scene.
+SHA-256: 61b597de2884990241e8221b0125e7ce98a92cd6c7fc4b8af1f5baebb81c6798
+
+Source metadata and processing history are retained in the project:
+output/audio-library-v1/sources/rain-window/source.json
+output/audio-library-v1/manifest.json
+This notice covers only the included rain recording, not other scene assets.

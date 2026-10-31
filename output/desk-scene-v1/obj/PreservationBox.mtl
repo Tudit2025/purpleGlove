@@ -1,0 +1,24 @@
+newmtl M_Desk_Wood_DarkWalnut
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Wood_DarkWalnut.png
+
+newmtl M_Desk_Iron_Blackened
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Iron_Blackened.png
+
+newmtl M_Desk_SceneBrass
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Metal_AgedBrass.png
+
+newmtl M_Desk_Paper_AgedCream
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Paper_AgedCream.png
+

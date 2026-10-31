@@ -1,0 +1,62 @@
+[
+  {
+    "title": "01  正式文书 · 核验委托 / 外交回件",
+    "enfont": "ebmedium",
+    "zhfont": "song",
+    "enname": "EB Garamond · Medium",
+    "zhname": "思源宋体 · Regular",
+    "en": "Keep the original.\nRecord the text and its source separately.\nReceipt does not imply agreement.",
+    "zh": "保留原件。\n明文还原与来源确认，分别填写。\n收到材料，不等于同意参与。",
+    "note": "克制、可信、可反复阅读。三方共用文书体系，以抬头、封件编号与具名回执区分。"
+  },
+  {
+    "title": "02  旧式印本 · 两版《祷文集》",
+    "enfont": "fell",
+    "zhfont": "fangsong",
+    "enname": "IM FELL English · Regular",
+    "zhname": "朱雀仿宋 · Regular / v0.212 预览版",
+    "en": "THE QUIET SERVANT CARRIED A LAMP\nHE LEFT THE HOUSE BEFORE THE SEVENTH BELL\nKEEP THE RECORD OF EVERY NAME",
+    "zh": "安静的仆人提着一盏灯。\n他在第七次钟响前离开了屋子。\n留下每一个名字的记录。",
+    "note": "英文采用附录 C 的七瓣花版三行原文；中文仅为样张译文，不参与逐字取码。"
+  },
+  {
+    "title": "03  私人手稿 · 师父笔记 / 明文附记",
+    "enfont": "hand",
+    "zhfont": "kai",
+    "enname": "Courgette · Regular",
+    "zhname": "霞鹜文楷 · Regular",
+    "en": "Do not erase my name.\nCheck what I say, too.\nKeep the original.",
+    "zh": "不要抹去我的名字。\n我说的也请你查。\n保留原件。",
+    "note": "让私人语气与公文分开。长信可改用 EB Garamond Italic；字母密文仍用清晰正体。"
+  },
+  {
+    "title": "04  印坊记录 · 台账 / 签收页 / 换版存根",
+    "enfont": "eb",
+    "zhfont": "fangsong",
+    "enname": "EB Garamond · Regular",
+    "zhname": "朱雀仿宋 · Regular",
+    "en": "BATCH 7—031     CASE 17\nOriginal: caravan transit papers.\nRevised: military transcript.",
+    "zh": "装订批号：7—031　委托案号：17\n原定项目：商队通行文件。\n后改项目：军情译录件。",
+    "note": "用紧凑栏位、对齐与手写补注形成账簿感；编号保持同一尺寸，不能做旧到难以辨认。"
+  },
+  {
+    "title": "05  大字标题 · 通知抬头 / 规程封面",
+    "enfont": "title",
+    "zhfont": "songbold",
+    "enname": "Cinzel · Regular",
+    "zhname": "思源宋体 · SemiBold",
+    "en": "DOCUMENT VERIFICATION\nKEEP THE ORIGINAL",
+    "zh": "军情文书核验\n保留原件",
+    "note": "庄重、具有仪式感；只用于大字抬头、封面与章节，不承担长正文。"
+  },
+  {
+    "title": "06  清晰阅读 · 解谜辅助 / 输入 / 译文",
+    "enfont": "mono",
+    "zhfont": "sans",
+    "enname": "IBM Plex Mono · Regular",
+    "zhname": "思源黑体 · Regular",
+    "en": "NHHS WKH RULJLQDO\nA=0  B=1  ...  Z=25\nI l 1 | O 0 | B 8 | S 5",
+    "zh": "明文还原：保留原件。\n来源确认：待核。\n12-4-11 / 27-2-24 / 41-3-2",
+    "note": "用于可选的清晰转录与解谜网格。纸面默认仍以正体衬线字或逐字格呈现密文。"
+  }
+]

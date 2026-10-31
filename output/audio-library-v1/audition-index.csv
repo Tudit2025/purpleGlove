@@ -1,0 +1,29 @@
+﻿start_s,id,label_zh
+0.0,wood_collision_light_01,木材碰撞／轻 1
+0.749,wood_collision_medium_01,木材碰撞／中 1
+1.578,wood_collision_heavy_01,木材碰撞／重 1
+2.402,page_turn_01,翻书页 1
+3.703,page_turn_02,翻书页 2
+4.744,page_turn_slow_01,慢翻厚书页 1
+6.179,book_open_01,打开旧书
+7.068,book_close_01,合上旧书
+7.922,wood_door_open_01,木门打开 1
+9.53,wood_door_close_01,木门关闭 1
+10.652,door_knock_pattern_02,三下常规敲门
+12.017,trapdoor_open_01,活板门／投递口打开 1
+13.43,trapdoor_close_01,活板门／投递口合上 1
+14.596,bag_heavy_pickup_01,提起装重物的布袋 1
+15.944,bag_heavy_setdown_01,重物布袋放在木桌 1
+17.251,bag_heavy_drop_01,重物布袋落地 1
+18.584,bag_drag_01,拖动布袋
+20.614,drawer_open_01,浅木抽屉拉开 1
+21.938,drawer_close_01,浅木抽屉推回 1
+23.073,letter_deliver_01,信件落入收发盘 1
+24.269,lock_open_01,封存匣开锁
+25.31,seal_stamp_01,封印压下
+26.166,seal_break_01,拆开封口
+27.039,rain_outside_loop_40s,屋外雨声／40 秒循环
+33.639,rain_window_loop_10s,窗边雨声／10 秒循环
+40.239,rain_room_muffled_loop_10s,室内隔窗雨声／10 秒循环
+46.839,typewriter_clean_sequence,打字机素材轮播
+58.939,typewriter_short_sequence,短音连续播放示例（不是最终对话效果）

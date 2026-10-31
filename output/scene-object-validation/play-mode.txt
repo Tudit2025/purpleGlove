@@ -1,0 +1,1 @@
+PASS: Unity Play Mode; automatic Awake/Update/LateUpdate; camera lock; readable ink; Escape and X close routes; exact return; destroyed-object cleanup; no runtime errors.

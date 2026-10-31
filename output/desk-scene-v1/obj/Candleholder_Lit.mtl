@@ -1,0 +1,38 @@
+newmtl M_Desk_SceneBrass
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Metal_AgedBrass.png
+
+newmtl M_Desk_Wax_Ivory
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Wax_Ivory.png
+
+newmtl M_Desk_PageEdge
+Kd 0.73 0.68 0.58
+d 1
+illum 2
+map_Kd Textures/T_Paper_AgedCream.png
+
+newmtl M_Desk_Soot
+Kd 0.025 0.021 0.016
+d 1
+illum 2
+
+newmtl M_Desk_FlameOuter
+Kd 0.5 0.275 0.05
+d 1
+illum 2
+
+newmtl M_Desk_FlameCore
+Kd 0.5 0.465 0.29
+d 1
+illum 2
+
+newmtl M_Desk_Glow
+Kd 0.5 0.155 0.0275
+d 1
+illum 2
+

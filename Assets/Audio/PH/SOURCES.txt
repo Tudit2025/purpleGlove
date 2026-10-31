@@ -1,0 +1,45 @@
+PH Audio Library v1 — source credits
+Prepared: 2026-10-31
+
+This library contains edited and layered derivatives of the following CC0 sources.
+The 90 delivered clips include variations and composites, not 90 independent recordings.
+Original downloads and page snapshots: output/audio-library-v1/sources/
+Per-clip provenance and edits: output/audio-library-v1/manifest.json
+
+Kenney — RPG Audio
+https://kenney.nl/assets/rpg-audio
+License: CC0 1.0
+Uses: books, paper, cloth, doors, creaks, leather, latches and small interactions.
+Original License.txt is retained under sources/kenney-rpg/.
+
+Kenney — Impact Sounds
+https://kenney.nl/assets/impact-sounds
+License: CC0 1.0
+Uses: wood/plank collisions and soft heavy impact layers.
+Original License.txt is retained under sources/kenney-impact/.
+
+Cassie-OrbitGames — Typewriter sounds
+https://opengameart.org/content/typewriter-sounds
+License: CC0 1.0
+Uses: eight original typewriter recordings, each with clean and short derivatives.
+
+alxl — Rain on Window Loop
+https://opengameart.org/content/rain-on-window-loop
+Selected license: CC0 1.0 (the author offers several alternative licenses).
+Uses: window and muffled indoor rain, both derived from the same recording.
+
+Ove Melaa — Rain (Ambient, Not Loopable) 2 Versions Available.
+https://opengameart.org/content/rain-ambient-not-loopable-2-versions-available
+License: CC0 1.0
+Uses: an excerpt of the long version, edited into a 40-second loop.
+
+CC0 reference: https://creativecommons.org/publicdomain/zero/1.0/
+
+Changes: selected excerpts; mono/stereo preparation; resampling; high/low-pass
+filters; playback-rate changes; relative levels; layering; DC removal;
+edge fades; rain loop crossfades; 48 kHz / 24-bit PCM WAV export.
+No music, dialogue recordings, or voice imitation are included.
+Source license notices are retained; this notice does not relicense other project assets.
+
+Optional credits line:
+Sound sources: Kenney, Cassie-OrbitGames, alxl, and Ove Melaa (CC0).

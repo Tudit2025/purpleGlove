@@ -1,0 +1,112 @@
+﻿[
+    {
+        "id":  "Glass_InkBlack",
+        "source":  "sources/Glass_InkBlack.png",
+        "sha256":  "64c07e2fe26f865955d08db65fa44871dcf0160f6836be98d31897022a8be675"
+    },
+    {
+        "id":  "Iron_Blackened",
+        "source":  "sources/Iron_Blackened.png",
+        "sha256":  "a58a9b64b497546b8cf2deb12a484c4cd176cc1a1de3a2e1c1e4d7d339a0818d"
+    },
+    {
+        "id":  "Iron_Rusted",
+        "source":  "sources/Iron_Rusted.png",
+        "sha256":  "74c2f3ed5d9bedaef56d8d0f2f90717345e1c9b112164c7d2e005fabb3fbbc55"
+    },
+    {
+        "id":  "Leather_Charcoal",
+        "source":  "sources/Leather_Charcoal.png",
+        "sha256":  "7b62383acf87f198e4fcc5cac2f2d8036a549ca3f1c9af424691f4977866f4ee"
+    },
+    {
+        "id":  "Leather_Moss",
+        "source":  "sources/Leather_Moss.png",
+        "sha256":  "3d2d1dc5150e8714e6f5002f252ac007b663b588787cd80ca77783081f29c710"
+    },
+    {
+        "id":  "Leather_Oxblood",
+        "source":  "sources/Leather_Oxblood.png",
+        "sha256":  "865ccc6703f3eaf9a49fbf2175836c86ed7c1585c468522a95c05f3c56bda753"
+    },
+    {
+        "id":  "Leather_Umber",
+        "source":  "sources/Leather_Umber.png",
+        "sha256":  "355a41bc99aceacb4b8b8b25e67de9aa37ce95519041a2ede68c29dbe22b014f"
+    },
+    {
+        "id":  "Metal_AgedBrass",
+        "source":  "sources/Metal_AgedBrass.png",
+        "sha256":  "82c76d77fdcb4116db46b1ea7a52f0b52b1507c27851844f1cdbd884e27bbaa9"
+    },
+    {
+        "id":  "Paper_AgedCream",
+        "source":  "sources/Paper_AgedCream.png",
+        "sha256":  "0ada74ed6e8082b9d87ef197d0973d16b4f09f3f1c44e0607fa6dbd2e8a79add"
+    },
+    {
+        "id":  "Paper_RagIvory",
+        "source":  "sources/Paper_RagIvory.png",
+        "sha256":  "2391d19c40c1c0c6fd94a9ba57da54bd7ba82e8200225b0ab5f396640e7941a3"
+    },
+    {
+        "id":  "Parchment_Aged",
+        "source":  "sources/Parchment_Aged.png",
+        "sha256":  "6eb825911fc228858aadc87f1519a061b3d21a247643ceaed2fcadc6f61ca3e9"
+    },
+    {
+        "id":  "Parchment_Vellum",
+        "source":  "sources/Parchment_Vellum.png",
+        "sha256":  "576e454a96e6cf3d230ec9abf7ea1b799d7841476e4d03a954dc3520eb40db49"
+    },
+    {
+        "id":  "Wall_GreyStone",
+        "source":  "sources/Wall_GreyStone.png",
+        "sha256":  "296c87a86e421ddfe5beae7e69fb3f807cb8d2e5805e70bcadbc51f041a81009"
+    },
+    {
+        "id":  "Wall_LimePlaster",
+        "source":  "sources/Wall_LimePlaster.png",
+        "sha256":  "db499425ca72fcf5d3ba430caaca9b25f677a23f706ac0ae23e959c56b527197"
+    },
+    {
+        "id":  "Wax_Indigo",
+        "source":  "sources/Wax_Indigo.png",
+        "sha256":  "a0304e0310f0f3c051707218a84d9a13fbf8a9a4cb61d63e140b294fee101242"
+    },
+    {
+        "id":  "Wax_Ivory",
+        "source":  "sources/Wax_Ivory.png",
+        "sha256":  "44e627b892381b3d7ae653b11762b0b037bd769ddb8fbbbf55892ca0d54b9938"
+    },
+    {
+        "id":  "Wax_Ochre",
+        "source":  "sources/Wax_Ochre.png",
+        "sha256":  "746411a3bb96c838dededa407ad8d8d999d62abd5f768d6a5587685a9a11f90b"
+    },
+    {
+        "id":  "Wax_Oxblood",
+        "source":  "sources/Wax_Oxblood.png",
+        "sha256":  "06c2c4df46f85d9f8f4426e51f438ca0279b7dd26a8e18ec965dba18ca435b8b"
+    },
+    {
+        "id":  "Wood_AgedPine",
+        "source":  "sources/Wood_AgedPine.png",
+        "sha256":  "8b8e0c9c08e1a626f85f17b238ca31e78a42a76b9c5265a8557e7256e30d2dd3"
+    },
+    {
+        "id":  "Wood_DarkWalnut",
+        "source":  "sources/Wood_DarkWalnut.png",
+        "sha256":  "b36f47049fb8564c58623c2051a122ee2ef06634f3dec642b2193f9495923e33"
+    },
+    {
+        "id":  "Wood_HoneyOak",
+        "source":  "sources/Wood_HoneyOak.png",
+        "sha256":  "2cd6e24ef9a47596037c5d429638848b47e4631b92e66ce6cb94e8c61d8a9237"
+    },
+    {
+        "id":  "Wood_Weathered",
+        "source":  "sources/Wood_Weathered.png",
+        "sha256":  "59af0e8e2d54b57fde41b5ba09c6ab149a2cfda217b0aff4bc59d9b9352b920c"
+    }
+]

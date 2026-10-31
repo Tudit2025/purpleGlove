@@ -1,0 +1,23 @@
+newmtl M_Desk_WindowNight
+Kd 0.02 0.06 0.13
+d 1
+illum 2
+
+newmtl M_Desk_WalnutDark
+Kd 0.72 0.69 0.64
+d 1
+illum 2
+map_Kd Textures/T_Wood_DarkWalnut.png
+
+newmtl M_Desk_Iron_Blackened
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Iron_Blackened.png
+
+newmtl M_Desk_Wood_Weathered
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Wood_Weathered.png
+

@@ -1,0 +1,5 @@
+PASS: shelf and dossiers share the desk furniture layer; no archive-only fill.
+PASS: shelf and desktop candle lighting settings match.
+PASS: rear wall closes the room with the existing plaster material and timber framing.
+PASS: saved scene geometry, normals, metric UV, materials and shaders verified.
+PASS: archive interaction regression suite; desktop, doorway, bookshelf and rear-wall renders.

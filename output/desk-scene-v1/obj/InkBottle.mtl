@@ -1,0 +1,11 @@
+newmtl M_Desk_Glass_InkBlack
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Glass_InkBlack.png
+
+newmtl M_Desk_Ink
+Kd 0.012 0.016 0.017
+d 1
+illum 2
+

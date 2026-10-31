@@ -1,0 +1,23 @@
+{
+  "id": "ibm-plex-mono",
+  "name": "IBM Plex Mono",
+  "language": "en",
+  "source_page": "https://github.com/google/fonts",
+  "source_revision": "6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec",
+  "source_ref": "main",
+  "license": "OFL-1.1",
+  "license_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/ibmplexmono/OFL.txt",
+  "license_path": "fonts/ibm-plex-mono/OFL.txt",
+  "license_sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+  "collected_date": "2026-10-31",
+  "notes": "Optional accessible transcription and decoding grid, not historical printing.",
+  "files": [
+    {
+      "path": "fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf",
+      "bytes": 135580,
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/ibmplexmono/IBMPlexMono-Regular.ttf",
+      "modified": false
+    }
+  ]
+}

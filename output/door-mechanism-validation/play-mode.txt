@@ -1,0 +1,1 @@
+PASS: Unity Play Mode; pointer ray opens and closes shutter; pointer rotates cargo; animation and positional audio; duplicate-click guard; completion events once; camera switch during delivery; cargo identity and return pose; no inspection lock for door actions; existing archive and book inspection; no runtime errors.

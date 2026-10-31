@@ -1,0 +1,23 @@
+{
+  "id": "source-han-sans",
+  "name": "Source Han Sans CN / 思源黑体",
+  "language": "zh-Hans",
+  "source_page": "https://github.com/adobe-fonts/source-han-sans",
+  "source_revision": "a4f7cf94edfb9d7ffbdfc4841de276358bd7e0f2",
+  "source_ref": "release",
+  "license": "OFL-1.1",
+  "license_url": "https://raw.githubusercontent.com/adobe-fonts/source-han-sans/a4f7cf94edfb9d7ffbdfc4841de276358bd7e0f2/LICENSE.txt",
+  "license_path": "fonts/source-han-sans/OFL.txt",
+  "license_sha256": "fcac737e761ec63dbfbdce11030a1780161920d80315edba9c8beff1c2bac5a2",
+  "collected_date": "2026-10-31",
+  "notes": "Optional accessible reading, translation, input and subtitles.",
+  "files": [
+    {
+      "path": "fonts/source-han-sans/SourceHanSansCN-Regular.otf",
+      "bytes": 8429224,
+      "sha256": "e2bc8a2e7f37474b774fff8db758681ece40bb6947a90d571bce9dd60671a8e4",
+      "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-sans/a4f7cf94edfb9d7ffbdfc4841de276358bd7e0f2/SubsetOTF/CN/SourceHanSansCN-Regular.otf",
+      "modified": false
+    }
+  ]
+}

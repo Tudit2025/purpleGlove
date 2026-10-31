@@ -1,0 +1,11 @@
+newmtl M_Desk_SceneBrass
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Metal_AgedBrass.png
+
+newmtl M_Desk_Soot
+Kd 0.025 0.021 0.016
+d 1
+illum 2
+

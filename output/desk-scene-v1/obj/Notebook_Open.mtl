@@ -1,0 +1,18 @@
+newmtl M_Desk_Leather_Umber
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Leather_Umber.png
+
+newmtl M_Desk_Paper_AgedCream
+Kd 1 1 1
+d 1
+illum 2
+map_Kd Textures/T_Paper_AgedCream.png
+
+newmtl M_Desk_PageEdge
+Kd 0.73 0.68 0.58
+d 1
+illum 2
+map_Kd Textures/T_Paper_AgedCream.png
+

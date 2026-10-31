@@ -1,0 +1,17 @@
+Book_SevenPetal center=(655.39, 647.00, 1.86) first collider=Book_SevenPetal
+Book_SevenPetal: PASS hover/click=True, fitting, facing, modal camera, return, interruption, disable cleanup
+Letter_Cipher center=(808.52, 506.36, 1.37) first collider=Letter_Cipher
+Letter_Cipher: PASS hover/click=True, fitting, facing, modal camera, return, interruption, disable cleanup
+IncomingEnvelope_Second center=(1238.85, 789.01, 2.42) first collider=IncomingEnvelope_Second
+IncomingEnvelope_Second: PASS hover/click=True, fitting, facing, modal camera, return, interruption, disable cleanup
+Paper_Blank center=(816.02, 313.92, 0.97) first collider=Paper_Blank
+Paper_Blank: PASS hover/click=True, fitting, facing, modal camera, return, interruption, disable cleanup
+Envelope_RedSeal center=(1230.35, 781.18, 2.39) first collider=Envelope_RedSeal
+Envelope_RedSeal: PASS hover/click=True, fitting, facing, modal camera, return, interruption, disable cleanup
+Book_Charcoal center=(496.40, 651.12, 1.89) first collider=Book_Charcoal
+Book_Charcoal: PASS hover/click=True, fitting, facing, modal camera, return, interruption, disable cleanup
+Envelope_Open center=(1018.03, 606.74, 1.68) first collider=Envelope_Open
+Envelope_Open: PASS hover/click=True, fitting, facing, modal camera, return, interruption, disable cleanup
+Notebook_Open center=(217.87, 362.88, 1.02) first collider=Notebook_Open
+Notebook_Open: PASS hover/click=True, fitting, facing, modal camera, return, interruption, disable cleanup
+PASS: 384 assertions; 9 prefabs, 8 scene props; Unity 2022.3.62f2

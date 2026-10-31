@@ -1,0 +1,1 @@
+PASS: Unity Play Mode; three smooth camera views; end-of-act event; archive action; original document identity and pose; inspection lock; complete current act while reviewing old documents; all five tiers; labels and font; no runtime errors.

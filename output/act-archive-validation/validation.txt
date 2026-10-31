@@ -1,0 +1,6 @@
+Act 1: hover/click on real shelf; mutually exclusive desk set; original instances/content/pose; inspect and return PASS
+Act 2: hover/click on real shelf; mutually exclusive desk set; original instances/content/pose; inspect and return PASS
+Act 3: hover/click on real shelf; mutually exclusive desk set; original instances/content/pose; inspect and return PASS
+Act 4: hover/click on real shelf; mutually exclusive desk set; original instances/content/pose; inspect and return PASS
+Act 5: hover/click on real shelf; mutually exclusive desk set; original instances/content/pose; inspect and return PASS
+PASS: 349 assertions; five tiers; 13 original documents; stage event, late registration, no future leaks, preserved notes, common books unchanged.
