@@ -9,6 +9,67 @@ namespace PurpleGlove.Editor
 {
     public static partial class DeskSceneBuilder
     {
+        [MenuItem("Purple Glove/Acts/Install Second Act Ending")]
+        public static void InstallSecondActEnding()
+        {
+            if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            var scene = EditorSceneManager.OpenScene(DeskSceneStartup.ScenePath);
+            ConfigureSecondActEnding(Camera.main);
+            AssetDatabase.SaveAssets(); EditorSceneManager.SaveScene(scene);
+            Debug.Log("SECOND_ACT_ENDING_INSTALLED");
+        }
+
+        static void ConfigureSecondActEnding(Camera camera)
+        {
+            var flow = camera.GetComponent<SecondActFlow>();
+            if (!flow) throw new InvalidOperationException("Install second-act progression first.");
+            var dialogue = camera.GetComponent<DialogueController>();
+            var luca = dialogue.speakers.Single(s => s.id == "luca");
+            var clerk = dialogue.speakers.Single(s => s.id == "clerk");
+            DialogueEvent.Line L(DialogueSpeaker s, string t) => new DialogueEvent.Line { speaker = s, text = t };
+            flow.story = camera.GetComponent<PrologueSequence>();
+            flow.deskSummary = SecondActEvent(dialogue, "act2_summary", "第二幕 · 卢卡等待原件", null,
+                L(luca, "左手手套……公爵的委托写过，替米兰代领材料的卡拉法，左手常戴紫手套。"),
+                L(luca, "同一个人带来了两次换版，款项又从米兰内廷的账户结算。卡拉法只是来收件，还是也带来了换版的指令？"),
+                L(luca, "手套只能让我怀疑是他。他到底签收了什么、改过什么，还得看原件。"),
+                L(luca, "接下来得等原件来核对。原始签收页还在行会库里，要有正式案号才能调阅。先留好明文，等正式核验件送到，再把手续补齐。"));
+            flow.thirdActIntro = SecondActEvent(dialogue, "act3_arrival", "第三幕 · 正式核验件到达", clerk,
+                L(clerk, "午夜了。米兰内廷第十七号委托，争议的军情译录件送到了。行会已登记，装订批号七—〇三一。"),
+                L(clerk, "封包里有四张纸：米兰委托、行会登记承办的译录委托，上面有马泰奥先生的亲笔签名；他译录的军情密文；一张核验表；还有带法方签名的法文原文。"),
+                L(clerk, "核验表有两个签名栏，分别确认明文还原和文件来源。请分开填写，没查清的可以不签。"),
+                L(luca, "把来件送进来。我还要拿这个案号核对第七号封档的记录。"),
+                L(clerk, "好。我合上观察窗，再从传物舱送进去。"));
+            flow.deskSummary.context = "猪圈明文实际留存后回桌面独白；结合现有记录怀疑卡拉法，等待原件核对，随后进入第三幕。";
+            flow.thirdActIntro.context = "第三幕转场完成后介绍正式核验件，观察窗完全关闭后开始收件。";
+            EditorUtility.SetDirty(flow.deskSummary); EditorUtility.SetDirty(flow.thirdActIntro);
+            EditorUtility.SetDirty(flow); EditorUtility.SetDirty(dialogue);
+        }
+
+        [MenuItem("Purple Glove/Acts/Update Book Cipher Note")]
+        public static void UpdateBookCipherNote()
+        {
+            if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            var scene = EditorSceneManager.OpenScene(DeskSceneStartup.ScenePath);
+            LoadSavedSceneAssets();
+            var archive = UnityEngine.Object.FindFirstObjectByType<ActArchiveController>();
+            var paper = archive.acts[1].documents[0].transform;
+            foreach (string name in new[] { "Title", "Rule", "Act2_NoteRedaction" })
+            {
+                var old = paper.Find(name);
+                if (old) UnityEngine.Object.DestroyImmediate(old.gameObject);
+            }
+            AddBookNoteRedaction(paper);
+            AssetDatabase.SaveAssets(); EditorSceneManager.SaveScene(scene);
+            Debug.Log("BOOK_CIPHER_NOTE_UPDATED");
+        }
+
+        static void AddBookNoteRedaction(Transform paper)
+        {
+            MeshObject("Act2_NoteRedaction", paper, m =>
+                m.Box(V(-0.088f, 0.010f, -0.073f), V(0.16f, 0.0006f, 0.009f), M("Ink")))
+                .GetComponent<Renderer>().shadowCastingMode = ShadowCastingMode.Off;
+        }
+
         [MenuItem("Purple Glove/Acts/Install Second Act Progression")]
         public static void InstallSecondActProgression()
         {
@@ -53,9 +114,8 @@ namespace PurpleGlove.Editor
             if (index == 0)
             {
                 MeshObject("Act2_BookCipherNote", paper.transform, m => m.Sheet(0.38f, 0.27f, M("Paper_AgedCream"), 0.003f));
-                FirstActInk(paper.transform, "Title", "印坊旧便条 · 威尼斯封件二号", HandwrittenChinese, -0.168f, 0.111f, 0.336f, 0.022f);
                 FirstActInk(paper.transform, "Coordinates", BookCipherText.Cipher, documentFont, -0.168f, 0.065f, 0.336f, 0.093f);
-                FirstActInk(paper.transform, "Rule", "页—行—字母；忽略空格、标点，从一计数。\n联系人：━━━━━━━━", HandwrittenChinese, -0.168f, -0.064f, 0.336f, 0.043f);
+                AddBookNoteRedaction(paper.transform);
             }
             else if (index == 1) BuildSecondActLedger(paper.transform);
             else BuildSecondActScrap(paper.transform);
@@ -151,6 +211,7 @@ namespace PurpleGlove.Editor
                 L(clerk, "这次送来台账摘要和一张裁纸边角。原始签收页另存，调阅条件写在摘要下方。"),
                 L(luca, "请把这两件送进来。"), L(clerk, "已经登记。我关好观察窗，再转入传物舱。"));
             flow.books = new[] { false, true }.Select(flower => BuildPrayerBookTool(work, archive, flower)).ToArray();
+            ConfigureSecondActEnding(camera);
             EditorUtility.SetDirty(flow.request); EditorUtility.SetDirty(flow); EditorUtility.SetDirty(records);
             EditorUtility.SetDirty(archive); EditorUtility.SetDirty(dialogue); EditorUtility.SetDirty(flow.bell);
         }
@@ -185,15 +246,13 @@ namespace PurpleGlove.Editor
             for (int page = 0; page < 2; page++)
             {
                 float left = page == 0 ? -0.31f : 0.027f;
-                var title = FirstActInk(spread, "Edition " + page, flower ? "祷文集 · 七瓣花新版" : "祷文集 · 普通旧版", PrintedChinese, left, 0.161f, 0.28f, 0.022f);
-                title.transform.localPosition += Vector3.up * 0.004f;
                 for (int line = 0; line < 4; line++)
                 {
-                    var text = FirstActInk(spread, "Page " + (12 + page) + " line " + (line + 1), (line + 1) + "  " + lines[page * 4 + line], documentFont,
+                    var text = FirstActInk(spread, "Page " + (12 + page) + " line " + (line + 1), lines[page * 4 + line], documentFont,
                         left, 0.10f - line * 0.058f, 0.28f, 0.026f);
                     text.transform.localPosition += Vector3.up * 0.004f;
                 }
-                var folio = FirstActInk(spread, "Folio " + page, (12 + page) + "   ·   " + (flower ? "五月十九日装订" : "四月二日装订"), PrintedChinese, left, -0.142f, 0.28f, 0.019f);
+                var folio = FirstActInk(spread, "Folio " + page, (12 + page).ToString(), PrintedChinese, left, -0.142f, 0.28f, 0.019f);
                 folio.transform.localPosition += Vector3.up * 0.004f;
             }
             foreach (var r in spread.GetComponentsInChildren<Renderer>()) r.shadowCastingMode = ShadowCastingMode.Off;

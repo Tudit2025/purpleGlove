@@ -79,6 +79,9 @@ namespace PurpleGlove.Editor
             work.plaintextInk.characterSize = 0.0021f; work.plaintextInk.lineSpacing = 1.05f;
             EditorUtility.SetDirty(work.plaintextInk); EditorUtility.SetDirty(controller);
             DeskFirstActFlowBuilder.InstallInScene(camera);
+            ConfigureThirdActDocumentReferences(archive);
+            ConfigureFourthActDocumentReferences(archive);
+            ConfigureOperationalDocuments(archive);
             if (camera.GetComponent<SecondActFlow>()) ConfigureSecondAct(camera);
         }
     }

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430074f4a7b53dd4796d71325b7b59c6, type: 3}
+  m_Name: act5_arrival
+  m_EditorClassIdentifier: 
+  id: act5_arrival
+  title: "\u7B2C\u4E94\u5E55 \xB7 \u4E09\u4F4D\u4EE3\u8868\u7684\u4E66\u4FE1"
+  context: "doc/ph-revised.md \u7B2C\u56DB\u5E55\u72EC\u767D\u540E\u76F4\u63A5\u8F6C\u5165\u7B2C\u4E94\u5E55\uFF0C\u4E09\u4EFD\u4E3B\u52A8\u6587\u4EF6\u3001\u6447\u94C3\u4EA4\u5377\u3002"
+  testOnly: 0
+  initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+  arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
+  closeShutterOnComplete: 1
+  arrivalDelay: 0.54485416
+  lines:
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u4E94\u70B9\u4E86\u3002\u7C73\u5170\u662F\u516C\u7235\u6388\u6743\u7684\u4E66\u8BB0\u5B98\uFF0C\u5A01\u5C3C\u65AF\u662F\u8D1D\u963F\u7279\u4E3D\u5207\uFF0C\u6CD5\u56FD\u662F\u590F\u5C14\u3002\u4E09\u4F4D\u4EE3\u8868\u7684\u8981\u6C42\u548C\u6761\u4EF6\u90FD\u5199\u5728\u4FE1\u91CC\u3002"
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u6838\u9A8C\u8868\u4E0A\uFF0C\u660E\u6587\u4E00\u81F4\u5DF2\u7ECF\u6709\u4F60\u7684\u7B7E\u540D\u3002\u519B\u4EE4\u7684\u6765\u6E90\u8981\u4E0D\u8981\u7531\u4F60\u62C5\u4FDD\uFF0C\u8FD8\u7531\u4F60\u51B3\u5B9A\u3002"
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u6362\u7248\u539F\u4EF6\u4EA4\u7ED9\u54EA\u4E00\u65B9\uFF0C\u8FD8\u662F\u7EE7\u7EED\u7531\u884C\u4F1A\u5C01\u5B58\uFF0C\u8BF7\u8BB0\u5728\u8F6C\u4EA4\u7533\u8BF7\u4E0A\u3002\u9A6C\u6CF0\u5965\u5148\u751F\u7684\u81EA\u8FF0\u660E\u6587\uFF0C\u7559\u7740\u5C31\u968F\u5377\u9012\u4EA4\u3002"
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u6536\u4E0B\u4FE1\u540E\uFF0C\u4F60\u968F\u65F6\u53EF\u4EE5\u6447\u94C3\u3002\u6211\u4F1A\u56DE\u6765\uFF0C\u6309\u4F60\u7684\u5B89\u6392\u8F6C\u9012\u6587\u4EF6\u548C\u6761\u4EF6\uFF0C\u529E\u7406\u4EA4\u63A5\u3002"
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u6CA1\u6709\u6539\u52A8\u7684\u5730\u65B9\uFF0C\u6309\u4E0D\u4F5C\u6765\u6E90\u62C5\u4FDD\u3001\u539F\u4EF6\u7EE7\u7EED\u5C01\u5B58\u3001\u81EA\u8FF0\u4FDD\u7559\u9012\u4EA4\u5904\u7406\u3002\u6447\u94C3\u5C31\u662F\u4EA4\u5377\uFF0C\u4E0D\u5FC5\u518D\u53E6\u5916\u5199\u4E09\u5C01\u56DE\u4FE1\u3002"
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u6211\u5408\u4E0A\u89C2\u5BDF\u7A97\uFF0C\u518D\u628A\u4E09\u5C01\u4FE1\u9001\u8FDB\u53BB\u3002"

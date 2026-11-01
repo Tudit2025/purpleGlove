@@ -176,7 +176,7 @@ public static class SecondActValidation
             Step(); ReadyPacket(); Check(archive.HasPendingSupplement(2), "Supplement exposed before pickup");
             flow.Stop(); Check(archive.HasPendingSupplement(2) && !delivery.IsActive, "Cancelled delivery unlocks files");
             Check(flow.Resume(), "Supplement cannot resume"); Step(); ReadyPacket(); LandPacket();
-            Check(flow.State == SecondActFlow.Phase.Complete && !archive.HasPendingSupplement(2), "Supplement completion failed");
+            Check(flow.State == SecondActFlow.Phase.WaitingForPigpen && !archive.HasPendingSupplement(2), "Supplement completion failed");
             Check(received == 1 && deliveries == 2 && !delivery.BeginSupplement(2), "Duplicate act receipt/supplement");
             Check(archive.acts[1].documents.Length == 4 && archive.acts[1].documents.All(d => d.gameObject.activeSelf), "Final files or preserved plaintext missing");
             CapturePaper(archive.acts[1].documents[1], "03-ledger"); CapturePaper(archive.acts[1].documents[2], "04-pigpen-scrap");

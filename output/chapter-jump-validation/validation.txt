@@ -1,0 +1,2 @@
+PASS: 607 checks across 14 real asynchronous scene reloads.
+Acts 0-6; all four endings; prior plaintext/supplements/signatures; normal opening dialogues and deliveries; actual puzzles and signature; reset during delivery, burned confession, repeated same-act jump, final black to first act; console pause and invalid/duplicate requests.

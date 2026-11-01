@@ -98,6 +98,24 @@ namespace PurpleGlove
                 { announced[act] = true; break; }
         }
 
+        // Used only on a freshly reloaded scene; do not replay earlier completion dialogue/events.
+        internal void PrepareCompletedActForTesting(int act)
+        {
+            if (act < 1 || act > 4) return;
+            var draft = new StringBuilder();
+            foreach (var entry in entries)
+            {
+                if (entry.act != act) continue;
+                if (!entry.document || !entry.plaintextInk || !archive.RegisterDocument(act, entry.document))
+                    throw new InvalidOperationException("Cannot prepare plaintext: " + entry.id);
+                entry.plaintextInk.text = WrapAnswer(entry.answer);
+                entry.saved = true; entry.writtenText = entry.answer;
+                if (draft.Length > 0) draft.Append('\n');
+                draft.Append(entry.answer);
+            }
+            drafts[act] = draft.ToString(); announced[act] = true;
+        }
+
         public static string Normalize(string text)
         {
             var result = new StringBuilder();

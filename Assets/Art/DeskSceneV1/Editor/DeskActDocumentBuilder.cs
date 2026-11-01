@@ -32,7 +32,14 @@ namespace PurpleGlove.Editor
             new[]
             {
                 new[] { "公爵的核验委托", "致行会核验人卢卡：\n军情正文与附件今晚晚些时候送达。\n请于明晨六点前核验文字及其来源。\n\n若法方越境军情属实，晨会将表决\n由米兰军队接管边境粮站。请分别\n填写明文还原与来源确认，不得混签。\n\n卡拉法可代本公爵领取印务材料，\n无权替法方确认军令。他常戴左手\n紫手套，领取时仍须核对登记与签样。" },
-                new[] { "师父封袋里的纸", "NHHS WKH RULJLQDO" }
+                new[] { "师父封袋里的纸", "NHHS WKH RULJLQDO" },
+                new[] { "行会会长的信", "卢卡：\n\n"
+                    + "米兰要凭这份越境军情接管边境粮站；威尼斯不肯把粮道和驻防交到邻邦手里，却也不敢轻忽战报；法国则不愿由别人替自己宣布开战。三方都在等核验结果，也都盼着结果能替自己说话。\n\n"
+                    + "行会替他们印文书、存契据，如今连核验的名义也成了他们争夺的工具。迟迟不签，他们说我们耽误军务；顺着签了，日后追究起来，又会说是行会验过的。我们靠三方的生意养活工匠，谁也得罪不起，却不能让工匠替他们担下所有过错。\n\n"
+                    + "正因为他们互不信任，才肯把这件事交给共同登记的核验人。就这份文书而言，你是今夜唯一同时获三方承认，既有调查权、也有正式发言权的人。你可以调阅记录、向各方追问，并把核验意见列入晨会卷宗；连我也不能代你署名。这份权利不能替三方裁定争端，却能让尚未查清的问题留在纸上，不被一句催促抹去。\n\n"
+                    + "我已吩咐库房，按你的申请抽调有关档案与旧记录；封存原件仍须备齐调阅手续。需要递信、查问经手人，或有别的难处，便托执事告诉我。行会能调动的人手有限，我会尽力安排。\n\n"
+                    + "我知道你挂念马泰奥。愿你今夜查到的东西，能让他有机会亲口说明。没有查清的，不必替任何人签下保证。" },
+                new[] { "行会档案转交申请表", "申请将行会保管的档案转交指定受领方。\n办理时须核对档案编号、清单与具名签收。" }
             },
             new[]
             {
@@ -42,37 +49,24 @@ namespace PurpleGlove.Editor
             },
             new[]
             {
-                new[] { "正式核验件封面", "米兰内廷 · 第17号委托\n装订批号：7—031\n\n军情转录委托\n旧委托封面署名：马泰奥·里奇\n\n封面、正文与版次已登记。\n署名真实性与正文来源分别核验。" },
-                new[] { "军情密文字条", "第17号委托 · 批号7—031\n\nXFIRUSEMDZKVGGAELRIAF\n\n标称来源：法方\n\n随件附旧编码工作单与货款样单。\n明文还原：________________" },
-                new[] { "旧编码工作单", "马泰奥 · 委托用语\n\n四字母材质词，按法语填写。\n随附样单：丝绸货款。\n\nSOIE      丝绸\nLAINE    羊毛\nLIN        亚麻" },
-                new[] { "证人安排表", "暂留地点：圣马丁修道院\n转押出口：北门 · 时刻：六点\n\n转为共同争议审查时，\n证人须原地留候共同核验。\n行会编号通知经米兰渠道送达，\n并附威尼斯、法国两方参与确认。" },
-                new[] { "法方预备说明", "夏尔 · 具名说明\n\n本人可代表法方否认这条\n具体越境命令。\n\n若提供有来源记录的争议文件，\n法方将出具正式反证，\n并派见证人共同保护相关证人。" },
-                new[] { "原件调阅登记", "检索：米兰内廷第17号委托\n批号：7—031\n\n与第七号封档交存记录相符。\n原始签收页须两位保管见证人\n共同启封，黎明前送入。\n原件随附出库记录。" },
-                new[] { "核验工作表", "明文还原：________________\n\n来源确认（待填写）：\n已证实 / 待核 / 存在冲突\n\n对应案号与批号：____________\n\n核验依据：________________" },
-                new[] { "来源比对工作纸", "封面：____________________\n\n正文：____________________\n\n换版记录：________________\n\n签发授权：________________\n\n尚待取得的原件：____________" }
+                new[] { "米兰与行会的译录委托", "委托方：米兰内廷\n登记承办：印务行会\n案号：第17号 / 装订批号：7—031\n\n请马泰奥·里奇据所附来稿译录，\n使用既定密码封存，交行会核验。\n来稿标称法方军情，签发授权待核。\n此页为原委托，随正文送核。" },
+                new[] { "师父译录的军情密文", "XFIRUSEMDZKVGGAELRIAF" },
+                new[] { "军情核验表", "明文还原与来源确认分别填写、分别签名。" },
+                new[] { "夏尔的补充凭条", "本人可以代表法方否认这条具体越境命令。\n若核验所提供具有来源记录的争议文件，\n法方将出具正式反证，并派见证人\n共同保护相关证人。" },
+                new[] { "争议军情的法文原文", "Les troupes françaises franchiront\nla frontière à l'aube." }
             },
             new[]
             {
-                new[] { "原始签收页", "第17号委托 · 批号7—031\n\n旧试印：法方尚未授权跨境行动。\n二次指令：替换正文，保留法使栏。\n法使尚未核签，不另送法方；\n旧试印缴回。\n两次换版经手人：卡拉法\n军情转录委托署名：马泰奥·里奇\n款项：米兰内廷第17号委托账户" },
-                new[] { "换版指令与旧试印", "行会纠纷库 · 交存存根\n\n旧试印：\n法方尚未授权跨境行动。\n\n第二次换版指令：\n换成另附的军情正文，\n保留原封面上的法使栏位。" },
-                new[] { "原件出库记录", "行会纠纷库 · 第七号封档\n对应：第17号委托 / 批号7—031\n\n出库：原始签收页、换版指令、\n旧试印存根。\n\n两位保管见证人共同启封。\n本页随原件送入核验所。" },
-                new[] { "师父双栏密信", "VAPZRMIZCUIWVZQIPZWV", "IINDHFLERETFEBROOFMLIAEOTEROADAHLDNTRSMNMSGETEASODROREATLSAIYCMFRHPOFNWSEDOOEAEYAE" },
-                new[] { "师父明文附记 · 上", "卢卡：\n\n我原以为，先让人出去，\n再拿回底稿，就能把这件事拆开。\n\n我把自己估得太高，\n也把后果推给了你。\n\n六点会转押。" },
-                new[] { "师父明文附记 · 下", "转押登记走米兰内廷文书渠道。\n把争议证人留待共同核验的通知\n送到那条渠道，并让威尼斯、法国\n具名加入保护，监押书记官\n才有理由暂停执行。\n\n我说的也请你查。能查到的，\n应当有与我无关的记录。" },
-                new[] { "修补封套来路说明", "送件人交执事登记\n\n修道院装订工把信缝进待修封套，\n经清晨送货车带到行会。\n\n装订工只答应送出这一次，\n不能保证继续通信。" },
-                new[] { "证据核验工作纸", "军令授权依据：____________\n\n换版经手记录：____________\n\n师父的签名与陈述：________\n\n独立佐证：________________\n\n未证实推断：______________" },
-                new[] { "共同核验母稿", "明文与密码规则：__________\n\n事实 / 原件编号 / 页号：\n________________________\n\n未证实推断：______________\n\n拟定保管方式：____________" }
+                new[] { "商业文件委托签收页", "委托方：米兰内廷\n原定项目：商队通行文件（商业文件）\n装订批号：7—031\n付款账户：米兰内廷第17号委托账户\n\n法方签收对象：商队通行文件原稿\n经手领取人：卡拉法" },
+                new[] { "换版记录", "第一次换版：商队通行文件改为军情译录件。\n旧试印存根：法方尚未授权跨境行动。\n\n第二次换版：换成另附军情正文；\n保留原封面法使栏位及夏尔签名。\n备注：法使尚未核签，不另送法方；\n旧试印缴回。\n\n两次指令均由卡拉法带来并签收。\n军情译录承办：马泰奥·里奇。" },
+                new[] { "师父双栏密信", "VAPZR MIZC\n\nUIWVZ QIPZWV", "IINDHFLERETFEBROOFMLIAEOTEROADAHLDNTRSMNMSGETEASODROREATLSAIYCMFRHPOFNWSEDOOEAEYAE" },
+                new[] { "师父的明文书信", "卢卡：\n\n我原以为，先让人出去，再拿回底稿，\n就能把这件事拆开。我把自己估得太高，\n也把后果推给了你。\n\n六点会转押。转押登记走米兰内廷的\n文书渠道。把‘争议证人须留待共同核验’\n的通知送到那条渠道，并让威尼斯和法国\n具名加入保护，监押的书记官才有理由\n暂停执行。\n\n我说的也请你查。能查到的，\n应当有与我无关的记录。" }
             },
             new[]
             {
-                new[] { "米兰正式来件", "公爵授权书记官\n\n请确认明文与委托内容相符，\n并归还工作原件。\n\n里奇在封面上的签名是真迹。\n若核验转为追责，他也无法\n置身事外。请慎重。" },
-                new[] { "威尼斯正式来件", "贝阿特丽切\n\n将原始签收页交我，\n我可以申请立即保护里奇。\n若坚持行会共同封存，\n请提供可复核副本与封存编号。\n我会签署共同审查申请，\n但不能保证任何人免于问责。" },
-                new[] { "法国正式来件", "夏尔\n\n收到具备来源记录的证据副本后，\n我将具名否认该越境命令，\n参加共同审查，并派见证人\n前往圣马丁北门。\n\n原件请保留，法方须有查验权。" },
-                new[] { "给米兰的回件", "收件渠道：米兰内廷\n\n核验结论：________________\n争议审查卷宗号：__________\n威尼斯参与确认：__________\n法国参与确认：____________\n请求与证人安排：__________\n\n核验人：________  待签发" },
-                new[] { "给威尼斯的回件", "收件人：贝阿特丽切\n\n核验事实：________________\n对应原件编号：____________\n案号 / 批号：______________\n保管位置 / 封存号：________\n共同审查与保护请求：______\n\n核验人：________  待签发" },
-                new[] { "给法国的回件", "收件人：夏尔\n\n具体军情：________________\n换版记录与来源号：________\n核签情况：________________\n具名否认与共同审查请求：__\n证人保护请求：____________\n\n核验人：________  待签发" },
-                new[] { "原件保管清单", "原件编号与页数：__________\n\n保管方式（待填写）：\n共同封存 / 交某方 / 暂留 / 销毁\n\n领受方或封存编号：________\n\n见证人：________  时间：____" },
-                new[] { "终卷附件清单", "共同卷宗编号：____________\n\n核验母稿：________________\n来源记录副本：____________\n\n师父自述：附入 / 暂不提交\n\n参与确认与回执：__________\n核验人：________  待签发" }
+                new[] { "米兰代表的书信", "公爵授权的书记官\n\n请在核验表上明确是否愿为军令来源作保，\n并将换版原件交回米兰。\n里奇的签名是真迹，追责时他也不能置身事外。\n\n若行会登记共同争议审查，并附威尼斯、\n法国两方具名参与确认，监押书记官将\n暂停六点转押，保留里奇在圣马丁北门候核。" },
+                new[] { "威尼斯代表的书信", "贝阿特丽切\n\n我希望取得换版原件，并申请保护里奇。\n若核验结论不担保军令来源，附有可复核的\n换版记录、案号与原件去向，我会具名申请\n暂停粮站表决，参加共同审查与证人保护。\n\n原件继续由行会封存也可以，须保留查验权。\n保护证人不等于免除他的责任。" },
+                new[] { "法国代表的书信", "夏尔\n\n我希望取得涉及法方署名的换版原件。\n若核验结论不担保军令来源，附有具体军情、\n换版记录与来源登记，我将正式否认该命令，\n参加共同审查，并派见证人前往圣马丁北门。\n\n原件交给哪一方都应登记去向。\n若仍由行会封存，请保留法方查验权。" }
             }
         };
 
@@ -121,16 +115,26 @@ namespace PurpleGlove.Editor
                         controller.acts[act].documents[index] = CreateSecondActDocument(layout, index);
                         continue;
                     }
+                    if (act == 2)
+                    {
+                        controller.acts[act].documents[index] = CreateThirdActDocument(layout, index);
+                        continue;
+                    }
+                    if (act == 3)
+                    {
+                        controller.acts[act].documents[index] = CreateFourthActDocument(layout, index);
+                        continue;
+                    }
+                    if (act == 4)
+                    {
+                        controller.acts[act].documents[index] = CreateFifthActDocument(layout, index);
+                        continue;
+                    }
                     var paper = Place("Paper_Blank", layout, Vector3.zero);
                     paper.name = "Act" + (act + 1) + "_" + (index + 1).ToString("00") + "_" + pages[index][0];
                     paper.transform.localScale = Vector3.one * 0.44f;
                     AddDocumentInk(paper.transform, "Title", pages[index][0], 0.141f, 0.043f);
-                    if (act == 3 && index == 3)
-                    {
-                        AddDocumentInk(paper.transform, "Left Body", "第一栏\n五个齿、八个点\n\n" + WrapCipher(pages[index][1], 10) + "\n\n两行连续读取", 0.077f, 0.205f, -0.277f, 0.25f);
-                        AddDocumentInk(paper.transform, "Right Body", "第二栏 · 两行栅栏\n上下往返，按行读出\n\n" + WrapCipher(pages[index][2], 12), 0.077f, 0.205f, 0.02f, 0.255f);
-                    }
-                    else AddDocumentInk(paper.transform, "Body", pages[index][1], 0.077f, 0.205f);
+                    AddDocumentInk(paper.transform, "Body", pages[index][1], 0.077f, 0.205f);
                     AddDocumentInk(paper.transform, "Folio", roman[act] + "  /  " + (index + 1).ToString("00"), -0.151f, 0.017f);
                     ApplyActDocumentFonts(paper.transform, pages[index][0]);
                     var item = paper.GetComponent<SceneObject>();
@@ -145,6 +149,9 @@ namespace PurpleGlove.Editor
                 controller.acts[act].bundle.gameObject.SetActive(!controller.requireDelivery);
             }
             ArrangeDocumentsOnMat(controller);
+            ConfigureThirdActDocumentReferences(controller);
+            ConfigureFourthActDocumentReferences(controller);
+            ConfigureOperationalDocuments(controller);
             BuildMasterNotebook();
             if (Camera.main.GetComponent<SecondActFlow>()) ConfigureSecondAct(Camera.main);
             controller.previewAllActs = !controller.requireDelivery;
@@ -162,6 +169,9 @@ namespace PurpleGlove.Editor
             {
                 if (act == controller.acts[0]) { ArrangeFirstActDocuments(controller); continue; }
                 if (act == controller.acts[1]) { ArrangeSecondActDocuments(controller); continue; }
+                if (act == controller.acts[2]) { ArrangeThirdActDocuments(controller); continue; }
+                if (act == controller.acts[3]) { ArrangeFourthActDocuments(controller); continue; }
+                if (act == controller.acts[4]) { ArrangeFifthActDocuments(controller); continue; }
                 for (int i = 0; i < act.documents.Length; i++)
                 {
                     var paper = act.documents[i].transform;

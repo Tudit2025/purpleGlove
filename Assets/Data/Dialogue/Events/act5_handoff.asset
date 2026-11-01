@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430074f4a7b53dd4796d71325b7b59c6, type: 3}
+  m_Name: act5_handoff
+  m_EditorClassIdentifier: 
+  id: act5_handoff
+  title: "\u7B2C\u4E94\u5E55 \xB7 \u6447\u94C3\u4EA4\u5377"
+  context: "doc/ph-revised.md \u7B2C\u56DB\u5E55\u72EC\u767D\u540E\u76F4\u63A5\u8F6C\u5165\u7B2C\u4E94\u5E55\uFF0C\u4E09\u4EFD\u4E3B\u52A8\u6587\u4EF6\u3001\u6447\u94C3\u4EA4\u5377\u3002"
+  testOnly: 0
+  initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+  arrivalSound: {fileID: 0}
+  closeShutterOnComplete: 1
+  arrivalDelay: 0.1
+  lines:
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u5362\u5361\uFF0C\u6211\u6765\u63A5\u4EF6\u3002{\u6765\u6E90}"
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u6362\u7248\u539F\u4EF6\u6309\u7533\u8BF7\u529E\u7406\uFF1A{\u539F\u4EF6}\u3002{\u81EA\u8FF0}"
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "{\u624B\u7EED}"
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u4EA4\u4EF6\u4E0D\u7B49\u4E8E\u6240\u6709\u627F\u8BFA\u5DF2\u7ECF\u529E\u6210\u3002\u540E\u7EED\u51ED\u636E\u4F1A\u5982\u5B9E\u9001\u56DE\u3002\u73B0\u5728\u5408\u4E0A\u89C2\u5BDF\u7A97\uFF0C\u4ECE\u8F6C\u95E8\u63A5\u8D70\u6587\u4EF6\u3002"

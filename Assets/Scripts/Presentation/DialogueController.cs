@@ -18,9 +18,12 @@ namespace PurpleGlove
         [Range(0, 60)] public float speedOverride;
         public UnityEvent<string> eventCompleted = new UnityEvent<string>();
         public UnityEvent<string> eventCancelled = new UnityEvent<string>();
+        public UnityEvent<string, string> choiceSelected = new UnityEvent<string, string>();
         public DialogueEvent ActiveEvent { get; private set; }
         public bool IsActive => ActiveEvent;
         public bool IsClosing { get; private set; }
+        public bool IsChoosing => CurrentLine != null && CurrentLine.HasChoices;
+        public string SelectedChoiceId { get; private set; }
         public bool IsTyping => IsActive && lineIndex >= 0 && visibleElements < textElements.Length;
         public int LineIndex => lineIndex;
         public string VisibleText => lineIndex < 0 ? string.Empty : CurrentLine.text.Substring(0, VisibleLength);
@@ -66,7 +69,7 @@ namespace PurpleGlove
                 || gate.DeliveryActive || view.DeliveryLocked) return false;
             if (!keepCamera && (gate.StoryActive || !visitor || !eyeShutter || eyeShutter.IsMoving)) return false;
             inPlace = keepCamera;
-            ActiveEvent = sequence; lineIndex = -1;
+            ActiveEvent = sequence; lineIndex = -1; SelectedChoiceId = null;
             if (!keepInspection) interactor.CancelInteraction();
             gate.SetDialogue(true);
             if (!inPlace)
@@ -79,6 +82,7 @@ namespace PurpleGlove
             if (playArrivalSound && arrivalAudio && sequence.arrivalSound) arrivalAudio.PlayOneShot(sequence.arrivalSound);
             arrivalRemaining = inPlace ? sequence.arrivalDelay : Mathf.Max(sequence.arrivalDelay, eyeShutter.travelSeconds);
             paused = false;
+            if (inPlace && arrivalRemaining <= 0) ShowLine(0);
             return true;
         }
 
@@ -93,6 +97,12 @@ namespace PurpleGlove
             }
             if (paused) { if (arrivalAudio) arrivalAudio.UnPause(); paused = false; }
             AdvanceTime(Time.unscaledDeltaTime);
+            if (IsChoosing)
+            {
+                bool canPoint = !gate.BlocksDialogueInput && Input.mousePresent && Cursor.lockState != CursorLockMode.Locked;
+                ProcessChoicePointer(Input.mousePosition, canPoint, Input.GetMouseButtonDown(0));
+                return;
+            }
             if (!gate.BlocksDialogueInput && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)
                 || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0))) Advance();
         }
@@ -138,7 +148,7 @@ namespace PurpleGlove
 
         public void Advance()
         {
-            if (!IsActive || lineIndex < 0) return;
+            if (!IsActive || lineIndex < 0 || IsChoosing || IsClosing) return;
             if (IsTyping)
             {
                 visibleElements = textElements.Length;
@@ -148,6 +158,26 @@ namespace PurpleGlove
             else Finish(true);
         }
 
+        void ProcessChoicePointer(Vector2 pointer, bool canPoint, bool clicked)
+        {
+            int index = canPoint ? Overlay.ChoiceAtPointer(pointer) : -1;
+            Overlay.HighlightChoice(index);
+            if (clicked && index >= 0) SelectChoice(index);
+        }
+
+        public bool SelectChoice(int index)
+        {
+            if (!isActiveAndEnabled || !IsChoosing || gate.BlocksDialogueInput
+                || index < 0 || index >= CurrentLine.choices.Length) return false;
+            var choice = CurrentLine.choices[index];
+            string id = ActiveEvent.id;
+            SelectedChoiceId = choice.id;
+            Voice.Stop(); gate.ConsumeFrame();
+            if (choice.nextLine < 0) Finish(true); else ShowLine(choice.nextLine);
+            choiceSelected.Invoke(id, choice.id);
+            return true;
+        }
+
         void ShowLine(int index)
         {
             lineIndex = index;
@@ -155,7 +185,14 @@ namespace PurpleGlove
             textElements = StringInfo.ParseCombiningCharacters(line.text);
             visibleElements = 0; nextCharacter = 0;
             if (!inPlace && !line.speaker.isProtagonist) visitor.Show(line.speaker);
-            Voice.BeginLine(line.speaker); Overlay.Show(line.speaker, line.text);
+            if (line.HasChoices)
+            {
+                visibleElements = textElements.Length;
+                Voice.Stop();
+                if (arrivalAudio) arrivalAudio.Stop();
+                Overlay.ShowChoices(line.speaker, line.text, line.choices);
+            }
+            else { Voice.BeginLine(line.speaker); Overlay.Show(line.speaker, line.text); }
             gate.ConsumeFrame();
         }
 

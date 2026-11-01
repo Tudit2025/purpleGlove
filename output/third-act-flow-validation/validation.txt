@@ -1,0 +1,2 @@
+PASS: 1095 assertions. Unity 2022.3.62f2 Play Mode.
+Four-document initial packet with signed French original; separate Charles supplement; initial/supplement delivery gates; wrong/partial/correct plaintext; separate signature hit area; no signature on decryption; physical signing; Charles visit and receipt; immutable third-act dossier; real bell strike and putdown; request/secretary/Carafa order; pause/stop/resume; desktop summary; blackout rollback; act-four commit exactly once; recall without replay; document bounds and glyphs.

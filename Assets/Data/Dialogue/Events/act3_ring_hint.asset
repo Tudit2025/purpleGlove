@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430074f4a7b53dd4796d71325b7b59c6, type: 3}
+  m_Name: act3_ring_hint
+  m_EditorClassIdentifier: 
+  id: act3_ring_hint
+  title: "\u7B2C\u4E09\u5E55 \xB7 \u5362\u5361\u63D0\u793A\u518D\u6B21\u8C03\u6863"
+  context: "doc/ph-revised.md \u7B2C\u4E09\u5E55\uFF1A\u660E\u6587\u8FD8\u539F\u7B7E\u540D\u3001\u590F\u5C14\u8865\u5145\u51ED\u6761\u3001\u6447\u94C3\u8C03\u6863\u3001\u4E24\u6B21\u6765\u8BBF\u3001\u684C\u524D\u72EC\u767D\uFF0C\u968F\u540E\u8FDB\u5165\u7B2C\u56DB\u5E55\u3002"
+  testOnly: 0
+  initialVisitor: {fileID: 0}
+  arrivalSound: {fileID: 0}
+  closeShutterOnComplete: 1
+  arrivalDelay: 0.1
+  lines:
+  - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
+    text: "\u590F\u5C14\u7684\u8865\u5145\u51ED\u6761\u4E5F\u6536\u597D\u4E86\u3002\u6B63\u5F0F\u6848\u53F7\u548C\u6279\u53F7\u90FD\u6709\u4E86\uFF0C\u73B0\u5728\u53EF\u4EE5\u6447\u94C3\uFF0C\u8BF7\u6267\u4E8B\u8C03\u53D6\u539F\u59CB\u7B7E\u6536\u9875\u3002"

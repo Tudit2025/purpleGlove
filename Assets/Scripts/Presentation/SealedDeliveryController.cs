@@ -10,7 +10,7 @@ namespace PurpleGlove
         public enum Phase { Idle, TurningOutside, TurningInside, AwaitingPickup, FlyingToDesk, Landing }
         public DoorMechanism transferDrum;
         public SceneObject packet;
-        public GameObject ordinaryPacketVisual, firstActPacketsVisual;
+        public GameObject ordinaryPacketVisual, firstActPacketsVisual, fourthActPacketsVisual;
         public Transform packetHome, deskLanding;
         public ActArchiveController archive;
         [Min(0.1f)] public float flightSeconds = 1.35f;
@@ -65,8 +65,9 @@ namespace PurpleGlove
             if (!CanDeliver(act, additional)) return false;
             supplement = additional;
             ActiveAct = act; previousDrumStop = transferDrum.AtSecondStop;
-            if (ordinaryPacketVisual) ordinaryPacketVisual.SetActive(act != 1 || !firstActPacketsVisual);
+            if (ordinaryPacketVisual) ordinaryPacketVisual.SetActive(!(act == 1 && firstActPacketsVisual) && !(act == 4 && fourthActPacketsVisual));
             if (firstActPacketsVisual) firstActPacketsVisual.SetActive(act == 1);
+            if (fourthActPacketsVisual) fourthActPacketsVisual.SetActive(act == 4);
             interactor.CancelInteraction();
             gate.SetDelivery(true); view.BeginDeliveryView();
             State = Phase.TurningOutside;

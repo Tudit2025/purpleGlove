@@ -8,7 +8,7 @@ namespace PurpleGlove
     [DisallowMultipleComponent]
     public sealed class ActTransitionOverlay : MonoBehaviour
     {
-        public enum Phase { Idle, FadeOut, Black, TitleIn, TitleHold, TitleOut, FadeIn }
+        public enum Phase { Idle, FadeOut, Black, TitleIn, TitleHold, TitleOut, FadeIn, FinalHold }
         public Font font;
         [Min(0.05f)] public float fadeOutSeconds = 0.8f, blackSeconds = 0.3f;
         [Min(0.05f)] public float titleFadeSeconds = 0.45f, titleHoldSeconds = 1.6f, fadeInSeconds = 1f;
@@ -22,6 +22,7 @@ namespace PurpleGlove
         Text title;
         float elapsed;
         Action covered, finished;
+        bool finalFade;
 
         void Awake()
         {
@@ -51,22 +52,37 @@ namespace PurpleGlove
 
         public static string ActTitle(int act)
         {
+            if (act == 6) return "第六幕 · 尾声";
             string[] numerals = { "零", "一", "二", "三", "四", "五" };
             return act >= 0 && act < numerals.Length ? "第" + numerals[act] + "幕" : "第" + act + "幕";
         }
 
         public bool Begin(int act, Action whenCovered, Action whenFinished)
         {
-            if (!isActiveAndEnabled || IsActive || !canvas || act < 0 || act > 5) return false;
-            title.text = ActTitle(act); covered = whenCovered; finished = whenFinished;
+            if (act < 0 || act > 6) return false;
+            return BeginCard(ActTitle(act), whenCovered, whenFinished);
+        }
+
+        public bool BeginCard(string caption, Action whenCovered, Action whenFinished)
+        {
+            if (!isActiveAndEnabled || IsActive || !canvas) return false;
+            finalFade = false;
+            title.text = caption; covered = whenCovered; finished = whenFinished;
             State = Phase.FadeOut; elapsed = 0; canvas.enabled = true; SetOpacity(0, 0);
             return true;
+        }
+
+        public bool BeginFinalFade(string caption, Action whenBlack)
+        {
+            if (!isActiveAndEnabled || IsActive || !canvas) return false;
+            finalFade = true; title.text = caption; covered = whenBlack; finished = null;
+            State = Phase.FadeOut; elapsed = 0; canvas.enabled = true; SetOpacity(0, 0); return true;
         }
 
         // The owner advances this clock, so console/focus pauses cover both the door and the curtain.
         public void Advance(float seconds)
         {
-            if (!IsActive) return;
+            if (!IsActive || State == Phase.FinalHold) return;
             elapsed += Mathf.Max(0, seconds);
             float duration = State == Phase.FadeOut ? fadeOutSeconds : State == Phase.Black ? blackSeconds
                 : State == Phase.TitleHold ? titleHoldSeconds : State == Phase.FadeIn ? fadeInSeconds : titleFadeSeconds;
@@ -84,6 +100,11 @@ namespace PurpleGlove
             switch (State)
             {
                 case Phase.FadeOut:
+                    if (finalFade)
+                    {
+                        State = Phase.FinalHold; SetOpacity(1, 1);
+                        var ending = covered; covered = null; ending?.Invoke(); break;
+                    }
                     State = Phase.Black; SetOpacity(1, 0);
                     var swap = covered; covered = null; swap?.Invoke(); break;
                 case Phase.Black: State = Phase.TitleIn; break;
@@ -105,6 +126,7 @@ namespace PurpleGlove
         public void Cancel()
         {
             State = Phase.Idle; elapsed = 0; covered = finished = null;
+            finalFade = false;
             SetOpacity(0, 0); if (canvas) canvas.enabled = false;
         }
         // The debug console must remain visible and operable even in the opaque-black phase.

@@ -57,6 +57,7 @@ namespace PurpleGlove.Editor
             action.delivery = delivery;
             delivery.packet = item;
             DeskSceneBuilder.BuildFirstActPackets(delivery);
+            DeskSceneBuilder.BuildFourthActPackets(delivery);
             var landing = root.transform.Find("Packet landing on writing mat");
             if (!landing)
             {
@@ -77,6 +78,7 @@ namespace PurpleGlove.Editor
             }
             packet.gameObject.SetActive(false);
             EditorUtility.SetDirty(delivery); EditorUtility.SetDirty(archive);
+            DeskSceneBuilder.ConfigureFourthActOpening(camera);
         }
     }
 }

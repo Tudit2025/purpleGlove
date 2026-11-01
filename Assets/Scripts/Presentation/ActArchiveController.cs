@@ -49,6 +49,7 @@ namespace PurpleGlove
         public int DeskAct { get; private set; }
         public bool AllActsCompleted => CurrentAct > 5;
         bool initialized, changing;
+        readonly HashSet<SceneObject> withdrawn = new HashSet<SceneObject>();
 
         void Awake() => Initialize();
 
@@ -141,8 +142,17 @@ namespace PurpleGlove
             && acts[act - 1].deferredDocuments.Length > 0 && !acts[act - 1].supplementReceived;
 
         public bool IsDocumentAvailable(int act, SceneObject document) => IsAvailable(act)
+            && document && !withdrawn.Contains(document)
             && Array.IndexOf(acts[act - 1].documents, document) >= 0
             && (!HasPendingSupplement(act) || Array.IndexOf(acts[act - 1].deferredDocuments, document) < 0);
+
+        // Burned or dispatched originals cannot reappear when an older dossier is recalled.
+        public bool WithdrawDocument(SceneObject document)
+        {
+            if (!document || !withdrawn.Add(document)) return false;
+            document.gameObject.SetActive(false);
+            return true;
+        }
 
         public bool ReceiveSupplement(int act)
         {
@@ -197,7 +207,9 @@ namespace PurpleGlove
             Array.Resize(ref files.poses, index + 1);
             files.documents[index] = document;
             files.poses[index] = new DeskPose { parent = t.parent, position = t.localPosition, rotation = t.localRotation, scale = t.localScale };
-            if (DeskAct != act)
+            var workingForm = document.GetComponent<DeskOperationalDocument>();
+            if (workingForm && workingForm.UsesRack) workingForm.Stow(true);
+            else if (DeskAct != act)
             {
                 document.Relocate(files.storageAnchor, new Vector3(0, 0.015f * index, 0), Quaternion.identity, Vector3.one * 0.65f);
                 document.gameObject.SetActive(false);
@@ -213,6 +225,9 @@ namespace PurpleGlove
             {
                 var document = files.documents[i];
                 if (!document) continue;
+                if (withdrawn.Contains(document)) { document.gameObject.SetActive(false); continue; }
+                var workingForm = document.GetComponent<DeskOperationalDocument>();
+                if (workingForm && workingForm.UsesRack) { workingForm.Stow(IsDocumentAvailable(act, document)); continue; }
                 document.Relocate(files.storageAnchor, new Vector3(0, 0.015f * i, 0), Quaternion.identity, Vector3.one * 0.65f);
                 document.gameObject.SetActive(false);
             }
@@ -227,6 +242,9 @@ namespace PurpleGlove
             {
                 var document = files.documents[i];
                 if (!document) continue;
+                if (withdrawn.Contains(document)) { document.gameObject.SetActive(false); continue; }
+                var workingForm = document.GetComponent<DeskOperationalDocument>();
+                if (workingForm && workingForm.UsesRack) { workingForm.Stow(IsDocumentAvailable(act, document)); continue; }
                 var pose = files.poses[i];
                 document.Relocate(pose.parent, pose.position, pose.rotation, pose.scale);
                 document.gameObject.SetActive(IsDocumentAvailable(act, document));

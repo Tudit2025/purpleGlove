@@ -1,157 +1,154 @@
 using System;
-using System.Collections.Generic;
-using System.Globalization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PurpleGlove
 {
+    /// <summary>Starts a fresh chapter, with only the preceding chapters completed.</summary>
     [DefaultExecutionOrder(-300), DisallowMultipleComponent]
     [RequireComponent(typeof(SceneInputGate), typeof(DialogueController))]
     public sealed class DialogueTestConsole : MonoBehaviour
     {
+        public enum EndingPreset { Open, Missing, Transferred, Endorsed }
         public Font font;
         public bool enableInReleaseBuild;
         public bool IsOpen { get; private set; }
         public bool Available => Application.isEditor || Debug.isDebugBuild || enableInReleaseBuild;
+        public bool IsJumping => pendingAct >= 0;
+        public int LastStartedAct { get; private set; } = -1;
+        public string Status { get; private set; } = "选择一幕，从开场重新开始。";
+        static readonly string[] Chapters = { "第零幕 · 门槛", "第一幕 · 留下原件", "第二幕 · 第七号封档",
+            "第三幕 · 读得通的谎言", "第四幕 · 名字留在纸上", "第五幕 · 落笔与交卷", "第六幕 · 尾声" };
+        static readonly string[] Endings = { "开门", "缺页", "真相易手", "背书" };
+        static readonly string[] EndingDetails = { "不签保证 · 原件留存 · 保留自述", "不签保证 · 原件留存 · 烧毁自述",
+            "不签保证 · 原件交威尼斯 · 保留自述", "签署保证 · 原件留存 · 保留自述" };
+        static int pendingAct = -1;
+        static string pendingScene;
+        static EndingPreset pendingEnding;
+        EndingPreset selectedEnding;
         DialogueController dialogue;
         SceneInputGate gate;
         SceneObjectInteractor interactor;
-        SealedDeliveryController delivery;
-        PrologueSequence story;
-        readonly List<string> log = new List<string>();
-        readonly List<string> history = new List<string>();
-        string command = string.Empty;
-        int historyIndex;
-        Vector2 scroll;
-        bool focusCommand;
-        GUIStyle titleStyle, labelStyle, buttonStyle, fieldStyle;
+        ActTransitionOverlay curtain;
+        bool enteringEpilogue;
+        GUIStyle titleStyle, labelStyle, buttonStyle, selectedStyle;
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        static void ResetPending() { pendingAct = -1; pendingScene = null; pendingEnding = EndingPreset.Open; }
 
         void Awake()
         {
             dialogue = GetComponent<DialogueController>(); gate = GetComponent<SceneInputGate>();
-            interactor = GetComponent<SceneObjectInteractor>();
-            delivery = GetComponent<SealedDeliveryController>();
-            story = GetComponent<PrologueSequence>();
-            Write("输入 help 查看命令；点击按钮试播对话或收件。收件完成后解锁对应幕文件。");
+            interactor = GetComponent<SceneObjectInteractor>(); curtain = GetComponent<ActTransitionOverlay>();
         }
+
+        void Start()
+        {
+            // Consume the request after every scene component has run Awake/OnEnable.
+            if (pendingAct < 0 || gameObject.scene.path != pendingScene) return;
+            int act = pendingAct; selectedEnding = pendingEnding;
+            pendingAct = -1; pendingScene = null;
+            try
+            {
+                PreparePreviousActs(act);
+                var story = GetComponent<PrologueSequence>();
+                bool started = act == 0 ? story.PlayPrologue() : act == 6 ? BeginEpilogue() : story.PlayActTransition(act);
+                if (!started) throw new InvalidOperationException("目标幕未能开始，请检查场景的剧情组件。");
+                LastStartedAct = act;
+                Status = "已从开场进入：" + Chapters[act];
+            }
+            catch (Exception error)
+            {
+                Status = "跳转失败：" + error.Message;
+                Debug.LogException(error, this); SetOpen(true);
+            }
+        }
+
         void Update()
         {
             if (!Available) return;
             if (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.BackQuote)) SetOpen(!IsOpen);
             else if (IsOpen && Input.GetKeyDown(KeyCode.Escape)) SetOpen(false);
+            if (enteringEpilogue && !IsOpen && Application.isFocused) curtain.Advance(Time.unscaledDeltaTime);
         }
+
         public void SetOpen(bool open)
         {
             if (open && !Available) return;
             IsOpen = open; gate.SetConsole(open);
+            if (curtain) curtain.SetConsoleVisible(open);
             if (open)
             {
-                if (interactor) interactor.CancelInteraction();
-                dialogue.Voice.Stop(); focusCommand = true;
+                if (interactor && !dialogue.IsChoosing) interactor.CancelInteraction();
+                dialogue.Voice.Stop();
             }
         }
-        void OnDisable() { IsOpen = false; if (gate) gate.SetConsole(false); }
 
-        public string Execute(string input)
+        public bool JumpToAct(int act, EndingPreset ending = EndingPreset.Open)
         {
-            string[] parts = (input ?? string.Empty).Trim().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length == 0) return string.Empty;
-            string result;
-            switch (parts[0].ToLowerInvariant())
+            if (!Available || !Application.isPlaying || IsJumping || act < 0 || act >= Chapters.Length
+                || !Enum.IsDefined(typeof(EndingPreset), ending)) return false;
+            string path = gameObject.scene.path;
+            if (string.IsNullOrEmpty(path) || !Application.CanStreamedLevelBeLoaded(path))
+            { Status = "跳转失败：请将当前场景加入 Build Settings。"; return false; }
+            // Reload clears pending dialogue, inspection, burnt papers, moving cargo and final black.
+            pendingAct = act; pendingScene = path; pendingEnding = ending;
+            SetOpen(true); Status = "正在进入：" + Chapters[act];
+            try
             {
-                case "help":
-                    result = "help / list / prologue / transition <1–5> / play <事件ID> / deliver <1–5> / next / stop / continue / speed <0或8–60> / volume <0–1> / clear"; break;
-                case "list":
-                    var names = new List<string>();
-                    foreach (var sequence in dialogue.events) if (sequence) names.Add(sequence.id + " · " + sequence.title);
-                    names.Add("prologue · 第零幕：门槛（独白、开门、进入第一幕）");
-                    names.Add("transition <1–5> · 黑屏幕名转场预览");
-                    for (int act = 1; act <= 5; act++) names.Add("deliver " + act + " · 第 " + act + " 幕封口袋收件");
-                    result = string.Join("\n", names); break;
-                case "play":
-                    if (parts.Length != 2) result = "用法：play arrival";
-                    else if (string.Equals(parts[1], "prologue", StringComparison.OrdinalIgnoreCase)) result = StartPrologue();
-                    else if (story && story.IsActive) result = "正在演出；请先 stop，或继续当前独白。";
-                    else if (dialogue.IsActive) result = "已有对话；请先 stop，或继续当前对话。";
-                    else if (delivery && delivery.IsActive) result = "正在收件；请先点击封口袋，或 stop 中止。";
-                    else if (dialogue.Play(parts[1])) { SetOpen(false); result = "开始：" + parts[1]; }
-                    else result = "无法开始：检查事件 ID、引用，或等待探视窗停止运动。";
-                    break;
-                case "prologue":
-                    result = parts.Length == 1 ? StartPrologue() : "用法：prologue";
-                    break;
-                case "transition":
-                    if (parts.Length != 2 || !int.TryParse(parts[1], out int chapter) || chapter < 1 || chapter > 5)
-                        result = "用法：transition 1（幕号 1–5）";
-                    else if (story && story.PlayActTransition(chapter))
-                    { SetOpen(false); result = "开始转场：" + ActTransitionOverlay.ActTitle(chapter); }
-                    else result = "无法转场：请先结束当前事件，并确认已安装序幕演出。";
-                    break;
-                case "deliver":
-                    if (parts.Length != 2 || !int.TryParse(parts[1], out int actNumber) || actNumber < 1 || actNumber > 5)
-                        result = "用法：deliver 1（幕号 1–5）";
-                    else if (!delivery) result = "场景尚未安装封口袋收件事件。";
-                    else if (delivery.archive && delivery.archive.IsAvailable(actNumber)) result = "该幕文件已解锁，无需重复收件。";
-                    else if (delivery.BeginDelivery(actNumber)) { SetOpen(false); result = "开始第 " + actNumber + " 幕收件：活门转入后点击封口袋。"; }
-                    else result = "无法收件：请先结束当前事件，或等待活门停止运动。";
-                    break;
-                case "next":
-                    if (!dialogue.IsActive) result = "当前没有对话。";
-                    else { dialogue.Advance(); result = "已推进（打字中先显示整句）。"; }
-                    break;
-                case "stop":
-                    var secondFlow = GetComponent<SecondActFlow>();
-                    if (secondFlow) secondFlow.Stop();
-                    var flow = GetComponent<FirstActFlow>();
-                    bool stoppedFlow = flow && flow.IsRunning;
-                    if (stoppedFlow) flow.Stop();
-                    if (story && story.IsActive) { story.Stop(); result = "演出已中止，黑屏、门和机位已恢复。"; }
-                    else if (delivery && delivery.IsActive) { delivery.Stop(); result = "收件已中止，未解锁文件，已恢复原机位。"; }
-                    else { dialogue.Stop(); result = "对话已中止，机位与探视窗正在恢复。"; }
-                    if (stoppedFlow || (secondFlow && secondFlow.State == SecondActFlow.Phase.Suspended)) result = "自动推进已中止；输入 continue 从当前阶段继续。";
-                    break;
-                case "continue":
-                    var suspended = GetComponent<FirstActFlow>();
-                    if (suspended && suspended.Resume()) { SetOpen(false); result = "继续第一幕至第二幕的自动流程。"; }
-                    else if (GetComponent<SecondActFlow>() && GetComponent<SecondActFlow>().Resume()) { SetOpen(false); result = "继续第二幕调档流程。"; }
-                    else result = "没有被中止的自动流程。";
-                    break;
-                case "speed":
-                    if (!Number(parts, out float speed) || (speed != 0 && (speed < 8 || speed > 60))) result = "速度范围：8–60 字/秒；0 使用角色默认值。";
-                    else { dialogue.speedOverride = speed; result = "文字速度：" + speed.ToString(CultureInfo.InvariantCulture); }
-                    break;
-                case "volume":
-                    if (!Number(parts, out float volume) || volume < 0 || volume > 1) result = "音量范围：0–1。";
-                    else { dialogue.Voice.masterVolume = volume; dialogue.Voice.Stop(); result = "发言音量：" + volume.ToString(CultureInfo.InvariantCulture); }
-                    break;
-                case "clear": log.Clear(); result = "记录已清空。"; break;
-                default: result = "未知命令；输入 help 查看帮助。"; break;
+                if (SceneManager.LoadSceneAsync(path, LoadSceneMode.Single) == null)
+                    throw new InvalidOperationException("场景无法载入。");
+                return true;
             }
-            Write("> " + input + "\n" + result);
-            return result;
+            catch (Exception error)
+            {
+                pendingAct = -1; pendingScene = null;
+                Status = "跳转失败：" + error.Message; return false;
+            }
         }
-        string StartPrologue()
+
+        void PreparePreviousActs(int target)
         {
-            if (!story || !story.PlayPrologue()) return "无法开始序幕：请先结束当前事件，并确认已安装序幕演出。";
-            SetOpen(false); return "开始第零幕：门槛。空格 / 回车 / 左键继续独白，读完后开门进入第一幕。";
+            var records = GetComponent<PlaintextArchiveController>();
+            var archive = records.archive;
+            var fifth = GetComponent<FifthActFlow>();
+            for (int act = 1; act < target; act++)
+            {
+                if (!archive.ReceiveAct(act)) throw new InvalidOperationException("无法准备第 " + act + " 幕卷宗。");
+                if (archive.HasPendingSupplement(act)) archive.ReceiveSupplement(act);
+                records.PrepareCompletedActForTesting(act);
+                if (act == 3) fifth.verification.PrepareCompletedForTesting();
+                if (!archive.CompleteAct(act)) throw new InvalidOperationException("无法归档第 " + act + " 幕。");
+            }
+            if (target == 2) GetComponent<FirstActFlow>().PrepareSecondActStartForTesting();
+            if (target == 3) GetComponent<SecondActFlow>().PrepareThirdActStartForTesting();
+            if (target == 6) fifth.PrepareEpilogueForTesting(selectedEnding == EndingPreset.Endorsed,
+                selectedEnding == EndingPreset.Transferred ? FifthActFlow.Custody.Venice : FifthActFlow.Custody.Guild,
+                selectedEnding == EndingPreset.Missing);
         }
-        static bool Number(string[] parts, out float number)
+
+        bool BeginEpilogue()
         {
-            number = 0;
-            return parts.Length == 2 && float.TryParse(parts[1], NumberStyles.Float, CultureInfo.InvariantCulture, out number)
-                && !float.IsNaN(number) && !float.IsInfinity(number);
+            var view = GetComponent<DeskScenePreview>();
+            if (!view.BeginStoryView()) return false;
+            view.ShowStoryDesktop(); gate.SetStory(true);
+            enteringEpilogue = curtain.Begin(6, null, () =>
+            {
+                enteringEpilogue = false; view.EndStoryView(true);
+                if (!GetComponent<EpilogueFlow>().Begin())
+                {
+                    gate.SetStory(false); Status = "尾声未能开始，请检查尾声组件。"; SetOpen(true);
+                }
+            });
+            if (!enteringEpilogue) { view.EndStoryView(true); gate.SetStory(false); }
+            return enteringEpilogue;
         }
-        void Write(string message)
+
+        void OnDisable()
         {
-            log.Add(message); if (log.Count > 50) log.RemoveAt(0);
-            scroll.y = float.MaxValue;
-        }
-        void Submit()
-        {
-            if (string.IsNullOrWhiteSpace(command)) return;
-            history.Add(command); if (history.Count > 50) history.RemoveAt(0);
-            historyIndex = history.Count;
-            string input = command; command = string.Empty; Execute(input); focusCommand = true;
+            IsOpen = false;
+            if (gate) gate.SetConsole(false);
+            if (curtain) curtain.SetConsoleVisible(false);
         }
 
         void OnGUI()
@@ -161,95 +158,57 @@ namespace PurpleGlove
             GUI.depth = -1000;
             if (!IsOpen)
             {
-                if (!dialogue.IsActive && (!delivery || !delivery.IsActive) && (!story || !story.IsActive)) GUI.Label(new Rect(16, 12, 260, 26), "F1 / `  测试控制台", labelStyle);
+                if (!gate.BlocksWorldInput) GUI.Label(new Rect(16, 12, 320, 28), "F1 / `  跳转到各幕开始", labelStyle);
                 return;
             }
             var oldMatrix = GUI.matrix;
-            float scale = Mathf.Min(Screen.width / 1080f, Screen.height / 760f);
-            GUI.matrix = Matrix4x4.TRS(new Vector3((Screen.width - 1000 * scale) * 0.5f,
-                (Screen.height - 700 * scale) * 0.5f, 0), Quaternion.identity, Vector3.one * scale);
+            float scale = Mathf.Min(Screen.width / 1040f, Screen.height / 750f);
+            GUI.matrix = Matrix4x4.TRS(new Vector3((Screen.width - 960 * scale) * 0.5f,
+                (Screen.height - 670 * scale) * 0.5f, 0), Quaternion.identity, Vector3.one * scale);
             var oldColor = GUI.color;
             GUI.color = new Color(0.035f, 0.031f, 0.026f, 0.98f);
-            GUI.DrawTexture(new Rect(0, 0, 1000, 700), Texture2D.whiteTexture); GUI.color = oldColor;
-            GUILayout.BeginArea(new Rect(26, 20, 948, 660));
+            GUI.DrawTexture(new Rect(0, 0, 960, 670), Texture2D.whiteTexture); GUI.color = oldColor;
+            GUILayout.BeginArea(new Rect(28, 22, 904, 626));
             GUILayout.BeginHorizontal();
-            GUILayout.Label("紫手套  /  事件测试", titleStyle);
+            GUILayout.Label("紫手套 / 章节测试", titleStyle);
             if (GUILayout.Button("关闭 · F1 / Esc", buttonStyle, GUILayout.Width(190))) SetOpen(false);
             GUILayout.EndHorizontal();
-            string status = dialogue.IsActive ? dialogue.ActiveEvent.title + "  ·  "
-                + (dialogue.IsClosing ? "关窗中" : dialogue.LineIndex < 0 ? "来访中" : "第 " + (dialogue.LineIndex + 1) + " / " + dialogue.ActiveEvent.lines.Length + " 句") : "等待试播";
-            if (delivery && delivery.IsActive) status = "第 " + delivery.ActiveAct + " 幕收件 · "
-                + (delivery.State == SealedDeliveryController.Phase.AwaitingPickup ? "等待点击封口袋" : "交接中");
-            if (story && story.IsActive) status = story.State == PrologueSequence.Phase.Monologue
-                ? "第零幕 · 门槛 · 独白进行中" : story.State == PrologueSequence.Phase.OpeningDoor ? "第零幕 · 开门" : "幕间转场";
-            GUILayout.Label(status, labelStyle);
-            GUILayout.Space(10);
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button("继续 / 补全", buttonStyle)) dialogue.Advance();
-            if (GUILayout.Button("中止当前事件", buttonStyle)) Execute("stop");
-            GUILayout.EndHorizontal();
-            bool storyButtonsEnabled = GUI.enabled;
-            GUI.enabled = story && story.CanStart;
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button("第零幕 · 门槛", buttonStyle)) Execute("prologue");
-            if (GUILayout.Button("第一幕转场预览", buttonStyle)) Execute("transition 1");
-            GUILayout.EndHorizontal();
-            GUI.enabled = storyButtonsEnabled;
-            for (int i = 0; i < dialogue.events.Length; i += 2)
+            GUILayout.Space(12);
+            GUILayout.Label("跳转会重置本次游玩，并准备前几幕的证据、译文和签名。\n目标幕从开场演出开始；可以重复进入同一幕。", labelStyle);
+            GUILayout.Space(18);
+            bool oldEnabled = GUI.enabled; GUI.enabled = oldEnabled && !IsJumping;
+            for (int act = 0; act < 6; act += 2)
             {
                 GUILayout.BeginHorizontal();
-                for (int j = i; j < Mathf.Min(i + 2, dialogue.events.Length); j++)
-                {
-                    var sequence = dialogue.events[j]; if (!sequence) continue;
-                    bool previous = GUI.enabled; GUI.enabled = !dialogue.IsActive && (!delivery || !delivery.IsActive) && (!story || !story.IsActive);
-                    if (GUILayout.Button(sequence.title + (sequence.testOnly ? " [预留测试]" : ""), buttonStyle, GUILayout.Width(469)))
-                        Execute("play " + sequence.id);
-                    GUI.enabled = previous;
-                }
-                GUILayout.EndHorizontal();
+                if (GUILayout.Button(Chapters[act], buttonStyle, GUILayout.Width(446))) JumpToAct(act);
+                if (GUILayout.Button(Chapters[act + 1], buttonStyle, GUILayout.Width(446))) JumpToAct(act + 1);
+                GUILayout.EndHorizontal(); GUILayout.Space(8);
             }
-            GUILayout.Space(7);
-            GUILayout.Label("封口袋收件 · 落到桌面后解锁文件", labelStyle);
+            GUILayout.Space(12);
+            GUILayout.Label("第六幕 · 尾声 / 选择结局", labelStyle);
             GUILayout.BeginHorizontal();
-            for (int act = 1; act <= 5; act++)
-            {
-                bool previous = GUI.enabled;
-                bool received = delivery && delivery.archive && delivery.archive.IsAvailable(act);
-                GUI.enabled = delivery && delivery.CanDeliver(act);
-                if (GUILayout.Button("第 " + act + " 幕" + (received ? " · 已收" : " · 收件"), buttonStyle)) Execute("deliver " + act);
-                GUI.enabled = previous;
-            }
+            for (int i = 0; i < Endings.Length; i++)
+                if (GUILayout.Button(Endings[i], selectedEnding == (EndingPreset)i ? selectedStyle : buttonStyle))
+                    selectedEnding = (EndingPreset)i;
             GUILayout.EndHorizontal();
-            GUILayout.Space(7);
-            GUILayout.Label("speed 0：角色默认速度    volume 0：静音    ↑ / ↓：命令历史", labelStyle);
-            scroll = GUILayout.BeginScrollView(scroll, GUILayout.ExpandHeight(true));
-            foreach (string entry in log) GUILayout.Label(entry, labelStyle);
-            GUILayout.EndScrollView();
-            GUILayout.BeginHorizontal();
-            GUI.SetNextControlName("DialogueCommand");
-            command = GUILayout.TextField(command, fieldStyle, GUILayout.Height(40));
-            if (GUILayout.Button("执行", buttonStyle, GUILayout.Width(90))) Submit();
-            GUILayout.EndHorizontal();
-            if (focusCommand) { GUI.FocusControl("DialogueCommand"); focusCommand = false; }
-            var inputEvent = Event.current;
-            if (inputEvent.type == EventType.KeyDown)
-            {
-                if (inputEvent.keyCode == KeyCode.Return || inputEvent.keyCode == KeyCode.KeypadEnter) { Submit(); inputEvent.Use(); }
-                else if (inputEvent.keyCode == KeyCode.UpArrow || inputEvent.keyCode == KeyCode.DownArrow)
-                {
-                    historyIndex = Mathf.Clamp(historyIndex + (inputEvent.keyCode == KeyCode.UpArrow ? -1 : 1), 0, history.Count);
-                    command = historyIndex == history.Count ? string.Empty : history[historyIndex]; inputEvent.Use();
-                }
-            }
+            GUILayout.Space(8);
+            GUILayout.Label(EndingDetails[(int)selectedEnding], labelStyle);
+            if (GUILayout.Button("进入第六幕 · " + Endings[(int)selectedEnding], buttonStyle)) JumpToAct(6, selectedEnding);
+            GUI.enabled = oldEnabled;
+            GUILayout.Space(18);
+            GUILayout.Label(Status, labelStyle);
             GUILayout.EndArea(); GUI.matrix = oldMatrix;
         }
+
         void Styles()
         {
-            labelStyle = new GUIStyle(GUI.skin.label) { font = font, fontSize = 18, wordWrap = true, richText = false };
+            labelStyle = new GUIStyle(GUI.skin.label) { font = font, fontSize = 19, wordWrap = true, richText = false };
             labelStyle.normal.textColor = new Color(0.82f, 0.78f, 0.67f);
             titleStyle = new GUIStyle(labelStyle) { fontSize = 28 };
-            buttonStyle = new GUIStyle(GUI.skin.button) { font = font, fontSize = 19, fixedHeight = 40, richText = false };
-            fieldStyle = new GUIStyle(GUI.skin.textField) { font = font, fontSize = 21 };
+            buttonStyle = new GUIStyle(GUI.skin.button) { font = font, fontSize = 21, fixedHeight = 48, richText = false };
+            selectedStyle = new GUIStyle(buttonStyle);
+            selectedStyle.normal.textColor = new Color(1f, 0.80f, 0.40f);
+            selectedStyle.normal.background = GUI.skin.button.active.background;
         }
     }
 }

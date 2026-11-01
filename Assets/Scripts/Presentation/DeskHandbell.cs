@@ -12,6 +12,8 @@ namespace PurpleGlove
         [Header("Story")]
         public DialogueController dialogue;
         public DialogueEvent notNeededLine;
+        [Tooltip("Optional silent choice before ringing; only the choice ID 'ring' authorizes a strike.")]
+        public DialogueEvent ringConfirmation;
         [Tooltip("Set by the story when calling someone is meaningful. Off by default.")]
         public bool ringAllowed;
         [Tooltip("Optionally use up permission at the first audible strike.")]
@@ -50,6 +52,8 @@ namespace PurpleGlove
         float elapsed;
         int nextStrike;
         bool hasPose, itemWasEnabled, ownsLine, paused, authorizedShake;
+        DialogueEvent ownedLine;
+        bool confirmingRing;
 
         void Awake() => Resolve();
         void Resolve()
@@ -94,7 +98,7 @@ namespace PurpleGlove
             if (!IsBusy) return;
             if (!sceneCamera || !sceneCamera.isActiveAndEnabled || !gate || !dialogue || !dialogue.isActiveAndEnabled)
             { Cancel(); return; }
-            if (gate.StoryActive || gate.DeliveryActive || (dialogue.IsActive && dialogue.ActiveEvent != notNeededLine))
+            if (gate.StoryActive || gate.DeliveryActive || (dialogue.IsActive && dialogue.ActiveEvent != ownedLine))
             { Cancel(); return; }
             bool pause = !Application.isFocused || gate.ConsoleOpen;
             if (pause) { if (!paused) source.Pause(); paused = true; return; }
@@ -115,12 +119,16 @@ namespace PurpleGlove
                     if (elapsed >= pickupSeconds)
                     {
                         elapsed = 0;
-                        if (ringAllowed && HasStrikes()) { authorizedShake = true; State = Phase.Shaking; }
+                        if (ringAllowed && HasStrikes())
+                        {
+                            if (ringConfirmation) Speak(ringConfirmation, true);
+                            else { authorizedShake = true; State = Phase.Shaking; }
+                        }
                         else Refuse();
                     }
                     break;
                 case Phase.Speaking:
-                    if (!ownsLine || dialogue.ActiveEvent != notNeededLine) { ownsLine = false; PutDown(); }
+                    if (!ownsLine || dialogue.ActiveEvent != ownedLine) PutDown();
                     break;
                 case Phase.Shaking:
                     // Revoking permission before the first strike must never produce a call.
@@ -171,9 +179,33 @@ namespace PurpleGlove
         }
         void Refuse()
         {
-            ResetRig(); authorizedShake = false; State = Phase.Speaking; elapsed = 0;
-            ownsLine = dialogue.PlayInPlace(notNeededLine, true);
+            ResetRig(); authorizedShake = false;
+            Speak(notNeededLine, false);
+        }
+        void Speak(DialogueEvent line, bool confirmation)
+        {
+            State = Phase.Speaking; elapsed = 0;
+            ownedLine = line; confirmingRing = confirmation;
+            if (confirmation) source.Stop();
+            ownsLine = dialogue.PlayInPlace(line, true);
+            if (ownsLine)
+            {
+                dialogue.eventCompleted.AddListener(LineFinished);
+                dialogue.eventCancelled.AddListener(LineCancelled);
+            }
             if (!ownsLine) PutDown();
+        }
+        void LineFinished(string id)
+        {
+            if (!ownsLine || !ownedLine || ownedLine.id != id) return;
+            bool ring = confirmingRing && dialogue.SelectedChoiceId == "ring" && ringAllowed && HasStrikes();
+            StopOwnLine();
+            if (ring) { authorizedShake = true; elapsed = 0; State = Phase.Shaking; }
+            else PutDown();
+        }
+        void LineCancelled(string id)
+        {
+            if (ownsLine && ownedLine && ownedLine.id == id) PutDown();
         }
         public void PutDown()
         {
@@ -198,8 +230,13 @@ namespace PurpleGlove
         }
         void StopOwnLine()
         {
-            bool stop = ownsLine && dialogue && dialogue.ActiveEvent == notNeededLine;
-            ownsLine = false;
+            bool stop = ownsLine && dialogue && dialogue.ActiveEvent == ownedLine;
+            ownsLine = confirmingRing = false; ownedLine = null;
+            if (dialogue)
+            {
+                dialogue.eventCompleted.RemoveListener(LineFinished);
+                dialogue.eventCancelled.RemoveListener(LineCancelled);
+            }
             if (stop) dialogue.Stop();
         }
         void Restore()

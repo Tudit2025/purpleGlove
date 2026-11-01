@@ -41,7 +41,8 @@ namespace PurpleGlove.Editor
             DialogueEvent.Line L(DialogueSpeaker speaker, string text) => new DialogueEvent.Line { speaker = speaker, text = text };
             var opening = Event("act1_arrival", "第一幕 · 执事交付说明", clerk,
                 L(clerk, "卢卡，公爵的核验委托送到了。白色包裹里是正式委托，请分别填写‘明文还原’与‘来源确认’，不得混签。"),
-                L(clerk, "棕色包裹是行会交付的文件：马泰奥先生离开前寄存的封袋，登记时间在他被扣押之前。"),
+                L(clerk, "棕色包裹里有会长今晚写给你的信，还有马泰奥先生离开前寄存的封袋。封袋登记在他被扣押之前，原封未动。"),
+                L(clerk, "另附一张行会档案转交申请表，申请把行会保管的档案交给指定受领方时使用。先收入桌面文件立夹，核验整理完毕后再办理。"),
                 L(clerk, "两件都登记好了。我合上观察窗后，从侧面的传物舱送进去，请接收。"));
             opening.closeShutterOnComplete = true;
             opening.context = "doc/ph-revised.md 第一幕开场；入场五秒后敲门，音效结束后交谈，观察窗完全关闭后送件。";

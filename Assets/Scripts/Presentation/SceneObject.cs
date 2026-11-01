@@ -89,6 +89,8 @@ namespace PurpleGlove
             }
             State = ObjectState.Resting;
             viewCamera = null;
+            var workingForm = GetComponent<DeskOperationalDocument>();
+            if (workingForm) workingForm.EndInteraction();
             fillAmount = 0;
             if (surfaces != null)
                 for (int i = 0; i < surfaces.Length; i++)
@@ -118,6 +120,7 @@ namespace PurpleGlove
 
             Vector3 targetPosition = transform.parent ? transform.parent.TransformPoint(restPosition) : restPosition;
             Quaternion targetRotation = transform.parent ? transform.parent.rotation * restRotation : restRotation;
+            Vector3 targetScale = restScale;
             float speed = returnSpeed;
 
             if (State == ObjectState.Hovered)
@@ -128,12 +131,15 @@ namespace PurpleGlove
             else if (State == ObjectState.Inspecting)
             {
                 GetInspectionPose(out targetPosition, out targetRotation);
+                var workingForm = GetComponent<DeskOperationalDocument>();
+                if (workingForm && workingForm.IsOpen) targetScale = workingForm.desktopScale;
                 speed = inspectionSpeed;
             }
 
             float blend = 1 - Mathf.Exp(-Mathf.Max(0.1f, speed) * deltaTime);
             transform.SetPositionAndRotation(Vector3.Lerp(transform.position, targetPosition, blend),
                 Quaternion.Slerp(transform.rotation, targetRotation, blend));
+            transform.localScale = Vector3.Lerp(transform.localScale, targetScale, blend);
             fillAmount = Mathf.Lerp(fillAmount, State == ObjectState.Inspecting ? 1 : 0, blend);
             for (int i = 0; i < surfaces.Length; i++)
             {
@@ -149,6 +155,13 @@ namespace PurpleGlove
 
         void GetInspectionPose(out Vector3 position, out Quaternion rotation)
         {
+            var workingForm = GetComponent<DeskOperationalDocument>();
+            if (workingForm && workingForm.IsOpen && workingForm.desktopAnchor)
+            {
+                position = workingForm.desktopAnchor.position;
+                rotation = workingForm.desktopAnchor.rotation;
+                return;
+            }
             Quaternion presentation = Quaternion.Euler(inspectionEuler);
             rotation = viewCamera.transform.rotation * presentation;
             Vector3 scale = transform.lossyScale;

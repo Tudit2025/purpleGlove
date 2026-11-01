@@ -1,0 +1,11 @@
+﻿Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity : MATCH
+Assets/Data/Dialogue/Events/act3_arrival.asset : MATCH
+Assets/Art/DeskSceneV1/Editor/DeskThirdActBuilder.cs.meta : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act3_FormPaper.asset : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act3_FormPaper.asset.meta : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act3_CipherPaper.asset : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act3_CipherPaper.asset.meta : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act3_CommissionRules.asset : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act3_CommissionRules.asset.meta : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act3_VerificationTableRules.asset : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act3_VerificationTableRules.asset.meta : MATCH

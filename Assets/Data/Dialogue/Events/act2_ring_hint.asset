@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430074f4a7b53dd4796d71325b7b59c6, type: 3}
+  m_Name: act2_ring_hint
+  m_EditorClassIdentifier: 
+  id: act2_ring_hint
+  title: "\u5362\u5361 \xB7 \u6447\u94C3\u8C03\u6863"
+  context: "\u7B2C\u4E8C\u5E55\u5206\u6279\u6536\u4EF6\u3001\u4E66\u672C\u89E3\u8BFB\u4E0E\u6447\u94C3\u8C03\u6863\u3002"
+  testOnly: 0
+  initialVisitor: {fileID: 0}
+  arrivalSound: {fileID: 0}
+  closeShutterOnComplete: 1
+  arrivalDelay: 0.1
+  lines:
+  - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
+    text: "\u8C03\u9605\u7B2C\u4E03\u53F7\u5C01\u6863\u2026\u2026\u660E\u6587\u7559\u597D\u4E86\u3002\u73B0\u5728\u8BE5\u6447\u94C3\uFF0C\u8BF7\u6267\u4E8B\u628A\u5BF9\u5E94\u7684\u6863\u6848\u8C03\u6765\u3002"

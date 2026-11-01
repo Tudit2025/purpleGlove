@@ -116,6 +116,8 @@ namespace PurpleGlove
                 action.Activate();
                 return;
             }
+            var workingForm = item.GetComponent<DeskOperationalDocument>();
+            if (workingForm && workingForm.UsesRack && !workingForm.BeginInteraction(sceneCamera)) return;
             inspected = item;
             item.BeginInspection(sceneCamera);
             if (memory && memory.duringInspection) memory.TryBegin(null);

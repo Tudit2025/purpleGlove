@@ -56,6 +56,8 @@ namespace PurpleGlove
             if (records && records.entries.Any(e => e.act == 1 && e.saved)) Preserved(1);
         }
 
+        internal void PrepareSecondActStartForTesting() { State = Phase.SecondIntroPending; }
+
         void Preserved(int act)
         {
             if (State != Phase.Idle || act != 1 || !archive || archive.CurrentAct != 1) return;

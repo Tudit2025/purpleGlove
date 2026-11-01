@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -20,10 +21,12 @@ namespace PurpleGlove.Editor
             if (!layout) throw new InvalidOperationException("Missing authored document layout.");
             foreach (var item in archive.acts[0].documents)
                 if (item) UnityEngine.Object.DestroyImmediate(item.gameObject);
-            archive.acts[0].documents = Enumerable.Range(0, 2).Select(i => CreateFirstActDocument(layout, i)).ToArray();
+            archive.acts[0].documents = Enumerable.Range(0, ActDocumentPages[0].Length)
+                .Select(i => CreateFirstActDocument(layout, i)).ToArray();
             ArrangeFirstActDocuments(archive);
             foreach (var item in archive.acts[0].documents) item.gameObject.SetActive(false);
             DeskDeliveryBuilder.InstallInScene(Camera.main);
+            ConfigureOperationalDocuments(archive);
             EditorUtility.SetDirty(archive);
             AssetDatabase.SaveAssets(); EditorSceneManager.SaveScene(scene);
             Debug.Log("FIRST_ACT_DETAILS_INSTALLED");
@@ -32,11 +35,15 @@ namespace PurpleGlove.Editor
         static void ArrangeFirstActDocuments(ActArchiveController archive)
         {
             var mat = GameObject.Find("WritingMat").transform;
+            // Keep both full letters above the smaller cipher slip, leaving the bottom for its plaintext.
+            var positions = new[] { V(-0.235f, 0.014f, 0.20f), V(0, 0.014f, -0.26f), V(0.235f, 0.014f, 0.20f) };
+            var angles = new[] { -2f, -3f, 2f };
             for (int i = 0; i < archive.acts[0].documents.Length; i++)
             {
                 var paper = archive.acts[0].documents[i].transform;
-                paper.position = mat.TransformPoint(V(i == 0 ? -0.235f : 0.23f, 0.014f, i == 0 ? 0.05f : 0.02f));
-                paper.rotation = mat.rotation * Quaternion.Euler(0, i == 0 ? -2 : 5, 0);
+                if (i == 3) { paper.SetPositionAndRotation(mat.position, mat.rotation); paper.localScale = Vector3.one; continue; }
+                paper.position = mat.TransformPoint(positions[i]);
+                paper.rotation = mat.rotation * Quaternion.Euler(0, angles[i], 0);
                 paper.localScale = Vector3.one;
             }
         }
@@ -51,14 +58,41 @@ namespace PurpleGlove.Editor
             item.inspectionFill = new Color(0.85f, 0.78f, 0.64f);
             var box = paper.GetComponent<BoxCollider>();
             box.center = V(0, 0.004f, 0);
-            box.size = index == 0 ? V(0.42f, 0.012f, 0.60f) : V(0.35f, 0.012f, 0.27f);
+            box.size = index == 1 ? V(0.35f, 0.012f, 0.27f) : V(0.42f, 0.012f, 0.60f);
             if (index == 0) BuildDucalLetter(paper.transform);
-            else
+            else if (index == 1)
             {
                 BuildMasterSlip(paper.transform);
                 DeskObjectMemoryBuilder.InstallFirstActMemory(item, Camera.main.GetComponent<DialogueController>());
             }
+            else if (index == 2) BuildGuildLetter(paper.transform);
+            else BuildTransferApplication(paper.transform);
             return item;
+        }
+
+        static void BuildGuildLetter(Transform paper)
+        {
+            MeshObject("Act1_GuildLetterPaper", paper, m => m.Sheet(0.42f, 0.60f, M("Paper_AgedCream"), 0.003f));
+            string body = string.Join("\n", ActDocumentPages[0][2][1].Split('\n').Select(WrapGuildParagraph));
+            var bodyInk = FirstActInk(paper, "Body", body, HandwrittenChinese, -0.176f, 0.244f, 0.352f, 0.420f);
+            var signature = FirstActInk(paper, "Signature", "印务行会会长", HandwrittenChinese,
+                0.176f, -0.228f, 0.14f, 0.018f);
+            signature.anchor = TextAnchor.UpperRight;
+            signature.characterSize = bodyInk.characterSize;
+        }
+
+        static string WrapGuildParagraph(string paragraph)
+        {
+            var lines = new List<string>();
+            for (int start = 0; start < paragraph.Length;)
+            {
+                int count = Math.Min(26, paragraph.Length - start);
+                while (count > 1 && start + count < paragraph.Length
+                    && "，。；：！？、）”’".IndexOf(paragraph[start + count]) >= 0) count--;
+                lines.Add(paragraph.Substring(start, count));
+                start += count;
+            }
+            return string.Join("\n", lines);
         }
 
         static TextMesh FirstActInk(Transform paper, string name, string value, Font font,

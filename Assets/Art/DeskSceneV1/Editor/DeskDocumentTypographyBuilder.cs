@@ -46,7 +46,8 @@ namespace PurpleGlove.Editor
                         Retype(paper.Find("Address").GetComponent<TextMesh>(), HandwrittenChinese, 0.043f, 0.018f);
                         Retype(paper.Find("Seven petal note").GetComponent<TextMesh>(), HandwrittenChinese, 0.238f, 0.045f);
                     }
-                    else if (act > 1) ApplyActDocumentFonts(paper, ActDocumentPages[act][page][0]);
+                    // Acts one through four now author their own paper dimensions and typography.
+                    else if (act > 3) ApplyActDocumentFonts(paper, ActDocumentPages[act][page][0]);
                 }
             var notebook = UnityEngine.Object.FindFirstObjectByType<NotebookBook>();
             foreach (var text in new[] { notebook.leftPage, notebook.rightPage, notebook.leafFront, notebook.leafBack })

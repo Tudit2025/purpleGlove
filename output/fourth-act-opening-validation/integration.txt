@@ -1,0 +1,17 @@
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity : MATCH
+Assets/Data/Dialogue/Events/act4_arrival.asset : MATCH
+Assets/Data/Dialogue/Events/act4_arrival.asset.meta : MATCH
+Assets/Art/DeskSceneV1/Materials/M_Desk_Paper_FourthActBrownWrap.mat : MATCH
+Assets/Art/DeskSceneV1/Materials/M_Desk_Paper_FourthActBrownWrap.mat.meta : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act4_ArchiveHeaderRule.asset : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act4_ArchiveHeaderRule.asset.meta : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act4_ArchivePaper.asset : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act4_ArchivePaper.asset.meta : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act4_CipherColumnRule.asset : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act4_CipherColumnRule.asset.meta : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act4_GuildArchivePacket.asset : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act4_GuildArchivePacket.asset.meta : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act4_MasterLetterPaper.asset : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act4_MasterLetterPaper.asset.meta : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act4_RepairedMasterPacket.asset : MATCH
+Assets/Art/DeskSceneV1/Meshes/Act4_RepairedMasterPacket.asset.meta : MATCH

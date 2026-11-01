@@ -1,0 +1,3 @@
+PASS: Revised saved scene verified in Unity Play Mode (526 checks).
+Guild letter shows only salutation, full body and signature; no title, letterhead, date or location.
+Scene SHA256: 6fd1eebde51e9be5d88d142de7306ddb68453b4acb255a5af74076c69669af45

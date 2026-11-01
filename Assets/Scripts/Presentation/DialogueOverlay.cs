@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,9 @@ namespace PurpleGlove
         bool sceneIncludedUI;
         RectTransform panel;
         Text body;
+        readonly List<Image> choiceRows = new List<Image>();
+        int choiceCount;
+        Color choiceColor;
         string fullText = string.Empty;
         public RectTransform Panel => panel;
         public Text Body => body;
@@ -55,15 +59,75 @@ namespace PurpleGlove
 
         public void Show(DialogueSpeaker speaker, string text)
         {
+            ClearChoices();
             // Bottom third for Luca, middle third for every other speaker. One panel is reused.
             float bottom = speaker.isProtagonist ? 0.055f : 0.365f;
             panel.anchorMin = new Vector2(0.12f, bottom); panel.anchorMax = new Vector2(0.88f, bottom + 0.22f);
             panel.offsetMin = panel.offsetMax = Vector2.zero;
+            Stretch(body.rectTransform, Vector2.zero, Vector2.one, new Vector2(28, 22), new Vector2(-28, -22));
             body.color = speaker.textColor;
             panel.GetChild(0).GetComponent<Image>().color = speaker.textColor;
             fullText = text.Replace('<', '＜').Replace('>', '＞');
             canvas.enabled = overlayCamera.enabled = true;
             Reveal(0);
+        }
+
+        public void ShowChoices(DialogueSpeaker speaker, string prompt, DialogueEvent.Choice[] choices)
+        {
+            Show(speaker, prompt);
+            choiceCount = choices.Length; choiceColor = speaker.textColor;
+            panel.anchorMin = new Vector2(0.12f, 0.055f);
+            panel.anchorMax = new Vector2(0.88f, 0.055f + Mathf.Min(0.88f, 0.14f + choices.Length * 0.075f));
+            Stretch(body.rectTransform, new Vector2(0, 1), Vector2.one, new Vector2(28, -76), new Vector2(-28, -12));
+            Reveal(fullText.Length);
+            for (int i = 0; i < choices.Length; i++)
+            {
+                if (i == choiceRows.Count)
+                {
+                    var row = Rect("Player response " + (i + 1), panel).gameObject.AddComponent<Image>();
+                    row.raycastTarget = false;
+                    var label = Label("Response", row.transform, 28);
+                    label.resizeTextForBestFit = true; label.resizeTextMinSize = 18; label.resizeTextMaxSize = 28;
+                    Stretch(label.rectTransform, Vector2.zero, Vector2.one, new Vector2(20, 5), new Vector2(-20, -5));
+                    choiceRows.Add(row);
+                }
+                var image = choiceRows[i];
+                image.gameObject.SetActive(true);
+                var text = image.GetComponentInChildren<Text>();
+                text.text = choices[i].text; text.color = speaker.textColor;
+            }
+            LayoutChoices(); HighlightChoice(-1);
+        }
+
+        void LayoutChoices()
+        {
+            if (choiceCount == 0) return;
+            // Anchor each row proportionally; do not read the previous frame's canvas dimensions.
+            for (int i = 0; i < choiceCount; i++)
+            {
+                float top = (float)i / choiceCount, bottom = (float)(i + 1) / choiceCount;
+                Stretch(choiceRows[i].rectTransform, new Vector2(0, 1 - bottom), new Vector2(1, 1 - top),
+                    new Vector2(22, -82 + bottom * 94 + 6), new Vector2(-22, -82 + top * 94));
+            }
+        }
+
+        public int ChoiceAtPointer(Vector2 pointer)
+        {
+            if (!canvas || !canvas.enabled || !sceneCamera.pixelRect.Contains(pointer)) return -1;
+            for (int i = 0; i < choiceCount; i++)
+                if (RectTransformUtility.RectangleContainsScreenPoint(choiceRows[i].rectTransform, pointer, overlayCamera)) return i;
+            return -1;
+        }
+        public void HighlightChoice(int index)
+        {
+            for (int i = 0; i < choiceCount; i++)
+                choiceRows[i].color = i == index ? new Color(choiceColor.r, choiceColor.g, choiceColor.b, 0.25f)
+                    : new Color(1, 1, 1, 0.065f);
+        }
+        void ClearChoices()
+        {
+            choiceCount = 0;
+            foreach (var row in choiceRows) row.gameObject.SetActive(false);
         }
 
         public void Reveal(int utf16Length)
@@ -75,10 +139,14 @@ namespace PurpleGlove
         }
         public void Hide()
         {
+            ClearChoices();
             if (canvas) canvas.enabled = false;
             if (overlayCamera) overlayCamera.enabled = false;
         }
-        void LateUpdate() { if (overlayCamera && sceneCamera) overlayCamera.rect = sceneCamera.rect; }
+        void LateUpdate()
+        {
+            if (overlayCamera && sceneCamera) overlayCamera.rect = sceneCamera.rect;
+        }
         void OnDisable() => Hide();
         void OnDestroy()
         {

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430074f4a7b53dd4796d71325b7b59c6, type: 3}
+  m_Name: act2_request
+  m_EditorClassIdentifier: 
+  id: act2_request
+  title: "\u7B2C\u4E8C\u5E55 \xB7 \u95E8\u8FB9\u8C03\u6863"
+  context: "\u7B2C\u4E8C\u5E55\u5206\u6279\u6536\u4EF6\u3001\u4E66\u672C\u89E3\u8BFB\u4E0E\u6447\u94C3\u8C03\u6863\u3002"
+  testOnly: 0
+  initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+  arrivalSound: {fileID: 0}
+  closeShutterOnComplete: 1
+  arrivalDelay: 0.15
+  lines:
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u5362\u5361\uFF0C\u4F60\u6447\u94C3\u4E86\u3002\u9700\u8981\u4EC0\u4E48\uFF1F"
+  - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
+    text: "\u8BF7\u8C03\u53D6\u5370\u574A\u7EA0\u7EB7\u5C01\u6863\uFF0C\u7B2C\u4E03\u53F7\uFF0C\u4F9B\u8FD9\u6B21\u6838\u9A8C\u4F7F\u7528\u3002"
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u5370\u574A\u7EA0\u7EB7\uFF0C\u7B2C\u4E03\u53F7\uFF0C\u6838\u9A8C\u7528\u9014\u3002\u6211\u53BB\u5411\u4FDD\u7BA1\u4EBA\u8C03\u53D6\uFF0C\u8BF7\u7A0D\u5019\u3002"

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430074f4a7b53dd4796d71325b7b59c6, type: 3}
+  m_Name: act3_request
+  m_EditorClassIdentifier: 
+  id: act3_request
+  title: "\u7B2C\u4E09\u5E55 \xB7 \u7B2C\u4E8C\u6B21\u95E8\u8FB9\u8C03\u6863"
+  context: "doc/ph-revised.md \u7B2C\u4E09\u5E55\uFF1A\u660E\u6587\u8FD8\u539F\u7B7E\u540D\u3001\u590F\u5C14\u8865\u5145\u51ED\u6761\u3001\u6447\u94C3\u8C03\u6863\u3001\u4E24\u6B21\u6765\u8BBF\u3001\u684C\u524D\u72EC\u767D\uFF0C\u968F\u540E\u8FDB\u5165\u7B2C\u56DB\u5E55\u3002"
+  testOnly: 0
+  initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+  arrivalSound: {fileID: 0}
+  closeShutterOnComplete: 1
+  arrivalDelay: 0.1
+  lines:
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u5362\u5361\uFF0C\u4F60\u6447\u94C3\u4E86\u3002\u9700\u8981\u8C03\u53D6\u54EA\u4EFD\u539F\u4EF6\uFF1F"
+  - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
+    text: "\u8BF7\u6309\u68C0\u7D22\u5355\u8C03\u53D6\u7B2C\u4E03\u53F7\u5C01\u6863\u7684\u539F\u59CB\u7B7E\u6536\u9875\u3002\u5BF9\u5E94\u7C73\u5170\u5185\u5EF7\u7B2C\u5341\u4E03\u53F7\u59D4\u6258\uFF0C\u88C5\u8BA2\u6279\u53F7\u4E03\u2014\u3007\u4E09\u4E00\u3002"
+  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
+    text: "\u6848\u53F7\u4E0E\u6279\u53F7\u90FD\u548C\u7B2C\u4E03\u53F7\u5C01\u6863\u7684\u4EA4\u5B58\u8BB0\u5F55\u76F8\u7B26\u3002\u539F\u59CB\u7B7E\u6536\u9875\u987B\u4E24\u4F4D\u4FDD\u7BA1\u89C1\u8BC1\u4EBA\u5171\u540C\u542F\u5C01\uFF0C\u9ECE\u660E\u524D\u9001\u5165\u3002\u4F60\u4F1A\u62FF\u5230\u5E26\u51FA\u5E93\u8BB0\u5F55\u7684\u539F\u4EF6\u3002"
+  - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
+    text: "\u8BF7\u7167\u8FD9\u4E2A\u624B\u7EED\u529E\u7406\u3002"

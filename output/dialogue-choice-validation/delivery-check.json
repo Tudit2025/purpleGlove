@@ -1,0 +1,44 @@
+[
+  {
+    "path": "Assets/Scripts/Presentation/DialogueController.cs",
+    "source_sha256": "3e8527fb1b0ba9961ad497632ded1a3b66c1022aa4652b1d913ba7f43d6a8cd7",
+    "validation_sha256": "3e8527fb1b0ba9961ad497632ded1a3b66c1022aa4652b1d913ba7f43d6a8cd7",
+    "matches": true
+  },
+  {
+    "path": "Assets/Scripts/Presentation/DialogueEvent.cs",
+    "source_sha256": "45a377e4ffa314326a06290e131e99719e6c57992905e7f438820366934a2dd8",
+    "validation_sha256": "45a377e4ffa314326a06290e131e99719e6c57992905e7f438820366934a2dd8",
+    "matches": true
+  },
+  {
+    "path": "Assets/Scripts/Presentation/DialogueOverlay.cs",
+    "source_sha256": "3155c8029b221c8bb2fa931c13a242697a72dcc79f5fb79e81e3d97bf5c3349b",
+    "validation_sha256": "3155c8029b221c8bb2fa931c13a242697a72dcc79f5fb79e81e3d97bf5c3349b",
+    "matches": true
+  },
+  {
+    "path": "Assets/Scripts/Presentation/DeskHandbell.cs",
+    "source_sha256": "8bf33047a2f7e631d1ff0de4b1633516b513bb7fb63af01d87271e4af992a92b",
+    "validation_sha256": "8bf33047a2f7e631d1ff0de4b1633516b513bb7fb63af01d87271e4af992a92b",
+    "matches": true
+  },
+  {
+    "path": "Assets/Scripts/Presentation/FifthActFlow.cs",
+    "source_sha256": "707a6f4ed4934b5cca5b62d944ce4d48270609fa7bb7b4321f1bf39f3d6a12df",
+    "validation_sha256": "707a6f4ed4934b5cca5b62d944ce4d48270609fa7bb7b4321f1bf39f3d6a12df",
+    "matches": true
+  },
+  {
+    "path": "Assets/Scripts/Presentation/DialogueTestConsole.cs",
+    "source_sha256": "94a49793fde0c526959a80b0f3dc3297b96767f00eb54bead2495c8df33c7940",
+    "validation_sha256": "94a49793fde0c526959a80b0f3dc3297b96767f00eb54bead2495c8df33c7940",
+    "matches": true
+  },
+  {
+    "path": "Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity",
+    "source_sha256": "a1fbf400ac35dc3e578bc26d30a04e444ff012f6a945baf8546d13bd4cf0727a",
+    "validation_sha256": "a1fbf400ac35dc3e578bc26d30a04e444ff012f6a945baf8546d13bd4cf0727a",
+    "matches": true
+  }
+]

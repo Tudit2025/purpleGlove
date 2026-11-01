@@ -1,0 +1,3 @@
+PASS: Main scene matches the validated scene; all 183 asset GUID references resolve.
+Runtime/editor sources, seven generated meshes and four dialogue events match the isolated project.
+Second-act Play Mode checks: 298. First-to-second-act regression checks: 267.

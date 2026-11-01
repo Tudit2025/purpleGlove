@@ -1,0 +1,3 @@
+PASS: 533 assertions. Unity 2022.3.62f2 Play Mode.
+One-note initial delivery; both editions and every coordinate; plaintext keyboard; book/note return; unavailable-answer guard; physical bell; request/arrival shutter and delay; stop/resume; two-file supplemental delivery; immutable plaintext and shelving.
+Pigpen keyboard preservation; desktop monologue; third-act fade/card/fade; archive and candle rollback; exactly-once third-act arrival and delivery; both preserved plaintext sheets remain accessible.

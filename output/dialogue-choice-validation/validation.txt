@@ -1,0 +1,2 @@
+PASS: 1173 checks; all 16 final dispositions, silent instant choices, four-way dialogue branching, choice pointer hits, console/input blocking, negative/cancelled/repeated choices, both fourth-act solution orders, direct monologue-to-act-five transition, immediate confession rack storage, original signature, paper pointers, burn cancellation, recall exclusion, handoff cancellation and final fade.
+Play Mode scene: Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity

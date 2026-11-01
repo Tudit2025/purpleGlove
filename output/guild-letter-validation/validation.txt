@@ -1,0 +1,4 @@
+PASS: 526 checks, Unity 2022.3.62f2 Play Mode.
+Saved three-document references; repeated installer; full script text; arrival wording; glyphs and text/mat bounds.
+Cancelled delivery; actual packet pointer collection; no early reveal; independent paper picking; plaintext reading; original-instance archive/retrieval.
+Synthetic pointer and frame stepping; captures at 1920x1080.
