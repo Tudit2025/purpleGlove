@@ -15,6 +15,7 @@ namespace PurpleGlove
         Text body;
         readonly List<Image> choiceRows = new List<Image>();
         int choiceCount;
+        bool choicePromptVisible;
         Color choiceColor;
         string fullText = string.Empty;
         public RectTransform Panel => panel;
@@ -47,9 +48,6 @@ namespace PurpleGlove
             panel = Rect("Single spoken sentence", root.transform);
             var background = panel.gameObject.AddComponent<Image>();
             background.color = new Color(0.025f, 0.021f, 0.018f, 0.87f); background.raycastTarget = false;
-            var accent = Rect("Speaker colour", panel);
-            Stretch(accent, new Vector2(0, 0), new Vector2(0, 1), Vector2.zero, new Vector2(3, 0));
-            accent.gameObject.AddComponent<Image>().raycastTarget = false;
             body = Label("Sentence", panel, 31);
             body.supportRichText = true;
             body.resizeTextForBestFit = true; body.resizeTextMinSize = 18; body.resizeTextMaxSize = 31;
@@ -60,13 +58,13 @@ namespace PurpleGlove
         public void Show(DialogueSpeaker speaker, string text)
         {
             ClearChoices();
+            body.enabled = true;
             // Bottom third for Luca, middle third for every other speaker. One panel is reused.
             float bottom = speaker.isProtagonist ? 0.055f : 0.365f;
             panel.anchorMin = new Vector2(0.12f, bottom); panel.anchorMax = new Vector2(0.88f, bottom + 0.22f);
             panel.offsetMin = panel.offsetMax = Vector2.zero;
             Stretch(body.rectTransform, Vector2.zero, Vector2.one, new Vector2(28, 22), new Vector2(-28, -22));
             body.color = speaker.textColor;
-            panel.GetChild(0).GetComponent<Image>().color = speaker.textColor;
             fullText = text.Replace('<', '＜').Replace('>', '＞');
             canvas.enabled = overlayCamera.enabled = true;
             Reveal(0);
@@ -75,9 +73,12 @@ namespace PurpleGlove
         public void ShowChoices(DialogueSpeaker speaker, string prompt, DialogueEvent.Choice[] choices)
         {
             Show(speaker, prompt);
+            choicePromptVisible = !string.IsNullOrEmpty(prompt);
+            body.enabled = choicePromptVisible;
             choiceCount = choices.Length; choiceColor = speaker.textColor;
             panel.anchorMin = new Vector2(0.12f, 0.055f);
-            panel.anchorMax = new Vector2(0.88f, 0.055f + Mathf.Min(0.88f, 0.14f + choices.Length * 0.075f));
+            panel.anchorMax = new Vector2(0.88f, 0.055f + Mathf.Min(0.88f,
+                (choicePromptVisible ? 0.14f : 0.035f) + choices.Length * 0.075f));
             Stretch(body.rectTransform, new Vector2(0, 1), Vector2.one, new Vector2(28, -76), new Vector2(-28, -12));
             Reveal(fullText.Length);
             for (int i = 0; i < choices.Length; i++)
@@ -102,12 +103,14 @@ namespace PurpleGlove
         void LayoutChoices()
         {
             if (choiceCount == 0) return;
+            float header = choicePromptVisible ? 82 : 12;
+            float padding = header + 12;
             // Anchor each row proportionally; do not read the previous frame's canvas dimensions.
             for (int i = 0; i < choiceCount; i++)
             {
                 float top = (float)i / choiceCount, bottom = (float)(i + 1) / choiceCount;
                 Stretch(choiceRows[i].rectTransform, new Vector2(0, 1 - bottom), new Vector2(1, 1 - top),
-                    new Vector2(22, -82 + bottom * 94 + 6), new Vector2(-22, -82 + top * 94));
+                    new Vector2(22, -header + bottom * padding + 6), new Vector2(-22, -header + top * padding));
             }
         }
 

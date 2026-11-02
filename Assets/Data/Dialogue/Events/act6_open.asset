@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act6_open
   title: "\u7B2C\u516D\u5E55 \xB7 \u5F00\u95E8"
-  context: "doc/ph-revised.md \u7B2C\u516D\u5E55\uFF1A\u6240\u6709\u53F0\u8BCD\u901A\u8FC7\u63A2\u89C6\u53E3\uFF0C\u5728\u4E3B\u95E8\u5F00\u542F\u524D\u5B8C\u6210\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,26 +22,14 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
-    text: "\u5362\u5361\u3002"
-    choices: []
+    text: "卢卡。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u4F60\u7684\u81EA\u8FF0\uFF0C\u6211\u4EA4\u4E0A\u53BB\u4E86\u3002"
-    choices: []
+    text: "我把你的自述交上去了，老师。"
   - speaker: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
-    text: "\u5E94\u8BE5\u7684\u3002"
-    choices: []
+    text: "应该的。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u4ED6\u4EEC\u8FD8\u4F1A\u95EE\u4F60\u5F88\u591A\u4E8B\u3002"
-    choices: []
+    text: "他们应该还会问你很多事。"
   - speaker: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
-    text: "\u8FD9\u6B21\u6211\u4F1A\u81EA\u5DF1\u7B54\u3002"
-    choices: []
-  - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u6211\u7559\u4E0B\u4E86\u539F\u4EF6\uFF0C\u4E5F\u7559\u4E0B\u4E86\u4F60\u7684\u540D\u5B57\u3002"
-    choices: []
+    text: "我知道。谢谢你。"
   - speaker: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
-    text: "\u6211\u77E5\u9053\u3002\u8C22\u8C22\u4F60\u8BA9\u6211\u6709\u673A\u4F1A\u56DE\u6765\uFF0C\u628A\u8BDD\u8BF4\u5B8C\u3002"
-    choices: []
-  - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u89C1\u8BC1\u624B\u7EED\u529E\u59A5\uFF0C\u5C01\u95E8\u7684\u671F\u9650\u4E5F\u5230\u4E86\u3002\u6211\u5148\u5408\u4E0A\u63A2\u89C6\u53E3\uFF0C\u518D\u89E3\u9664\u95E8\u5C01\u3002"
-    choices: []
+    text: "以后的日子还长呢……"

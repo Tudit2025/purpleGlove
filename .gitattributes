@@ -1,0 +1,2 @@
+# Keep returned manuscript snapshots byte-exact for their SHA-256 manifest.
+/output/performance-sync/source/*.md -text

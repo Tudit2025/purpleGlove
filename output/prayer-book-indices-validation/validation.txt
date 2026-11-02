@@ -1,0 +1,1 @@
+PASS: 2079 checks. Both authored editions; per-row letter-only indexing; exact case-57 coordinate lookup; smaller handwritten lighter ink; labels above body and separated horizontally; font material/depth; book open-close-reopen restores desk poses and creates no duplicates; rendered 1920x1080 and 1280x720. Unity 2022.3.62f2 Play Mode.

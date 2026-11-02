@@ -47,11 +47,10 @@ namespace PurpleGlove.Editor
             var luca = dialogue.speakers.Single(s => s.id == "luca"); var clerk = dialogue.speakers.Single(s => s.id == "clerk");
             DialogueEvent.Line L(DialogueSpeaker speaker, string text) => new DialogueEvent.Line { speaker = speaker, text = text };
             if (!fourth.summary) fourth.summary = FinalActEvent("act4_summary", "第四幕 · 两份明文后的独白", null,
-                L(luca, "圣马丁，北门。师父的信说，六点就会从那里转押。"),
-                L(luca, "他承认自己知道那份命令有假，还是签了名。为了让巴尔托洛一家出去，他把自己的名字留在了上面。"),
-                L(luca, "换版记录也在这里。法方没有核签的新正文，沿用了旧封面上的签名；卡拉法经手了两次。"),
-                L(luca, "我想把师父带回来。可现在，我不能再把救他和证明他没有做过当成同一件事。"),
-                L(luca, "字句已经还原，记录也对上了。接下来，要由我决定怎样签、怎样交。"));
+                L(luca, "圣马丁，北门。这个应该就是他们关押他的地方。"),
+                L(luca, "他承认自己知道文件是假的，还是签了名字。"),
+                L(luca, "伪造的军令用了法国人在商路协议上的签名，这应该就是法国人不想让人看见的东西。"),
+                L(luca, "老师的自白和换档的原件是重要证据，看来也到了我做选择的时候了。"));
             // Retire the removed review events, including their entries in the test console.
             dialogue.events = dialogue.events.Where(e => e && !e.id.StartsWith("act4_review_", StringComparison.Ordinal)).ToArray();
             const string oldSummaryEnding = "先把手里能证实的事核清，再决定交出去什么，以及用我的名字担保什么。";
@@ -61,17 +60,15 @@ namespace PurpleGlove.Editor
                 EditorUtility.SetDirty(fourth.summary);
             }
             if (!fifth.introduction) fifth.introduction = FinalActEvent("act5_arrival", "第五幕 · 三位代表的书信", clerk,
-                L(clerk, "五点了。米兰是公爵授权的书记官，威尼斯是贝阿特丽切，法国是夏尔。三位代表的要求和条件都写在信里。"),
-                L(clerk, "核验表上，明文一致已经有你的签名。军令的来源要不要由你担保，还由你决定。"),
-                L(clerk, "换版原件交给哪一方，还是继续由行会封存，请记在转交申请上。马泰奥先生的自述明文，留着就随卷递交。"),
-                L(clerk, "收下信后，你随时可以摇铃。我会回来，按你的安排转递文件和条件，办理交接。"),
-                L(clerk, "没有改动的地方，按不作来源担保、原件继续封存、自述保留递交处理。摇铃就是交卷，不必再另外写三封回信。"),
-                L(clerk, "我合上观察窗，再把三封信送进去。"));
+                L(clerk, "卢卡，米兰、法国、威尼斯三位代表给你送了信件来。"),
+                L(clerk, "时间差不多了，马上需要收你的核验报告送到会议那边去。"),
+                L(clerk, "会长说你可能会有移存一些文件的需要，你填写移存申请表就可以了。"),
+                L(clerk, "如果你处理完了，就摇手铃，我会把文件送出去。"));
             if (!fifth.handoff) fifth.handoff = FinalActEvent("act5_handoff", "第五幕 · 摇铃交卷", clerk,
-                L(clerk, "卢卡，我来接件。{来源}"), L(clerk, "换版原件按申请办理：{原件}。{自述}"),
-                L(clerk, "{手续}"), L(clerk, "交件不等于所有承诺已经办成。后续凭据会如实送回。现在合上观察窗，从转门接走文件。"));
+                L(clerk, "卢卡，我来拿文件了。"),
+                L(clerk, "但是你还不能离开，我白天再来找你了。"));
             if (!fifth.guaranteeWarning) fifth.guaranteeWarning = FinalActEvent("act5_source_warning", "卢卡 · 来源担保", null,
-                L(luca, "换版记录写着法使尚未核签。如果我仍在这里签名，担保的就不只是字有没有译对。"));
+                L(luca, "显然这个军令是伪造的，加密是障眼法，我应该为米兰人担保吗？"));
             foreach (var sequence in new[] { fourth.summary, fifth.introduction, fifth.handoff, fifth.guaranteeWarning })
             {
                 sequence.context = "doc/ph-revised.md 第四幕独白后直接转入第五幕，三份主动文件、摇铃交卷。";
@@ -143,7 +140,7 @@ namespace PurpleGlove.Editor
 
             var transfer = Form(flow.transferApplication, FifthActDocument.Kind.Transfer);
             var oldChoices = transfer.transform.Find("Recipient choices"); if (oldChoices) oldChoices.gameObject.SetActive(false);
-            Ink(transfer, "Archive number", "第七号封档 / 17号 / 7—031", -0.065f, 0.102f, 0.235f, 0.016f);
+            Ink(transfer, "Archive number", "第五十七号封档 / 17号 / 726", -0.065f, 0.102f, 0.235f, 0.016f);
             Ink(transfer, "Archive title", "商业签收页与换版原件", -0.065f, 0.057f, 0.235f, 0.016f);
             Ink(transfer, "Enclosures", "两页，含旧试印及出库登记", -0.010f, 0.012f, 0.18f, 0.016f);
             transfer.choices = new TextMesh[4]; transfer.areas = new Rect[4];

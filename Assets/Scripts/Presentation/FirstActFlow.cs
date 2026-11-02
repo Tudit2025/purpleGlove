@@ -9,7 +9,8 @@ namespace PurpleGlove
     {
         public enum Phase { Idle, Delay, VisitPending, Visit, ReturnPending, Returning, Summary,
             TransitionPending, Transition, SecondIntroPending, SecondIntro, DeliveryPending, Delivery, Complete, Suspended,
-            OpeningDelay, OpeningVisitPending, OpeningVisit, OpeningDeliveryPending, OpeningDelivery }
+            OpeningDelay, OpeningVisitPending, OpeningVisit, OpeningDeliveryPending, OpeningDelivery,
+            SecretaryIntroduction, SecretaryPause, SecretaryPending }
         public PlaintextArchiveController records;
         public ActArchiveController archive;
         public DialogueController dialogue;
@@ -17,6 +18,8 @@ namespace PurpleGlove
         public SealedDeliveryController delivery;
         public DialogueEvent firstVisit, deskSummary, secondActIntro;
         public DialogueEvent openingVisit;
+        public DialogueEvent secretaryIntroduction;
+        [Min(0)] public float secretaryPauseSeconds = 2;
         public AudioSource knockAudio;
         [Min(0)] public float openingDelay = 5;
         [Min(0)] public float knockDelay = 5;
@@ -65,7 +68,7 @@ namespace PurpleGlove
         }
         bool Ready => records && archive && archive.isActiveAndEnabled && dialogue && dialogue.isActiveAndEnabled
             && story && story.isActiveAndEnabled && delivery && delivery.isActiveAndEnabled
-            && view && view.isActiveAndEnabled && gate && firstVisit && deskSummary && secondActIntro && knockAudio;
+            && view && view.isActiveAndEnabled && gate && secretaryIntroduction && firstVisit && deskSummary && secondActIntro && knockAudio;
         bool Busy => dialogue.IsActive || story.IsActive || delivery.IsActive || gate.StoryActive || gate.PropActionActive || gate.FrameConsumed;
 
         void Update()
@@ -105,13 +108,20 @@ namespace PurpleGlove
                 case Phase.Delay:
                     DelayElapsed += seconds;
                     if (DelayElapsed < knockDelay) break;
-                    PlayKnock(firstVisit);
+                    PlayKnock(secretaryIntroduction);
                     State = Phase.VisitPending;
                     break;
                 case Phase.VisitPending:
                     knockRemaining -= seconds;
                     // Knock on time, but let the player finish the existing completion line before changing dialogue.
-                    if (knockRemaining <= 0 && !Busy && dialogue.PlayAfterKnock(firstVisit)) State = Phase.Visit;
+                    if (knockRemaining <= 0 && !Busy && dialogue.PlayAfterKnock(secretaryIntroduction)) State = Phase.SecretaryIntroduction;
+                    break;
+                case Phase.SecretaryPause:
+                    elapsed += seconds;
+                    if (elapsed >= secretaryPauseSeconds) State = Phase.SecretaryPending;
+                    break;
+                case Phase.SecretaryPending:
+                    if (!Busy && dialogue.Play(firstVisit)) State = Phase.Visit;
                     break;
                 case Phase.ReturnPending:
                     if (!Busy) BeginReturn();
@@ -163,6 +173,8 @@ namespace PurpleGlove
         {
             // Dialogue completion is emitted only after the observation shutter has finished closing.
             if (State == Phase.OpeningVisit && openingVisit && id == openingVisit.id) State = Phase.OpeningDeliveryPending;
+            else if (State == Phase.SecretaryIntroduction && id == secretaryIntroduction.id)
+            { elapsed = 0; State = Phase.SecretaryPause; }
             else if (State == Phase.Visit && firstVisit && id == firstVisit.id) State = Phase.ReturnPending;
             else if (State == Phase.Summary && deskSummary && id == deskSummary.id)
             { ReleaseDeskView(); State = Phase.TransitionPending; }
@@ -171,6 +183,7 @@ namespace PurpleGlove
         void DialogueCancelled(string id)
         {
             if ((State == Phase.OpeningVisit && openingVisit && id == openingVisit.id)
+                || (State == Phase.SecretaryIntroduction && secretaryIntroduction && id == secretaryIntroduction.id)
                 || (State == Phase.Visit && firstVisit && id == firstVisit.id)
                 || (State == Phase.Summary && deskSummary && id == deskSummary.id)
                 || (State == Phase.SecondIntro && secondActIntro && id == secondActIntro.id)) Stop();
@@ -207,7 +220,8 @@ namespace PurpleGlove
             var previous = State;
             resumeAt = previous == Phase.OpeningVisit ? Phase.OpeningVisitPending
                 : previous == Phase.OpeningDelivery ? Phase.OpeningDeliveryPending
-                : previous == Phase.Visit ? Phase.VisitPending
+                : previous == Phase.SecretaryIntroduction ? Phase.VisitPending
+                : previous == Phase.Visit ? Phase.SecretaryPending
                 : previous == Phase.Returning || previous == Phase.Summary ? Phase.ReturnPending
                 : previous == Phase.Transition ? Phase.TransitionPending
                 : previous == Phase.SecondIntro ? Phase.SecondIntroPending
@@ -215,6 +229,7 @@ namespace PurpleGlove
             State = Phase.Suspended;
             if (knockAudio) knockAudio.Stop();
             if (dialogue && ((previous == Phase.OpeningVisit && dialogue.ActiveEvent == openingVisit)
+                || (previous == Phase.SecretaryIntroduction && dialogue.ActiveEvent == secretaryIntroduction)
                 || (previous == Phase.Visit && dialogue.ActiveEvent == firstVisit)
                 || (previous == Phase.Summary && dialogue.ActiveEvent == deskSummary)
                 || (previous == Phase.SecondIntro && dialogue.ActiveEvent == secondActIntro))) dialogue.Stop();

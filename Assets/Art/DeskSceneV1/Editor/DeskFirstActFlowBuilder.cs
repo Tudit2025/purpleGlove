@@ -34,35 +34,42 @@ namespace PurpleGlove.Editor
             {
                 secretary = UnityEngine.Object.Instantiate(clerk);
                 secretary.id = "ducal_secretary"; secretary.displayName = "公爵书记官";
-                secretary.eyeDescription = "公爵书记官；沿用现有书记员眼部及打字音素材，可独立替换。";
+                secretary.eyes = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Art/Dialogue/Textures/visitor_duke.png");
+                secretary.eyeDescription = "公爵书记官；灰眉、深眼窝的兜帽肖像，与行会执事区分。";
                 AssetDatabase.CreateAsset(secretary, secretaryPath);
             }
             if (!dialogue.speakers.Contains(secretary)) dialogue.speakers = dialogue.speakers.Concat(new[] { secretary }).ToArray();
             DialogueEvent.Line L(DialogueSpeaker speaker, string text) => new DialogueEvent.Line { speaker = speaker, text = text };
             var opening = Event("act1_arrival", "第一幕 · 执事交付说明", clerk,
-                L(clerk, "卢卡，公爵的核验委托送到了。白色包裹里是正式委托，请分别填写‘明文还原’与‘来源确认’，不得混签。"),
-                L(clerk, "棕色包裹里有会长今晚写给你的信，还有马泰奥先生离开前寄存的封袋。封袋登记在他被扣押之前，原封未动。"),
-                L(clerk, "另附一张行会档案转交申请表，申请把行会保管的档案交给指定受领方时使用。先收入桌面文件立夹，核验整理完毕后再办理。"),
-                L(clerk, "两件都登记好了。我合上观察窗后，从侧面的传物舱送进去，请接收。"));
+                L(clerk, "卢卡，公爵的核验委托送到了，还有马泰奥……马泰奥大师离开前寄存的信件。"),
+                L(clerk, "棕色包裹里有会长给你准备的资料，会长让我嘱托你一定要看。"),
+                L(clerk, "会长说如果你有什么需求全力帮助你，如果你要找我，摇一下桌子上的手铃就可以了。"),
+                L(clerk, "两件都登记好了。我从下面这个活版门转进去给你。"));
             opening.closeShutterOnComplete = true;
             opening.context = "doc/ph-revised.md 第一幕开场；入场五秒后敲门，音效结束后交谈，观察窗完全关闭后送件。";
             EditorUtility.SetDirty(opening);
+            var introduction = Event("act1_secretary_arrival", "执事介绍米兰代表", clerk,
+                L(clerk, "卢卡，米兰代表，米兰公爵的书记官到了。"));
+            introduction.closeShutterOnComplete = true;
             var visit = Event("act1_secretary", "第一幕 · 首次门边交谈", secretary,
-                L(secretary, "老师的事，等核验完再谈。请把‘内容读得通’和‘文件没问题’都写清楚。"),
-                L(luca, "这是两件事。"),
-                L(secretary, "当然。请按规程办。"),
-                L(clerk, "已经晚十点了。下一份封件正在登记，请备好新的蜡烛。"));
+                new DialogueEvent.Line { speaker = secretary, text = "卢卡大师，需要核验的文件马上就到了，事关重大，请您务必确保文件内容和来路都没有问题。", choices = new[] { new DialogueEvent.Choice { id = "ask_matteo", text = "解密大师马泰奥现在在哪里？", nextLine = 1 }, new DialogueEvent.Choice { id = "no_guarantee", text = "我现在什么都没看到，不能给你保证。", nextLine = 2 }, new DialogueEvent.Choice { id = "silence", text = "……", nextLine = 3 } } },
+                new DialogueEvent.Line { speaker = secretary, text = "马泰奥大师现在在协助我们的保密工作。", endEvent = true },
+                new DialogueEvent.Line { speaker = secretary, text = "当然，当然，请您按规矩来。", endEvent = true },
+                new DialogueEvent.Line { speaker = secretary, text = "您没有意见自然是很好的。", endEvent = true });
+            visit.arrivalSound = null; visit.arrivalDelay = 0.1f; visit.closeShutterOnComplete = true;
+            EditorUtility.SetDirty(introduction); EditorUtility.SetDirty(visit);
             var summary = Event("act1_summary", "第一幕 · 卢卡桌前总结", null,
-                L(luca, "师父没有说自己无辜。他只让我留下原件。"),
-                L(luca, "读得通，只能说明字母排对了，不能证明这份文件是真的。"),
-                L(luca, "原件留好。接下来，先查清那本七瓣花的新版。"));
-            foreach (var sequence in new[] { opening, visit, summary })
+                L(luca, "师傅让我留下原件，是指还没送来的军令吗？"),
+                L(luca, "文件还没到米兰就派人来催了。师傅在他们手里。"),
+                L(luca, "七瓣花应该是指新装订的祷言集，特别装订版，显然是当作密码本用的。"));
+            foreach (var sequence in new[] { opening, introduction, visit, summary })
                 if (!dialogue.events.Contains(sequence)) dialogue.events = dialogue.events.Concat(new[] { sequence }).ToArray();
             var flow = camera.GetComponent<FirstActFlow>();
             if (!flow) flow = camera.gameObject.AddComponent<FirstActFlow>();
             flow.records = records; flow.archive = records.archive; flow.dialogue = dialogue; flow.story = story; flow.delivery = delivery;
             if (!flow.openingVisit) flow.openingVisit = opening;
             if (!flow.firstVisit) flow.firstVisit = visit;
+            if (!flow.secretaryIntroduction) flow.secretaryIntroduction = introduction;
             if (!flow.deskSummary) flow.deskSummary = summary;
             if (!flow.secondActIntro) flow.secondActIntro = dialogue.events.Single(e => e.id == "beatrice");
             var audioRoot = dialogue.arrivalAudio.transform.Find("First act delayed knock");

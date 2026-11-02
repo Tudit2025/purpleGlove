@@ -73,7 +73,7 @@ namespace PurpleGlove.Editor
                 case "师父明文附记 · 下": return HandwrittenChinese;
                 case "印坊数字便条":
                 case "印务台账摘要":
-                case "第七号封档目录":
+                case "第五十七号封档目录":
                 case "原始签收页":
                 case "换版指令与旧试印": return PrintedChinese;
                 default: return RequiredDocumentFont("SourceHanSerifCN-Regular.otf");

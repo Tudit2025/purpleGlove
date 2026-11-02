@@ -19,6 +19,7 @@ MonoBehaviour:
   initialVisitor: {fileID: 0}
   arrivalSound: {fileID: 0}
   arrivalDelay: 0.1
+  closeShutterOnComplete: 1
   lines:
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u5B8C\u6210\u4E86\u3002\u628A\u8FD9\u4EFD\u660E\u6587\u7559\u597D\u3002"
+    text: "完成了。我该把这份明文留好。"

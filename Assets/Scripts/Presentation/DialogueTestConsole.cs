@@ -17,7 +17,7 @@ namespace PurpleGlove
         public bool IsJumping => pendingAct >= 0;
         public int LastStartedAct { get; private set; } = -1;
         public string Status { get; private set; } = "选择一幕，从开场重新开始。";
-        static readonly string[] Chapters = { "第零幕 · 门槛", "第一幕 · 留下原件", "第二幕 · 第七号封档",
+        static readonly string[] Chapters = { "第零幕 · 门槛", "第一幕 · 留下原件", "第二幕 · 第五十七号封档",
             "第三幕 · 读得通的谎言", "第四幕 · 名字留在纸上", "第五幕 · 落笔与交卷", "第六幕 · 尾声" };
         static readonly string[] Endings = { "开门", "缺页", "真相易手", "背书" };
         static readonly string[] EndingDetails = { "不签保证 · 原件留存 · 保留自述", "不签保证 · 原件留存 · 烧毁自述",

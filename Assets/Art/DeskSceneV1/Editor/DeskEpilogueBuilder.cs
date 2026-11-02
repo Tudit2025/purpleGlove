@@ -45,56 +45,53 @@ namespace PurpleGlove.Editor
                 return sequence;
             }
             if (!flow.savedReport) flow.savedReport = E("act6_saved_report", "六点的处理回执", clerk,
-                L(clerk, "六点了。卢卡，处理回执已经送到。我先从探视口把结果读给你。"),
-                L(clerk, "威尼斯和法国已具名参加共同审查。米兰监押书记官确认：暂停六点转押，马泰奥留在圣马丁北门候核。"),
-                L(luca, "转押确实停下来了？"),
-                L(clerk, "这是监押书记官签收后的回执。接回仍在办理，我还不能把他已经回来的话写上去。"),
-                L(beatrice, "粮站表决也暂停了。卡拉法已被要求留候调查，说明两次换版的签名。公爵的责任还得继续追查。"),
-                L(luca, "原件呢？"),
-                L(clerk, "已经加上行会的共同见证封条。三方可以申请查验。现在合上探视口，把处理回执从传物舱送进去。"));
+                L(clerk, "卢卡，我回来了。"),
+                L(clerk, "威尼斯人和法国人看到你的核验报告要求暂停表决，卡拉法已被要求留候调查。"),
+                L(clerk, "所有人都知道了原件换版的事情，米兰拒绝公示，现在原件还在我们这里。"),
+                L(clerk, "米兰人说马泰奥在圣马丁北门。"),
+                L(luca, "米兰人不打算把他带走了？"),
+                L(clerk, "我还带了一些回执文件来，我给你送进去。"));
             if (!flow.transferredReport) flow.transferredReport = E("act6_transfer_report", "暂停转押与原件交接", clerk,
-                L(clerk, "六点了。共同审查的参与确认和暂停转押回执都已送到。马泰奥仍在圣马丁北门候核。"),
-                L(luca, "原件交走了，副本也能拦下这次转押？"),
-                L(clerk, "证据副本保留了来源争议。威尼斯与法国已具名参加，监押书记官确认暂停；粮站表决也已暂停。"),
-                L(clerk, "原件另有具名交接凭据，登记去向是：{原件}。"),
-                L(luca, "把这些结果留下。"),
-                L(clerk, "我合上探视口，将处理回执和交接登记合页送进去。"));
+                L(clerk, "卢卡，我回来了。"),
+                L(clerk, "威尼斯人和法国人看到你的核验报告要求暂停表决，卡拉法已被要求留候调查。"),
+                L(clerk, "所有人都知道了原件换版的事情，现在原件按你的申请已经送走了。"),
+                L(clerk, "我还带了一些回执文件来，我给你送进去。"));
             if (!flow.endorsedReport) flow.endorsedReport = E("act6_endorsed_report", "六点的转押登记", clerk,
-                L(clerk, "六点的转押登记送回来了。卢卡，马泰奥已按原安排被转移。"),
-                L(luca, "你们没有把他留下？"),
-                L(clerk, "你为军令来源作了担保。本次交卷没有启动共同争议审查，也没有办成暂停转押的手续。"),
+                L(clerk, "卢卡，米兰人把马泰奥接走了。"),
+                L(luca, "你们没拦住他们吗？"),
+                L(clerk, "你为军令来源作了担保。米兰人在今早的会议上很占优势。"),
                 L(luca, "他被送到哪里？"),
-                L(clerk, "这份登记只记了转出，后续去向还在追查。换版证据仍在，事情没有到此结束。"),
-                L(clerk, "原件交接也已登记：{原件}。我合上探视口，把回执送进去。"));
+                L(clerk, "不知道，我们还在查。"),
+                L(clerk, "这些回执文件你看一下。"));
             if (!flow.reunionArrival) flow.reunionArrival = E("act6_reunion_arrival", "六点半的接回凭据", clerk,
-                L(clerk, "六点半了。新的交接凭据刚到：马泰奥·里奇，已由三方见证人员共同接回。"),
+                L(clerk, "马泰奥·里奇，三方见证人员一起把他接回来了。"),
                 L(luca, "他在外面？"),
-                L(clerk, "就在我身后。先把这份具名凭据交给你，我关上探视口，送件后请他过来。"));
+                L(clerk, "对，我把他叫过来。"));
             if (!flow.openEnding) flow.openEnding = E("act6_open", "开门", matteo,
-                L(matteo, "卢卡。"), L(luca, "你的自述，我交上去了。"),
-                L(matteo, "应该的。"), L(luca, "他们还会问你很多事。"),
-                L(matteo, "这次我会自己答。"), L(luca, "我留下了原件，也留下了你的名字。"),
-                L(matteo, "我知道。谢谢你让我有机会回来，把话说完。"),
-                L(clerk, "见证手续办妥，封门的期限也到了。我先合上探视口，再解除门封。"));
+                L(matteo, "卢卡。"),
+                L(luca, "我把你的自述交上去了，老师。"),
+                L(matteo, "应该的。"),
+                L(luca, "他们应该还会问你很多事。"),
+                L(matteo, "我知道。谢谢你。"),
+                L(matteo, "以后的日子还长呢……"));
             if (!flow.missingEnding) flow.missingEnding = E("act6_missing", "缺页", matteo,
-                L(matteo, "卢卡。封套里那段自述，也交上去了吗？"),
-                L(luca, "我烧了译出来的那张纸。"), L(matteo, "为什么？"),
-                L(luca, "我怕他们拿着你的承认，就不肯让你回来。"),
-                L(matteo, "信还在，签过的名字也还在。你不能替我说，事情已经讲清楚了。"),
-                L(luca, "我只是想先保住你。"), L(matteo, "我回来了。剩下的事，让我自己回答。"),
-                L(clerk, "见证手续办妥，封门的期限也到了。我先合上探视口，再解除门封。"));
+                L(matteo, "卢卡，你把我给你的信交上去了吗？"),
+                L(luca, "我最后烧掉了。"),
+                L(matteo, "为什么？"),
+                L(luca, "看到那些东西，你绝对走不了了，行会以后的事情也不好处理。"),
+                L(matteo, "……"),
+                L(matteo, "我知道了，剩下的事我会自己说的。"),
+                L(clerk, "手续已经办完了，卢卡，我来给你开门。"));
             if (!flow.transferredEnding) flow.transferredEnding = E("act6_transferred", "真相易手", clerk,
-                L(clerk, "凭据已经送到。{去向后果}"),
-                L(luca, "这次转押停了。以后的事呢？"),
-                L(clerk, "马泰奥还要留候核验。以后每一次对照原件，都要向持有者提出申请。"),
-                L(luca, "我把证据送出去了，也把往后查证的路交到了别人手里。"),
-                L(clerk, "行会会留好这些回执。还有新的消息，我仍从这里告诉你。"));
+                L(clerk, "{去向后果}"),
+                L(luca, "之后会怎么样呢？"),
+                L(clerk, "马泰奥还要留候核验。以后如果要对照原件，都要向持有者提出申请。"),
+                L(clerk, "行会会留好这些回执。还有最新的消息的话，我们会再找你的。"));
             if (!flow.endorsedEnding) flow.endorsedEnding = E("act6_endorsed", "背书", clerk,
-                L(clerk, "转押登记已经送到。{去向后果}"),
-                L(luca, "我的来源担保，也在他们手里。"),
-                L(clerk, "是。原件上的换版记录没有消失，核验表上的签名也没有。"),
-                L(luca, "师父曾经签下一个需要解释的名字。现在，我也一样。"),
-                L(clerk, "行会会继续追查他的去向。你今夜作出的核验，也需要留下说明。"));
+                L(clerk, "{去向后果}"),
+                L(luca, "我不应该为米兰人担保的，这下我们完全陷入被动了。"),
+                L(luca, "当时老师签了一个后患无穷的名字，没想到我也犯了这样的错误。"),
+                L(clerk, "行会会继续追查他的去向。有后续的话我会再通知你的。"));
 
             var mat = GameObject.Find("WritingMat").transform;
             Transform Anchor(string name, Vector3 position)

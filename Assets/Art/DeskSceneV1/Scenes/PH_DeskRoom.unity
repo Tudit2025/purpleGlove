@@ -10779,7 +10779,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150875994}
-  m_Text: "7\u2014031  /  III \xB7 01  /  \u539F\u59D4\u6258\u968F\u4EF6"
+  m_Text: "726  /  III \xB7 01  /  \u539F\u59D4\u6258\u968F\u4EF6"
   m_OffsetZ: 0
   m_CharacterSize: 0.0015624998
   m_LineSpacing: 1.22
@@ -21367,7 +21367,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301944263}
-  m_Text: "\u7C73\u5170\u5185\u5EF7\u7B2C17\u53F7\u59D4\u6258  /  \u6279\u53F77\u2014031"
+  m_Text: "\u7C73\u5170\u5185\u5EF7\u7B2C17\u53F7\u59D4\u6258  /  \u6279\u53F7726"
   m_OffsetZ: 0
   m_CharacterSize: 0.0014583332
   m_LineSpacing: 1.22
@@ -23654,6 +23654,7 @@ MonoBehaviour:
   - {fileID: 328590440}
   - {fileID: 328590439}
   sevenPetal: 0
+  letterIndexFont: {fileID: 12800000, guid: 60756ec467e0ec74d9395a584b1c6c25, type: 3}
 --- !u!1 &332217943
 GameObject:
   m_ObjectHideFlags: 0
@@ -34240,7 +34241,7 @@ TextMesh:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491662938}
   m_Text: "\u59D4\u6258\u65B9\uFF1A\u7C73\u5170\u5185\u5EF7\n\u767B\u8BB0\u627F\u529E\uFF1A\u5370\u52A1\u884C\u4F1A\n\u6848\u53F7\uFF1A\u7B2C17\u53F7
-    / \u88C5\u8BA2\u6279\u53F7\uFF1A7\u2014031\n\n\u8BF7\u9A6C\u6CF0\u5965\xB7\u91CC\u5947\u636E\u6240\u9644\u6765\u7A3F\u8BD1\u5F55\uFF0C\n\u4F7F\u7528\u65E2\u5B9A\u5BC6\u7801\u5C01\u5B58\uFF0C\u4EA4\u884C\u4F1A\u6838\u9A8C\u3002\n\u6765\u7A3F\u6807\u79F0\u6CD5\u65B9\u519B\u60C5\uFF0C\u7B7E\u53D1\u6388\u6743\u5F85\u6838\u3002\n\u6B64\u9875\u4E3A\u539F\u59D4\u6258\uFF0C\u968F\u6B63\u6587\u9001\u6838\u3002"
+    / \u88C5\u8BA2\u6279\u53F7\uFF1A726\n\n\u8BF7\u9A6C\u6CF0\u5965\xB7\u91CC\u5947\u636E\u6240\u9644\u6765\u7A3F\u8BD1\u5F55\uFF0C\n\u4F7F\u7528\u65E2\u5B9A\u5BC6\u7801\u5C01\u5B58\uFF0C\u4EA4\u884C\u4F1A\u6838\u9A8C\u3002\n\u6765\u7A3F\u6807\u79F0\u6CD5\u65B9\u519B\u60C5\uFF0C\u7B7E\u53D1\u6388\u6743\u5F85\u6838\u3002\n\u6B64\u9875\u4E3A\u539F\u59D4\u6258\uFF0C\u968F\u6B63\u6587\u9001\u6838\u3002"
   m_OffsetZ: 0
   m_CharacterSize: 0.0015348819
   m_LineSpacing: 1.22
@@ -62655,7 +62656,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882660852}
-  m_Text: "\u7B2C\u4E03\u53F7\u5C01\u6863 \xB7 \u5370\u52A1\u53F0\u8D26\u6458\u8981"
+  m_Text: "\u7b2c\u4e94\u5341\u4e03\u53f7\u5C01\u6863 \xB7 \u5370\u52A1\u53F0\u8D26\u6458\u8981"
   m_OffsetZ: 0
   m_CharacterSize: 0.0018122246
   m_LineSpacing: 1.22
@@ -62766,15 +62767,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883718145}
-  m_Text: '12-4-11 / 12-4-7 / 12-4-4 / 13-2-12
-
-    13-2-2 / 13-2-24 / 13-2-29 /
-    13-3-10
-
-    12-4-25 / 12-4-9 / 13-2-23 / 13-2-24
-
-    13-2-27 / 13-2-26 / 13-3-2
-    / 12-4-14'
+  m_Text: "12-4-11 / 12-4-7 / 12-4-4 / 13-2-12 / 13-2-2\n13-2-24 / 13-2-29 / 13-3-10 / 12-4-25 / 12-4-9\n13-2-23 / 12-2-16 / 12-2-18 / 12-2-16 / 12-1-3\n12-2-3 / 13-2-24 / 13-2-27 / 13-2-26 / 13-3-2\n12-4-14"
   m_OffsetZ: 0
   m_CharacterSize: 0.0015929982
   m_LineSpacing: 1.22
@@ -69108,7 +69101,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962272893}
-  m_Text: "\u59D4\u6258\u65B9\uFF1A\u7C73\u5170\u5185\u5EF7\n\u539F\u5B9A\u9879\u76EE\uFF1A\u5546\u961F\u901A\u884C\u6587\u4EF6\uFF08\u5546\u4E1A\u6587\u4EF6\uFF09\n\u88C5\u8BA2\u6279\u53F7\uFF1A7\u2014031\n\u4ED8\u6B3E\u8D26\u6237\uFF1A\u7C73\u5170\u5185\u5EF7\u7B2C17\u53F7\u59D4\u6258\u8D26\u6237\n\n\u6CD5\u65B9\u7B7E\u6536\u5BF9\u8C61\uFF1A\u5546\u961F\u901A\u884C\u6587\u4EF6\u539F\u7A3F\n\u7ECF\u624B\u9886\u53D6\u4EBA\uFF1A\u5361\u62C9\u6CD5"
+  m_Text: "\u59D4\u6258\u65B9\uFF1A\u7C73\u5170\u5185\u5EF7\n\u539F\u5B9A\u9879\u76EE\uFF1A\u5546\u961F\u901A\u884C\u6587\u4EF6\uFF08\u5546\u4E1A\u6587\u4EF6\uFF09\n\u88C5\u8BA2\u6279\u53F7\uFF1A726\n\u4ED8\u6B3E\u8D26\u6237\uFF1A\u7C73\u5170\u5185\u5EF7\u7B2C17\u53F7\u59D4\u6258\u8D26\u6237\n\n\u6CD5\u65B9\u7B7E\u6536\u5BF9\u8C61\uFF1A\u5546\u961F\u901A\u884C\u6587\u4EF6\u539F\u7A3F\n\u7ECF\u624B\u9886\u53D6\u4EBA\uFF1A\u5361\u62C9\u6CD5"
   m_OffsetZ: 0
   m_CharacterSize: 0.0015969952
   m_LineSpacing: 1.22
@@ -81173,7 +81166,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112328753}
-  m_Text: "\u9644\uFF1A\u88C1\u7EB8\u8FB9\u89D2\u4E00\u5F20\u3002\u539F\u59CB\u7B7E\u6536\u9875\u6D89\u53CA\u59D4\u6258\u65B9\u79C1\u8D26\uFF0C\n\u53E6\u5B58\u672C\u5E93\uFF1B\u8C03\u9605\u987B\u63D0\u4F9B\u5BF9\u5E94\u7684\u6B63\u5F0F\u59D4\u6258\u6848\u53F7\u3002"
+  m_Text: "\u9644\uFF1A\u88C1\u7EB8\u8FB9\u89D2\u4E00\u5F20\u3002\u539F\u59CB\u7B7E\u6536\u9875\u6D89\u53CA\u59D4\u6258\u65B9\u79C1\u8D26\uFF0C\n\u53E6\u5B58\u672C\u5E93\uFF1B\u5bf9\u5e94\u7b2c17\u53f7\u59d4\u6258\uff0c\u6279\u53f7726\uff0c\u53ef\u636e\u6b64\u8c03\u9605\u3002"
   m_OffsetZ: 0
   m_CharacterSize: 0.0013387606
   m_LineSpacing: 1.22
@@ -83223,7 +83216,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153790964}
-  m_Text: "\u7B2C\u4E03\u53F7\u5C01\u6863  /  IV \xB7 01"
+  m_Text: "\u7b2c\u4e94\u5341\u4e03\u53f7\u5C01\u6863  /  IV \xB7 01"
   m_OffsetZ: 0
   m_CharacterSize: 0.0007248898
   m_LineSpacing: 1.22
@@ -85750,7 +85743,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187660914}
-  m_Text: "\u7C73\u5170\u5185\u5EF7\u7B2C17\u53F7\u59D4\u6258  /  \u6279\u53F77\u2014031"
+  m_Text: "\u7C73\u5170\u5185\u5EF7\u7B2C17\u53F7\u59D4\u6258  /  \u6279\u53F7726"
   m_OffsetZ: 0
   m_CharacterSize: 0.0014583332
   m_LineSpacing: 1.22
@@ -92444,7 +92437,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288550775}
-  m_Text: "\u7533\u8BF7\u8C03\u9605\u7B2C\u4E03\u53F7\u5C01\u6863\u3002"
+  m_Text: "\u7533\u8BF7\u8C03\u9605\u7b2c\u4e94\u5341\u4e03\u53f7\u5C01\u6863\u3002"
   m_OffsetZ: 0
   m_CharacterSize: 0.0024
   m_LineSpacing: 1.22
@@ -98791,6 +98784,7 @@ MonoBehaviour:
   - {fileID: 1379171090}
   - {fileID: 1379171089}
   sevenPetal: 1
+  letterIndexFont: {fileID: 12800000, guid: 60756ec467e0ec74d9395a584b1c6c25, type: 3}
 --- !u!1 &1379424201
 GameObject:
   m_ObjectHideFlags: 0
@@ -101232,7 +101226,7 @@ TextMesh:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409847754}
   m_Text: "\u884C\u4F1A\u6536\u4EF6\u767B\u8BB0\uFF1A\u7B2C17\u53F7\u59D4\u6258 /
-    \u6279\u53F77\u2014031"
+    \u6279\u53F7726"
   m_OffsetZ: 0
   m_CharacterSize: 0.0010873347
   m_LineSpacing: 1.22
@@ -101565,7 +101559,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412688816}
-  m_Text: "\u7B2C\u4E03\u53F7\u5C01\u6863 / 17\u53F7 / 7\u2014031"
+  m_Text: "\u7b2c\u4e94\u5341\u4e03\u53f7\u5C01\u6863 / 17\u53F7 / 726"
   m_OffsetZ: 0
   m_CharacterSize: 0.0016666666
   m_LineSpacing: 1.22
@@ -105718,6 +105712,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4048a685d27644d4289d116428639a0b, type: 2}
   - {fileID: 11400000, guid: 4f4aaab452df020409975b2690d7b648, type: 2}
   events:
+  - {fileID: 11400000, guid: 14202963615e41f0b1b88ec17e983905, type: 2}
+  - {fileID: 11400000, guid: 844dc026e5e8488bbac54896fb7dc0d7, type: 2}
   - {fileID: 11400000, guid: 645f8d23b0cd7964bb6d00f78c517300, type: 2}
   - {fileID: 11400000, guid: a2160de657a91b441a2e1094cbb3b7a1, type: 2}
   - {fileID: 11400000, guid: 76dc4ee266f872b46bb112df648ecda2, type: 2}
@@ -105734,8 +105730,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 56e1a30b04518fb409b027e05ea2b584, type: 2}
   - {fileID: 11400000, guid: fb595b5042e96f440a7a1f013862f7d2, type: 2}
   - {fileID: 11400000, guid: 420c5622611986f4e9e46d85647843eb, type: 2}
-  - {fileID: 11400000, guid: 765eb994949917441bf9af20f4c8504f, type: 2}
-  - {fileID: 11400000, guid: 32b9fbc16fc6f8b4ca48307e906c98a2, type: 2}
   - {fileID: 11400000, guid: a0bbea2351a5b9a47826a8dde96c4830, type: 2}
   - {fileID: 11400000, guid: 79de95f8c09ab4148a4b7988c9303a7a, type: 2}
   - {fileID: 11400000, guid: 6ef5bca9bc539614d9b65df4baa5534f, type: 2}
@@ -105777,7 +105771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eace1ea712fbfa42ac3ec9f6c1e2ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  font: {fileID: 12800000, guid: ae153f7752254f40880c4df0765de3cc, type: 3}
+  font: {fileID: 12800000, guid: e393a742b4ac44bca1fa9f736a6f8c91, type: 3}
 --- !u!114 &1480858243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106108,7 +106102,7 @@ MonoBehaviour:
     plaintextInk: {fileID: 177927124}
   - act: 2
     id: book
-    answer: REQUEST CASE SEVEN
+    answer: REQUEST CASE FIFTY SEVEN
     document: {fileID: 2144295243}
     sourceDocument: {fileID: 1371770780}
     plaintextInk: {fileID: 1150267380}
@@ -106166,6 +106160,8 @@ MonoBehaviour:
   openingDelay: 5
   knockDelay: 5
   returnSeconds: 0.75
+  secretaryIntroduction: {fileID: 11400000, guid: 14202963615e41f0b1b88ec17e983905, type: 2}
+  secretaryPauseSeconds: 2
 --- !u!114 &1480858251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106194,6 +106190,7 @@ MonoBehaviour:
   request: {fileID: 11400000, guid: 107c9438a34f9ab40acd40a1b557a41d, type: 2}
   arrival: {fileID: 11400000, guid: e44652d113095b447891160876830aae, type: 2}
   retrievalSeconds: 6
+  originalRequest: {fileID: 11400000, guid: 844dc026e5e8488bbac54896fb7dc0d7, type: 2}
 --- !u!114 &1480858252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106214,12 +106211,11 @@ MonoBehaviour:
   bell: {fileID: 1166033342}
   story: {fileID: 1480858247}
   charles: {fileID: 11400000, guid: 420c5622611986f4e9e46d85647843eb, type: 2}
-  cue: {fileID: 11400000, guid: 765eb994949917441bf9af20f4c8504f, type: 2}
-  request: {fileID: 11400000, guid: 32b9fbc16fc6f8b4ca48307e906c98a2, type: 2}
   secretary: {fileID: 11400000, guid: a0bbea2351a5b9a47826a8dde96c4830, type: 2}
   carafa: {fileID: 11400000, guid: 79de95f8c09ab4148a4b7988c9303a7a, type: 2}
   summary: {fileID: 11400000, guid: 6ef5bca9bc539614d9b65df4baa5534f, type: 2}
   returnSeconds: 0.75
+  secretaryDelaySeconds: 2
 --- !u!114 &1480858253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108001,7 +107997,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504297994}
-  m_Text: "\u7B2C17\u53F7\u59D4\u6258 \xB7 7\u2014031 \xB7 \u6807\u79F0\u6765\u6E90\uFF1A\u6CD5\u65B9"
+  m_Text: "\u7B2C17\u53F7\u59D4\u6258 \xB7 726 \xB7 \u6807\u79F0\u6765\u6E90\uFF1A\u6CD5\u65B9"
   m_OffsetZ: 0
   m_CharacterSize: 0.0011598238
   m_LineSpacing: 1.22
@@ -111012,7 +111008,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568917701}
-  m_Text: "7\u2014031  /  III \xB7 02"
+  m_Text: "726  /  III \xB7 02"
   m_OffsetZ: 0
   m_CharacterSize: 0.0014583332
   m_LineSpacing: 1.22
@@ -113359,7 +113355,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601342644}
-  m_Text: "7\u2014031"
+  m_Text: "726"
   m_OffsetZ: 0
   m_CharacterSize: 0.0016
   m_LineSpacing: 1.22
@@ -125867,7 +125863,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769150394}
-  m_Text: "\u5370\u52A1\u884C\u4F1A \xB7 \u7B2C\u4E03\u53F7\u5C01\u6863\u539F\u4EF6"
+  m_Text: "\u5370\u52A1\u884C\u4F1A \xB7 \u7b2c\u4e94\u5341\u4e03\u53f7\u5C01\u6863\u539F\u4EF6"
   m_OffsetZ: 0
   m_CharacterSize: 0.0010873347
   m_LineSpacing: 1.22
@@ -135475,7 +135471,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901169357}
-  m_Text: "\u7B2C\u4E03\u53F7\u5C01\u6863  /  IV \xB7 02"
+  m_Text: "\u7b2c\u4e94\u5341\u4e03\u53f7\u5C01\u6863  /  IV \xB7 02"
   m_OffsetZ: 0
   m_CharacterSize: 0.0007248898
   m_LineSpacing: 1.22
@@ -136198,7 +136194,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908585184}
-  m_Text: "\u7B2C17\u53F7\u59D4\u6258 / \u6279\u53F77\u2014031 / \u6CD5\u65B9\u9884\u5907\u8BF4\u660E"
+  m_Text: "\u7B2C17\u53F7\u59D4\u6258 / \u6279\u53F7726 / \u6CD5\u65B9\u9884\u5907\u8BF4\u660E"
   m_OffsetZ: 0
   m_CharacterSize: 0.0010148458
   m_LineSpacing: 1.22
@@ -148792,7 +148788,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066396010}
-  m_Text: "\u7C73\u5170\u5185\u5EF7\u7B2C17\u53F7\u59D4\u6258  /  \u6279\u53F77\u2014031"
+  m_Text: "\u7C73\u5170\u5185\u5EF7\u7B2C17\u53F7\u59D4\u6258  /  \u6279\u53F7726"
   m_OffsetZ: 0
   m_CharacterSize: 0.0011598238
   m_LineSpacing: 1.22
@@ -152047,7 +152043,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115884060}
-  m_Text: "\u5370\u52A1\u884C\u4F1A \xB7 \u7B2C\u4E03\u53F7\u5C01\u6863\u539F\u4EF6"
+  m_Text: "\u5370\u52A1\u884C\u4F1A \xB7 \u7b2c\u4e94\u5341\u4e03\u53f7\u5C01\u6863\u539F\u4EF6"
   m_OffsetZ: 0
   m_CharacterSize: 0.0010873347
   m_LineSpacing: 1.22

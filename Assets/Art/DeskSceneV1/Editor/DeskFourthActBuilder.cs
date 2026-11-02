@@ -63,13 +63,12 @@ namespace PurpleGlove.Editor
                 intro.arrivalSound = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/PH/Doors/door_knock_pattern_01.wav");
                 intro.arrivalDelay = intro.arrivalSound ? intro.arrivalSound.length : 0.1f;
                 intro.lines = new[] {
-                    L(clerk, "凌晨三点了。卢卡，这次有两份独立封件，来源分别登记。"),
-                    L(clerk, "灰白封包来自行会纠纷库，第七号封档，对应第十七号委托、批号七—〇三一。两位保管见证人已经共同启封。"),
-                    L(clerk, "里面是商业文件委托签收页和换版记录。出库登记随页保留，可以和你手上的来件核对。"),
-                    L(clerk, "棕色修补封包来自城北修道院。装订工把信缝进待修封套，经送货车带到行会，送件来路已登记。"),
-                    L(clerk, "里面是马泰奥先生的双栏密信和一封明文书信。装订工只答应送出这一次，不能保证继续通信。"),
-                    L(luca, "两份封件分别留好。把这四张纸送进来，我要逐一核对。"),
-                    L(clerk, "好。我合上观察窗，再从传物舱送入两包。") };
+                    L(clerk, "卢卡，这次有两份独立封件。"),
+                    L(clerk, "灰白色的是你调的对应第十七号委托，批号七二六的原件存档。"),
+                    L(clerk, "里面是商路通行协议之类的东西。"),
+                    L(clerk, "棕包来自城北修道院。一个修士带过来，指名道姓说要给你，把东西给我之后他就回去了。"),
+                    L(clerk, "我把棕包登记成“信件”了。"),
+                    L(luca, "好的，请送进来吧。") };
                 AssetDatabase.CreateAsset(intro, path); opening.introduction = intro;
             }
             if (!dialogue.events.Contains(opening.introduction)) dialogue.events = dialogue.events.Concat(new[] { opening.introduction }).ToArray();
@@ -106,9 +105,9 @@ namespace PurpleGlove.Editor
 
         static void BuildFourthActArchivePaper(Transform paper, int index)
         {
-            FirstActInk(paper, "Office", "印务行会 · 第七号封档原件", actDocumentFont, 0, 0.181f, 0.34f, 0.015f, true);
+            FirstActInk(paper, "Office", "印务行会 · 第五十七号封档原件", actDocumentFont, 0, 0.181f, 0.34f, 0.015f, true);
             FirstActInk(paper, "Title", ActDocumentPages[3][index][0], actDocumentFont, 0, 0.151f, 0.35f, 0.023f, true);
-            FirstActInk(paper, "Reference", "米兰内廷第17号委托  /  批号7—031", PrintedChinese, 0, 0.117f, 0.35f, 0.014f, true);
+            FirstActInk(paper, "Reference", "米兰内廷第17号委托  /  批号726", PrintedChinese, 0, 0.117f, 0.35f, 0.014f, true);
             FirstActInk(paper, "Body", ActDocumentPages[3][index][1], PrintedChinese, -0.18f, 0.087f, 0.36f, index == 0 ? 0.150f : 0.187f);
             if (index == 0)
             {
@@ -123,7 +122,7 @@ namespace PurpleGlove.Editor
                 FirstActInk(paper, "Transcriber signature", "Matteo Ricci", notesFont, 0.034f, -0.135f, 0.145f, 0.022f);
             }
             FirstActInk(paper, "Custody record", "出库登记：两位保管见证人共同启封，原件送核。", PrintedChinese, -0.18f, -0.164f, 0.36f, 0.012f);
-            FirstActInk(paper, "Folio", "第七号封档  /  IV · 0" + (index + 1), actDocumentFont, 0, -0.184f, 0.24f, 0.010f, true);
+            FirstActInk(paper, "Folio", "第五十七号封档  /  IV · 0" + (index + 1), actDocumentFont, 0, -0.184f, 0.24f, 0.010f, true);
             MeshObject("Act4_ArchiveHeaderRule", paper, m => m.Box(V(0, 0.009f, 0.101f), V(0.36f, 0.0006f, 0.0007f), M("Ink")));
         }
 

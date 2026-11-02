@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "dialogue_asset_events": 42,
+  "asset_lines_preserved_verbatim": 178,
+  "runtime_prompts": 2,
+  "runtime_options": 4,
+  "markdown_documents": 11,
+  "phone_text_documents": 11,
+  "word_documents": 12,
+  "checks": [
+    "all event assets and runtime choices included once",
+    "line identifiers unique",
+    "Chinese text matches source assets",
+    "Unity asset hashes unchanged",
+    "Word XML and ZIP packages parse",
+    "Word dialogue text round-trip matches source",
+    "plain text round-trip and links valid",
+    "single-column documents without tables"
+  ],
+  "limitations": [
+    "No on-device mobile or Office visual preview performed",
+    "Paper reference is extracted from the design script, not all scene TextMesh objects"
+  ]
+}

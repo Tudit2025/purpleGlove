@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act2_summary
   title: "\u7B2C\u4E8C\u5E55 \xB7 \u5362\u5361\u7B49\u5F85\u539F\u4EF6"
-  context: "\u732A\u5708\u660E\u6587\u5B9E\u9645\u7559\u5B58\u540E\u56DE\u684C\u9762\u72EC\u767D\uFF1B\u7ED3\u5408\u73B0\u6709\u8BB0\u5F55\u6000\u7591\u5361\u62C9\u6CD5\uFF0C\u7B49\u5F85\u539F\u4EF6\u6838\u5BF9\uFF0C\u968F\u540E\u8FDB\u5165\u7B2C\u4E09\u5E55\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 0}
   arrivalSound: {fileID: 0}
@@ -22,10 +22,10 @@ MonoBehaviour:
   arrivalDelay: 0.1
   lines:
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u5DE6\u624B\u624B\u5957\u2026\u2026\u516C\u7235\u7684\u59D4\u6258\u5199\u8FC7\uFF0C\u66FF\u7C73\u5170\u4EE3\u9886\u6750\u6599\u7684\u5361\u62C9\u6CD5\uFF0C\u5DE6\u624B\u5E38\u6234\u7D2B\u624B\u5957\u3002"
+    text: "左手手套，巴尔托洛把委托换档的人记下来了。公爵的委托写过，替米兰代领材料的卡拉法他左手戴紫手套。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u540C\u4E00\u4E2A\u4EBA\u5E26\u6765\u4E86\u4E24\u6B21\u6362\u7248\uFF0C\u6B3E\u9879\u53C8\u4ECE\u7C73\u5170\u5185\u5EF7\u7684\u8D26\u6237\u7ED3\u7B97\u3002\u5361\u62C9\u6CD5\u53EA\u662F\u6765\u6536\u4EF6\uFF0C\u8FD8\u662F\u4E5F\u5E26\u6765\u4E86\u6362\u7248\u7684\u6307\u4EE4\uFF1F"
+    text: "这个叫卡拉法的绝对和这件事情有关，十有八九他已经在这里待了有一阵子了……"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u624B\u5957\u53EA\u80FD\u8BA9\u6211\u6000\u7591\u662F\u4ED6\u3002\u4ED6\u5230\u5E95\u7B7E\u6536\u4E86\u4EC0\u4E48\u3001\u6539\u8FC7\u4EC0\u4E48\uFF0C\u8FD8\u5F97\u770B\u539F\u4EF6\u3002"
+    text: "如果能调到这个“原件”，应该能确定这两件事情的联系。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u63A5\u4E0B\u6765\u5F97\u7B49\u539F\u4EF6\u6765\u6838\u5BF9\u3002\u539F\u59CB\u7B7E\u6536\u9875\u8FD8\u5728\u884C\u4F1A\u5E93\u91CC\uFF0C\u8981\u6709\u6B63\u5F0F\u6848\u53F7\u624D\u80FD\u8C03\u9605\u3002\u5148\u7559\u597D\u660E\u6587\uFF0C\u7B49\u6B63\u5F0F\u6838\u9A8C\u4EF6\u9001\u5230\uFF0C\u518D\u628A\u624B\u7EED\u8865\u9F50\u3002"
+    text: "如果这个换档记录指向了请我核验的军令，那米兰人所用的手段就很明确了：造了假的文件，然后让师傅签字作保。"

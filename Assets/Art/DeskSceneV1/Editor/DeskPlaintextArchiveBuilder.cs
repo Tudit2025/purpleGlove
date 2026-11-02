@@ -37,7 +37,7 @@ namespace PurpleGlove.Editor
             {
                 line = ScriptableObject.CreateInstance<DialogueEvent>();
                 line.id = "plaintext_complete"; line.title = "卢卡 · 明文完成"; line.arrivalDelay = 0.1f;
-                line.lines = new[] { new DialogueEvent.Line { speaker = dialogue.speakers.Single(s => s.id == "luca"), text = "完成了。把这份明文留好。" } };
+                line.lines = new[] { new DialogueEvent.Line { speaker = dialogue.speakers.Single(s => s.id == "luca"), text = "完成了。我该把这份明文留好。" } };
                 AssetDatabase.CreateAsset(line, path);
             }
             controller.completionLine = line;
@@ -45,7 +45,7 @@ namespace PurpleGlove.Editor
             string[][] records =
             {
                 new[] { "1", "caesar", "KEEP THE ORIGINAL", "保留原件。" },
-                new[] { "2", "book", "REQUEST CASE SEVEN", "申请调阅第七号封档。" },
+                new[] { "2", "book", "REQUEST CASE FIFTY SEVEN", "申请调阅第五十七号封档。" },
                 new[] { "2", "pigpen", "LEFT GLOVE", "左手手套。" },
                 new[] { "3", "vigenere", "FRANCE WILL CROSS AT DAWN", "法国将在黎明越境。" },
                 new[] { "4", "affine", "NORTH GATE SAINT MARTIN", "圣马丁，北门。" },

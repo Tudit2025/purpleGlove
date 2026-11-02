@@ -2,13 +2,14 @@ using UnityEngine;
 
 namespace PurpleGlove
 {
-    /// <summary>Signature, Charles's supplemental receipt, archive request, visitors and act-four transition.</summary>
+    /// <summary>Signature, Charles's supplemental receipt, subsequent visitors and act-four transition.</summary>
     [DefaultExecutionOrder(-90), DisallowMultipleComponent]
     public sealed class ThirdActFlow : MonoBehaviour
     {
         public enum Phase { WaitingForSignature, CharlesPending, Charles, SupplementPending, Supplement,
             CuePending, Cue, BellReady, RequestPending, Request, SecretaryPending, Secretary,
-            CarafaPending, Carafa, ReturnPending, Returning, Summary, TransitionPending, Transition, Complete, Suspended }
+            CarafaPending, Carafa, ReturnPending, Returning, Summary, TransitionPending, Transition, Complete, Suspended,
+            SecretaryDelay }
         public PlaintextArchiveController records;
         public ActArchiveController archive;
         public ThirdActVerification verification;
@@ -16,7 +17,8 @@ namespace PurpleGlove
         public SealedDeliveryController delivery;
         public DeskHandbell bell;
         public PrologueSequence story;
-        public DialogueEvent charles, cue, request, secretary, carafa, summary;
+        public DialogueEvent charles, secretary, carafa, summary;
+        [Min(0)] public float secretaryDelaySeconds = 2;
         [Min(0.1f)] public float returnSeconds = 0.75f;
         public Phase State { get; private set; }
         public bool FilesComplete => archive && archive.IsAvailable(3) && !archive.HasPendingSupplement(3);
@@ -26,7 +28,7 @@ namespace PurpleGlove
         Phase resumeAt;
         bool ownsDeskView;
         int storedDeskAct;
-        float returnElapsed, startFov, endFov;
+        float returnElapsed, startFov, endFov, secretaryElapsed;
         Vector3 startPosition, endPosition;
         Quaternion startRotation, endRotation;
 
@@ -37,7 +39,6 @@ namespace PurpleGlove
         }
         void OnEnable()
         {
-            if (bell) bell.rang.AddListener(Rang);
             if (dialogue) { dialogue.eventCompleted.AddListener(Finished); dialogue.eventCancelled.AddListener(Cancelled); }
             if (delivery) { delivery.deliveryCompleted.AddListener(Delivered); delivery.deliveryCancelled.AddListener(DeliveryCancelled); }
             if (story)
@@ -47,7 +48,7 @@ namespace PurpleGlove
             }
         }
         bool Ready => records && archive && verification && dialogue && delivery && bell && story && view && gate
-            && charles && cue && request && secretary && carafa && summary;
+            && charles && secretary && carafa && summary;
         bool Busy => gate.BlocksWorldInput || dialogue.IsActive || delivery.IsActive || bell.IsBusy || story.IsActive
             || (interactor && interactor.InspectedObject);
         public void TranscriptSigned()
@@ -58,7 +59,7 @@ namespace PurpleGlove
         void Update()
         {
             if (!Ready) return;
-            if (archive.CurrentAct == 3) bell.SetRingAllowed(State == Phase.BellReady);
+            if (archive.CurrentAct == 3) bell.SetRingAllowed(false);
             if (Application.isFocused) AdvanceTime(Time.unscaledDeltaTime);
         }
         void AdvanceTime(float seconds)
@@ -69,14 +70,14 @@ namespace PurpleGlove
                 case Phase.WaitingForSignature: TranscriptSigned(); break;
                 case Phase.CharlesPending: BeginDoor(charles, Phase.Charles); break;
                 case Phase.SupplementPending:
-                    if (FilesComplete) { State = Phase.CuePending; break; }
+                    if (FilesComplete) { BeginSecretaryDelay(); break; }
                     if (!Busy && !dialogue.eyeShutter.IsMoving && !dialogue.eyeShutter.AtSecondStop
                         && delivery.BeginSupplement(3)) State = Phase.Supplement;
                     break;
-                case Phase.CuePending:
-                    if (!Busy && FilesComplete && dialogue.PlayInPlace(cue)) State = Phase.Cue;
+                case Phase.SecretaryDelay:
+                    secretaryElapsed += Mathf.Max(0, seconds);
+                    if (secretaryElapsed >= secretaryDelaySeconds) State = Phase.SecretaryPending;
                     break;
-                case Phase.RequestPending: BeginDoor(request, Phase.Request); break;
                 case Phase.SecretaryPending: BeginDoor(secretary, Phase.Secretary); break;
                 case Phase.CarafaPending: BeginDoor(carafa, Phase.Carafa); break;
                 case Phase.ReturnPending:
@@ -97,13 +98,9 @@ namespace PurpleGlove
         {
             if (!Busy && dialogue.Play(sequence)) State = playing;
         }
-        void Rang()
-        {
-            if (archive.CurrentAct != 3 || State != Phase.BellReady || !FilesComplete) return;
-            bell.SetRingAllowed(false); State = Phase.RequestPending;
-        }
-        DialogueEvent ActiveSequence => State == Phase.Charles ? charles : State == Phase.Cue ? cue
-            : State == Phase.Request ? request : State == Phase.Secretary ? secretary : State == Phase.Carafa ? carafa
+        void BeginSecretaryDelay() { secretaryElapsed = 0; State = Phase.SecretaryDelay; }
+        DialogueEvent ActiveSequence => State == Phase.Charles ? charles
+            : State == Phase.Secretary ? secretary : State == Phase.Carafa ? carafa
             : State == Phase.Summary ? summary : null;
         void Finished(string id)
         {
@@ -111,15 +108,13 @@ namespace PurpleGlove
             switch (State)
             {
                 case Phase.Charles: State = Phase.SupplementPending; break;
-                case Phase.Cue: State = Phase.BellReady; bell.SetRingAllowed(true); break;
-                case Phase.Request: State = Phase.SecretaryPending; break;
                 case Phase.Secretary: State = Phase.CarafaPending; break;
                 case Phase.Carafa: State = Phase.ReturnPending; break;
                 case Phase.Summary: ReleaseView(); State = Phase.TransitionPending; break;
             }
         }
         void Cancelled(string id) { if (ActiveSequence && id == ActiveSequence.id) Stop(); }
-        void Delivered(int act) { if (act == 3 && State == Phase.Supplement && FilesComplete) State = Phase.CuePending; }
+        void Delivered(int act) { if (act == 3 && State == Phase.Supplement && FilesComplete) BeginSecretaryDelay(); }
         void DeliveryCancelled(int act) { if (act == 3 && State == Phase.Supplement) Stop(); }
         void BeginReturn()
         {
@@ -155,7 +150,6 @@ namespace PurpleGlove
             if (State == Phase.WaitingForSignature || State == Phase.Complete || State == Phase.Suspended) return;
             var previous = State; var sequence = ActiveSequence;
             resumeAt = previous == Phase.Charles ? Phase.CharlesPending : previous == Phase.Supplement ? Phase.SupplementPending
-                : previous == Phase.Cue ? Phase.CuePending : previous == Phase.Request ? Phase.RequestPending
                 : previous == Phase.Secretary ? Phase.SecretaryPending : previous == Phase.Carafa ? Phase.CarafaPending
                 : previous == Phase.Returning || previous == Phase.Summary ? Phase.ReturnPending
                 : previous == Phase.Transition ? Phase.TransitionPending : previous;
@@ -172,13 +166,12 @@ namespace PurpleGlove
         {
             if (!isActiveAndEnabled || !Ready || State != Phase.Suspended || archive.CurrentAct != 3) return false;
             State = resumeAt;
-            bell.SetRingAllowed(State == Phase.BellReady);
+            bell.SetRingAllowed(false);
             return true;
         }
         void OnDisable()
         {
             Stop();
-            if (bell) bell.rang.RemoveListener(Rang);
             if (dialogue) { dialogue.eventCompleted.RemoveListener(Finished); dialogue.eventCancelled.RemoveListener(Cancelled); }
             if (delivery) { delivery.deliveryCompleted.RemoveListener(Delivered); delivery.deliveryCancelled.RemoveListener(DeliveryCancelled); }
             if (story)

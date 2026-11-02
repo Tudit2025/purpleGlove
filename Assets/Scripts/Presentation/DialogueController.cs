@@ -22,7 +22,8 @@ namespace PurpleGlove
         public DialogueEvent ActiveEvent { get; private set; }
         public bool IsActive => ActiveEvent;
         public bool IsClosing { get; private set; }
-        public bool IsChoosing => CurrentLine != null && CurrentLine.HasChoices;
+        public bool IsChoosing => choicesVisible && CurrentLine != null && !IsClosing && !IsChangingVisitor;
+        public bool IsChangingVisitor => visitorChange != VisitorChange.None;
         public string SelectedChoiceId { get; private set; }
         public bool IsTyping => IsActive && lineIndex >= 0 && visibleElements < textElements.Length;
         public int LineIndex => lineIndex;
@@ -38,6 +39,11 @@ namespace PurpleGlove
         int[] textElements = Array.Empty<int>();
         float arrivalRemaining, nextCharacter;
         bool previousShutterStop, shutterCaptured, shutterOpeningStarted, paused, inPlace;
+        enum VisitorChange { None, Closing, Opening }
+        VisitorChange visitorChange;
+        int pendingLine = -1;
+        DialogueSpeaker pendingVisitor;
+        bool choicesVisible;
         int VisibleLength => visibleElements >= textElements.Length ? CurrentLine.text.Length : textElements[visibleElements];
 
         void Awake()
@@ -70,6 +76,7 @@ namespace PurpleGlove
             if (!keepCamera && (gate.StoryActive || !visitor || !eyeShutter || eyeShutter.IsMoving)) return false;
             inPlace = keepCamera;
             ActiveEvent = sequence; lineIndex = -1; SelectedChoiceId = null;
+            choicesVisible = false; visitorChange = VisitorChange.None; pendingLine = -1; pendingVisitor = null;
             if (!keepInspection) interactor.CancelInteraction();
             gate.SetDialogue(true);
             if (!inPlace)
@@ -77,7 +84,12 @@ namespace PurpleGlove
                 view.SetDialogueLock(true);
                 previousShutterStop = eyeShutter.AtSecondStop; shutterCaptured = true;
                 shutterOpeningStarted = false;
-                visitor.Show(sequence.initialVisitor);
+                // The first actual visitor may be the clerk introducing the named guest.
+                var firstVisitor = Array.Find(sequence.lines, line => !line.speaker.isProtagonist)?.speaker
+                    ?? sequence.initialVisitor;
+                if (eyeShutter.AtSecondStop && visitor.CurrentVisitor != firstVisitor)
+                    ChangeVisitor(0, firstVisitor);
+                else visitor.Show(firstVisitor);
             }
             if (playArrivalSound && arrivalAudio && sequence.arrivalSound) arrivalAudio.PlayOneShot(sequence.arrivalSound);
             arrivalRemaining = inPlace ? sequence.arrivalDelay : Mathf.Max(sequence.arrivalDelay, eyeShutter.travelSeconds);
@@ -110,12 +122,18 @@ namespace PurpleGlove
         // Deterministic clock entry point also permits frame-rate-independent verification.
         void AdvanceTime(float seconds)
         {
-            if (!IsActive) return;
+            if (!IsActive || gate.ConsoleOpen) return;
             if (IsClosing)
             {
                 if (eyeShutter && !eyeShutter.isActiveAndEnabled)
                     eyeShutter.SetPoseImmediately(ActiveEvent.closeShutterOnComplete ? false : previousShutterStop);
                 if (!eyeShutter || !eyeShutter.IsMoving) Complete(true);
+                return;
+            }
+            if (IsChangingVisitor)
+            {
+                arrivalRemaining -= Mathf.Max(0, seconds);
+                AdvanceVisitorChange();
                 return;
             }
             if (lineIndex < 0)
@@ -148,12 +166,14 @@ namespace PurpleGlove
 
         public void Advance()
         {
-            if (!IsActive || lineIndex < 0 || IsChoosing || IsClosing) return;
+            if (!IsActive || lineIndex < 0 || IsChoosing || IsClosing || IsChangingVisitor) return;
             if (IsTyping)
             {
                 visibleElements = textElements.Length;
                 Voice.Stop(); Overlay.Reveal(VisibleLength);
             }
+            else if (CurrentLine.HasChoices) ShowCurrentChoices();
+            else if (CurrentLine.endEvent) Finish(true);
             else if (lineIndex + 1 < ActiveEvent.lines.Length) ShowLine(lineIndex + 1);
             else Finish(true);
         }
@@ -180,19 +200,69 @@ namespace PurpleGlove
 
         void ShowLine(int index)
         {
+            var next = ActiveEvent.lines[index];
+            if (!inPlace && !next.speaker.isProtagonist && visitor.CurrentVisitor != next.speaker)
+            {
+                arrivalRemaining = 0;
+                ChangeVisitor(index, next.speaker);
+                return;
+            }
+            PresentLine(index);
+        }
+
+        void ChangeVisitor(int index, DialogueSpeaker next)
+        {
+            Voice.Stop(); Overlay.Hide(); choicesVisible = false;
+            lineIndex = -1; pendingLine = index; pendingVisitor = next;
+            visitorChange = VisitorChange.Closing;
+            eyeShutter.MoveTo(false, true);
+            if (!eyeShutter.isActiveAndEnabled) eyeShutter.SetPoseImmediately(false);
+            gate.ConsumeFrame();
+        }
+
+        void AdvanceVisitorChange()
+        {
+            if (!eyeShutter.isActiveAndEnabled)
+                eyeShutter.SetPoseImmediately(visitorChange == VisitorChange.Opening);
+            if (visitorChange == VisitorChange.Closing)
+            {
+                if (eyeShutter.IsMoving || view.IsEnteringDoorway) return;
+                // Change the portrait only behind a fully closed panel.
+                if (eyeShutter.AtSecondStop) { eyeShutter.MoveTo(false, true); return; }
+                visitor.Show(pendingVisitor);
+                visitorChange = VisitorChange.Opening;
+                eyeShutter.MoveTo(true);
+                if (!eyeShutter.isActiveAndEnabled) eyeShutter.SetPoseImmediately(true);
+                return;
+            }
+            if (eyeShutter.IsMoving || !eyeShutter.AtSecondStop || arrivalRemaining > 0) return;
+            int index = pendingLine;
+            pendingLine = -1; pendingVisitor = null; visitorChange = VisitorChange.None;
+            PresentLine(index);
+        }
+
+        void PresentLine(int index)
+        {
             lineIndex = index;
             var line = CurrentLine;
             textElements = StringInfo.ParseCombiningCharacters(line.text);
             visibleElements = 0; nextCharacter = 0;
-            if (!inPlace && !line.speaker.isProtagonist) visitor.Show(line.speaker);
-            if (line.HasChoices)
-            {
-                visibleElements = textElements.Length;
-                Voice.Stop();
-                if (arrivalAudio) arrivalAudio.Stop();
-                Overlay.ShowChoices(line.speaker, line.text, line.choices);
-            }
+            choicesVisible = false;
+            // Luca's confirmation prompts stay instant; a visitor must speak normally first.
+            if (line.HasChoices && line.speaker.isProtagonist) ShowCurrentChoices();
             else { Voice.BeginLine(line.speaker); Overlay.Show(line.speaker, line.text); }
+            gate.ConsumeFrame();
+        }
+
+        void ShowCurrentChoices()
+        {
+            var line = CurrentLine;
+            choicesVisible = true; visibleElements = textElements.Length;
+            Voice.Stop();
+            if (arrivalAudio) arrivalAudio.Stop();
+            var responder = line.speaker.isProtagonist ? line.speaker
+                : Array.Find(speakers, speaker => speaker && speaker.isProtagonist) ?? line.speaker;
+            Overlay.ShowChoices(responder, line.speaker.isProtagonist ? line.text : string.Empty, line.choices);
             gate.ConsumeFrame();
         }
 
@@ -200,6 +270,7 @@ namespace PurpleGlove
         void Finish(bool completed)
         {
             if (!IsActive) return;
+            choicesVisible = false; visitorChange = VisitorChange.None; pendingLine = -1; pendingVisitor = null;
             Voice.Stop(); Overlay.Hide();
             if (arrivalAudio) arrivalAudio.Stop();
             if (eyeShutter && shutterCaptured)
@@ -221,7 +292,7 @@ namespace PurpleGlove
         {
             string id = ActiveEvent.id;
             ActiveEvent = null; lineIndex = -1; IsClosing = false;
-            if (!inPlace && visitor) visitor.Show(null);
+            if (!inPlace && visitor && (!completed || !eyeShutter || !eyeShutter.AtSecondStop)) visitor.Show(null);
             shutterCaptured = false;
             gate.SetDialogue(false);
             if (!inPlace && view) view.SetDialogueLock(false);

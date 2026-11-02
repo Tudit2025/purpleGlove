@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: handbell_not_needed
   title: "\u624B\u6447\u94C3 \xB7 \u6682\u4E0D\u9700\u8981"
-  context: "\u62FF\u8D77\u624B\u6447\u94C3\u540E\u539F\u5730\u72EC\u767D\uFF0C\u8BFB\u5B8C\u653E\u56DE\uFF1B\u4E0D\u89E6\u53D1\u95E8\u53E3\u6765\u8BBF\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 0}
   arrivalSound: {fileID: 0}
   arrivalDelay: 0
+  closeShutterOnComplete: 1
   lines:
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u73B0\u5728\u4E0D\u9700\u8981\u7528\u8FD9\u4E2A"
+    text: "现在不需要用这个。"

@@ -96,22 +96,22 @@ namespace PurpleGlove.Editor
                 m.Box(V(0, 0.009f, 0.192f), V(0.356f, 0.0006f, 0.0007f), M("Ink"));
                 m.Box(V(0.058f, 0.009f, -0.232f), V(0.24f, 0.0006f, 0.0007f), M("Ink"));
             });
-            FirstActInk(paper, "Folio", "7—031  /  III · 01  /  原委托随件", PrintedChinese, 0, -0.271f, 0.30f, 0.015f, true);
+            FirstActInk(paper, "Folio", "726  /  III · 01  /  原委托随件", PrintedChinese, 0, -0.271f, 0.30f, 0.015f, true);
         }
 
         static void BuildThirdActCipher(Transform paper)
         {
             FirstActInk(paper, "Title", "马泰奥 · 军情密文译录", HandwrittenChinese, -0.18f, 0.111f, 0.25f, 0.020f);
-            FirstActInk(paper, "Reference", "第17号委托 · 7—031 · 标称来源：法方", actDocumentFont, -0.18f, 0.078f, 0.36f, 0.016f);
+            FirstActInk(paper, "Reference", "第17号委托 · 726 · 标称来源：法方", actDocumentFont, -0.18f, 0.078f, 0.36f, 0.016f);
             FirstActInk(paper, "Cipher", ActDocumentPages[2][1][1], notesFont, 0, 0.010f, 0.36f, 0.028f, true);
-            FirstActInk(paper, "Folio", "7—031  /  III · 02", PrintedChinese, 0, -0.106f, 0.17f, 0.014f, true);
+            FirstActInk(paper, "Folio", "726  /  III · 02", PrintedChinese, 0, -0.106f, 0.17f, 0.014f, true);
         }
 
         static void BuildThirdActVerification(Transform paper)
         {
             FirstActInk(paper, "Office", "印 务 行 会  ·  三 方 核 验 所", actDocumentFont, 0, 0.267f, 0.32f, 0.019f, true);
             FirstActInk(paper, "Title", "军 情 核 验 表", actDocumentFont, 0, 0.226f, 0.24f, 0.028f, true);
-            FirstActInk(paper, "Reference", "米兰内廷第17号委托  /  批号7—031", actDocumentFont, -0.18f, 0.183f, 0.36f, 0.016f);
+            FirstActInk(paper, "Reference", "米兰内廷第17号委托  /  批号726", actDocumentFont, -0.18f, 0.183f, 0.36f, 0.016f);
             FirstActInk(paper, "Transcript heading", "一、明文还原", actDocumentFont, -0.166f, 0.139f, 0.14f, 0.021f);
             FirstActInk(paper, "Transcript prompt", "还原文字：", actDocumentFont, -0.166f, 0.101f, 0.09f, 0.016f);
             FirstActInk(paper, "Transcript signature label", "明文还原签名：", actDocumentFont, -0.166f, -0.006f, 0.125f, 0.018f);
@@ -140,7 +140,7 @@ namespace PurpleGlove.Editor
         static void BuildCharlesReceipt(Transform paper)
         {
             FirstActInk(paper, "Title", "夏尔 · 补充凭条", actDocumentFont, 0, 0.113f, 0.30f, 0.022f, true);
-            FirstActInk(paper, "Reference", "第17号委托 / 批号7—031 / 法方预备说明", actDocumentFont, -0.18f, 0.079f, 0.36f, 0.014f);
+            FirstActInk(paper, "Reference", "第17号委托 / 批号726 / 法方预备说明", actDocumentFont, -0.18f, 0.079f, 0.36f, 0.014f);
             FirstActInk(paper, "Body", ActDocumentPages[2][3][1], HandwrittenChinese, -0.18f, 0.050f, 0.36f, 0.088f);
             FirstActInk(paper, "Charles signature", "Charles", notesFont, 0.08f, -0.048f, 0.10f, 0.024f);
             FirstActInk(paper, "Folio", "具名预备说明，非正式反证  /  III · 04", actDocumentFont, 0, -0.104f, 0.35f, 0.014f, true);
@@ -160,7 +160,7 @@ namespace PurpleGlove.Editor
                 m.Box(V(0, 0.009f, 0.163f), V(0.348f, 0.0006f, 0.0007f), M("Ink"));
                 m.Box(V(0.09f, 0.009f, -0.226f), V(0.17f, 0.0006f, 0.0007f), M("Ink"));
             });
-            FirstActInk(paper, "Registration", "行会收件登记：第17号委托 / 批号7—031", actDocumentFont,
+            FirstActInk(paper, "Registration", "行会收件登记：第17号委托 / 批号726", actDocumentFont,
                 -0.174f, -0.263f, 0.348f, 0.015f);
         }
     }

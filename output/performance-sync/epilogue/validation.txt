@@ -1,0 +1,2 @@
+PASS: 3277 checks; all 16 final dispositions, four endings, act-five handoff to act-six card, physical result and reunion receipts, closed-door/aperture dialogue invariant, final door/fade synchronization, no confession variations outside reunion, stop/continue, paused finale, and previous act-four/five interactions.
+Play Mode scene: Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity

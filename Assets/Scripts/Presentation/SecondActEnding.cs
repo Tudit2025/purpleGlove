@@ -5,7 +5,7 @@ namespace PurpleGlove
     public sealed partial class SecondActFlow
     {
         public PrologueSequence story;
-        public DialogueEvent deskSummary, thirdActIntro;
+        public DialogueEvent deskSummary, thirdActIntro, originalRequest;
         [Min(0.1f)] public float returnSeconds = 0.75f;
         DeskScenePreview view;
         bool ownsDeskView;
@@ -32,7 +32,7 @@ namespace PurpleGlove
         }
         void AdvanceEnding(float seconds)
         {
-            if (!story || !story.isActiveAndEnabled || !view || !view.isActiveAndEnabled || !deskSummary || !thirdActIntro) return;
+            if (!story || !story.isActiveAndEnabled || !view || !view.isActiveAndEnabled || !deskSummary || !thirdActIntro || !originalRequest) return;
             switch (State)
             {
                 case Phase.ReturnPending:
@@ -46,6 +46,9 @@ namespace PurpleGlove
                     break;
                 case Phase.TransitionPending:
                     if (!Busy && story.PlayActTransition(3)) State = Phase.Transition;
+                    break;
+                case Phase.OriginalRequestPending:
+                    if (!Busy && dialogue.Play(originalRequest)) State = Phase.OriginalRequest;
                     break;
                 case Phase.ThirdIntroPending:
                     if (!Busy && dialogue.Play(thirdActIntro)) State = Phase.ThirdIntro;
@@ -78,10 +81,12 @@ namespace PurpleGlove
         void EndingDialogueFinished(string id)
         {
             if (State == Phase.Summary && deskSummary && id == deskSummary.id)
-            { ReleaseEndingView(); State = Phase.TransitionPending; }
+            { ReleaseEndingView(); State = Phase.OriginalBellReady; bell.SetRingAllowed(true); }
+            else if (State == Phase.OriginalRequest && originalRequest && id == originalRequest.id) State = Phase.TransitionPending;
             else if (State == Phase.ThirdIntro && thirdActIntro && id == thirdActIntro.id) State = Phase.ThirdDeliveryPending;
         }
         bool IsEndingDialogue(string id) => (State == Phase.Summary && deskSummary && id == deskSummary.id)
+            || (State == Phase.OriginalRequest && originalRequest && id == originalRequest.id)
             || (State == Phase.ThirdIntro && thirdActIntro && id == thirdActIntro.id);
         void EndingActPrepared(int act)
         {
@@ -97,11 +102,13 @@ namespace PurpleGlove
         }
         void EndingTransitionCancelled() { if (State == Phase.Transition) Stop(); }
         Phase EndingResumePhase(Phase previous) => previous == Phase.Returning || previous == Phase.Summary ? Phase.ReturnPending
+            : previous == Phase.OriginalRequest ? Phase.OriginalRequestPending
             : previous == Phase.Transition ? Phase.TransitionPending : previous == Phase.ThirdIntro ? Phase.ThirdIntroPending
             : previous == Phase.ThirdDelivery ? Phase.ThirdDeliveryPending : previous;
         void StopEnding(Phase previous)
         {
             if (dialogue && ((previous == Phase.Summary && dialogue.ActiveEvent == deskSummary)
+                || (previous == Phase.OriginalRequest && dialogue.ActiveEvent == originalRequest)
                 || (previous == Phase.ThirdIntro && dialogue.ActiveEvent == thirdActIntro))) dialogue.Stop();
             if (previous == Phase.Transition && story && story.IsActive) story.Stop();
             if (previous == Phase.ThirdDelivery && delivery && delivery.ActiveAct == 3) delivery.Stop();

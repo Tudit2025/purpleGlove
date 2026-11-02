@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act5_source_warning
   title: "\u5362\u5361 \xB7 \u6765\u6E90\u62C5\u4FDD"
-  context: "doc/ph-revised.md \u7B2C\u56DB\u5E55\u72EC\u767D\u540E\u76F4\u63A5\u8F6C\u5165\u7B2C\u4E94\u5E55\uFF0C\u4E09\u4EFD\u4E3B\u52A8\u6587\u4EF6\u3001\u6447\u94C3\u4EA4\u5377\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 0}
   arrivalSound: {fileID: 0}
@@ -22,4 +22,4 @@ MonoBehaviour:
   arrivalDelay: 0.1
   lines:
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u6362\u7248\u8BB0\u5F55\u5199\u7740\u6CD5\u4F7F\u5C1A\u672A\u6838\u7B7E\u3002\u5982\u679C\u6211\u4ECD\u5728\u8FD9\u91CC\u7B7E\u540D\uFF0C\u62C5\u4FDD\u7684\u5C31\u4E0D\u53EA\u662F\u5B57\u6709\u6CA1\u6709\u8BD1\u5BF9\u3002"
+    text: "显然这个军令是伪造的，加密是障眼法，我应该为米兰人担保吗？"

@@ -175,10 +175,8 @@ namespace PurpleGlove
                     new DialogueEvent.Choice { id = yesId, text = yes }, new DialogueEvent.Choice { id = noId, text = no } } } };
                 return sequence;
             }
-            if (!ringChoice) ringChoice = Choice("act5_ring_choice", "现在摇铃，请执事按当前安排接走文件吗？",
-                "ring", "摇铃，按当前安排交卷。", "wait", "暂不摇铃，我还要再想一想。");
-            if (!burnChoice) burnChoice = Choice("act5_burn_choice", "要烧毁师父的这张自述明文吗？烧毁后，本次交卷将不再附上它。",
-                "burn", "烧毁这张自述明文。", "keep", "保留，随核验文件一起递交。");
+            if (!ringChoice) ringChoice = Choice("act5_ring_choice", "现在摇铃，请执事按当前安排取走文件吗？", "ring", "摇铃", "wait", "暂不摇铃");
+            if (!burnChoice) burnChoice = Choice("act5_burn_choice", "师父的自白，可以当作证据，但是会把师父拖进不利的情况里。", "burn", "烧毁这张自白明文。", "keep", "保留，随核验文件一起递交。");
         }
         void StartBurn()
         {

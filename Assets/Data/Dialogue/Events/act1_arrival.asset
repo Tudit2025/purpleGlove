@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act1_arrival
   title: "\u7B2C\u4E00\u5E55 \xB7 \u6267\u4E8B\u4EA4\u4ED8\u8BF4\u660E"
-  context: "doc/ph-revised.md \u7B2C\u4E00\u5E55\u5F00\u573A\uFF1B\u5165\u573A\u4E94\u79D2\u540E\u6572\u95E8\uFF0C\u97F3\u6548\u7ED3\u675F\u540E\u4EA4\u8C08\uFF0C\u89C2\u5BDF\u7A97\u5B8C\u5168\u5173\u95ED\u540E\u9001\u4EF6\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,10 +22,10 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u5362\u5361\uFF0C\u516C\u7235\u7684\u6838\u9A8C\u59D4\u6258\u9001\u5230\u4E86\u3002\u767D\u8272\u5305\u88F9\u91CC\u662F\u6B63\u5F0F\u59D4\u6258\uFF0C\u8BF7\u5206\u522B\u586B\u5199\u2018\u660E\u6587\u8FD8\u539F\u2019\u4E0E\u2018\u6765\u6E90\u786E\u8BA4\u2019\uFF0C\u4E0D\u5F97\u6DF7\u7B7E\u3002"
+    text: "卢卡，公爵的核验委托送到了，还有马泰奥……马泰奥大师离开前寄存的信件。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u68D5\u8272\u5305\u88F9\u91CC\u6709\u4F1A\u957F\u4ECA\u665A\u5199\u7ED9\u4F60\u7684\u4FE1\uFF0C\u8FD8\u6709\u9A6C\u6CF0\u5965\u5148\u751F\u79BB\u5F00\u524D\u5BC4\u5B58\u7684\u5C01\u888B\u3002\u5C01\u888B\u767B\u8BB0\u5728\u4ED6\u88AB\u6263\u62BC\u4E4B\u524D\uFF0C\u539F\u5C01\u672A\u52A8\u3002"
+    text: "棕色包裹里有会长给你准备的资料，会长让我嘱托你一定要看。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u53E6\u9644\u4E00\u5F20\u884C\u4F1A\u6863\u6848\u8F6C\u4EA4\u7533\u8BF7\u8868\uFF0C\u7533\u8BF7\u628A\u884C\u4F1A\u4FDD\u7BA1\u7684\u6863\u6848\u4EA4\u7ED9\u6307\u5B9A\u53D7\u9886\u65B9\u65F6\u4F7F\u7528\u3002\u5148\u6536\u5165\u684C\u9762\u6587\u4EF6\u7ACB\u5939\uFF0C\u6838\u9A8C\u6574\u7406\u5B8C\u6BD5\u540E\u518D\u529E\u7406\u3002"
+    text: "会长说如果你有什么需求全力帮助你，如果你要找我，摇一下桌子上的手铃就可以了。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u4E24\u4EF6\u90FD\u767B\u8BB0\u597D\u4E86\u3002\u6211\u5408\u4E0A\u89C2\u5BDF\u7A97\u540E\uFF0C\u4ECE\u4FA7\u9762\u7684\u4F20\u7269\u8231\u9001\u8FDB\u53BB\uFF0C\u8BF7\u63A5\u6536\u3002"
+    text: "两件都登记好了。我从下面这个活版门转进去给你。"

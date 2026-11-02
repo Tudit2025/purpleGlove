@@ -1,0 +1,807 @@
+{
+  "sources": [
+    {
+      "file": "00-第零幕-门槛.md",
+      "sha256": "645bd4f1cd1c9d343f982b84f563052af870bd58ca7f8c6ba5832abc99835ba8"
+    },
+    {
+      "file": "01-第一幕-留下原件.md",
+      "sha256": "6849e4d7b590b8f9ee85708a14db34a233f9811d14225adf72c5541f6bcc6297"
+    },
+    {
+      "file": "02-第二幕-第七号封档.md",
+      "sha256": "97dddc5dd19b26c3f0f9823001bc3c2775057cf097983b3fc18b0a5863196cb1"
+    },
+    {
+      "file": "03-第三幕-读得通的谎言.md",
+      "sha256": "919d40b8b17d463c8f3c1624a516a500331aa0dd20410fdaf34965e1305b1fdd"
+    },
+    {
+      "file": "04-第四幕-名字留在纸上.md",
+      "sha256": "eb830ea0b7404cbc51b41794d85dbf735ae7b061b1b4c70ef5ddc6850ab916f6"
+    },
+    {
+      "file": "05-第五幕-落笔与交卷.md",
+      "sha256": "7acb78e9d9813611b3a1669484f035a1db717347416cd0153575e18c5273d33f"
+    },
+    {
+      "file": "06-第六幕-尾声.md",
+      "sha256": "beb65614850e2b69ba31f7013962128a9dcff6cdd64fd18cc6c4078ff61032c2"
+    },
+    {
+      "file": "07-共用独白与物品回忆.md",
+      "sha256": "1bce43f03bc5f11a2e0819f315cffd67b0b996389147b176fe09c61f1437ec6c"
+    }
+  ],
+  "events": {
+    "prologue": [
+      {
+        "speaker": "卢卡",
+        "text": "我是解密大师马泰奥·里奇的学生。",
+        "sourceLabel": "prologue.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "我们为印刷行会工作，翻译书本，处理来往密信。",
+        "sourceLabel": "prologue.L02"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "前几天，师父去替米兰公爵办事，结果一直没有回来，下落不明。",
+        "sourceLabel": "prologue.L03"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "街上有人说他背叛了行会，为公爵伪造书信。",
+        "sourceLabel": "prologue.L04"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "现在，行会收到一个紧急核验委托，调查一份许多势力牵扯的军令。米兰要凭它接管威尼斯的边境粮站。",
+        "sourceLabel": "prologue.L05"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "米兰、法兰西、威尼斯共同委托，要求行会确认密文明文匹配，流程来路可靠。明早六点核验结果将作为他们表决的凭据。",
+        "sourceLabel": "prologue.L06"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "我作为替补“解密大师”，被调来处理这个委托。",
+        "sourceLabel": "prologue.L07"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "我一定要弄清楚事情的真相，把师傅救出来。",
+        "sourceLabel": "prologue.L08"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "卢卡大师，房间准备好了。",
+        "sourceLabel": "prologue.L09"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "根据流程，你进去之后门会贴封条，届时你不能自由出入了。到明天表决结束才会开门。",
+        "sourceLabel": "prologue.L10"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "好的，我要进去了。",
+        "sourceLabel": "prologue.L11"
+      }
+    ],
+    "act1_arrival": [
+      {
+        "speaker": "行会执事",
+        "text": "卢卡，公爵的核验委托送到了，还有马泰奥……马泰奥大师离开前寄存的信件。",
+        "sourceLabel": "act1_arrival.L01"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "棕色包裹里有会长给你准备的资料，会长让我嘱托你一定要看。",
+        "sourceLabel": "act1_arrival.L02"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "会长说如果你有什么需求全力帮助你，如果你要找我，摇一下桌子上的手铃就可以了。",
+        "sourceLabel": "act1_arrival.L03"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "两件都登记好了。我从下面这个活版门转进去给你。",
+        "sourceLabel": "act1_arrival.L04"
+      }
+    ],
+    "memory_three_cuts": [
+      {
+        "speaker": "卢卡",
+        "text": "师傅的笔迹，侧面有三道很刻意的裁口，这个可能是凯撒密码。",
+        "sourceLabel": "memory_three_cuts.L01"
+      }
+    ],
+    "act1_secretary": [
+      {
+        "speaker": "公爵书记官",
+        "text": "卢卡大师，需要核验的文件马上就到了，事关重大，请您务必确保文件内容和来路都没有问题。",
+        "sourceLabel": "act1_secretary.L01",
+        "choices": [
+          {
+            "id": "ask_matteo",
+            "text": "解密大师马泰奥现在在哪里？",
+            "nextLine": 1
+          },
+          {
+            "id": "no_guarantee",
+            "text": "我现在什么都没看到，不能给你保证。",
+            "nextLine": 2
+          },
+          {
+            "id": "silence",
+            "text": "……",
+            "nextLine": 3
+          }
+        ]
+      },
+      {
+        "speaker": "公爵书记官",
+        "text": "马泰奥大师现在在协助我们的保密工作。",
+        "endEvent": true
+      },
+      {
+        "speaker": "公爵书记官",
+        "text": "当然，当然，请您按规矩来。",
+        "endEvent": true
+      },
+      {
+        "speaker": "公爵书记官",
+        "text": "您没有意见自然是很好的。",
+        "endEvent": true
+      }
+    ],
+    "act1_summary": [
+      {
+        "speaker": "卢卡",
+        "text": "师傅让我留下原件，是指还没送来的军令吗？",
+        "sourceLabel": "act1_summary.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "文件还没到米兰就派人来催了。师傅在他们手里。",
+        "sourceLabel": "act1_summary.L02"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "七瓣花应该是指新装订的祷言集，特别装订版，显然是当作密码本用的。",
+        "sourceLabel": "act1_summary.L03"
+      }
+    ],
+    "beatrice": [
+      {
+        "speaker": "行会执事",
+        "text": "威尼斯代表贝阿特丽切找你，她带了一份文件来。",
+        "sourceLabel": "beatrice.L01"
+      },
+      {
+        "speaker": "贝阿特丽切",
+        "text": "你就是卢卡大师吧？我调查这个事情已经几天了，你的一个行会同事给了我一张字条。",
+        "sourceLabel": "beatrice.L02"
+      },
+      {
+        "speaker": "贝阿特丽切",
+        "text": "他不想当证人牵扯进来，写的密码。你应该能够破解它。",
+        "sourceLabel": "beatrice.L03"
+      },
+      {
+        "speaker": "贝阿特丽切",
+        "text": "我差不多知道里面会写什么，但是我的立场让我不能跟进这个线索了。",
+        "sourceLabel": "beatrice补"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "那把便条给我吧，我会自己确认的。",
+        "sourceLabel": "beatrice.L04"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "威尼斯代表带来的资料登记好了，我给你送进去。",
+        "sourceLabel": "beatrice.L05"
+      }
+    ],
+    "act2_ring_hint": [
+      {
+        "speaker": "卢卡",
+        "text": "“五十七号封档”……明文留好了。现在我该摇手铃请执事把对应的档案调来。",
+        "sourceLabel": "act2_ring_hint.L01"
+      }
+    ],
+    "act2_request": [
+      {
+        "speaker": "行会执事",
+        "text": "卢卡，你需要我做什么吗？",
+        "sourceLabel": "act2_request.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "请帮我调取行会五十七号封档，这次核验使用。",
+        "sourceLabel": "act2_request.L02"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "五十七号好像是印坊工作流程纠纷有关的存档，我去调取，你稍微等一会儿。",
+        "sourceLabel": "act2_request.L03"
+      }
+    ],
+    "act2_archive_arrival": [
+      {
+        "speaker": "行会执事",
+        "text": "五十七号封档到了，交存人是你师傅的熟人排字工巴尔托洛。",
+        "sourceLabel": "act2_archive_arrival.L01"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "内含台账摘要和一张裁纸边角，我给你送进去。",
+        "sourceLabel": "act2_archive_arrival.L02"
+      }
+    ],
+    "act2_summary": [
+      {
+        "speaker": "卢卡",
+        "text": "左手手套，巴尔托洛把委托换档的人记下来了。公爵的委托写过，替米兰代领材料的卡拉法他左手戴紫手套。",
+        "sourceLabel": "act2_summary.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "这个叫卡拉法的绝对和这件事情有关，十有八九他已经在这里待了有一阵子了……",
+        "sourceLabel": "act2_summary.L02"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "如果能调到这个“原件”，应该能确定这两件事情的联系。",
+        "sourceLabel": "act2_summary.L03"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "如果这个换档记录指向了请我核验的军令，那米兰人所用的手段就很明确了：造了假的文件，然后让师傅签字作保。",
+        "sourceLabel": "act2_summary.L04"
+      }
+    ],
+    "act3_arrival": [
+      {
+        "speaker": "行会执事",
+        "text": "卢卡，这次核验委托的内容，军情译录件送到了。确实是我们行会印刷的。",
+        "sourceLabel": "act3_arrival.L01"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "封包里有四个文件：行会承办这次译录时的译录委托，上面有你师傅的亲笔签名；还有他译录的军情密文；一张核验表。",
+        "sourceLabel": "act3_arrival.L02"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "最后还有带法方签名的法文原文，这张好像也是我们行会印刷的。",
+        "sourceLabel": "act3_arrival.L03"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "好的，请送进来吧。",
+        "sourceLabel": "act3_arrival.L04"
+      }
+    ],
+    "act3_charles": [
+      {
+        "speaker": "行会执事",
+        "text": "法国代表夏尔来找你。",
+        "sourceLabel": "act3_charles.L01"
+      },
+      {
+        "speaker": "夏尔",
+        "text": "你好，大师。如果那个密码说什么法国将要越境，请你不要为它担保。",
+        "sourceLabel": "act3_charles.L02"
+      },
+      {
+        "speaker": "夏尔",
+        "text": "如果你能提供什么有利的物证给我，我会全力保护你的师傅的。",
+        "sourceLabel": "act3_charles.L04"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "这上面不是你的签名吗？如果这是伪造的签名，你为什么不直接说？",
+        "sourceLabel": "act3_charles.L05"
+      },
+      {
+        "speaker": "夏尔",
+        "text": "这确实是我的签名，但是我不能让人知道我确实跟米兰人签了“某个”文件。所以我不能说。",
+        "sourceLabel": "act3_charles.L06"
+      },
+      {
+        "speaker": "夏尔",
+        "text": "我承诺的事情我会签名写给你，请你好好考虑一下我今天来说的事。",
+        "sourceLabel": "act3_charles.L07"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "凭条已登记，附入第十七号委托，批号七二六。合上观察窗后，从传物舱送入。",
+        "sourceLabel": "act3_charles.L08"
+      }
+    ],
+    "act3_secretary": [
+      {
+        "speaker": "行会执事",
+        "text": "米兰代表来找你了。"
+      },
+      {
+        "speaker": "公爵书记官",
+        "text": "卢卡大师，你已经完成破译了吧，既然没什么问题，把原件还给我们吧。",
+        "sourceLabel": "act3_secretary.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "原件我需要留到来源核验环节结束。",
+        "sourceLabel": "act3_secretary.L02"
+      },
+      {
+        "speaker": "公爵书记官",
+        "text": "……",
+        "sourceLabel": "act3_secretary.L03"
+      },
+      {
+        "speaker": "公爵书记官",
+        "text": "公爵在等着你的核验结果，麻烦你加快进度了。",
+        "sourceLabel": "act3_secretary.L03"
+      }
+    ],
+    "act3_carafa": [
+      {
+        "speaker": "行会执事",
+        "text": "米兰代表卡拉法来了。",
+        "sourceLabel": "act3_carafa.L01"
+      },
+      {
+        "speaker": "卡拉法",
+        "text": "没必要搞的这么复杂，年轻人，别把排字的旧账写成外交事件。",
+        "sourceLabel": "act3_carafa.L02"
+      }
+    ],
+    "act3_summary": [
+      {
+        "speaker": "卢卡",
+        "text": "确实是师傅做的军情译录和加密，没人提醒他这个法文件也不是原件吗？",
+        "sourceLabel": "act3_summary.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "难道我想的是错的，换档的事情其实没问题？只有档案到了才能确定了。",
+        "sourceLabel": "act3_summary.L02"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "米兰来的人很急，不知道后面还会做什么。",
+        "sourceLabel": "act3_summary.L03"
+      }
+    ],
+    "act4_arrival": [
+      {
+        "speaker": "行会执事",
+        "text": "卢卡，这次有两份独立封件。",
+        "sourceLabel": "act4_arrival.L01"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "灰白色的是你调的对应第十七号委托，批号七二六的原件存档。",
+        "sourceLabel": "act4_arrival.L02"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "里面是商路通行协议之类的东西。",
+        "sourceLabel": "act4_arrival.L03"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "棕包来自城北修道院。一个修士带过来，指名道姓说要给你，把东西给我之后他就回去了。",
+        "sourceLabel": "act4_arrival.L04"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "我把棕包登记成“信件”了。",
+        "sourceLabel": "act4_arrival.L05"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "好的，请送进来吧。",
+        "sourceLabel": "act4_arrival.L06"
+      }
+    ],
+    "act4_summary": [
+      {
+        "speaker": "卢卡",
+        "text": "圣马丁，北门。这个应该就是他们关押他的地方。",
+        "sourceLabel": "act4_summary.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "他承认自己知道文件是假的，还是签了名字。",
+        "sourceLabel": "act4_summary.L02"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "伪造的军令用了法国人在商路协议上的签名，这应该就是法国人不想让人看见的东西。",
+        "sourceLabel": "act4_summary.L03"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "老师的自白和换档的原件是重要证据，看来也到了我做选择的时候了。",
+        "sourceLabel": "act4_summary.L04"
+      }
+    ],
+    "act5_arrival": [
+      {
+        "speaker": "行会执事",
+        "text": "卢卡，米兰、法国、威尼斯三位代表给你送了信件来。",
+        "sourceLabel": "act5_arrival.L01"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "时间差不多了，马上需要收你的核验报告送到会议那边去。",
+        "sourceLabel": "act5_arrival.L02"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "会长说你可能会有移存一些文件的需要，你填写移存申请表就可以了。",
+        "sourceLabel": "act5_arrival.L04"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "如果你处理完了，就摇手铃，我会把文件送出去。",
+        "sourceLabel": "act5_arrival.L05"
+      }
+    ],
+    "act5_source_warning": [
+      {
+        "speaker": "卢卡",
+        "text": "显然这个军令是伪造的，加密是障眼法，我应该为米兰人担保吗？",
+        "sourceLabel": "act5_source_warning.L01"
+      }
+    ],
+    "act5_handoff": [
+      {
+        "speaker": "行会执事",
+        "text": "卢卡，我来拿文件了。",
+        "sourceLabel": "act5_handoff.L01"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "但是你还不能离开，我白天再来找你了。",
+        "sourceLabel": "act5_handoff.L04"
+      }
+    ],
+    "act6_saved_report": [
+      {
+        "speaker": "行会执事",
+        "text": "卢卡，我回来了。",
+        "sourceLabel": "act6_saved_report.L01"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "威尼斯人和法国人看到你的核验报告要求暂停表决，卡拉法已被要求留候调查。",
+        "sourceLabel": "act6_saved_report.L02"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "所有人都知道了原件换版的事情，米兰拒绝公示，现在原件还在我们这里。",
+        "sourceLabel": "act6_saved_report.L04"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "米兰人说马泰奥在圣马丁北门。",
+        "sourceLabel": "act6_saved_report.L07"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "米兰人不打算把他带走了？",
+        "sourceLabel": "act6_saved_report.L03"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "我还带了一些回执文件来，我给你送进去。",
+        "sourceLabel": "act6_saved_report.L07"
+      }
+    ],
+    "act6_reunion_arrival": [
+      {
+        "speaker": "行会执事",
+        "text": "马泰奥·里奇，三方见证人员一起把他接回来了。",
+        "sourceLabel": "act6_reunion_arrival.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "他在外面？",
+        "sourceLabel": "act6_reunion_arrival.L02"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "对，我把他叫过来。",
+        "sourceLabel": "act6_reunion_arrival.L03"
+      }
+    ],
+    "act6_open": [
+      {
+        "speaker": "马泰奥",
+        "text": "卢卡。",
+        "sourceLabel": "act6_open.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "我把你的自述交上去了，老师。",
+        "sourceLabel": "act6_open.L02"
+      },
+      {
+        "speaker": "马泰奥",
+        "text": "应该的。",
+        "sourceLabel": "act6_open.L03"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "他们应该还会问你很多事。",
+        "sourceLabel": "act6_open.L04"
+      },
+      {
+        "speaker": "马泰奥",
+        "text": "我知道。谢谢你。",
+        "sourceLabel": "act6_open.L05"
+      },
+      {
+        "speaker": "马泰奥",
+        "text": "以后的日子还长呢……",
+        "sourceLabel": "act6_open.L05"
+      }
+    ],
+    "act6_missing": [
+      {
+        "speaker": "马泰奥",
+        "text": "卢卡，你把我给你的信交上去了吗？",
+        "sourceLabel": "act6_missing.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "我最后烧掉了。",
+        "sourceLabel": "act6_missing.L02"
+      },
+      {
+        "speaker": "马泰奥",
+        "text": "为什么？",
+        "sourceLabel": "act6_missing.L03"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "看到那些东西，你绝对走不了了，行会以后的事情也不好处理。",
+        "sourceLabel": "act6_missing.L04"
+      },
+      {
+        "speaker": "马泰奥",
+        "text": "……",
+        "sourceLabel": "act6_missing.L05"
+      },
+      {
+        "speaker": "马泰奥",
+        "text": "我知道了，剩下的事我会自己说的。",
+        "sourceLabel": "act6_missing.L07"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "手续已经办完了，卢卡，我来给你开门。",
+        "sourceLabel": "act6_missing.L08"
+      }
+    ],
+    "act6_transfer_report": [
+      {
+        "speaker": "行会执事",
+        "text": "卢卡，我回来了。",
+        "sourceLabel": "act6_saved_report.L01"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "威尼斯人和法国人看到你的核验报告要求暂停表决，卡拉法已被要求留候调查。",
+        "sourceLabel": "act6_saved_report.L02"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "所有人都知道了原件换版的事情，现在原件按你的申请已经送走了。",
+        "sourceLabel": "act6_saved_report.L04"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "我还带了一些回执文件来，我给你送进去。",
+        "sourceLabel": "act6_saved_report.L07"
+      }
+    ],
+    "act6_transferred": [
+      {
+        "speaker": "行会执事",
+        "text": "{去向后果}",
+        "sourceLabel": "act6_transferred.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "之后会怎么样呢？",
+        "sourceLabel": "act6_transferred.L02"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "马泰奥还要留候核验。以后如果要对照原件，都要向持有者提出申请。",
+        "sourceLabel": "act6_transferred.L03"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "行会会留好这些回执。还有最新的消息的话，我们会再找你的。",
+        "sourceLabel": "act6_transferred.L05"
+      }
+    ],
+    "act6_endorsed_report": [
+      {
+        "speaker": "行会执事",
+        "text": "卢卡，米兰人把马泰奥接走了。",
+        "sourceLabel": "act6_endorsed_report.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "你们没拦住他们吗？",
+        "sourceLabel": "act6_endorsed_report.L02"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "你为军令来源作了担保。米兰人在今早的会议上很占优势。",
+        "sourceLabel": "act6_endorsed_report.L03"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "他被送到哪里？",
+        "sourceLabel": "act6_endorsed_report.L04"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "不知道，我们还在查。",
+        "sourceLabel": "act6_endorsed_report.L05"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "这些回执文件你看一下。",
+        "sourceLabel": "act6_endorsed_report.L06"
+      }
+    ],
+    "act6_endorsed": [
+      {
+        "speaker": "行会执事",
+        "text": "{去向后果}",
+        "sourceLabel": "act6_endorsed.L01"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "我不应该为米兰人担保的，这下我们完全陷入被动了。",
+        "sourceLabel": "act6_endorsed.L02"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "当时老师签了一个后患无穷的名字，没想到我也犯了这样的错误。",
+        "sourceLabel": "act6_endorsed.L04"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "行会会继续追查他的去向。有后续的话我会再通知你的。",
+        "sourceLabel": "act6_endorsed.L05"
+      }
+    ],
+    "memory_prayer_old": [
+      {
+        "speaker": "卢卡",
+        "text": "这随处可以买到的《祷文集》是我学习密码时使用的密码本，有不少密码是使用书本的。",
+        "sourceLabel": "memory_prayer_old.L01"
+      }
+    ],
+    "memory_prayer_flower": [
+      {
+        "speaker": "卢卡",
+        "text": "这本七瓣花版《祷文集》是老师定制的版本，在行会内部使用过。",
+        "sourceLabel": "memory_prayer_flower.L01"
+      }
+    ],
+    "memory_notebook": [
+      {
+        "speaker": "卢卡",
+        "text": "这是老师的笔记本，应该是他的备课笔记。",
+        "sourceLabel": "memory_notebook.L01"
+      }
+    ],
+    "memory_toolbox": [
+      {
+        "speaker": "卢卡",
+        "text": "我的解密工具盒，对于一些常见的密码，可以使用工具简化破译流程。",
+        "sourceLabel": "memory_toolbox.L01"
+      }
+    ],
+    "plaintext_complete": [
+      {
+        "speaker": "卢卡",
+        "text": "完成了。我该把这份明文留好。",
+        "sourceLabel": "plaintext_complete.L01"
+      }
+    ],
+    "handbell_not_needed": [
+      {
+        "speaker": "卢卡",
+        "text": "现在不需要用这个。",
+        "sourceLabel": "handbell_not_needed.L01"
+      }
+    ],
+    "act1_secretary_arrival": [
+      {
+        "speaker": "行会执事",
+        "text": "卢卡，米兰代表，米兰公爵的书记官到了。",
+        "sourceLabel": "act1_secretary 补"
+      }
+    ],
+    "act2_original_request": [
+      {
+        "speaker": "行会执事",
+        "text": "卢卡，有什么事吗？"
+      },
+      {
+        "speaker": "卢卡",
+        "text": "请调第五十七号封档附件对应的原始档案，第十七号委托，批号七二六。"
+      },
+      {
+        "speaker": "行会执事",
+        "text": "好的，我让人去调一下这个档案，但是从编号来看这篇应该封在存放原始文献的地方，需要一点时间。"
+      }
+    ]
+  },
+  "runtime": {
+    "act5_burn_choice": [
+      {
+        "speaker": "卢卡",
+        "text": "师父的自白，可以当作证据，但是会把师父拖进不利的情况里。",
+        "sourceLabel": "act5_burn_choice.L01",
+        "choices": [
+          {
+            "id": "burn",
+            "text": "烧毁这张自白明文。",
+            "nextLine": -1
+          },
+          {
+            "id": "keep",
+            "text": "保留，随核验文件一起递交。",
+            "nextLine": -1
+          }
+        ]
+      }
+    ],
+    "act5_ring_choice": [
+      {
+        "speaker": "卢卡",
+        "text": "现在摇铃，请执事按当前安排取走文件吗？",
+        "sourceLabel": "act5_ring_choice.L01",
+        "choices": [
+          {
+            "id": "ring",
+            "text": "摇铃",
+            "nextLine": -1
+          },
+          {
+            "id": "wait",
+            "text": "暂不摇铃",
+            "nextLine": -1
+          }
+        ]
+      }
+    ]
+  },
+  "normalizations": {
+    "archive": 57,
+    "batch": 726
+  },
+  "notes": [
+    "Document order takes precedence over duplicate/copied line labels.",
+    "Four obvious typos normalized: 工会、自自白、给你的新交、换挡.",
+    "The raw returned drafts are retained in source/."
+  ]
+}

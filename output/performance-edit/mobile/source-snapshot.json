@@ -1,0 +1,1370 @@
+{
+  "date": "2026-11-02",
+  "events": {
+    "act1_arrival": {
+      "id": "act1_arrival",
+      "title": "第一幕 · 执事交付说明",
+      "context": "doc/ph-revised.md 第一幕开场；入场五秒后敲门，音效结束后交谈，观察窗完全关闭后送件。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act1_arrival.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "卢卡，公爵的核验委托送到了。白色包裹里是正式委托，请分别填写‘明文还原’与‘来源确认’，不得混签。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "棕色包裹里有会长今晚写给你的信，还有马泰奥先生离开前寄存的封袋。封袋登记在他被扣押之前，原封未动。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "另附一张行会档案转交申请表，申请把行会保管的档案交给指定受领方时使用。先收入桌面文件立夹，核验整理完毕后再办理。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "两件都登记好了。我合上观察窗后，从侧面的传物舱送进去，请接收。",
+          "choices": []
+        }
+      ],
+      "sha256": "8eb23aa12a93dd92aead535dc6e60aa37c0f85bf0841191f9afd4f0768cf8bbd"
+    },
+    "act1_secretary": {
+      "id": "act1_secretary",
+      "title": "第一幕 · 首次门边交谈",
+      "context": "doc/ph-revised.md 第一幕幕末；FirstActFlow 按留存、敲门、交谈、桌前总结的顺序触发。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act1_secretary.asset",
+      "lines": [
+        {
+          "speaker": "公爵书记官",
+          "text": "老师的事，等核验完再谈。请把‘内容读得通’和‘文件没问题’都写清楚。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "这是两件事。",
+          "choices": []
+        },
+        {
+          "speaker": "公爵书记官",
+          "text": "当然。请按规程办。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "已经晚十点了。下一份封件正在登记，请备好新的蜡烛。",
+          "choices": []
+        }
+      ],
+      "sha256": "9efa74b48df9578c6a69aa7954ad2f5aa6d9128c6bc42df308a60d6070cb73c4"
+    },
+    "act1_summary": {
+      "id": "act1_summary",
+      "title": "第一幕 · 卢卡桌前总结",
+      "context": "doc/ph-revised.md 第一幕幕末；FirstActFlow 按留存、敲门、交谈、桌前总结的顺序触发。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act1_summary.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "师父没有说自己无辜。他只让我留下原件。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "读得通，只能说明字母排对了，不能证明这份文件是真的。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "原件留好。接下来，先查清那本七瓣花的新版。",
+          "choices": []
+        }
+      ],
+      "sha256": "bc511fd62b1921c691f89ec62132978b9a993b8b4e81e8cff01acb3cdb8f3e2f"
+    },
+    "act2_archive_arrival": {
+      "id": "act2_archive_arrival",
+      "title": "第二幕 · 第七号封档送达",
+      "context": "第二幕分批收件、书本解读与摇铃调档。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act2_archive_arrival.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "第七号封档到了。来源是行会纠纷库，交存人巴尔托洛。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "这次送来台账摘要和一张裁纸边角。原始签收页另存，调阅条件写在摘要下方。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "请把这两件送进来。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "已经登记。我关好观察窗，再转入传物舱。",
+          "choices": []
+        }
+      ],
+      "sha256": "9b1000ab21b4144ce20b84e689f713efc9a67e01196dc417e9f69a00bce0db04"
+    },
+    "act2_request": {
+      "id": "act2_request",
+      "title": "第二幕 · 门边调档",
+      "context": "第二幕分批收件、书本解读与摇铃调档。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act2_request.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "卢卡，你摇铃了。需要什么？",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "请调取印坊纠纷封档，第七号，供这次核验使用。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "印坊纠纷，第七号，核验用途。我去向保管人调取，请稍候。",
+          "choices": []
+        }
+      ],
+      "sha256": "edd967630347aedfdb21e3d68c142d836d70e846f8143f39ed7364af20130d5e"
+    },
+    "act2_ring_hint": {
+      "id": "act2_ring_hint",
+      "title": "卢卡 · 摇铃调档",
+      "context": "第二幕分批收件、书本解读与摇铃调档。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act2_ring_hint.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "调阅第七号封档……明文留好了。现在该摇铃，请执事把对应的档案调来。",
+          "choices": []
+        }
+      ],
+      "sha256": "fdbbdd8137e7fd6cb7a8c4fac32ba3b1be079924c7924d1e899aa6bc9f99959e"
+    },
+    "act2_summary": {
+      "id": "act2_summary",
+      "title": "第二幕 · 卢卡等待原件",
+      "context": "猪圈明文实际留存后回桌面独白；结合现有记录怀疑卡拉法，等待原件核对，随后进入第三幕。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act2_summary.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "左手手套……公爵的委托写过，替米兰代领材料的卡拉法，左手常戴紫手套。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "同一个人带来了两次换版，款项又从米兰内廷的账户结算。卡拉法只是来收件，还是也带来了换版的指令？",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "手套只能让我怀疑是他。他到底签收了什么、改过什么，还得看原件。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "接下来得等原件来核对。原始签收页还在行会库里，要有正式案号才能调阅。先留好明文，等正式核验件送到，再把手续补齐。",
+          "choices": []
+        }
+      ],
+      "sha256": "53760b43c6007bd8ae59225e46dc482f4554a55e540dc2b970b0e028e2e866e2"
+    },
+    "act3_arrival": {
+      "id": "act3_arrival",
+      "title": "第三幕 · 正式核验件到达",
+      "context": "第三幕转场完成后介绍正式核验件，观察窗完全关闭后开始收件。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act3_arrival.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "午夜了。米兰内廷第十七号委托，争议的军情译录件送到了。行会已登记，装订批号七—〇三一。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "封包里有四张纸：米兰委托、行会登记承办的译录委托，上面有马泰奥先生的亲笔签名；他译录的军情密文；一张核验表；还有带法方签名的法文原文。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "核验表有两个签名栏，分别确认明文还原和文件来源。请分开填写，没查清的可以不签。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "把来件送进来。我还要拿这个案号核对第七号封档的记录。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "好。我合上观察窗，再从传物舱送进去。",
+          "choices": []
+        }
+      ],
+      "sha256": "3f55b194eb8b9e46671178b13ddafd5863cd947a143fa2e498204ef7ed073f94"
+    },
+    "act3_carafa": {
+      "id": "act3_carafa",
+      "title": "第三幕 · 卡拉法门边交谈",
+      "context": "doc/ph-revised.md 第三幕：明文还原签名、夏尔补充凭条、摇铃调档、两次来访、桌前独白，随后进入第四幕。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act3_carafa.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "卡拉法已在前厅登记，等候代领原件。",
+          "choices": []
+        },
+        {
+          "speaker": "卡拉法",
+          "text": "印坊天天改版。年轻人，别把排字的旧账写成外交事件。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "是不是排字的旧账，要等原始记录送到再核对。现在这些纸还不能交走。",
+          "choices": []
+        }
+      ],
+      "sha256": "56431d8198046c26e07d1a69d74e57a2f518c77928f497cdcad9675b854e09b2"
+    },
+    "act3_charles": {
+      "id": "act3_charles",
+      "title": "第三幕 · 夏尔门边交谈",
+      "context": "doc/ph-revised.md 第三幕：明文还原签名、夏尔补充凭条、摇铃调档、两次来访、桌前独白，随后进入第四幕。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act3_charles.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "法国代表夏尔已登记，获准就这条越境命令的来源答复。",
+          "choices": []
+        },
+        {
+          "speaker": "夏尔",
+          "text": "那张纸上若写着法国将在黎明越境，请先不要替它背书。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我签的是明文还原，来源还没有确认。你否认它，是因为它是假的，还是因为它提前到了我手里？",
+          "choices": []
+        },
+        {
+          "speaker": "夏尔",
+          "text": "这个问题值得问。我能给你一份具名否认，并接受与你的原件当面对照。至于你凭什么相信它，该由你找。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "那你为什么不立即公开？",
+          "choices": []
+        },
+        {
+          "speaker": "夏尔",
+          "text": "因为我与公爵谈过商路。如果没有具体文件，我公开否认一项没人具名承认的军令，只会替它传遍全城。",
+          "choices": []
+        },
+        {
+          "speaker": "夏尔",
+          "text": "我把能承担的事写在补充凭条上，具名交给你。正式反证仍须依据有来源记录的具体文件。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "夏尔的补充凭条已登记，附入第十七号委托，批号七—〇三一。合上观察窗后，从传物舱送入。",
+          "choices": []
+        }
+      ],
+      "sha256": "122edbf5448d0bde5be2998050eb6103af181ec889bc9a86d606dfeff8032cd9"
+    },
+    "act3_request": {
+      "id": "act3_request",
+      "title": "第三幕 · 第二次门边调档",
+      "context": "doc/ph-revised.md 第三幕：明文还原签名、夏尔补充凭条、摇铃调档、两次来访、桌前独白，随后进入第四幕。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act3_request.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "卢卡，你摇铃了。需要调取哪份原件？",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "请按检索单调取第七号封档的原始签收页。对应米兰内廷第十七号委托，装订批号七—〇三一。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "案号与批号都和第七号封档的交存记录相符。原始签收页须两位保管见证人共同启封，黎明前送入。你会拿到带出库记录的原件。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "请照这个手续办理。",
+          "choices": []
+        }
+      ],
+      "sha256": "c3c0aaeeb343fb09c066579094d9c887685cc17aa400816fa3d0da25e5a68992"
+    },
+    "act3_ring_hint": {
+      "id": "act3_ring_hint",
+      "title": "第三幕 · 卢卡提示再次调档",
+      "context": "doc/ph-revised.md 第三幕：明文还原签名、夏尔补充凭条、摇铃调档、两次来访、桌前独白，随后进入第四幕。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act3_ring_hint.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "夏尔的补充凭条也收好了。正式案号和批号都有了，现在可以摇铃，请执事调取原始签收页。",
+          "choices": []
+        }
+      ],
+      "sha256": "728398c47d383657531a67961c1e7c66b76a10891b06cb89602eb00b4b9fc59f"
+    },
+    "act3_secretary": {
+      "id": "act3_secretary",
+      "title": "第三幕 · 书记官要求归还原件",
+      "context": "doc/ph-revised.md 第三幕：明文还原签名、夏尔补充凭条、摇铃调档、两次来访、桌前独白，随后进入第四幕。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act3_secretary.asset",
+      "lines": [
+        {
+          "speaker": "公爵书记官",
+          "text": "明文既然完整，原来的工作纸就交回来吧。只留一份清洁的译文。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "原件须保留到来源核验结束。明文还原的签名，不是来源确认。",
+          "choices": []
+        },
+        {
+          "speaker": "公爵书记官",
+          "text": "异议我会记下。公爵仍在等你的核验结果。",
+          "choices": []
+        }
+      ],
+      "sha256": "29c190fc2e22f28ff4a88a540e0d50a22807a5cc24cd8eefd7bfff8f5db9ef63"
+    },
+    "act3_summary": {
+      "id": "act3_summary",
+      "title": "第三幕 · 卢卡幕末独白",
+      "context": "doc/ph-revised.md 第三幕：明文还原签名、夏尔补充凭条、摇铃调档、两次来访、桌前独白，随后进入第四幕。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act3_summary.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "师父设计过这套密码。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "师父签过这张封面。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "这两件事是真的。法国会不会越境，还没有因此变真。",
+          "choices": []
+        }
+      ],
+      "sha256": "2b83c6768f0c38f7494f0cb61ebdbde07d2dabfeac73c565b2eea40c60f36c12"
+    },
+    "act4_arrival": {
+      "id": "act4_arrival",
+      "title": "第四幕 · 两份独立封件",
+      "context": "第四幕淡入完成后，逐包说明来源与四张文书；关窗后送入两份独立封包，接收落桌后解锁。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act4_arrival.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "凌晨三点了。卢卡，这次有两份独立封件，来源分别登记。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "灰白封包来自行会纠纷库，第七号封档，对应第十七号委托、批号七—〇三一。两位保管见证人已经共同启封。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "里面是商业文件委托签收页和换版记录。出库登记随页保留，可以和你手上的来件核对。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "棕色修补封包来自城北修道院。装订工把信缝进待修封套，经送货车带到行会，送件来路已登记。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "里面是马泰奥先生的双栏密信和一封明文书信。装订工只答应送出这一次，不能保证继续通信。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "两份封件分别留好。把这四张纸送进来，我要逐一核对。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "好。我合上观察窗，再从传物舱送入两包。",
+          "choices": []
+        }
+      ],
+      "sha256": "95daa8a8bff58afd42703682bcbfb36df26ce93883f327eccaa5ca5cd29c593f"
+    },
+    "act4_summary": {
+      "id": "act4_summary",
+      "title": "第四幕 · 两份明文后的独白",
+      "context": "doc/ph-revised.md 第四幕独白后直接转入第五幕，三份主动文件、摇铃交卷。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act4_summary.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "圣马丁，北门。师父的信说，六点就会从那里转押。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "他承认自己知道那份命令有假，还是签了名。为了让巴尔托洛一家出去，他把自己的名字留在了上面。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "换版记录也在这里。法方没有核签的新正文，沿用了旧封面上的签名；卡拉法经手了两次。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我想把师父带回来。可现在，我不能再把救他和证明他没有做过当成同一件事。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "字句已经还原，记录也对上了。接下来，要由我决定怎样签、怎样交。",
+          "choices": []
+        }
+      ],
+      "sha256": "eb09ba7e6fd39a6072dc8bf924818eabbb36e3e5156c230ccfac4b4550af9c1b"
+    },
+    "act5_arrival": {
+      "id": "act5_arrival",
+      "title": "第五幕 · 三位代表的书信",
+      "context": "doc/ph-revised.md 第四幕独白后直接转入第五幕，三份主动文件、摇铃交卷。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act5_arrival.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "五点了。米兰是公爵授权的书记官，威尼斯是贝阿特丽切，法国是夏尔。三位代表的要求和条件都写在信里。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "核验表上，明文一致已经有你的签名。军令的来源要不要由你担保，还由你决定。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "换版原件交给哪一方，还是继续由行会封存，请记在转交申请上。马泰奥先生的自述明文，留着就随卷递交。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "收下信后，你随时可以摇铃。我会回来，按你的安排转递文件和条件，办理交接。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "没有改动的地方，按不作来源担保、原件继续封存、自述保留递交处理。摇铃就是交卷，不必再另外写三封回信。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "我合上观察窗，再把三封信送进去。",
+          "choices": []
+        }
+      ],
+      "sha256": "5457a169658f2d0d74c1bb243ed50d2da69a16b6530b6d358ec9508378d1c9ce"
+    },
+    "act5_handoff": {
+      "id": "act5_handoff",
+      "title": "第五幕 · 摇铃交卷",
+      "context": "doc/ph-revised.md 第四幕独白后直接转入第五幕，三份主动文件、摇铃交卷。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act5_handoff.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "卢卡，我来接件。{来源}",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "换版原件按申请办理：{原件}。{自述}",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "{手续}",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "交件不等于所有承诺已经办成。后续凭据会如实送回。现在合上观察窗，从转门接走文件。",
+          "choices": []
+        }
+      ],
+      "sha256": "5c1cda574178c527384453436f2d06360f0004aa362b5b8b4900bd1e1e533645"
+    },
+    "act5_source_warning": {
+      "id": "act5_source_warning",
+      "title": "卢卡 · 来源担保",
+      "context": "doc/ph-revised.md 第四幕独白后直接转入第五幕，三份主动文件、摇铃交卷。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act5_source_warning.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "换版记录写着法使尚未核签。如果我仍在这里签名，担保的就不只是字有没有译对。",
+          "choices": []
+        }
+      ],
+      "sha256": "aaeb96bf505d11b9637da4266911d8333f1edff4230ac7cc89be077acd6975cd"
+    },
+    "act6_endorsed": {
+      "id": "act6_endorsed",
+      "title": "第六幕 · 背书",
+      "context": "doc/ph-revised.md 第六幕：所有台词通过探视口，在主门开启前完成。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act6_endorsed.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "转押登记已经送到。{去向后果}",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我的来源担保，也在他们手里。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "是。原件上的换版记录没有消失，核验表上的签名也没有。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "师父曾经签下一个需要解释的名字。现在，我也一样。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "行会会继续追查他的去向。你今夜作出的核验，也需要留下说明。",
+          "choices": []
+        }
+      ],
+      "sha256": "b15a6d6e348192fbc450cf2f24bf5edad3a80b33573456ca78f52beeb5d4687b"
+    },
+    "act6_endorsed_report": {
+      "id": "act6_endorsed_report",
+      "title": "第六幕 · 六点的转押登记",
+      "context": "doc/ph-revised.md 第六幕：所有台词通过探视口，在主门开启前完成。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act6_endorsed_report.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "六点的转押登记送回来了。卢卡，马泰奥已按原安排被转移。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "你们没有把他留下？",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "你为军令来源作了担保。本次交卷没有启动共同争议审查，也没有办成暂停转押的手续。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "他被送到哪里？",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "这份登记只记了转出，后续去向还在追查。换版证据仍在，事情没有到此结束。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "原件交接也已登记：{原件}。我合上探视口，把回执送进去。",
+          "choices": []
+        }
+      ],
+      "sha256": "a1712d324f7d31c4c8fd359c92736c5a2937cd4936edd418b7a455144fa8f260"
+    },
+    "act6_missing": {
+      "id": "act6_missing",
+      "title": "第六幕 · 缺页",
+      "context": "doc/ph-revised.md 第六幕：所有台词通过探视口，在主门开启前完成。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act6_missing.asset",
+      "lines": [
+        {
+          "speaker": "马泰奥",
+          "text": "卢卡。封套里那段自述，也交上去了吗？",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我烧了译出来的那张纸。",
+          "choices": []
+        },
+        {
+          "speaker": "马泰奥",
+          "text": "为什么？",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我怕他们拿着你的承认，就不肯让你回来。",
+          "choices": []
+        },
+        {
+          "speaker": "马泰奥",
+          "text": "信还在，签过的名字也还在。你不能替我说，事情已经讲清楚了。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我只是想先保住你。",
+          "choices": []
+        },
+        {
+          "speaker": "马泰奥",
+          "text": "我回来了。剩下的事，让我自己回答。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "见证手续办妥，封门的期限也到了。我先合上探视口，再解除门封。",
+          "choices": []
+        }
+      ],
+      "sha256": "fd2a9577085d9fee68b5b61e2492de203d6e3be6d3be6e1b3d1acd9072d70bc3"
+    },
+    "act6_open": {
+      "id": "act6_open",
+      "title": "第六幕 · 开门",
+      "context": "doc/ph-revised.md 第六幕：所有台词通过探视口，在主门开启前完成。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act6_open.asset",
+      "lines": [
+        {
+          "speaker": "马泰奥",
+          "text": "卢卡。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "你的自述，我交上去了。",
+          "choices": []
+        },
+        {
+          "speaker": "马泰奥",
+          "text": "应该的。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "他们还会问你很多事。",
+          "choices": []
+        },
+        {
+          "speaker": "马泰奥",
+          "text": "这次我会自己答。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我留下了原件，也留下了你的名字。",
+          "choices": []
+        },
+        {
+          "speaker": "马泰奥",
+          "text": "我知道。谢谢你让我有机会回来，把话说完。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "见证手续办妥，封门的期限也到了。我先合上探视口，再解除门封。",
+          "choices": []
+        }
+      ],
+      "sha256": "20952e94596eebce9fdda89f60a28d3f194b128d201d78ae9073b7d9e21d4c29"
+    },
+    "act6_reunion_arrival": {
+      "id": "act6_reunion_arrival",
+      "title": "第六幕 · 六点半的接回凭据",
+      "context": "doc/ph-revised.md 第六幕：所有台词通过探视口，在主门开启前完成。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act6_reunion_arrival.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "六点半了。新的交接凭据刚到：马泰奥·里奇，已由三方见证人员共同接回。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "他在外面？",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "就在我身后。先把这份具名凭据交给你，我关上探视口，送件后请他过来。",
+          "choices": []
+        }
+      ],
+      "sha256": "4cc95b7d5447568ae6fef33298b993f4de92f96a21f1d461fc3d4fa3e413a213"
+    },
+    "act6_saved_report": {
+      "id": "act6_saved_report",
+      "title": "第六幕 · 六点的处理回执",
+      "context": "doc/ph-revised.md 第六幕：所有台词通过探视口，在主门开启前完成。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act6_saved_report.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "六点了。卢卡，处理回执已经送到。我先从探视口把结果读给你。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "威尼斯和法国已具名参加共同审查。米兰监押书记官确认：暂停六点转押，马泰奥留在圣马丁北门候核。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "转押确实停下来了？",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "这是监押书记官签收后的回执。接回仍在办理，我还不能把他已经回来的话写上去。",
+          "choices": []
+        },
+        {
+          "speaker": "贝阿特丽切",
+          "text": "粮站表决也暂停了。卡拉法已被要求留候调查，说明两次换版的签名。公爵的责任还得继续追查。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "原件呢？",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "已经加上行会的共同见证封条。三方可以申请查验。现在合上探视口，把处理回执从传物舱送进去。",
+          "choices": []
+        }
+      ],
+      "sha256": "f028f0de928a4bb1da4af7b706597782a2e5cc32e63600c98fe2c6cd780de59b"
+    },
+    "act6_transfer_report": {
+      "id": "act6_transfer_report",
+      "title": "第六幕 · 暂停转押与原件交接",
+      "context": "doc/ph-revised.md 第六幕：所有台词通过探视口，在主门开启前完成。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act6_transfer_report.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "六点了。共同审查的参与确认和暂停转押回执都已送到。马泰奥仍在圣马丁北门候核。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "原件交走了，副本也能拦下这次转押？",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "证据副本保留了来源争议。威尼斯与法国已具名参加，监押书记官确认暂停；粮站表决也已暂停。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "原件另有具名交接凭据，登记去向是：{原件}。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "把这些结果留下。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "我合上探视口，将处理回执和交接登记合页送进去。",
+          "choices": []
+        }
+      ],
+      "sha256": "a7da2f94591b9a70fe6f2edcdfe3d264284d7efba7d1408cceb11e5ee379f4ac"
+    },
+    "act6_transferred": {
+      "id": "act6_transferred",
+      "title": "第六幕 · 真相易手",
+      "context": "doc/ph-revised.md 第六幕：所有台词通过探视口，在主门开启前完成。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/act6_transferred.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "凭据已经送到。{去向后果}",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "这次转押停了。以后的事呢？",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "马泰奥还要留候核验。以后每一次对照原件，都要向持有者提出申请。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我把证据送出去了，也把往后查证的路交到了别人手里。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "行会会留好这些回执。还有新的消息，我仍从这里告诉你。",
+          "choices": []
+        }
+      ],
+      "sha256": "90b12b6c8611f32fb29876ed28c294aa09afeda6eb6163d145c4a6d494242c85"
+    },
+    "archive": {
+      "id": "archive",
+      "title": "05 · 共同封存",
+      "context": "第五幕：试演交接用语；不改变实际谜题、卷宗或结局状态。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/archive.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "三方的登记副本都已备齐。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "原始签收页、旧试印存根和出库记录，一并共同封存。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "任何一方都不能单独取走原件。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "回执必须写明实际处理结果。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "收到材料，不等于同意暂停转押。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "那就等有效的回件，不替他们补上承诺。",
+          "choices": []
+        }
+      ],
+      "sha256": "f7e6ca6ea3a3300f49a9539cd894909513e85f6c811c3d94fc6759dd588706da"
+    },
+    "arrival": {
+      "id": "arrival",
+      "title": "01 · 行会收件",
+      "context": "第一幕：交代封门与收件规则。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/arrival.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "卢卡，三方的见证封条已经贴好。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "今夜送进来的每份文件，都要登记来路。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "这是米兰方面交存的核验委托，封件编号一号。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "请把编号留下，我会先检查封口。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "若要调档，把检索单送回投递口。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "在核验完成前，这扇门保持封闭。",
+          "choices": []
+        }
+      ],
+      "sha256": "27f065f465f38f237a3733cdf1ef9c0c6abdba85d942c2ab7a41f512d8923d17"
+    },
+    "bartolo": {
+      "id": "bartolo",
+      "title": "07 · 印刷匠试音",
+      "context": "纯素材测试；正篇设定仍是巴尔托洛不露面。",
+      "testOnly": true,
+      "source": "Assets/Data/Dialogue/Events/bartolo.asset",
+      "lines": [
+        {
+          "speaker": "巴尔托洛",
+          "text": "纸边可以裁掉，换过的版却会留下痕迹。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "先告诉我，原始签收页存在哪里。",
+          "choices": []
+        },
+        {
+          "speaker": "巴尔托洛",
+          "text": "行会的纠纷封存库，登记号和台账能对得上。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我会按正式手续调取。",
+          "choices": []
+        }
+      ],
+      "sha256": "6e3312329e5d12f74e34190db8d76517ab8fd3c96152c54103c51e6552525837"
+    },
+    "beatrice": {
+      "id": "beatrice",
+      "title": "第二幕 · 贝阿特丽切的便条",
+      "context": "第二幕分批收件、书本解读与摇铃调档。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/beatrice.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "威尼斯代表贝阿特丽切，封件二号。里面只有一张来自印坊的旧便条。",
+          "choices": []
+        },
+        {
+          "speaker": "贝阿特丽切",
+          "text": "我查这件事已经六天。明早是委员会给我的最后期限。",
+          "choices": []
+        },
+        {
+          "speaker": "贝阿特丽切",
+          "text": "印刷匠留了一串数字。我没有他用的版本。你桌上的书，也许能解释它。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "把便条给我。我会核对版本。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "合上观察窗后，我把封包从传物舱送进去。",
+          "choices": []
+        }
+      ],
+      "sha256": "befdad0f3970c35b3d171d18e866a2772684e1fb29d6fdf44237c4e9660d1266"
+    },
+    "charles": {
+      "id": "charles",
+      "title": "03 · 具名否认",
+      "context": "第三幕：正式否认仍需与具体文件相互核对。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/charles.asset",
+      "lines": [
+        {
+          "speaker": "行会执事",
+          "text": "法国代表夏尔已经登记，获准就命令来源答复。",
+          "choices": []
+        },
+        {
+          "speaker": "夏尔",
+          "text": "法国没有签发这道越境命令。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "你愿意把这句话写成具名的正式否认吗？",
+          "choices": []
+        },
+        {
+          "speaker": "夏尔",
+          "text": "把你核出的文本和来源列明，我会签署答复。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "你的否认会进入卷宗，换版记录也会一并保留。",
+          "choices": []
+        },
+        {
+          "speaker": "夏尔",
+          "text": "那么，请让每一方都能复核同一份文字。",
+          "choices": []
+        }
+      ],
+      "sha256": "89ee52c278dbb99c0ab88d76dd371b315a5987c4136b2de0cd7715e32f711095"
+    },
+    "handbell_not_needed": {
+      "id": "handbell_not_needed",
+      "title": "手摇铃 · 暂不需要",
+      "context": "拿起手摇铃后原地独白，读完放回；不触发门口来访。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/handbell_not_needed.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "现在不需要用这个",
+          "choices": []
+        }
+      ],
+      "sha256": "b2144e6ae577ed32b5cc1d16ef580ebe552787935b70b02296fedc981662d770"
+    },
+    "matteo": {
+      "id": "matteo",
+      "title": "06 · 黎明后的师徒",
+      "context": "获救结局的眼部与声音预留试演，不自动触发结局。",
+      "testOnly": true,
+      "source": "Assets/Data/Dialogue/Events/matteo.asset",
+      "lines": [
+        {
+          "speaker": "马泰奥",
+          "text": "卢卡，你没有替我删掉那一页。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我不能把救你，写成替你证明无错。",
+          "choices": []
+        },
+        {
+          "speaker": "马泰奥",
+          "text": "那是我的签名，也该由我解释。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "从这一句开始，我们把话说全。",
+          "choices": []
+        }
+      ],
+      "sha256": "9e3c8e2351db515bd7a82341317f58d496da9689923ff7eec57f7b75b0d1b410"
+    },
+    "memory_notebook": {
+      "id": "memory_notebook",
+      "title": "初见回忆 · 师父的旧笔记",
+      "context": "首次点击物品时，卢卡回忆学习经历；读完自动继续原有交互。本次游玩仅播放一次。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/memory_notebook.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "这是师父留下的旧笔记，我学密码时抄错过的地方，旁边几乎都有他的批注。",
+          "choices": []
+        }
+      ],
+      "sha256": "31c4841c33de14e4297570e0b9ae7c24e1d43a1b6accc2f088a586a930ae05bb"
+    },
+    "memory_prayer_flower": {
+      "id": "memory_prayer_flower",
+      "title": "初见回忆 · 七瓣花版祷文集",
+      "context": "首次点击物品时，卢卡回忆学习经历；读完自动继续原有交互。本次游玩仅播放一次。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/memory_prayer_flower.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "这本七瓣花版《祷文集》比旧本装订得晚，师父拿到新书时，总要先翻翻纸页、看看版记。",
+          "choices": []
+        }
+      ],
+      "sha256": "f96a2aada6a9e2b73b82655f84269bc496240294d639735807eab00246bd29e2"
+    },
+    "memory_prayer_old": {
+      "id": "memory_prayer_old",
+      "title": "初见回忆 · 旧版祷文集",
+      "context": "首次点击物品时，卢卡回忆学习经历；读完自动继续原有交互。本次游玩仅播放一次。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/memory_prayer_old.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "这本旧《祷文集》陪我做过不少抄写练习，师父总说，眼熟的句子也得逐字看清。",
+          "choices": []
+        }
+      ],
+      "sha256": "b825dc236f2f130b417fd28c5b703613d520726134d82d0b025baebfca48c7d3"
+    },
+    "memory_three_cuts": {
+      "id": "memory_three_cuts",
+      "title": "初见回忆 · 师父的三道裁口",
+      "context": "首次点击物品时，卢卡回忆学习经历；读完自动继续原有交互。本次游玩仅播放一次。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/memory_three_cuts.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "三道裁口……小时候，师父总让我这样给练习纸分类。这是凯撒密码的记号，字母要往回移三位。",
+          "choices": []
+        }
+      ],
+      "sha256": "698dfb735d494b2d0e1c896cf87a84871226eae3167acc4be8102d7ac4d8045c"
+    },
+    "memory_toolbox": {
+      "id": "memory_toolbox",
+      "title": "初见回忆 · 解密工具箱",
+      "context": "首次点击物品时，卢卡回忆学习经历；读完自动继续原有交互。本次游玩仅播放一次。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/memory_toolbox.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "从前练习解密，我总急着转动密码盘，师父却先让我把这盒工具一件件摆好。",
+          "choices": []
+        }
+      ],
+      "sha256": "163762a4a59deffcd5c2c301175baf48d0e4d9a25c0b04c1a104467cd08a6d23"
+    },
+    "plaintext_complete": {
+      "id": "plaintext_complete",
+      "title": "卢卡 · 明文完成",
+      "context": "",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/plaintext_complete.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "完成了。把这份明文留好。",
+          "choices": []
+        }
+      ],
+      "sha256": "7d2405a85182d812801bf0b9bc27b6bf5e8de6b73e5251ee6ce49abeb89ae1c6"
+    },
+    "pressure": {
+      "id": "pressure",
+      "title": "04 · 原件与签名",
+      "context": "第三至四幕试演：公爵施压，卡拉法要求代领。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/pressure.asset",
+      "lines": [
+        {
+          "speaker": "孔蒂公爵",
+          "text": "离晨会已经不远了，核验人。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "时间不能替一份文件证明来源。",
+          "choices": []
+        },
+        {
+          "speaker": "孔蒂公爵",
+          "text": "你师父在委托上签过名，你准备怎样解释？",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我会把他的签名和换版记录分别列明。",
+          "choices": []
+        },
+        {
+          "speaker": "卡拉法",
+          "text": "原件可以交给我代领，手续会简单得多。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "请先解释，两次换版为什么都有你的签收。",
+          "choices": []
+        },
+        {
+          "speaker": "卡拉法",
+          "text": "我签收的是封袋，里面的文字由别人负责。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "这句话也会进入共同核验的记录。",
+          "choices": []
+        }
+      ],
+      "sha256": "6a2da81854db18fdc098b61a62ce1a95d9337c37e4328c1ee58a256e5b795707"
+    },
+    "prologue": {
+      "id": "prologue",
+      "title": "第零幕 · 门槛",
+      "context": "doc/ph-revised.md：第零幕。门外固定机位；主角独白与画外执事；最后一句推进后进入工作间。",
+      "testOnly": false,
+      "source": "Assets/Data/Dialogue/Events/prologue.asset",
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "我叫卢卡，是马泰奥·里奇的学生。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我跟他学了七年密码，也替行会处理过往来的密信。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "前几天，师父去替米兰公爵办事，没有回来。公爵的人说，他得留下配合核验。连留在哪里，也不肯告诉我。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "街上已经有人说，他替公爵改过军令。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "现在，行会收到一份密文，声称法国即将越境。米兰要凭它接管威尼斯的边境粮站。明早六点，他们就会在会上作决定。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "这份密文用的是师父编的密码。我参与整理过那套表，所以行会让我来还原文字、查清来路。三方都会复核我的结果。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "我想证明那些传言是错的。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "可我还没有见过那份文件，也没听到师父亲口解释。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "卢卡，房间备好了。",
+          "choices": []
+        },
+        {
+          "speaker": "行会执事",
+          "text": "进去以后封门，明早六点开封。期间文件走侧口，每次交接都有登记。没查清的，你可以不签。",
+          "choices": []
+        },
+        {
+          "speaker": "卢卡",
+          "text": "让我进去。",
+          "choices": []
+        }
+      ],
+      "sha256": "d5dddce8fac4c11cad532e71f0f02602639c98546f037a4d5e78f35fb09006e4"
+    },
+    "act5_ring_choice": {
+      "id": "act5_ring_choice",
+      "title": "现在摇铃，请执事按当前安排接走文件吗？",
+      "source": "Assets/Scripts/Presentation/FifthActFlow.cs",
+      "runtime": true,
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "现在摇铃，请执事按当前安排接走文件吗？",
+          "choices": [
+            {
+              "id": "ring",
+              "text": "摇铃，按当前安排交卷。",
+              "nextLine": -1
+            },
+            {
+              "id": "wait",
+              "text": "暂不摇铃，我还要再想一想。",
+              "nextLine": -1
+            }
+          ]
+        }
+      ]
+    },
+    "act5_burn_choice": {
+      "id": "act5_burn_choice",
+      "title": "要烧毁师父的这张自述明文吗？烧毁后，本次交卷将不再附上它。",
+      "source": "Assets/Scripts/Presentation/FifthActFlow.cs",
+      "runtime": true,
+      "lines": [
+        {
+          "speaker": "卢卡",
+          "text": "要烧毁师父的这张自述明文吗？烧毁后，本次交卷将不再附上它。",
+          "choices": [
+            {
+              "id": "burn",
+              "text": "烧毁这张自述明文。",
+              "nextLine": -1
+            },
+            {
+              "id": "keep",
+              "text": "保留，随核验文件一起递交。",
+              "nextLine": -1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "assetEvents": 42,
+  "assetLines": 178,
+  "mainLines": 138,
+  "commonLines": 6,
+  "legacyLines": 34,
+  "runtimePrompts": 2,
+  "runtimeOptions": 4
+}

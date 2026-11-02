@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: beatrice
   title: "\u7B2C\u4E8C\u5E55 \xB7 \u8D1D\u963F\u7279\u4E3D\u5207\u7684\u4FBF\u6761"
-  context: "\u7B2C\u4E8C\u5E55\u5206\u6279\u6536\u4EF6\u3001\u4E66\u672C\u89E3\u8BFB\u4E0E\u6447\u94C3\u8C03\u6863\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 3fa28df6608b7f44db2e8d65e4be1b05, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,12 +22,14 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u5A01\u5C3C\u65AF\u4EE3\u8868\u8D1D\u963F\u7279\u4E3D\u5207\uFF0C\u5C01\u4EF6\u4E8C\u53F7\u3002\u91CC\u9762\u53EA\u6709\u4E00\u5F20\u6765\u81EA\u5370\u574A\u7684\u65E7\u4FBF\u6761\u3002"
+    text: "威尼斯代表贝阿特丽切找你，她带了一份文件来。"
   - speaker: {fileID: 11400000, guid: 3fa28df6608b7f44db2e8d65e4be1b05, type: 2}
-    text: "\u6211\u67E5\u8FD9\u4EF6\u4E8B\u5DF2\u7ECF\u516D\u5929\u3002\u660E\u65E9\u662F\u59D4\u5458\u4F1A\u7ED9\u6211\u7684\u6700\u540E\u671F\u9650\u3002"
+    text: "你就是卢卡大师吧？我调查这个事情已经几天了，你的一个行会同事给了我一张字条。"
   - speaker: {fileID: 11400000, guid: 3fa28df6608b7f44db2e8d65e4be1b05, type: 2}
-    text: "\u5370\u5237\u5320\u7559\u4E86\u4E00\u4E32\u6570\u5B57\u3002\u6211\u6CA1\u6709\u4ED6\u7528\u7684\u7248\u672C\u3002\u4F60\u684C\u4E0A\u7684\u4E66\uFF0C\u4E5F\u8BB8\u80FD\u89E3\u91CA\u5B83\u3002"
+    text: "他不想当证人牵扯进来，写的密码。你应该能够破解它。"
+  - speaker: {fileID: 11400000, guid: 3fa28df6608b7f44db2e8d65e4be1b05, type: 2}
+    text: "我差不多知道里面会写什么，但是我的立场让我不能跟进这个线索了。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u628A\u4FBF\u6761\u7ED9\u6211\u3002\u6211\u4F1A\u6838\u5BF9\u7248\u672C\u3002"
+    text: "那把便条给我吧，我会自己确认的。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u5408\u4E0A\u89C2\u5BDF\u7A97\u540E\uFF0C\u6211\u628A\u5C01\u5305\u4ECE\u4F20\u7269\u8231\u9001\u8FDB\u53BB\u3002"
+    text: "威尼斯代表带来的资料登记好了，我给你送进去。"

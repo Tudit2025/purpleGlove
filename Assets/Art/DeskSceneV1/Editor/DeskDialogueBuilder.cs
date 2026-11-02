@@ -34,9 +34,11 @@ namespace PurpleGlove.Editor
             var speakers = BuildSpeakers();
             var font = AssetDatabase.LoadAssetAtPath<Font>(DeskSceneBuilder.Root + "/Fonts/SourceHanSerifCN-Regular.otf");
             if (!font) throw new InvalidOperationException("Missing Chinese dialogue font.");
+            var dialogueFont = AssetDatabase.LoadAssetAtPath<Font>(DeskSceneBuilder.Root + "/Fonts/YinPinZhuSong.ttf");
+            if (!dialogueFont) throw new InvalidOperationException("Missing YinPin ZhuSong dialogue font.");
             Add<SceneInputGate>(camera.gameObject);
             Add<DialogueVoice>(camera.gameObject);
-            Add<DialogueOverlay>(camera.gameObject).font = font;
+            Add<DialogueOverlay>(camera.gameObject).font = dialogueFont;
             var controller = Add<DialogueController>(camera.gameObject);
             controller.speakers = SpeakerIds.Select(id => speakers[id]).ToArray();
             controller.events = BuildEvents(speakers);
@@ -168,12 +170,13 @@ namespace PurpleGlove.Editor
                     L("luca", "请把编号留下，我会先检查封口。"),
                     L("clerk", "若要调档，把检索单送回投递口。"),
                     L("luca", "在核验完成前，这扇门保持封闭。")),
-                Event("beatrice", "02 · 第七号封档", "第二幕：贝阿特丽切给出可核验的档案方向。", false, s["beatrice"], 2,
-                    L("clerk", "威尼斯代表贝阿特丽切，封件二号。里面只有一张来自印坊的旧便条。"),
-                    L("beatrice", "我查这件事已经六天。明早是委员会给我的最后期限。"),
-                    L("beatrice", "印刷匠留了一串数字。我没有他用的版本。你桌上的书，也许能解释它。"),
-                    L("luca", "把便条给我。我会核对版本。"),
-                    L("clerk", "合上观察窗后，我把封包从传物舱送进去。")),
+                Event("beatrice", "02 · 第五十七号封档", "第二幕：贝阿特丽切给出可核验的档案方向。", false, s["beatrice"], 2,
+                    L("clerk", "威尼斯代表贝阿特丽切找你，她带了一份文件来。"),
+                    L("beatrice", "你就是卢卡大师吧？我调查这个事情已经几天了，你的一个行会同事给了我一张字条。"),
+                    L("beatrice", "他不想当证人牵扯进来，写的密码。你应该能够破解它。"),
+                    L("beatrice", "我差不多知道里面会写什么，但是我的立场让我不能跟进这个线索了。"),
+                    L("luca", "那把便条给我吧，我会自己确认的。"),
+                    L("clerk", "威尼斯代表带来的资料登记好了，我给你送进去。")),
                 Event("charles", "03 · 具名否认", "第三幕：正式否认仍需与具体文件相互核对。", false, s["clerk"], 1,
                     L("clerk", "法国代表夏尔已经登记，获准就命令来源答复。"),
                     L("charles", "法国没有签发这道越境命令。"),

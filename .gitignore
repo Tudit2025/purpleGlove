@@ -10,6 +10,10 @@
 # Local Unity validation logs (reports and screenshots remain versioned).
 /output/**/*.log
 
+# Python-generated caches from local asset and validation tools.
+__pycache__/
+*.py[cod]
+
 # Build output.
 /[Bb]uild/
 /[Bb]uilds/

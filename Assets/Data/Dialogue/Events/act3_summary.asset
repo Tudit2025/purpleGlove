@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act3_summary
   title: "\u7B2C\u4E09\u5E55 \xB7 \u5362\u5361\u5E55\u672B\u72EC\u767D"
-  context: "doc/ph-revised.md \u7B2C\u4E09\u5E55\uFF1A\u660E\u6587\u8FD8\u539F\u7B7E\u540D\u3001\u590F\u5C14\u8865\u5145\u51ED\u6761\u3001\u6447\u94C3\u8C03\u6863\u3001\u4E24\u6B21\u6765\u8BBF\u3001\u684C\u524D\u72EC\u767D\uFF0C\u968F\u540E\u8FDB\u5165\u7B2C\u56DB\u5E55\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 0}
   arrivalSound: {fileID: 0}
@@ -22,8 +22,8 @@ MonoBehaviour:
   arrivalDelay: 0.1
   lines:
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u5E08\u7236\u8BBE\u8BA1\u8FC7\u8FD9\u5957\u5BC6\u7801\u3002"
+    text: "确实是师傅做的军情译录和加密，没人提醒他这个法文件也不是原件吗？"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u5E08\u7236\u7B7E\u8FC7\u8FD9\u5F20\u5C01\u9762\u3002"
+    text: "难道我想的是错的，换档的事情其实没问题？只有档案到了才能确定了。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u8FD9\u4E24\u4EF6\u4E8B\u662F\u771F\u7684\u3002\u6CD5\u56FD\u4F1A\u4E0D\u4F1A\u8D8A\u5883\uFF0C\u8FD8\u6CA1\u6709\u56E0\u6B64\u53D8\u771F\u3002"
+    text: "米兰来的人很急，不知道后面还会做什么。"

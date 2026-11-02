@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act6_transfer_report
   title: "\u7B2C\u516D\u5E55 \xB7 \u6682\u505C\u8F6C\u62BC\u4E0E\u539F\u4EF6\u4EA4\u63A5"
-  context: "doc/ph-revised.md \u7B2C\u516D\u5E55\uFF1A\u6240\u6709\u53F0\u8BCD\u901A\u8FC7\u63A2\u89C6\u53E3\uFF0C\u5728\u4E3B\u95E8\u5F00\u542F\u524D\u5B8C\u6210\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,20 +22,10 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u516D\u70B9\u4E86\u3002\u5171\u540C\u5BA1\u67E5\u7684\u53C2\u4E0E\u786E\u8BA4\u548C\u6682\u505C\u8F6C\u62BC\u56DE\u6267\u90FD\u5DF2\u9001\u5230\u3002\u9A6C\u6CF0\u5965\u4ECD\u5728\u5723\u9A6C\u4E01\u5317\u95E8\u5019\u6838\u3002"
-    choices: []
-  - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u539F\u4EF6\u4EA4\u8D70\u4E86\uFF0C\u526F\u672C\u4E5F\u80FD\u62E6\u4E0B\u8FD9\u6B21\u8F6C\u62BC\uFF1F"
-    choices: []
+    text: "卢卡，我回来了。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u8BC1\u636E\u526F\u672C\u4FDD\u7559\u4E86\u6765\u6E90\u4E89\u8BAE\u3002\u5A01\u5C3C\u65AF\u4E0E\u6CD5\u56FD\u5DF2\u5177\u540D\u53C2\u52A0\uFF0C\u76D1\u62BC\u4E66\u8BB0\u5B98\u786E\u8BA4\u6682\u505C\uFF1B\u7CAE\u7AD9\u8868\u51B3\u4E5F\u5DF2\u6682\u505C\u3002"
-    choices: []
+    text: "威尼斯人和法国人看到你的核验报告要求暂停表决，卡拉法已被要求留候调查。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u539F\u4EF6\u53E6\u6709\u5177\u540D\u4EA4\u63A5\u51ED\u636E\uFF0C\u767B\u8BB0\u53BB\u5411\u662F\uFF1A{\u539F\u4EF6}\u3002"
-    choices: []
-  - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u628A\u8FD9\u4E9B\u7ED3\u679C\u7559\u4E0B\u3002"
-    choices: []
+    text: "所有人都知道了原件换版的事情，现在原件按你的申请已经送走了。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u6211\u5408\u4E0A\u63A2\u89C6\u53E3\uFF0C\u5C06\u5904\u7406\u56DE\u6267\u548C\u4EA4\u63A5\u767B\u8BB0\u5408\u9875\u9001\u8FDB\u53BB\u3002"
-    choices: []
+    text: "我还带了一些回执文件来，我给你送进去。"

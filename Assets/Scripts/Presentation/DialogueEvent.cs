@@ -11,6 +11,8 @@ namespace PurpleGlove
         {
             public DialogueSpeaker speaker;
             [TextArea(2, 4)] public string text;
+            [Tooltip("Complete after this reply instead of falling through into another choice's reply.")]
+            public bool endEvent;
             public Choice[] choices = Array.Empty<Choice>();
             public bool HasChoices => choices != null && choices.Length > 0;
         }

@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act1_summary
   title: "\u7B2C\u4E00\u5E55 \xB7 \u5362\u5361\u684C\u524D\u603B\u7ED3"
-  context: "doc/ph-revised.md \u7B2C\u4E00\u5E55\u5E55\u672B\uFF1BFirstActFlow \u6309\u7559\u5B58\u3001\u6572\u95E8\u3001\u4EA4\u8C08\u3001\u684C\u524D\u603B\u7ED3\u7684\u987A\u5E8F\u89E6\u53D1\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 0}
   arrivalSound: {fileID: 0}
   arrivalDelay: 0.1
+  closeShutterOnComplete: 1
   lines:
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u5E08\u7236\u6CA1\u6709\u8BF4\u81EA\u5DF1\u65E0\u8F9C\u3002\u4ED6\u53EA\u8BA9\u6211\u7559\u4E0B\u539F\u4EF6\u3002"
+    text: "师傅让我留下原件，是指还没送来的军令吗？"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u8BFB\u5F97\u901A\uFF0C\u53EA\u80FD\u8BF4\u660E\u5B57\u6BCD\u6392\u5BF9\u4E86\uFF0C\u4E0D\u80FD\u8BC1\u660E\u8FD9\u4EFD\u6587\u4EF6\u662F\u771F\u7684\u3002"
+    text: "文件还没到米兰就派人来催了。师傅在他们手里。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u539F\u4EF6\u7559\u597D\u3002\u63A5\u4E0B\u6765\uFF0C\u5148\u67E5\u6E05\u90A3\u672C\u4E03\u74E3\u82B1\u7684\u65B0\u7248\u3002"
+    text: "七瓣花应该是指新装订的祷言集，特别装订版，显然是当作密码本用的。"

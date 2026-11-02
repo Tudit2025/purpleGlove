@@ -34,17 +34,17 @@ namespace PurpleGlove.Editor
                 sequence.arrivalDelay = 0.65f;
                 DialogueEvent.Line L(DialogueSpeaker speaker, string text) => new DialogueEvent.Line { speaker = speaker, text = text };
                 sequence.lines = new[] {
-                    L(luca, "我叫卢卡，是马泰奥·里奇的学生。"),
-                    L(luca, "我跟他学了七年密码，也替行会处理过往来的密信。"),
-                    L(luca, "前几天，师父去替米兰公爵办事，没有回来。公爵的人说，他得留下配合核验。连留在哪里，也不肯告诉我。"),
-                    L(luca, "街上已经有人说，他替公爵改过军令。"),
-                    L(luca, "现在，行会收到一份密文，声称法国即将越境。米兰要凭它接管威尼斯的边境粮站。明早六点，他们就会在会上作决定。"),
-                    L(luca, "这份密文用的是师父编的密码。我参与整理过那套表，所以行会让我来还原文字、查清来路。三方都会复核我的结果。"),
-                    L(luca, "我想证明那些传言是错的。"),
-                    L(luca, "可我还没有见过那份文件，也没听到师父亲口解释。"),
-                    L(clerk, "卢卡，房间备好了。"),
-                    L(clerk, "进去以后封门，明早六点开封。期间文件走侧口，每次交接都有登记。没查清的，你可以不签。"),
-                    L(luca, "让我进去。") };
+                    L(luca, "我是解密大师马泰奥·里奇的学生。"),
+                    L(luca, "我们为印刷行会工作，翻译书本，处理来往密信。"),
+                    L(luca, "前几天，师父去替米兰公爵办事，结果一直没有回来，下落不明。"),
+                    L(luca, "街上有人说他背叛了行会，为公爵伪造书信。"),
+                    L(luca, "现在，行会收到一个紧急核验委托，调查一份许多势力牵扯的军令。米兰要凭它接管威尼斯的边境粮站。"),
+                    L(luca, "米兰、法兰西、威尼斯共同委托，要求行会确认密文明文匹配，流程来路可靠。明早六点核验结果将作为他们表决的凭据。"),
+                    L(luca, "我作为替补“解密大师”，被调来处理这个委托。"),
+                    L(luca, "我一定要弄清楚事情的真相，把师傅救出来。"),
+                    L(clerk, "卢卡大师，房间准备好了。"),
+                    L(clerk, "根据流程，你进去之后门会贴封条，届时你不能自由出入了。到明天表决结束才会开门。"),
+                    L(luca, "好的，我要进去了。") };
                 AssetDatabase.CreateAsset(sequence, path);
             }
             var curtain = camera.GetComponent<ActTransitionOverlay>();

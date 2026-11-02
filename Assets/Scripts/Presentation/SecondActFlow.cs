@@ -10,7 +10,8 @@ namespace PurpleGlove
         public enum Phase { WaitingForCipher, CuePending, Cue, BellReady, RequestPending, Request,
             RetrievalDelay, ArrivalPending, Arrival, DeliveryPending, Delivery, Complete, Suspended,
             WaitingForPigpen, ReturnPending, Returning, Summary, TransitionPending, Transition,
-            ThirdIntroPending, ThirdIntro, ThirdDeliveryPending, ThirdDelivery }
+            ThirdIntroPending, ThirdIntro, ThirdDeliveryPending, ThirdDelivery,
+            OriginalBellReady, OriginalRequestPending, OriginalRequest }
         public PlaintextArchiveController records;
         public ActArchiveController archive;
         public DialogueController dialogue;
@@ -56,7 +57,7 @@ namespace PurpleGlove
         {
             if (!Ready) return;
             foreach (var book in books) if (book) book.enabled = archive.DeskAct == 2 && archive.IsAvailable(2);
-            if (archive.CurrentAct == 2) bell.SetRingAllowed(State == Phase.BellReady);
+            if (archive.CurrentAct == 2) bell.SetRingAllowed(State == Phase.BellReady || State == Phase.OriginalBellReady);
             if (Application.isFocused && !gate.ConsoleOpen) AdvanceTime(Time.unscaledDeltaTime);
         }
         void AdvanceTime(float seconds)
@@ -89,6 +90,9 @@ namespace PurpleGlove
         }
         void Rang()
         {
+            if (archive.CurrentAct != 2) return;
+            if (State == Phase.OriginalBellReady)
+            { bell.SetRingAllowed(false); State = Phase.OriginalRequestPending; return; }
             if (State != Phase.BellReady) return;
             bell.SetRingAllowed(false); State = Phase.RequestPending;
         }
@@ -127,7 +131,9 @@ namespace PurpleGlove
         public bool Resume()
         {
             if (!isActiveAndEnabled || !Ready || State != Phase.Suspended) return false;
-            State = resumeAt; return true;
+            State = resumeAt;
+            bell.SetRingAllowed(State == Phase.BellReady || State == Phase.OriginalBellReady);
+            return true;
         }
         void OnDisable()
         {
