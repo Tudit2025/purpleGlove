@@ -6,7 +6,7 @@ namespace PurpleGlove
     public sealed partial class CipherWorkbench
     {
         const string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        bool caesarConfigured, applyingDecodedText, decoderOwnsIme;
+        bool caesarConfigured, applyingDecodedText, decoderOwnsIme, affinePlaintextInput;
         IMECompositionMode decoderPreviousIme;
         Transform[] letterStacks;
         Vector3[] keyboardPositions, stackTargets;
@@ -89,8 +89,9 @@ namespace PurpleGlove
 
         void RefreshKeyboardMapping()
         {
-            // Pigpen is read from the reference card; the keyboard records the player's plaintext as-is.
-            bool ready = BookTool || ActiveTool == Tool.Pigpen;
+            // Reference cards and rail transposition are read manually; record their plaintext as-is.
+            bool ready = BookTool || ActiveTool == Tool.Pigpen || ActiveTool == Tool.RailFence;
+            affinePlaintextInput = false;
             string mapping = Alphabet;
             if ((ActiveTool == Tool.Caesar && caesarConfigured) || (ActiveTool == Tool.SaintCyr && Keyword.Length > 0))
             {
@@ -99,7 +100,15 @@ namespace PurpleGlove
                 for (int i = 0; i < 26; i++) letters[i] = Alphabet[Wrap(i - shift)];
                 mapping = new string(letters); ready = true;
             }
-            else if (ActiveTool == Tool.Affine) ready = TryBuildAffineMapping(Affine, out mapping);
+            else if (ActiveTool == Tool.Affine)
+            {
+                ready = TryBuildAffineMapping(Affine, out mapping);
+                // The preset A-Z plaintext row is not a configured substitution table.
+                affinePlaintextInput = true;
+                for (int i = 26; i < Affine.Length; i++)
+                    if (!string.IsNullOrEmpty(Affine[i])) { affinePlaintextInput = false; break; }
+                ready |= affinePlaintextInput;
+            }
             KeyboardDecodeReady = ready; KeyboardMapping = mapping;
             if (letterStacks != null)
                 for (int key = 0; key < 26; key++)
@@ -124,12 +133,14 @@ namespace PurpleGlove
             if (!trayInscription) return;
             string text = originalTrayInscription;
             if (BookTool) text = "书本 · 页—行—字母，直接键入明文 · Esc 放回";
-            else if (editingKeyword || editingCell >= 0) text = "Enter 完成设置 · 再键入密文";
+            else if (editingKeyword || editingCell >= 0) text = "Enter 完成填写 · 返回字母键盘";
             else if (ActiveTool == Tool.Caesar) text = caesarConfigured ? "凯撒 · 键入密文 → 明文" : "转动密码盘后可键入密文";
             else if (ActiveTool == Tool.Pigpen) text = "猪圈 · 对照图形，直接键入明文";
             else if (ActiveTool == Tool.SaintCyr) text = Keyword.Length > 0
                 ? "密钥 " + (KeywordIndex + 1) + "/" + Keyword.Length + " · 键入密文 → 明文" : "填写密钥后可键入密文";
-            else if (ActiveTool == Tool.Affine) text = KeyboardDecodeReady ? "仿射 · 键入密文 → 明文" : "填满两行，每行 A–Z 不重复";
+            else if (ActiveTool == Tool.Affine) text = affinePlaintextInput ? "仿射 · 表格为空，直接键入明文"
+                : KeyboardDecodeReady ? "仿射 · 键入密文 → 明文" : "填满两行，每行 A–Z 不重复";
+            else if (ActiveTool == Tool.RailFence) text = "栅栏 · 交错读两行，直接键入明文";
             if (trayInscription.text != text) trayInscription.text = text;
         }
 

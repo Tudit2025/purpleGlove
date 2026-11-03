@@ -117,7 +117,7 @@ public static class CipherWorkbenchValidation
             Check(Vector3.Angle(ia, od) < 0.01f, "Caesar rotates in wrong direction");
             work.SelectTool(CipherWorkbench.Tool.SaintCyr); work.SetKeyword(" s-o i e! ");
             Check(work.Keyword == "SOIE" && work.SlideShift == 18, "Keyword filtering/alignment");
-            string cipher = "XFIRUSEMDZKVGGAELRIAF", expected = "FRANCEWILLCROSSATDAWN";
+            string cipher = "XFIRUSEMDZKVGGASFXCRWSQKZHMIF", expected = "FRANCEWILLCROSSONJUNEEIGHTEEN";
             for (int i = 0; i < cipher.Length; i++)
             {
                 Check((char)('A' + CipherWorkbench.Wrap(cipher[i] - 'A' - work.SlideShift)) == expected[i], "Vigenere alignment at " + i);

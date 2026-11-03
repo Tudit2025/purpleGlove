@@ -20,7 +20,7 @@ EVENT_ROOT = ROOT / "Assets/Data/Dialogue/Events"
 SOURCE = ROOT / "doc/ph-revised.md"
 TITLES = ["第零幕 · 门槛", "第一幕 · 留下原件", "第二幕 · 第五十七号封档", "第三幕 · 读得通的谎言",
           "第四幕 · 名字留在纸上", "第五幕 · 落笔与交卷", "第六幕 · 尾声"]
-TIMES = ["晚八点前", "晚八点至晚十点", "晚十点至午夜", "午夜至凌晨三点", "凌晨三点至五点", "清晨五点至交卷", "清晨六点；重逢支线至六点半"]
+TIMES = ["六月十五日晚八点前", "六月十五日晚八点至晚十点", "六月十五日晚十点至十六日零点", "六月十六日零点至凌晨三点", "六月十六日凌晨三点至五点", "六月十六日清晨五点至交卷", "六月十六日清晨六点；重逢支线至六点半"]
 FLOWS = ["PrologueSequence.cs", "FirstActFlow.cs", "SecondActFlow.cs、SecondActEnding.cs", "ThirdActFlow.cs",
          "FourthActOpening.cs、FourthActFlow.cs", "FifthActFlow.cs", "EpilogueFlow.cs"]
 
@@ -59,7 +59,7 @@ STAGES = [
     ],
     [
         ("正式核验件到达", "第三幕淡入完成。", "敲门、开观察窗，执事报午夜、案号与批号。", "act3_arrival",
-         "关窗后收件：译录委托、军情密文、法文原文、核验表。核验表收入立夹。解出并留存 FRANCE WILL CROSS AT DAWN，再打开核验表，签署明文还原。"),
+         "关窗后收件：译录委托、军情密文、法文原文、核验表。核验表收入立夹。解出并留存 FRANCE WILL CROSS ON JUNE EIGHTEEN，再打开核验表，签署明文还原。"),
         ("夏尔介入", "玩家完成明文还原签名，核验表收回。", "门边交谈；为何不公开的追问已在当前固定对话中。", "act3_charles",
          "关窗后单独投递夏尔的补充凭条；点击接收后才取得这张纸。"),
         ("书记官要求归还原件", "夏尔凭条实际接收后等待两秒。", "执事介绍米兰代表，书记官隔门施压，卢卡拒绝提前交走原件。原始档案已在第二幕申请。", "act3_secretary",

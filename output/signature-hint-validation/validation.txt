@@ -1,0 +1,2 @@
+PASS: 82 checks. Unity 2022.3.62f2 Play Mode.
+Saved scene and builder wiring; Luca glyphs; unsolved/partial plaintext; common completion before hint; console/inspection gates; camera preserved; cancellation and resume; hint unlocks manual signature; no repeat after recall; signing while reviewing old dossier; Charles waits for form return and leads to supplement pickup.

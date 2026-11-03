@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "checks": 72,
+  "clips": 9,
+  "results": [
+    {
+      "id": "phoenix",
+      "loop_seconds": 84.25,
+      "jump": 0.004333628345591603,
+      "local_step_p999": 0.009338755455183489,
+      "rms_dbfs": -23.000000055657775,
+      "seam_window_ratio": 1.5491685691486174
+    },
+    {
+      "id": "anabasis",
+      "loop_seconds": 48.5,
+      "jump": 0.008056886501663266,
+      "local_step_p999": 0.011505478072450948,
+      "rms_dbfs": -23.90333408850999,
+      "seam_window_ratio": 1.557467582842695
+    },
+    {
+      "id": "unraveling",
+      "loop_seconds": 54.5,
+      "jump": 0.005371257667775506,
+      "local_step_p999": 0.020111789300210483,
+      "rms_dbfs": -23.000000045735778,
+      "seam_window_ratio": 1.4151874937120745
+    },
+    {
+      "id": "hiraeth",
+      "loop_seconds": 48.0,
+      "jump": 0.0033875545518356753,
+      "local_step_p999": 0.011535996581926944,
+      "rms_dbfs": -23.000000283404795,
+      "seam_window_ratio": 1.5205735588232752
+    },
+    {
+      "id": "undertow",
+      "loop_seconds": 48.0,
+      "jump": 0.0010376293221839028,
+      "local_step_p999": 0.011200384533219306,
+      "rms_dbfs": -23.0000001478651,
+      "seam_window_ratio": 2.331456966571343
+    }
+  ],
+  "listening_review": "Not performed by a human. See two-seam previews and source-time manifest."
+}

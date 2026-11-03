@@ -37276,7 +37276,7 @@ Transform:
   m_GameObject: {fileID: 534782264}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.0348995, z: -0, w: 0.99939084}
-  m_LocalPosition: {x: -0.25103742, y: 0.815, z: -0.619067}
+  m_LocalPosition: {x: 0.218891, y: 0.815, z: -0.610864416}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -38777,7 +38777,7 @@ Transform:
   m_GameObject: {fileID: 550996793}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.0348995, z: -0, w: 0.99939084}
-  m_LocalPosition: {x: -0.015462374, y: 0.815, z: -0.6499604}
+  m_LocalPosition: {x: 0.219501834, y: 0.815, z: -0.645859085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -40562,7 +40562,7 @@ Transform:
   m_GameObject: {fileID: 587775799}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.008726535, z: -0, w: 0.9999619}
-  m_LocalPosition: {x: 0.21284463, y: 0.815, z: -0.5509608}
+  m_LocalPosition: {x: -0.247085323, y: 0.815, z: -0.558988923}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -56815,7 +56815,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796932982}
-  m_Text: "\u6CD5\u56FD\u5C06\u5728\u9ECE\u660E\u8D8A\u5883\u3002"
+  m_Text: "\u6CD5\u56FD\u5C06\u4E8E\u516D\u6708\u5341\u516B\u65E5\u8D8A\u5883\u3002"
   m_OffsetZ: 0
   m_CharacterSize: 0.0024
   m_LineSpacing: 1.22
@@ -59860,7 +59860,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844639813}
-  m_Text: "\u81F4\u884C\u4F1A\u6838\u9A8C\u4EBA\u5362\u5361\uFF1A\n\u519B\u60C5\u6B63\u6587\u4E0E\u9644\u4EF6\u4ECA\u665A\u665A\u4E9B\u65F6\u5019\u9001\u8FBE\u3002\n\u8BF7\u4E8E\u660E\u6668\u516D\u70B9\u524D\u6838\u9A8C\u6587\u5B57\u53CA\u5176\u6765\u6E90\u3002\n\n\u82E5\u6CD5\u65B9\u8D8A\u5883\u519B\u60C5\u5C5E\u5B9E\uFF0C\u6668\u4F1A\u5C06\u8868\u51B3\n\u7531\u7C73\u5170\u519B\u961F\u63A5\u7BA1\u8FB9\u5883\u7CAE\u7AD9\u3002\u8BF7\u5206\u522B\n\u586B\u5199\u660E\u6587\u8FD8\u539F\u4E0E\u6765\u6E90\u786E\u8BA4\uFF0C\u4E0D\u5F97\u6DF7\u7B7E\u3002\n\n\u5361\u62C9\u6CD5\u53EF\u4EE3\u672C\u516C\u7235\u9886\u53D6\u5370\u52A1\u6750\u6599\uFF0C\n\u65E0\u6743\u66FF\u6CD5\u65B9\u786E\u8BA4\u519B\u4EE4\u3002\u4ED6\u5E38\u6234\u5DE6\u624B\n\u7D2B\u624B\u5957\uFF0C\u9886\u53D6\u65F6\u4ECD\u987B\u6838\u5BF9\u767B\u8BB0\u4E0E\u7B7E\u6837\u3002"
+  m_Text: "\u81F4\u884C\u4F1A\u6838\u9A8C\u4EBA\u5362\u5361\uFF1A\n\u519B\u60C5\u6B63\u6587\u4E0E\u9644\u4EF6\u4ECA\u665A\u665A\u4E9B\u65F6\u5019\u9001\u8FBE\u3002\n\u8BF7\u4E8E\u516D\u6708\u5341\u516D\u65E5\u516D\u70B9\u524D\u6838\u9A8C\u6587\u5B57\u53CA\u6765\u6E90\u3002\n\n\u82E5\u6CD5\u65B9\u8D8A\u5883\u519B\u60C5\u5C5E\u5B9E\uFF0C\u6668\u4F1A\u5C06\u8868\u51B3\n\u7531\u7C73\u5170\u519B\u961F\u63A5\u7BA1\u8FB9\u5883\u7CAE\u7AD9\u3002\u8BF7\u5206\u522B\n\u586B\u5199\u660E\u6587\u8FD8\u539F\u4E0E\u6765\u6E90\u786E\u8BA4\uFF0C\u4E0D\u5F97\u6DF7\u7B7E\u3002\n\n\u5361\u62C9\u6CD5\u53EF\u4EE3\u672C\u516C\u7235\u9886\u53D6\u5370\u52A1\u6750\u6599\uFF0C\n\u65E0\u6743\u66FF\u6CD5\u65B9\u786E\u8BA4\u519B\u4EE4\u3002\u4ED6\u5E38\u6234\u5DE6\u624B\n\u7D2B\u624B\u5957\uFF0C\u9886\u53D6\u65F6\u4ECD\u987B\u6838\u5BF9\u767B\u8BB0\u4E0E\u7B7E\u6837\u3002"
   m_OffsetZ: 0
   m_CharacterSize: 0.0019495143
   m_LineSpacing: 1.22
@@ -61719,9 +61719,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870388491}
-  m_Text: XFIRUSEMDZKVGGAELRIAF
+  m_Text: XFIRUSEMDZKVGGASFXCRWSQKZHMIF
   m_OffsetZ: 0
-  m_CharacterSize: 0.0023333333
+  m_CharacterSize: 0.00220183486
   m_LineSpacing: 1.22
   m_Anchor: 1
   m_Alignment: 1
@@ -90443,7 +90443,7 @@ Transform:
   m_GameObject: {fileID: 1252354843}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.008726535, z: -0, w: 0.9999619}
-  m_LocalPosition: {x: 0.14822887, y: 0.815, z: -0.2870483}
+  m_LocalPosition: {x: -0.256709449, y: 0.815, z: -0.294116546}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -97843,7 +97843,7 @@ Transform:
   m_GameObject: {fileID: 1371770777}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.008726535, z: -0, w: 0.9999619}
-  m_LocalPosition: {x: -0.29344937, y: 0.815, z: -0.19474259}
+  m_LocalPosition: {x: 0.226471443, y: 0.815, z: -0.185667359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -99367,7 +99367,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386992118}
-  m_Text: "Les troupes fran\xE7aises franchiront\nla fronti\xE8re \xE0 l'aube."
+  m_Text: "Les troupes fran\xE7aises franchiront\nla fronti\xE8re le 18 juin."
   m_OffsetZ: 0
   m_CharacterSize: 0.0025887953
   m_LineSpacing: 1.22
@@ -105520,6 +105520,7 @@ MonoBehaviour:
   matFocusFieldOfView: 48
   decodeFocusAnchor: {fileID: 1409461306}
   decodeDetailAnchor: {fileID: 231680571}
+  decodeFocusHorizontalOffset: -0.24
   decodeFocusHeight: 1.68
   decodeFocusFieldOfView: 48
   currentView: 0
@@ -105729,6 +105730,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e44652d113095b447891160876830aae, type: 2}
   - {fileID: 11400000, guid: 56e1a30b04518fb409b027e05ea2b584, type: 2}
   - {fileID: 11400000, guid: fb595b5042e96f440a7a1f013862f7d2, type: 2}
+  - {fileID: 11400000, guid: 1188d0af2d2549db9c7f42741f647a54, type: 2}
   - {fileID: 11400000, guid: 420c5622611986f4e9e46d85647843eb, type: 2}
   - {fileID: 11400000, guid: a0bbea2351a5b9a47826a8dde96c4830, type: 2}
   - {fileID: 11400000, guid: 79de95f8c09ab4148a4b7988c9303a7a, type: 2}
@@ -106114,7 +106116,7 @@ MonoBehaviour:
     plaintextInk: {fileID: 140510541}
   - act: 3
     id: vigenere
-    answer: FRANCE WILL CROSS AT DAWN
+    answer: FRANCE WILL CROSS ON JUNE EIGHTEEN
     document: {fileID: 1399960214}
     sourceDocument: {fileID: 534782267}
     plaintextInk: {fileID: 1885186163}
@@ -106210,6 +106212,7 @@ MonoBehaviour:
   delivery: {fileID: 1480858246}
   bell: {fileID: 1166033342}
   story: {fileID: 1480858247}
+  signatureHint: {fileID: 11400000, guid: 1188d0af2d2549db9c7f42741f647a54, type: 2}
   charles: {fileID: 11400000, guid: 420c5622611986f4e9e46d85647843eb, type: 2}
   secretary: {fileID: 11400000, guid: a0bbea2351a5b9a47826a8dde96c4830, type: 2}
   carafa: {fileID: 11400000, guid: 79de95f8c09ab4148a4b7988c9303a7a, type: 2}
@@ -146354,7 +146357,7 @@ Transform:
   m_GameObject: {fileID: 2032327829}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.008726535, z: -0, w: 0.9999619}
-  m_LocalPosition: {x: -0.24708532, y: 0.815, z: -0.5589889}
+  m_LocalPosition: {x: 0.212844617, y: 0.815, z: -0.550960816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -148458,7 +148461,7 @@ Transform:
   m_GameObject: {fileID: 2064706107}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.008726534, z: -0, w: 0.9999619}
-  m_LocalPosition: {x: 0.21889101, y: 0.815, z: -0.6108644}
+  m_LocalPosition: {x: -0.251037417, y: 0.815, z: -0.619067047}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -150448,7 +150451,7 @@ Transform:
   m_GameObject: {fileID: 2090939915}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.008726535, z: -0, w: 0.9999619}
-  m_LocalPosition: {x: -0.266995, y: 0.815, z: -0.5643372}
+  m_LocalPosition: {x: 0.232928833, y: 0.815, z: -0.555611007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

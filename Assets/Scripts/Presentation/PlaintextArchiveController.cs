@@ -74,21 +74,27 @@ namespace PurpleGlove
                 removed = false;
                 foreach (var entry in entries)
                 {
-                    string answer = Normalize(entry.answer);
-                    if (entry.act != act || !entry.saved || answer.Length == 0 || !remaining.StartsWith(answer, StringComparison.Ordinal)) continue;
-                    remaining = remaining.Substring(answer.Length); consumed += answer.Length; removed = true; break;
+                    if (entry.act != act || !entry.saved) continue;
+                    string written = Normalize(entry.writtenText);
+                    int preferredLength = remaining.StartsWith(written, StringComparison.Ordinal) ? written.Length : 0;
+                    if (!TryMatchNormalized(remaining, Normalize(entry.answer), true, out int length, preferredLength)) continue;
+                    remaining = remaining.Substring(length); consumed += length; removed = true; break;
                 }
             } while (removed && remaining.Length > 0);
 
             foreach (var entry in entries)
             {
                 if (entry.act != act || entry.saved || (entry.sourceDocument && !archive.IsDocumentAvailable(act, entry.sourceDocument)) || string.IsNullOrEmpty(entry.answer)
-                    || remaining != Normalize(entry.answer) || !entry.document || !entry.plaintextInk) continue;
+                    || !TryMatchNormalized(remaining, Normalize(entry.answer), false, out _) || !entry.document || !entry.plaintextInk) continue;
                 // Register the original scene object so shelving retains its content and identity.
                 entry.plaintextInk.text = WrapAnswer(entry.answer);
                 if (!archive.RegisterDocument(act, entry.document)) { entry.plaintextInk.text = ""; continue; }
                 entry.saved = true;
                 entry.writtenText = AfterLetters(observed, consumed).Trim();
+                // Clear both the visible sheet and its cached draft before story listeners run.
+                workbench.SetPlaintext("");
+                drafts[act] = observed = "";
+                quietSeconds = 0;
                 plaintextPreserved.Invoke(act);
                 break;
             }
@@ -102,7 +108,6 @@ namespace PurpleGlove
         internal void PrepareCompletedActForTesting(int act)
         {
             if (act < 1 || act > 4) return;
-            var draft = new StringBuilder();
             foreach (var entry in entries)
             {
                 if (entry.act != act) continue;
@@ -110,10 +115,8 @@ namespace PurpleGlove
                     throw new InvalidOperationException("Cannot prepare plaintext: " + entry.id);
                 entry.plaintextInk.text = WrapAnswer(entry.answer);
                 entry.saved = true; entry.writtenText = entry.answer;
-                if (draft.Length > 0) draft.Append('\n');
-                draft.Append(entry.answer);
             }
-            drafts[act] = draft.ToString(); announced[act] = true;
+            drafts[act] = ""; announced[act] = true;
         }
 
         public static string Normalize(string text)
@@ -122,6 +125,46 @@ namespace PurpleGlove
             foreach (char c in text ?? "") if (char.IsLetterOrDigit(c)) result.Append(char.ToUpperInvariant(c));
             return result.ToString();
         }
+
+        public static bool MatchesAnswer(string text, string answer)
+            => TryMatchNormalized(Normalize(text), Normalize(answer), false, out _);
+
+        static bool TryMatchNormalized(string text, string answer, bool prefix, out int matchedLength, int preferredLength = 0)
+        {
+            matchedLength = 0;
+            // Each substituted, missing or extra letter/digit costs one edit. Round down so
+            // the total never exceeds 10% of the normalized answer, even for short answers.
+            int allowed = answer.Length / 10;
+            int minimumLength = answer.Length - allowed;
+            if (answer.Length == 0 || text.Length < minimumLength
+                || (!prefix && text.Length > answer.Length + allowed)) return false;
+            int length = prefix ? Math.Min(text.Length, answer.Length + allowed) : text.Length;
+            var previous = new int[length + 1];
+            var current = new int[length + 1];
+            for (int j = 0; j <= length; j++) previous[j] = j;
+            for (int i = 1; i <= answer.Length; i++)
+            {
+                current[0] = i;
+                int rowMinimum = current[0];
+                for (int j = 1; j <= length; j++)
+                {
+                    int substitution = previous[j - 1] + (answer[i - 1] == text[j - 1] ? 0 : 1);
+                    current[j] = Math.Min(substitution, Math.Min(previous[j] + 1, current[j - 1] + 1));
+                    rowMinimum = Math.Min(rowMinimum, current[j]);
+                }
+                if (rowMinimum > allowed) return false;
+                var swap = previous; previous = current; current = swap;
+            }
+            // Saved answers can contain errors too. Remove their best matching prefix before
+            // checking the next solution. On ties, retain the original submitted boundary
+            // when available; otherwise prefer the longer prefix.
+            int best = allowed + 1;
+            for (int j = prefix ? minimumLength : length; j <= length; j++)
+                if (previous[j] <= allowed && (previous[j] < best || (previous[j] == best && matchedLength != preferredLength)))
+                { best = previous[j]; matchedLength = j; }
+            return best <= allowed;
+        }
+
         static string AfterLetters(string text, int consumed)
         {
             int index = 0;

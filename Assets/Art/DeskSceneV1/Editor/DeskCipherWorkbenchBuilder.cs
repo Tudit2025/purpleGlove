@@ -116,6 +116,7 @@ namespace PurpleGlove.Editor
             var view = camera.GetComponent<DeskScenePreview>();
             view.decodeFocusAnchor = Child(root, "Decode camera anchor", V(0.96f, 0.802f, -0.16f));
             view.decodeDetailAnchor = work.mat;
+            view.decodeFocusHorizontalOffset = -0.24f;
             view.decodeFocusHeight = 1.68f; view.decodeFocusFieldOfView = 48;
             EditorUtility.SetDirty(view); EditorUtility.SetDirty(work);
             BuildPlaintextArchives(camera);

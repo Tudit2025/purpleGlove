@@ -1,5 +1,5 @@
 {
-  "source_commit": "d4e26606cc2056a699d00196af976475d452a822",
+  "source_commit": "b1c623ad9c2ed7848d9224c1b01efe964a2bedd4",
   "papers": 30,
   "originals": 19,
   "plaintext_records": 6,
@@ -9,15 +9,15 @@
   "runtime_snapshots": 20,
   "coverage_checks": 1223,
   "sources": {
-    "Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity": "1819607f55e43a8280e1fb3dc01fe605129e4922d6989bec3686042ad00b5e79",
-    "Assets/Scripts/Presentation/ThirdActVerification.cs": "1fded37d9527a3e7a0b74fdbae692bd3d06c30691c6d87fc0bff6c01879d52fb",
+    "Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity": "0e3b6e0abe7d72ceb088dd26227071c56aaf9d56e02f8fbf551a6fa4c23f24f2",
+    "Assets/Scripts/Presentation/ThirdActVerification.cs": "a5ec28d2c08f3fb208a8b421ecdd5ca9f46c7eafd29dafe2ef29c5eb07b37046",
     "Assets/Scripts/Presentation/FifthActDocument.cs": "e8e9cbbea2fc8b96f70ec2870df456fe5aca669225d23106866c9c8751bc3ce0",
     "Assets/Scripts/Presentation/FifthActFlow.cs": "4761ad0f8c223ed3fc59accdf00589c148726812aa807f7549a97cf2358e5550",
     "Assets/Scripts/Presentation/EpilogueFlow.cs": "af7f64823cef5ebe58855deefab449e95c1300953eb921a532d82704e541b8a1",
-    "Assets/Scripts/Presentation/PlaintextArchiveController.cs": "634310ac92824a84b6d17d0c9e72271e62598e810f9cb33408479ffeefc04700",
+    "Assets/Scripts/Presentation/PlaintextArchiveController.cs": "a23e172ea7df7e8bd8307b554464ff212ca1923242e8bfa7c542b2c8bcf48a58",
     "Assets/Art/DeskSceneV1/Editor/DeskNotebookBuilder.cs": "d369a15cba862c9acd59c9e443b5d41109636c3fef66c76664929fb38ef028a2",
-    "Assets/Art/DeskSceneV1/Editor/DeskSecondActBuilder.cs": "a08c9e4346ff1439fb98e3ac6865eae1494e3dbeb4bce6926659020ed32f51d1",
-    "output/document-text/scene-text.json": "a096a409293cb007e2bb9aace3bcaaed9896799055a92d7da13e5bfff668ed86"
+    "Assets/Art/DeskSceneV1/Editor/DeskSecondActBuilder.cs": "18ffaac0214bd554a1fc27ef6e04a4eec263abde4fe329e40045259766247658",
+    "output/document-text/scene-text.json": "8b7954c21ae2148739ccf4aa2fb9337cfda11516bdd1683eb5abcd224b8c8020"
   },
   "artifacts": [
     "doc/紫手套—流程文书全文.md",

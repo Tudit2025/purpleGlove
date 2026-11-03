@@ -23,6 +23,8 @@ namespace PurpleGlove
         [Header("Decoding mat (D)")]
         public Transform decodeFocusAnchor;
         public Transform decodeDetailAnchor;
+        [Tooltip("Horizontal camera offset at every tool zoom level; negative moves left toward the cipher papers.")]
+        public float decodeFocusHorizontalOffset = -0.24f;
         public float decodeFocusHeight = 1.06f;
         [Range(30, 80)] public float decodeFocusFieldOfView = 45;
         [SerializeField] View currentView;
@@ -142,6 +144,7 @@ namespace PurpleGlove
             {
                 Vector3 focus = decodeDetailAnchor ? Vector3.Lerp(decodeDetailAnchor.position, decodeFocusAnchor.position, (decodeZoom - 0.60f) / 0.40f)
                     : decodeFocusAnchor.position;
+                focus += decodeFocusAnchor.right * decodeFocusHorizontalOffset;
                 if (workbench && workbench.BookTool)
                     focus = workbench.mat.TransformPoint(new Vector3(-0.20f, 0, 0.01f));
                 position = focus + Vector3.up * (decodeFocusHeight * decodeZoom);

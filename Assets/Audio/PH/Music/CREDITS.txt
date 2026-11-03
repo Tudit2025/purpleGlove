@@ -1,0 +1,24 @@
+PURPLE GLOVE - MUSIC CREDITS
+Music by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au
+License: https://creativecommons.org/licenses/by/4.0/
+
+Tracks and original source pages:
+Phoenix (2026) by Scott Buckley
+https://www.scottbuckley.com.au/library/phoenix-2026/
+
+The Weight of Air - Anabasis I by Scott Buckley
+https://www.scottbuckley.com.au/library/anabasis-i/
+
+Unraveling by Scott Buckley
+https://www.scottbuckley.com.au/library/unraveling/
+
+Hiraeth by Scott Buckley
+https://www.scottbuckley.com.au/library/hiraeth/
+
+Undertow by Scott Buckley
+https://www.scottbuckley.com.au/library/undertow/
+
+Game adaptations: excerpts, cyclic crossfades, intro/loop/outro editing, fixed loudness adjustment and PCM conversion.
+The composer does not endorse these edits. Original audio is MP3; PCM conversion does not restore lost information.
+Source and edit details: output/music-loop-v1/sources.json and manifest.json in the development project.
+No Candlelit Monastery recording is included; that asset remains an optional purchased replacement.

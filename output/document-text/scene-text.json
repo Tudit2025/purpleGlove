@@ -22,7 +22,7 @@
                 },
                 {
                     "path": "Body",
-                    "text": "致行会核验人卢卡：\n军情正文与附件今晚晚些时候送达。\n请于明晨六点前核验文字及其来源。\n\n若法方越境军情属实，晨会将表决\n由米兰军队接管边境粮站。请分别\n填写明文还原与来源确认，不得混签。\n\n卡拉法可代本公爵领取印务材料，\n无权替法方确认军令。他常戴左手\n紫手套，领取时仍须核对登记与签样。",
+                    "text": "致行会核验人卢卡：\n军情正文与附件今晚晚些时候送达。\n请于六月十六日六点前核验文字及来源。\n\n若法方越境军情属实，晨会将表决\n由米兰军队接管边境粮站。请分别\n填写明文还原与来源确认，不得混签。\n\n卡拉法可代本公爵领取印务材料，\n无权替法方确认军令。他常戴左手\n紫手套，领取时仍须核对登记与签样。",
                     "active": true
                 },
                 {
@@ -408,7 +408,7 @@
                 },
                 {
                     "path": "Cipher",
-                    "text": "XFIRUSEMDZKVGGAELRIAF",
+                    "text": "XFIRUSEMDZKVGGASFXCRWSQKZHMIF",
                     "active": true
                 },
                 {
@@ -589,7 +589,7 @@
                 },
                 {
                     "path": "French original",
-                    "text": "Les troupes françaises franchiront\nla frontière à l'aube.",
+                    "text": "Les troupes françaises franchiront\nla frontière le 18 juin.",
                     "active": true
                 },
                 {
@@ -964,19 +964,19 @@
             "id": "vigenere",
             "category": "plaintext",
             "path": "07 Five act archive/Solved plaintext records/Act3_Plaintext_vigenere",
-            "answer": "FRANCE WILL CROSS AT DAWN",
+            "answer": "FRANCE WILL CROSS ON JUNE EIGHTEEN",
             "source": "07 Five act archive/Act documents - authored desk layout/Act3_02_师父译录的军情密文",
             "act": 3,
             "deferred": false,
             "ink": [
                 {
                     "path": "Preserved plaintext",
-                    "text": "FRANCE WILL CROSS AT DAWN",
+                    "text": "FRANCE WILL CROSS ON JUNE EIGHTEEN",
                     "active": true
                 },
                 {
                     "path": "Translation",
-                    "text": "法国将在黎明越境。",
+                    "text": "法国将于六月十八日越境。",
                     "active": true
                 }
             ],
@@ -1606,7 +1606,7 @@
                 },
                 {
                     "path": "Restored transcript",
-                    "text": "法国将在黎明越境。",
+                    "text": "法国将于六月十八日越境。",
                     "active": true
                 },
                 {
@@ -1708,7 +1708,7 @@
                 },
                 {
                     "path": "Restored transcript",
-                    "text": "法国将在黎明越境。",
+                    "text": "法国将于六月十八日越境。",
                     "active": true
                 },
                 {
@@ -1810,7 +1810,7 @@
                 },
                 {
                     "path": "Restored transcript",
-                    "text": "法国将在黎明越境。",
+                    "text": "法国将于六月十八日越境。",
                     "active": true
                 },
                 {
@@ -1912,7 +1912,7 @@
                 },
                 {
                     "path": "Restored transcript",
-                    "text": "法国将在黎明越境。",
+                    "text": "法国将于六月十八日越境。",
                     "active": true
                 },
                 {
@@ -2014,7 +2014,7 @@
                 },
                 {
                     "path": "Restored transcript",
-                    "text": "法国将在黎明越境。",
+                    "text": "法国将于六月十八日越境。",
                     "active": true
                 },
                 {
@@ -2116,7 +2116,7 @@
                 },
                 {
                     "path": "Restored transcript",
-                    "text": "法国将在黎明越境。",
+                    "text": "法国将于六月十八日越境。",
                     "active": true
                 },
                 {

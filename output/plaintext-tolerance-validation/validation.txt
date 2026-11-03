@@ -1,0 +1,6 @@
+PASS: 691 assertions in Unity 2022.3.62f2.
+All six current scene answers: exact, formatting, replacement/omission/insertion at and above the 10% limit; every character position.
+Short-answer rounding, mixed error budgets, blank/null/long input, saved-prefix boundaries in both fourth-act orders.
+Play Mode: delivery/source gates, quiet delay, letter flight, tolerant save, canonical paper, consecutive/appended answers, per-act dialogue, duplicate protection, shelving/revisit.
+Every confirmation clears the visible sheet and cached draft before callbacks; unconfirmed/deferred input is retained; cleared drafts stay empty on revisit.
+Isolated project copy; synthetic frame/keyboard state, not OS input testing.

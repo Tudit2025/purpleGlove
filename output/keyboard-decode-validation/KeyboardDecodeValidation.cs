@@ -54,6 +54,12 @@ public static class KeyboardDecodeValidation
     public static void Run()
     {
         Directory.CreateDirectory(Output); EditorSceneManager.OpenScene(DeskSceneStartup.ScenePath);
+        // Keep automatic chapter transitions from taking keyboard focus during replay.
+        foreach (var behaviour in UnityEngine.Object.FindObjectsOfType<MonoBehaviour>(true))
+            if (behaviour is PrologueSequence || behaviour is FirstActFlow || behaviour is SecondActFlow
+                || behaviour is ThirdActFlow || behaviour is FourthActFlow || behaviour is FourthActOpening
+                || behaviour is FifthActFlow || behaviour is EpilogueFlow || behaviour is DialogueTestConsole)
+                behaviour.enabled = false;
         SessionState.SetBool(Key, true); Install(); EditorApplication.isPlaying = true;
     }
     static void Install()
@@ -154,7 +160,24 @@ public static class KeyboardDecodeValidation
             work.SetKeyword(""); VerifyTray(work, original); Check(!work.KeyboardDecodeReady && work.KeyboardMapping == Alphabet, "Removing key did not reset tray");
 
             Select(work, CipherWorkbench.Tool.Affine); work.SetPlaintext("");
-            Check(!work.KeyboardDecodeReady, "Empty affine table accepted");
+            Check(work.UsesDecodeKeyboard && work.KeyboardMapping == Alphabet, "Empty affine table does not accept direct plaintext");
+            Check(((TextMesh)Field(work, "trayInscription")).text.Contains("直接键入明文"), "Empty affine hint still requests ciphertext");
+            Type(work, "north gate!");
+            Call(work, "AnimateLetterStamps", 1f);
+            Check(work.Plaintext == "NORTH GATE!" && work.plaintextInk.text == "NORTH GATE!", "Empty affine input did not stamp plaintext");
+            KeyPress(work, new Event { type = EventType.KeyDown, keyCode = KeyCode.Backspace });
+            Type(work, " \n"); Check(work.Plaintext == "NORTH GATE \n", "Empty affine correction/whitespace failed");
+            var affineCell = work.tools[3].GetComponentsInChildren<CipherWorkbenchTarget>()
+                .First(t => t.kind == CipherWorkbenchTarget.Kind.Cell && t.index == 26);
+            Call(work, "ActivateTarget", affineCell, Point(camera, affineCell)); Ungate(gate);
+            Check(!KeyPress(work, Press('i')), "Plaintext keyboard intercepted affine cell editing");
+            Call(work, "HandleWritingInput", Press('i'));
+            Call(work, "HandleWritingInput", new Event { type = EventType.KeyDown, keyCode = KeyCode.Return }); Ungate(gate);
+            Check(work.Affine[26] == "I" && work.Plaintext == "NORTH GATE \n", "Affine cell editing changed plaintext");
+            Check(!work.UsesDecodeKeyboard && !KeyPress(work, Press('x')), "Partially filled affine table silently records plaintext");
+            work.SetCell(CipherWorkbench.Tool.Affine, 26, "");
+            Type(work, "p"); Check(work.Plaintext == "NORTH GATE \nP", "Clearing affine table did not resume direct input");
+            work.SetPlaintext("");
             // Fill just the ciphertext row against the preset A-Z plaintext row.
             for (int i = 0; i < 26; i++) work.SetCell(CipherWorkbench.Tool.Affine, 26 + i, Alphabet[(5 * i + 8) % 26].ToString());
             Type(work, "IHHWVCSWFRCP");
@@ -180,6 +203,7 @@ public static class KeyboardDecodeValidation
             Check(!work.KeyboardDecodeReady, "Duplicate plaintext row accepted");
             work.SetCell(CipherWorkbench.Tool.Affine, 25, plainCell);
             Check(work.KeyboardDecodeReady, "Corrected table not accepted");
+            Check(((TextMesh)Field(work, "trayInscription")).text.Contains("键入密文"), "Completed affine hint does not request ciphertext");
 
             // Plaintext clicks must not enter quill writing or intercept the configured decoder.
             Call(work, "ActivateTarget", paper, Point(camera, paper)); Ungate(gate); work.SetPlaintext("");
@@ -221,11 +245,42 @@ public static class KeyboardDecodeValidation
             Check(!KeyPress(work, Press('x')), "Returning Pigpen left direct input enabled");
             Select(work, CipherWorkbench.Tool.Pigpen); Type(work, "p");
             Check(work.Plaintext == "LEFT GLOVE \nP", "Taking Pigpen out again did not resume the existing draft");
-            Select(work, CipherWorkbench.Tool.RailFence); Check(!work.KeyboardDecodeReady, "Rail fence invented a substitution mapping");
+            Select(work, CipherWorkbench.Tool.RailFence); work.SetPlaintext("");
+            Check(work.UsesDecodeKeyboard && work.KeyboardMapping == Alphabet, "Empty rails do not accept direct plaintext");
+            Check(((TextMesh)Field(work, "trayInscription")).text.Contains("直接键入明文"), "Rail hint does not explain plaintext input");
+            Type(work, "hello world"); Call(work, "AnimateLetterStamps", 1f);
+            Check(work.Plaintext == "HELLO WORLD" && work.plaintextInk.text == "HELLO WORLD", "Rail plaintext did not reach the paper");
+            KeyPress(work, new Event { type = EventType.KeyDown, keyCode = KeyCode.Backspace });
+            Type(work, "d!\n"); Check(work.Plaintext == "HELLO WORLD!\n", "Rail correction/punctuation/whitespace failed");
+            var railCell = work.tools[4].GetComponentsInChildren<CipherWorkbenchTarget>()
+                .First(t => t.kind == CipherWorkbenchTarget.Kind.Cell && t.index == 0);
+            Call(work, "ActivateTarget", railCell, Point(camera, railCell)); Ungate(gate);
+            Check(!KeyPress(work, Press('h')), "Plaintext keyboard intercepted rail cell editing");
+            Call(work, "HandleWritingInput", Press('h'));
+            Call(work, "HandleWritingInput", new Event { type = EventType.KeyDown, keyCode = KeyCode.Return }); Ungate(gate);
+            Check(work.Rails[0] == "H" && work.Plaintext == "HELLO WORLD!\n", "Rail cell editing changed plaintext");
+            Type(work, "p"); Check(work.Plaintext == "HELLO WORLD!\nP", "Partly filled rails disable direct plaintext");
+            Select(work, CipherWorkbench.Tool.Affine);
+            Type(work, "I"); Check(work.Plaintext == "HELLO WORLD!\nPA", "Switching from rails lost affine decoding or draft");
+            for (int i = 26; i < 52; i++) work.SetCell(CipherWorkbench.Tool.Affine, i, "");
+            VerifyTray(work, original); Type(work, "i");
+            Check(work.Plaintext == "HELLO WORLD!\nPAI", "Cleared affine table inherited old substitution");
+            for (int i = 0; i < 26; i++) work.SetCell(CipherWorkbench.Tool.Affine, i, "");
+            Type(work, "b"); Check(work.Plaintext.EndsWith("PAIB"), "Completely empty affine table rejects plaintext");
+            Select(work, CipherWorkbench.Tool.RailFence); Type(work, "c");
+            Check(work.Plaintext.EndsWith("PAIBC") && work.Rails[0] == "H", "Retaking rails lost notes or keyboard input");
+            gate.SetConsole(true); Check(!KeyPress(work, Press('x')), "Rail direct input leaked through console");
+            gate.SetConsole(false); Ungate(gate);
+            work.OpenToolbox(); Check(!KeyPress(work, Press('x')), "Rail direct input leaked through toolbox");
+            work.CloseToolbox(); Ungate(gate);
+            Call(work, "AnimateLetterStamps", 1f); Capture(camera, "rail-plaintext-keyboard");
             Select(work, CipherWorkbench.Tool.None); VerifyTray(work, original);
+            Check(!KeyPress(work, Press('x')), "Returning rails left direct input enabled");
             Finish(true, "PASS: " + checks + " assertions in Unity 2022.3.62f2 Play Mode.\n"
                 + "Caesar HELLO WORLD/PASSWORD, repeating-key LEMON/ATTACK AT DAWN, reordered affine columns/AFFINECIPHER.\n"
                 + "Pigpen direct plaintext immediately on takeout, landing ink, Backspace/whitespace, return disables input, retake preserves draft.\n"
+                + "Empty affine ciphertext row and empty/filled rails accept plaintext; completed affine table decodes; partial/duplicate affine tables remain blocked.\n"
+                + "Affine/rail cell editing takes priority; Enter resumes keyboard; clear/switch/retake preserves notes and resets mapping; accurate input hints.\n"
                 + "26 stable letter identities and all three tiles per stack; configured readiness, reset, actual remapped collider picking.\n"
                 + "Continuous/staggered letter flights, stamping only on landing, cleanup, repeated keys, 32-flight cap, keyword undo, whitespace, 600-character limit.\n"
                 + "Preset editable A-Z affine plaintext row; ciphertext-row-only setup; quill keyword input; plaintext clicks cannot enter raw writing.\n"

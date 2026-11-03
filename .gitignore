@@ -14,6 +14,10 @@
 __pycache__/
 *.py[cod]
 
+# Re-downloadable original music; edited game assets and provenance stay versioned.
+/output/music-loop-v1/sources/*.mp3
+/output/music-loop-v1/sources/*.part
+
 # Build output.
 /[Bb]uild/
 /[Bb]uilds/

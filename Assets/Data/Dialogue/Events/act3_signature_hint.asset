@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430074f4a7b53dd4796d71325b7b59c6, type: 3}
+  m_Name: act3_signature_hint
+  m_EditorClassIdentifier: 
+  id: act3_signature_hint
+  title: "第三幕 · 卢卡提示明文签名"
+  context: "第三幕明文实际留存、通用完成提示读完后播放；读完才开放明文还原签名，来源确认仍留待第五幕。"
+  testOnly: 0
+  initialVisitor: {fileID: 0}
+  arrivalSound: {fileID: 0}
+  closeShutterOnComplete: 1
+  arrivalDelay: 0.1
+  lines:
+  - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
+    text: "我应该先在军情核验表上签名确保明文还原无误"

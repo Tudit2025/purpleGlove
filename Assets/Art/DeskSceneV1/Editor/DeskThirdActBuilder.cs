@@ -49,9 +49,9 @@ namespace PurpleGlove.Editor
         static void ArrangeThirdActDocuments(ActArchiveController archive)
         {
             var mat = GameObject.Find("WritingMat").transform;
-            // Commission, original and form share the upper row; cipher and later receipt sit below.
-            var positions = new[] { V(-0.315f, 0.014f, 0.245f), V(-0.235f, 0.014f, -0.225f),
-                V(0.315f, 0.014f, 0.245f), V(0.235f, 0.014f, -0.225f), V(0, 0.014f, 0.245f) };
+            // Keep the lower-right cipher beside the tools, with the later receipt on its left.
+            var positions = new[] { V(-0.315f, 0.014f, 0.245f), V(0.235f, 0.014f, -0.225f),
+                V(0.315f, 0.014f, 0.245f), V(-0.235f, 0.014f, -0.225f), V(0, 0.014f, 0.245f) };
             var angles = new[] { -1.5f, -3f, 1.5f, 2f, 0f };
             for (int i = 0; i < archive.acts[2].documents.Length; i++)
             {
@@ -121,7 +121,7 @@ namespace PurpleGlove.Editor
             FirstActInk(paper, "Source signature label", "来源确认签名：", actDocumentFont, -0.166f, -0.213f, 0.125f, 0.018f);
             FirstActInk(paper, "Folio", "分别填写、分别签名  /  III · 03", actDocumentFont, 0, -0.272f, 0.31f, 0.015f, true);
             var verification = paper.gameObject.AddComponent<ThirdActVerification>();
-            verification.transcriptInk = FirstActInk(paper, "Restored transcript", "法国将在黎明越境。", HandwrittenChinese, -0.163f, 0.053f, 0.32f, 0.022f);
+            verification.transcriptInk = FirstActInk(paper, "Restored transcript", "法国将于六月十八日越境。", HandwrittenChinese, -0.163f, 0.053f, 0.32f, 0.022f);
             verification.signatureInk = FirstActInk(paper, "Luca transcript signature", "Luca", notesFont, -0.025f, 0.005f, 0.16f, 0.025f);
             verification.signPrompt = FirstActInk(paper, "Sign transcript prompt", "点击签署明文还原", HandwrittenChinese, -0.025f, -0.006f, 0.185f, 0.018f);
             verification.transcriptInk.text = verification.signatureInk.text = verification.signPrompt.text = "";

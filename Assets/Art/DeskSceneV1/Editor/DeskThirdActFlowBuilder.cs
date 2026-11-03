@@ -25,9 +25,11 @@ namespace PurpleGlove.Editor
             var secretary = dialogue.speakers.Single(s => s.id == "ducal_secretary");
             var carafa = dialogue.speakers.Single(s => s.id == "carafa");
             DialogueEvent.Line L(DialogueSpeaker s, string t) => new DialogueEvent.Line { speaker = s, text = t };
+            if (!flow.signatureHint) flow.signatureHint = ThirdActEvent("act3_signature_hint", "第三幕 · 卢卡提示明文签名", null,
+                L(luca, "我应该先在军情核验表上签名确保明文还原无误"));
             if (!flow.charles) flow.charles = ThirdActEvent("act3_charles", "第三幕 · 夏尔门边交谈", charles,
                 L(clerk, "法国代表夏尔来找你。"),
-                L(charles, "你好，大师。如果那个密码说什么法国将要越境，请你不要为它担保。"),
+                L(charles, "你好，大师。如果那个密码说法国将于六月十八日越境，请你不要为它担保。"),
                 L(charles, "如果你能提供什么有利的物证给我，我会全力保护你的师傅的。"),
                 L(luca, "这上面不是你的签名吗？如果这是伪造的签名，你为什么不直接说？"),
                 L(charles, "这确实是我的签名，但是我不能让人知道我确实跟米兰人签了“某个”文件。所以我不能说。"),
@@ -47,7 +49,7 @@ namespace PurpleGlove.Editor
                 L(luca, "难道我想的是错的，换档的事情其实没问题？只有档案到了才能确定了。"),
                 L(luca, "米兰来的人很急，不知道后面还会做什么。"));
             dialogue.events = dialogue.events.Where(e => e && e.id != "act3_ring_hint" && e.id != "act3_request").ToArray();
-            foreach (var sequence in new[] { flow.charles, flow.secretary, flow.carafa, flow.summary })
+            foreach (var sequence in new[] { flow.signatureHint, flow.charles, flow.secretary, flow.carafa, flow.summary })
                 if (!dialogue.events.Contains(sequence)) dialogue.events = dialogue.events.Concat(new[] { sequence }).ToArray();
             EditorUtility.SetDirty(flow); EditorUtility.SetDirty(flow.verification);
             EditorUtility.SetDirty(flow.bell); EditorUtility.SetDirty(dialogue);

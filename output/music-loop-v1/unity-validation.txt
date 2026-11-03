@@ -1,0 +1,2 @@
+PASS 156 checks
+All five cues, 16 ending dispositions, preserved dossier review, mute/duck/pause, real DSP loop/outro, scene reload and bundled credits passed.

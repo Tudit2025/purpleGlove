@@ -1,0 +1,62 @@
+[
+  {
+    "id": "phoenix",
+    "title": "Phoenix (2026)",
+    "author": "Scott Buckley",
+    "page": "https://www.scottbuckley.com.au/library/phoenix-2026/",
+    "download": "https://www.scottbuckley.com.au/library/wp-content/uploads/2026/03/Phoenix2026.mp3",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "phoenix.mp3",
+    "sha256": "303e9daf060ee930e6a8f7be96c8022c405f6c6353bbee5d2d29039c61ff8b02",
+    "bytes": 14178473
+  },
+  {
+    "id": "anabasis",
+    "title": "The Weight of Air - Anabasis I",
+    "author": "Scott Buckley",
+    "page": "https://www.scottbuckley.com.au/library/anabasis-i/",
+    "download": "https://www.scottbuckley.com.au/library/wp-content/uploads/2026/09/Anabasis_I.mp3",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "anabasis.mp3",
+    "sha256": "964e693611445d808d4cdb748006ae22c7fa8534b126acdca39bcc74de95d76c",
+    "bytes": 22431868
+  },
+  {
+    "id": "unraveling",
+    "title": "Unraveling",
+    "author": "Scott Buckley",
+    "page": "https://www.scottbuckley.com.au/library/unraveling/",
+    "download": "https://www.scottbuckley.com.au/library/wp-content/uploads/2026/05/Unraveling.mp3",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "unraveling.mp3",
+    "sha256": "82ed105724e6ee31d2007615472cb4e3621000edbff9a4aaf6a64789c32bece5",
+    "bytes": 17764541
+  },
+  {
+    "id": "hiraeth",
+    "title": "Hiraeth",
+    "author": "Scott Buckley",
+    "page": "https://www.scottbuckley.com.au/library/hiraeth/",
+    "download": "https://www.scottbuckley.com.au/library/wp-content/uploads/2020/06/sb_hiraeth.mp3",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "hiraeth.mp3",
+    "sha256": "f790c7d53b8d802981ff7cdd8c59e22cdfe103ea66aba296c6cf1a65fe7fcf01",
+    "bytes": 13851302
+  },
+  {
+    "id": "undertow",
+    "title": "Undertow",
+    "author": "Scott Buckley",
+    "page": "https://www.scottbuckley.com.au/library/undertow/",
+    "download": "https://www.scottbuckley.com.au/library/wp-content/uploads/2019/12/sb_undertow.mp3",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "undertow.mp3",
+    "sha256": "4652007dad67295f1f5c87c8cbc8e2df1a530e7671266a29f693a084375d3910",
+    "bytes": 10000906
+  }
+]

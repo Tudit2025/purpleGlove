@@ -95,7 +95,8 @@ namespace PurpleGlove.Editor
         static void ArrangeSecondActDocuments(ActArchiveController archive)
         {
             var mat = GameObject.Find("WritingMat").transform;
-            var positions = new[] { V(-0.27f, 0.014f, 0.20f), V(0.17f, 0.014f, 0.10f), V(-0.25f, 0.014f, -0.17f) };
+            // Stack both cipher slips on the right; keep the ledger in the left column.
+            var positions = new[] { V(0.25f, 0.014f, 0.20f), V(-0.235f, 0.014f, 0.10f), V(0.25f, 0.014f, -0.17f) };
             for (int i = 0; i < 3; i++)
             {
                 var item = archive.acts[1].documents[i];

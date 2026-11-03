@@ -212,7 +212,7 @@ public static class ThirdActPacketValidation
         Check(papers[0].transform.Find("Matteo signature").GetComponent<TextMesh>().text == "Matteo Ricci", "Actual signature missing from commission");
         string commission = papers[0].transform.Find("Body").GetComponent<TextMesh>().text;
         Check(commission.Contains("米兰内廷") && commission.Contains("印务行会") && commission.Contains("第17号"), "Commission parties or case missing");
-        Check(papers[1].transform.Find("Cipher").GetComponent<TextMesh>().text == "XFIRUSEMDZKVGGAELRIAF", "Cipher changed");
+        Check(papers[1].transform.Find("Cipher").GetComponent<TextMesh>().text == "XFIRUSEMDZKVGGASFXCRWSQKZHMIF", "Cipher changed");
         Check(papers[2].GetComponentsInChildren<TextMesh>().Count(t => t.text.Contains("签名：")) == 2, "Verification needs two distinct signature labels");
         Check(papers[2].transform.Find("Act3_VerificationTableRules"), "Verification has no table rules");
         var mat = GameObject.Find("WritingMat").transform;
@@ -221,7 +221,7 @@ public static class ThirdActPacketValidation
             var paper = papers[i]; var box = paper.GetComponent<BoxCollider>();
             foreach (var text in paper.GetComponentsInChildren<TextMesh>())
             {
-                Check(!text.text.Contains("FRANCE WILL CROSS") && !text.text.Contains("法国将在黎明越境"), "Packet reveals plaintext");
+                Check(!text.text.Contains("FRANCE WILL CROSS") && !text.text.Contains("法国将于六月十八日越境"), "Packet reveals plaintext");
                 var bounds = text.GetComponent<Renderer>().localBounds;
                 foreach (float x in new[] { bounds.min.x, bounds.max.x })
                     foreach (float y in new[] { bounds.min.y, bounds.max.y })
@@ -246,8 +246,8 @@ public static class ThirdActPacketValidation
         string cipher = papers[1].transform.Find("Cipher").GetComponent<TextMesh>().text;
         string key = "SOIE";
         string plaintext = string.Concat(cipher.Select((c, i) => (char)('A' + (c - key[i % key.Length] + 26) % 26)));
-        Check(plaintext == "FRANCEWILLCROSSATDAWN", "Printed cipher does not decode with the script's key");
-        RecordStep(); work.SetPlaintext("FRANCE WILL CROSS AT DAWN"); RecordStep(); RecordStep();
+        Check(plaintext == "FRANCEWILLCROSSONJUNEEIGHTEEN", "Printed cipher does not decode with the script's key");
+        RecordStep(); work.SetPlaintext("FRANCE WILL CROSS ON JUNE EIGHTEEN"); RecordStep(); RecordStep();
         Check(records.entries.Single(e => e.id == "vigenere").saved, "Third-act plaintext not preserved");
         if (dialogue.IsActive) ReadAll();
         Check(archive.acts[2].documents.Length == 4, "Third-act plaintext not registered");

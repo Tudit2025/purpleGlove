@@ -47,7 +47,7 @@ namespace PurpleGlove.Editor
                 new[] { "1", "caesar", "KEEP THE ORIGINAL", "保留原件。" },
                 new[] { "2", "book", "REQUEST CASE FIFTY SEVEN", "申请调阅第五十七号封档。" },
                 new[] { "2", "pigpen", "LEFT GLOVE", "左手手套。" },
-                new[] { "3", "vigenere", "FRANCE WILL CROSS AT DAWN", "法国将在黎明越境。" },
+                new[] { "3", "vigenere", "FRANCE WILL CROSS ON JUNE EIGHTEEN", "法国将于六月十八日越境。" },
                 new[] { "4", "affine", "NORTH GATE SAINT MARTIN", "圣马丁，北门。" },
                 new[] { "4", "rail", "I SIGNED THE FALSE ORDER TO FREE BARTOLOS FAMILY. I CAME FOR THE PROOF AND WAS HELD. DO NOT ERASE MY NAME.",
                     "我在假命令上签了名，为了让\n巴尔托洛一家脱身。我为取回证据\n而来，随后被扣押。不要抹去我的名字。" }

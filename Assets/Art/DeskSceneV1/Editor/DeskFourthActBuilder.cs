@@ -81,7 +81,9 @@ namespace PurpleGlove.Editor
             for (int i = 0; i < archive.acts[3].documents.Length; i++)
             {
                 var paper = archive.acts[3].documents[i].transform;
-                paper.SetPositionAndRotation(mat.TransformPoint(V(i % 2 == 0 ? -0.23f : 0.23f, 0.014f, i < 2 ? 0.275f : -0.165f)), mat.rotation);
+                // The two-column cipher occupies the lower-right slot next to the decoding tools.
+                float x = i == 0 || i == 3 ? -0.23f : 0.23f;
+                paper.SetPositionAndRotation(mat.TransformPoint(V(x, 0.014f, i < 2 ? 0.275f : -0.165f)), mat.rotation);
                 paper.localScale = Vector3.one; paper.gameObject.SetActive(false);
             }
         }

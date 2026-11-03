@@ -1,0 +1,383 @@
+{
+  "sample_rate": 48000,
+  "format": "stereo PCM16",
+  "tracks": [
+    {
+      "id": "phoenix",
+      "title": "Phoenix (2026)",
+      "author": "Scott Buckley",
+      "page": "https://www.scottbuckley.com.au/library/phoenix-2026/",
+      "download": "https://www.scottbuckley.com.au/library/wp-content/uploads/2026/03/Phoenix2026.mp3",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "file": "phoenix.mp3",
+      "sha256": "303e9daf060ee930e6a8f7be96c8022c405f6c6353bbee5d2d29039c61ff8b02",
+      "bytes": 14178473,
+      "edit": {
+        "source_start": 79.75,
+        "source_end": 164.0,
+        "overlap": 2.0,
+        "duration": 84.25,
+        "source_duration": 354.373,
+        "harmonic_similarity": 0.9897025832217923,
+        "overlap_level_difference_db": 0.5658764839172363,
+        "selection": "chroma/envelope match; subjective audition pending",
+        "alternatives": [
+          {
+            "start": 79.75,
+            "end": 164.0,
+            "score": 0.23492298428635613
+          },
+          {
+            "start": 47.25,
+            "end": 130.75,
+            "score": 0.8603326634505434
+          },
+          {
+            "start": 47.75,
+            "end": 120.75,
+            "score": 1.0326248154016209
+          },
+          {
+            "start": 48.5,
+            "end": 131.75,
+            "score": 1.1503734422714946
+          },
+          {
+            "start": 12.25,
+            "end": 95.0,
+            "score": 1.246035323960845
+          }
+        ]
+      },
+      "gain_db": -6.633404931683763,
+      "clips": {
+        "loop": {
+          "path": "Assets/Audio/PH/Music/phoenix_loop.wav",
+          "samples": 4044000,
+          "seconds": 84.25,
+          "peak_dbfs": -7.597597513435329,
+          "sha256": "dbdc15eba96307e49c8bfd58e6a8bbd48b9e652508e7d32eb041fe8868ce3d34",
+          "guid": "643a21168ef35d55aa8e156c52b7178b"
+        }
+      },
+      "audition_seams_seconds": [
+        12,
+        96.25
+      ],
+      "audition": "output/music-loop-v1/audition/phoenix_two_seams.mp3",
+      "seam": {
+        "sample_jump": 0.004316285124576234,
+        "local_step_p99": 0.006853018049471511
+      }
+    },
+    {
+      "id": "anabasis",
+      "title": "The Weight of Air - Anabasis I",
+      "author": "Scott Buckley",
+      "page": "https://www.scottbuckley.com.au/library/anabasis-i/",
+      "download": "https://www.scottbuckley.com.au/library/wp-content/uploads/2026/09/Anabasis_I.mp3",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "file": "anabasis.mp3",
+      "sha256": "964e693611445d808d4cdb748006ae22c7fa8534b126acdca39bcc74de95d76c",
+      "bytes": 22431868,
+      "edit": {
+        "source_start": 78.5,
+        "source_end": 127.0,
+        "overlap": 4.0,
+        "duration": 48.5,
+        "source_duration": 560.72775,
+        "harmonic_similarity": 0.9794515173391305,
+        "overlap_level_difference_db": 0.704386830329895,
+        "selection": "chroma/envelope match; subjective audition pending",
+        "alternatives": [
+          {
+            "start": 78.5,
+            "end": 127.0,
+            "score": 0.32222229673255953
+          },
+          {
+            "start": 34.0,
+            "end": 112.75,
+            "score": 0.6469210144362881
+          },
+          {
+            "start": 39.0,
+            "end": 117.5,
+            "score": 0.7507675230134525
+          },
+          {
+            "start": 33.0,
+            "end": 111.5,
+            "score": 0.8184515345547029
+          },
+          {
+            "start": 53.75,
+            "end": 98.5,
+            "score": 0.8662638813018263
+          }
+        ]
+      },
+      "gain_db": 0.08045543912004911,
+      "clips": {
+        "loop": {
+          "path": "Assets/Audio/PH/Music/anabasis_loop.wav",
+          "samples": 2328000,
+          "seconds": 48.5,
+          "peak_dbfs": -3.869802047594397,
+          "sha256": "ddbde3f64bc351ed2efd950da573ef7d37169c3e08b499b98d7dc7a852044207",
+          "guid": "e070fadad80851218de91b9415386005"
+        }
+      },
+      "audition_seams_seconds": [
+        12,
+        60.5
+      ],
+      "audition": "output/music-loop-v1/audition/anabasis_two_seams.mp3",
+      "seam": {
+        "sample_jump": 0.008033622164974608,
+        "local_step_p99": 0.008989407930021008
+      }
+    },
+    {
+      "id": "unraveling",
+      "title": "Unraveling",
+      "author": "Scott Buckley",
+      "page": "https://www.scottbuckley.com.au/library/unraveling/",
+      "download": "https://www.scottbuckley.com.au/library/wp-content/uploads/2026/05/Unraveling.mp3",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "file": "unraveling.mp3",
+      "sha256": "82ed105724e6ee31d2007615472cb4e3621000edbff9a4aaf6a64789c32bece5",
+      "bytes": 17764541,
+      "edit": {
+        "source_start": 82.75,
+        "source_end": 137.25,
+        "overlap": 4.0,
+        "duration": 54.5,
+        "source_duration": 444.02391666666665,
+        "harmonic_similarity": 0.9805830534203646,
+        "overlap_level_difference_db": 2.25384521484375,
+        "selection": "chroma/envelope match; subjective audition pending",
+        "alternatives": [
+          {
+            "start": 82.75,
+            "end": 137.25,
+            "score": 0.40654045209208495
+          },
+          {
+            "start": 93.25,
+            "end": 147.75,
+            "score": 0.6839702594882717
+          },
+          {
+            "start": 24.75,
+            "end": 87.0,
+            "score": 0.7855747429183877
+          },
+          {
+            "start": 86.0,
+            "end": 136.75,
+            "score": 0.8576353890275517
+          },
+          {
+            "start": 94.25,
+            "end": 138.5,
+            "score": 0.9189926280505556
+          }
+        ]
+      },
+      "gain_db": -5.108799234419356,
+      "clips": {
+        "loop": {
+          "path": "Assets/Audio/PH/Music/unraveling_loop.wav",
+          "samples": 2616000,
+          "seconds": 54.5,
+          "peak_dbfs": -6.197118946410499,
+          "sha256": "b054efb177db43ddddcec1e2975d63ea3c841a32849660ab62b42479945dab77",
+          "guid": "bd34bdb5a00053f8bc3c8e6a21f07f3c"
+        }
+      },
+      "audition_seams_seconds": [
+        12,
+        66.5
+      ],
+      "audition": "output/music-loop-v1/audition/unraveling_two_seams.mp3",
+      "seam": {
+        "sample_jump": 0.005365353908541481,
+        "local_step_p99": 0.015596900341972897
+      }
+    },
+    {
+      "id": "hiraeth",
+      "title": "Hiraeth",
+      "author": "Scott Buckley",
+      "page": "https://www.scottbuckley.com.au/library/hiraeth/",
+      "download": "https://www.scottbuckley.com.au/library/wp-content/uploads/2020/06/sb_hiraeth.mp3",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "file": "hiraeth.mp3",
+      "sha256": "f790c7d53b8d802981ff7cdd8c59e22cdfe103ea66aba296c6cf1a65fe7fcf01",
+      "bytes": 13851302,
+      "edit": {
+        "source_start": 12.5,
+        "source_end": 60.5,
+        "overlap": 4.0,
+        "duration": 48.0,
+        "source_duration": 346.1985833333333,
+        "harmonic_similarity": 0.984931074204907,
+        "overlap_level_difference_db": 0.32414710521698,
+        "selection": "chroma/envelope match; subjective audition pending",
+        "alternatives": [
+          {
+            "start": 12.5,
+            "end": 60.5,
+            "score": 0.24324630702718386
+          },
+          {
+            "start": 8.75,
+            "end": 54.75,
+            "score": 0.5293500883682919
+          },
+          {
+            "start": 13.25,
+            "end": 59.5,
+            "score": 0.625910345655864
+          },
+          {
+            "start": 19.0,
+            "end": 63.25,
+            "score": 0.68862088906232
+          },
+          {
+            "start": 13.75,
+            "end": 86.0,
+            "score": 0.7477530276599396
+          }
+        ]
+      },
+      "gain_db": -5.222141687549035,
+      "clips": {
+        "loop": {
+          "path": "Assets/Audio/PH/Music/hiraeth_loop.wav",
+          "samples": 2304000,
+          "seconds": 48.0,
+          "peak_dbfs": -7.013553148774896,
+          "sha256": "a4e699500f541b1e27f29f18644bc5ad3061cfdadff06960afadf5eec364eb61",
+          "guid": "551fcd2f2bd356fcb7b2d9ebad70a832"
+        },
+        "intro": {
+          "path": "Assets/Audio/PH/Music/hiraeth_intro.wav",
+          "samples": 792000,
+          "seconds": 16.5,
+          "peak_dbfs": -9.215434690689218,
+          "sha256": "02ff7c7ef1424c016a06be2dbee8b233671591c9573dd3e89a7fa79a9d9a827f",
+          "guid": "c41f14e40ca052e2a347ab402b5a7cf2"
+        },
+        "outro": {
+          "path": "Assets/Audio/PH/Music/hiraeth_outro.wav",
+          "samples": 960000,
+          "seconds": 20.0,
+          "peak_dbfs": -9.482865255846686,
+          "sha256": "f66c4cd1918d589e17d4ac094970f7ab23ce6b2f4055e3d991c0802e384ee2a6",
+          "guid": "6d22ed849beb536a80a54517ea50eee7"
+        }
+      },
+      "audition_seams_seconds": [
+        12,
+        60.0
+      ],
+      "audition": "output/music-loop-v1/audition/hiraeth_two_seams.mp3",
+      "seam": {
+        "sample_jump": 0.0033803874585314753,
+        "local_step_p99": 0.0089180032014012
+      }
+    },
+    {
+      "id": "undertow",
+      "title": "Undertow",
+      "author": "Scott Buckley",
+      "page": "https://www.scottbuckley.com.au/library/undertow/",
+      "download": "https://www.scottbuckley.com.au/library/wp-content/uploads/2019/12/sb_undertow.mp3",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "file": "undertow.mp3",
+      "sha256": "4652007dad67295f1f5c87c8cbc8e2df1a530e7671266a29f693a084375d3910",
+      "bytes": 10000906,
+      "edit": {
+        "source_start": 27.75,
+        "source_end": 75.75,
+        "overlap": 4.0,
+        "duration": 48.0,
+        "source_duration": 249.931,
+        "harmonic_similarity": 0.9859882980857013,
+        "overlap_level_difference_db": 5.124186992645264,
+        "selection": "chroma/envelope match; subjective audition pending",
+        "alternatives": [
+          {
+            "start": 27.75,
+            "end": 75.75,
+            "score": 0.6019539274539899
+          },
+          {
+            "start": 13.25,
+            "end": 84.0,
+            "score": 1.3875927695841381
+          },
+          {
+            "start": 24.0,
+            "end": 101.75,
+            "score": 1.521171041689622
+          },
+          {
+            "start": 27.0,
+            "end": 106.25,
+            "score": 1.6161989211683196
+          },
+          {
+            "start": 27.5,
+            "end": 93.75,
+            "score": 1.6820056287736893
+          }
+        ]
+      },
+      "gain_db": -5.261198908701851,
+      "clips": {
+        "loop": {
+          "path": "Assets/Audio/PH/Music/undertow_loop.wav",
+          "samples": 2304000,
+          "seconds": 48.0,
+          "peak_dbfs": -7.086638416766774,
+          "sha256": "ed91e2ab383d89c82b7b898b428147ca0005ab978c40056921ce7e743c6f8994",
+          "guid": "078191a698fe5dc58c02c0e8cbb91e33"
+        },
+        "intro": {
+          "path": "Assets/Audio/PH/Music/undertow_intro.wav",
+          "samples": 1524000,
+          "seconds": 31.75,
+          "peak_dbfs": -7.874232027025543,
+          "sha256": "da9c1938d0f6936e11a1f732667c348c800c565c9739af9cc4a6f1421a7a26c0",
+          "guid": "e9186aa34c1457a9a159034cc789e0f1"
+        },
+        "outro": {
+          "path": "Assets/Audio/PH/Music/undertow_outro.wav",
+          "samples": 960000,
+          "seconds": 20.0,
+          "peak_dbfs": -9.458916522191355,
+          "sha256": "5d79265ee91207803607a0ae2e2ac61138fab48605bd843094d3885224bbfeb3",
+          "guid": "b24b5975aa225cfd88e00668d437bd1c"
+        }
+      },
+      "audition_seams_seconds": [
+        12,
+        60.0
+      ],
+      "audition": "output/music-loop-v1/audition/undertow_two_seams.mp3",
+      "seam": {
+        "sample_jump": 0.0010207631753323815,
+        "local_step_p99": 0.008216806925463952
+      }
+    }
+  ]
+}

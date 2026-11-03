@@ -24,7 +24,7 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
     text: "法国代表夏尔来找你。"
   - speaker: {fileID: 11400000, guid: 5d5f70330e981614aa3705d5825e6737, type: 2}
-    text: "你好，大师。如果那个密码说什么法国将要越境，请你不要为它担保。"
+    text: "你好，大师。如果那个密码说法国将于六月十八日越境，请你不要为它担保。"
   - speaker: {fileID: 11400000, guid: 5d5f70330e981614aa3705d5825e6737, type: 2}
     text: "如果你能提供什么有利的物证给我，我会全力保护你的师傅的。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}

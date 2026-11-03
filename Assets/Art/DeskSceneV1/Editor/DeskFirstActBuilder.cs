@@ -35,8 +35,8 @@ namespace PurpleGlove.Editor
         static void ArrangeFirstActDocuments(ActArchiveController archive)
         {
             var mat = GameObject.Find("WritingMat").transform;
-            // Keep both full letters above the smaller cipher slip, leaving the bottom for its plaintext.
-            var positions = new[] { V(-0.235f, 0.014f, 0.20f), V(0, 0.014f, -0.26f), V(0.235f, 0.014f, 0.20f) };
+            // Keep the cipher on the right, beside the decoding tools, with room below for its plaintext.
+            var positions = new[] { V(-0.235f, 0.014f, 0.20f), V(0.235f, 0.014f, -0.26f), V(0.235f, 0.014f, 0.20f) };
             var angles = new[] { -2f, -3f, 2f };
             for (int i = 0; i < archive.acts[0].documents.Length; i++)
             {

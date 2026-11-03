@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace PurpleGlove
@@ -9,7 +10,7 @@ namespace PurpleGlove
         public enum Phase { WaitingForSignature, CharlesPending, Charles, SupplementPending, Supplement,
             CuePending, Cue, BellReady, RequestPending, Request, SecretaryPending, Secretary,
             CarafaPending, Carafa, ReturnPending, Returning, Summary, TransitionPending, Transition, Complete, Suspended,
-            SecretaryDelay }
+            SecretaryDelay, SignatureHintPending, SignatureHint }
         public PlaintextArchiveController records;
         public ActArchiveController archive;
         public ThirdActVerification verification;
@@ -17,10 +18,10 @@ namespace PurpleGlove
         public SealedDeliveryController delivery;
         public DeskHandbell bell;
         public PrologueSequence story;
-        public DialogueEvent charles, secretary, carafa, summary;
+        public DialogueEvent signatureHint, charles, secretary, carafa, summary;
         [Min(0)] public float secretaryDelaySeconds = 2;
         [Min(0.1f)] public float returnSeconds = 0.75f;
-        public Phase State { get; private set; }
+        public Phase State { get; private set; } = Phase.SignatureHintPending;
         public bool FilesComplete => archive && archive.IsAvailable(3) && !archive.HasPendingSupplement(3);
         SceneInputGate gate;
         DeskScenePreview view;
@@ -48,7 +49,7 @@ namespace PurpleGlove
             }
         }
         bool Ready => records && archive && verification && dialogue && delivery && bell && story && view && gate
-            && charles && secretary && carafa && summary;
+            && signatureHint && charles && secretary && carafa && summary;
         bool Busy => gate.BlocksWorldInput || dialogue.IsActive || delivery.IsActive || bell.IsBusy || story.IsActive
             || (interactor && interactor.InspectedObject);
         public void TranscriptSigned()
@@ -67,6 +68,10 @@ namespace PurpleGlove
             if (!Ready || gate.ConsoleOpen || archive.CurrentAct != 3) return;
             switch (State)
             {
+                case Phase.SignatureHintPending:
+                    if (!Busy && records.entries.Any(e => e.act == 3 && e.id == "vigenere" && e.saved)
+                        && dialogue.PlayInPlace(signatureHint)) State = Phase.SignatureHint;
+                    break;
                 case Phase.WaitingForSignature: TranscriptSigned(); break;
                 case Phase.CharlesPending: BeginDoor(charles, Phase.Charles); break;
                 case Phase.SupplementPending:
@@ -99,7 +104,7 @@ namespace PurpleGlove
             if (!Busy && dialogue.Play(sequence)) State = playing;
         }
         void BeginSecretaryDelay() { secretaryElapsed = 0; State = Phase.SecretaryDelay; }
-        DialogueEvent ActiveSequence => State == Phase.Charles ? charles
+        DialogueEvent ActiveSequence => State == Phase.SignatureHint ? signatureHint : State == Phase.Charles ? charles
             : State == Phase.Secretary ? secretary : State == Phase.Carafa ? carafa
             : State == Phase.Summary ? summary : null;
         void Finished(string id)
@@ -107,6 +112,7 @@ namespace PurpleGlove
             if (!ActiveSequence || id != ActiveSequence.id) return;
             switch (State)
             {
+                case Phase.SignatureHint: State = Phase.WaitingForSignature; break;
                 case Phase.Charles: State = Phase.SupplementPending; break;
                 case Phase.Secretary: State = Phase.CarafaPending; break;
                 case Phase.Carafa: State = Phase.ReturnPending; break;
@@ -149,7 +155,8 @@ namespace PurpleGlove
         {
             if (State == Phase.WaitingForSignature || State == Phase.Complete || State == Phase.Suspended) return;
             var previous = State; var sequence = ActiveSequence;
-            resumeAt = previous == Phase.Charles ? Phase.CharlesPending : previous == Phase.Supplement ? Phase.SupplementPending
+            resumeAt = previous == Phase.SignatureHint ? Phase.SignatureHintPending
+                : previous == Phase.Charles ? Phase.CharlesPending : previous == Phase.Supplement ? Phase.SupplementPending
                 : previous == Phase.Secretary ? Phase.SecretaryPending : previous == Phase.Carafa ? Phase.CarafaPending
                 : previous == Phase.Returning || previous == Phase.Summary ? Phase.ReturnPending
                 : previous == Phase.Transition ? Phase.TransitionPending : previous;

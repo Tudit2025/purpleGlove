@@ -5,7 +5,7 @@ namespace PurpleGlove
 {
     /// <summary>View/book hints and edge navigation, processed before physical pointer input.</summary>
     [DefaultExecutionOrder(-300), DisallowMultipleComponent, RequireComponent(typeof(DeskScenePreview))]
-    public sealed class DeskViewHud : MonoBehaviour
+    public sealed partial class DeskViewHud : MonoBehaviour
     {
         public Font labelFont;
         [Range(0, 1)] public float arrowOpacity = 0.24f;
@@ -28,6 +28,7 @@ namespace PurpleGlove
             var workbench = GetComponent<CipherWorkbench>();
             // The original hint font is a subset; use the bundled full font for the new return text.
             if (workbench && workbench.uiFont) labelFont = workbench.uiFont;
+            commands = new DeskCommandHints(gameObject);
         }
 
         Rect Viewport(out int scale)
@@ -113,6 +114,7 @@ namespace PurpleGlove
 
         void OnGUI()
         {
+            DrawCommands();
             var book = InspectedBook;
             if (!book && (!view || !view.CanNavigate)) return;
             Rect viewport = Viewport(out int scale);

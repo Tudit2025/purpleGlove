@@ -163,9 +163,9 @@ public static partial class OperationalRackValidation
             Check(!receipt.gameObject.activeSelf && !archive.IsDocumentAvailable(3, receipt), "Shelving bypasses receipt lock");
             Check(original.gameObject.activeSelf && original.transform.Find("French signature").GetComponent<TextMesh>().text == "Charles", "Shelving lost French original");
             Inspect(form); Check(!flow.verification.TrySign(), "Unsolved form can sign"); interactor.CancelInteraction();
-            Record(); work.SetPlaintext("FRANCE WILL CROSS AT DAW"); Record(); Record(); Step();
+            Record(); work.SetPlaintext("FRANCE WILL CROSS ON JUNE EIGHTEE"); Record(); Record(); Step();
             Check(!flow.verification.CanSign, "Partial answer permits signature");
-            work.SetPlaintext("FRANCE WILL CROSS AT DAWN"); Record(); Record();
+            work.SetPlaintext("FRANCE WILL CROSS ON JUNE EIGHTEEN"); Record(); Record();
             Check(records.entries.Single(e => e.id == "vigenere").saved, "Correct answer not preserved");
             if (dialogue.IsActive) ReadAll(); Step(); flow.verification.RefreshInk();
             Check(flow.State == ThirdActFlow.Phase.WaitingForSignature && flow.verification.CanSign && !flow.verification.Signed, "Solution bypassed signature");

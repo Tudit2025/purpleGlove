@@ -88,6 +88,7 @@ def plaintext(pid, title, timing):
 heading(1, TITLE)
 add("按当前游戏流程整理，共 30 份／本文书与参考资料：19 份原始来件、6 份解密留档、2 本祷言集、1 本师父笔记、2 份结局回执。回执六之一另列出全部 8 种文字组合。")
 add("文书正文、抬头、签名、页脚及编号均取自当前保存场景；解密明文与表单、回执的动态文字取自游戏实际逻辑。正文用引用块呈现，出现时机与空栏说明为整理标注。保留纸面的文字、标点与正文内换行，独立文字块按阅读顺序排列。封档号为 57，装订批号为 726。")
+add("剧情日期：六月十五日晚至六月十六日清晨。核验截止、晨会及转押均为六月十六日六点；争议军情声称的越境日期为六月十八日。后者是待核实的文件主张，不代表法方实际下令。")
 add("目录：第一幕来件 → 第二幕调档 → 第三幕军情核验 → 第四幕原件与密信 → 第五幕来信及最终处置 → 第六幕回执 → 两本祷言集 → 师父笔记 → 附记。")
 
 heading(2, "一、第一幕：委托与师父留下的纸")
@@ -113,7 +114,9 @@ paper("act3-3", "15 军情核验表", "第三幕收到，明文还原与来源�
 heading(4, "解密完成、尚未签名")
 v = variant("transcript", "restored")
 quote("还原文字：" + get(v, "Restored transcript"))
-add("明文还原签名栏仍为空。纸面操作提示：")
+add("明文还原签名栏仍为空。通用明文留存提示读完后，卢卡先自白：")
+quote("明文已经核对过了。该拿出立夹里的核验表，在“明文还原签名”一栏签上我的名字。\n\n这一栏只确认文字还原无误。军情的来路还没查清，“来源确认签名”先空着。")
+add("自白读完后才开放明文还原签名。纸面操作提示：")
 quote(get(v, "Sign transcript prompt"))
 heading(4, "完成明文还原签名")
 v = variant("transcript", "signed")
@@ -134,7 +137,7 @@ for n, pid in enumerate(["act5-1", "act5-2", "act5-3"], 23):
     paper(pid, f"{n:02d} " + get(PAPERS[pid], "Title"), "第五幕各方具名来信。")
 
 heading(3, "最终处置文书 A：军情核验表的来源确认")
-add("复用第 15 份文书。明文还原栏继续保留“法国将在黎明越境。”和 Luca 签名；以下是来源确认部分。")
+add("复用第 15 份文书。明文还原栏继续保留“法国将于六月十八日越境。”和 Luca 签名；以下是来源确认部分。")
 fields = [PREFIX + name for name in ["Refuse guarantee", "Guarantee source", "Source evidence", "Source guarantee signature"]]
 for guarantee, title in [(False, "选择不作来源担保"), (True, "选择担保来源可靠")]:
     heading(4, title)

@@ -116,7 +116,7 @@ public static class ChapterJumpValidation
             Check(entry.saved == (entry.act < target), "Wrong plaintext completion: " + entry.id);
             if (entry.saved)
                 Check(entry.writtenText == entry.answer && entry.plaintextInk.text == PlaintextArchiveController.WrapAnswer(entry.answer)
-                    && records.DraftForAct(entry.act).Contains(entry.answer), "Wrong preserved plaintext: " + entry.id);
+                    && records.DraftForAct(entry.act) == "", "Wrong preserved plaintext or uncleared completed draft: " + entry.id);
         }
         Check(fifth.verification.Signed == (target > 3), "Incorrect transcript signature");
         if (target < 6) Check(!fifth.Dispatched && !fifth.ConfessionBurned && !fifth.GuaranteesSource
@@ -160,7 +160,10 @@ public static class ChapterJumpValidation
         if (target == 2) { Solve("book"); Check(camera.GetComponent<SecondActFlow>().State == SecondActFlow.Phase.CuePending, "Act two cannot progress"); }
         if (target == 3)
         {
-            Solve("vigenere"); Inspect(fifth.verification.GetComponent<SceneObject>());
+            Solve("vigenere");
+            var third = camera.GetComponent<ThirdActFlow>(); Step(third);
+            Check(dialogue.ActiveEvent == third.signatureHint, "Missing signature hint after plaintext confirmation"); ReadAll();
+            Inspect(fifth.verification.GetComponent<SceneObject>());
             Check(fifth.verification.TrySign() && camera.GetComponent<ThirdActFlow>().State == ThirdActFlow.Phase.CharlesPending, "Act three signing cannot progress");
         }
         if (target == 4)
@@ -187,16 +190,21 @@ public static class ChapterJumpValidation
     }
     static void ReadAll()
     {
-        Call(view, "AnimateView", 5f, Vector2.zero); Step(dialogue, 5); Call(dialogue.eyeShutter, "Advance", 5f); Step(dialogue, 5);
-        for (int i = 0; dialogue.IsActive && !dialogue.IsClosing && i < 100; i++) { Ungate(); dialogue.Advance(); }
-        if (dialogue.IsClosing) { Call(dialogue.eyeShutter, "Advance", 5f); Step(dialogue); }
+        for (int i = 0; dialogue.IsActive && i < 100; i++)
+        {
+            // Current conversations switch visitors between lines; advance those shutter animations too.
+            Call(view, "AnimateView", 5f, Vector2.zero); Call(dialogue.eyeShutter, "Advance", 5f); Step(dialogue, 5);
+            Ungate(); dialogue.Advance();
+        }
         Check(!dialogue.IsActive, "Dialogue stuck"); Ungate();
     }
     static void Solve(string id)
     {
         var entry = records.entries.Single(e => e.id == id);
         Step(records); records.workbench.SetPlaintext(entry.answer); Step(records); Step(records, 1);
-        Check(entry.saved, "Cannot solve " + id); if (dialogue.IsActive) ReadAll();
+        Check(entry.saved, "Cannot solve " + id);
+        Check(records.workbench.Plaintext == "" && records.DraftForAct(entry.act) == "", "Solved draft was not cleared: " + id);
+        if (dialogue.IsActive) ReadAll();
     }
     static void Inspect(SceneObject paper)
     {

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7eb144fa77fff54e8a9ecab4d02fb42, type: 3}
+  m_Name: StoryMusic
+  m_EditorClassIdentifier:
+  investigation:
+    intro: {fileID: 0}
+    loop: {fileID: 8300000, guid: 643a21168ef35d55aa8e156c52b7178b, type: 3}
+    outro: {fileID: 0}
+  pressure:
+    intro: {fileID: 0}
+    loop: {fileID: 8300000, guid: e070fadad80851218de91b9415386005, type: 3}
+    outro: {fileID: 0}
+  reflection:
+    intro: {fileID: 0}
+    loop: {fileID: 8300000, guid: bd34bdb5a00053f8bc3c8e6a21f07f3c, type: 3}
+    outro: {fileID: 0}
+  reunion:
+    intro: {fileID: 8300000, guid: c41f14e40ca052e2a347ab402b5a7cf2, type: 3}
+    loop: {fileID: 8300000, guid: 551fcd2f2bd356fcb7b2d9ebad70a832, type: 3}
+    outro: {fileID: 8300000, guid: 6d22ed849beb536a80a54517ea50eee7, type: 3}
+  loss:
+    intro: {fileID: 8300000, guid: e9186aa34c1457a9a159034cc789e0f1, type: 3}
+    loop: {fileID: 8300000, guid: 078191a698fe5dc58c02c0e8cbb91e33, type: 3}
+    outro: {fileID: 8300000, guid: b24b5975aa225cfd88e00668d437bd1c, type: 3}
+  candlelitMonastery: {fileID: 0}
+  volume: 0.4
+  crossfadeSeconds: 4
+  dialogueGain: 0.65
+  deliveryGain: 0.5
+  credits: "配乐：Scott Buckley\nPhoenix (2026) · Anabasis I · Unraveling · Hiraeth · Undertow\nwww.scottbuckley.com.au · CC BY 4.0\nhttps://creativecommons.org/licenses/by/4.0/\n本游戏版本经剪辑、循环处理与响度调整"
