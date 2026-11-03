@@ -33,9 +33,10 @@ namespace PurpleGlove.Editor
         {
             archive.acts[3].deferredDocuments = Array.Empty<SceneObject>();
             var records = Camera.main.GetComponent<PlaintextArchiveController>();
-            if (records && archive.acts[3].documents.Length == 4)
+            if (records && archive.acts[3].documents.Length == 5)
             {
-                foreach (var entry in records.entries.Where(e => e.act == 4)) entry.sourceDocument = archive.acts[3].documents[2];
+                foreach (var entry in records.entries.Where(e => e.act == 4))
+                    entry.sourceDocument = archive.acts[3].documents[entry.id == "rail" ? 4 : 2];
                 EditorUtility.SetDirty(records);
             }
             ConfigureFourthActOpening(Camera.main);
@@ -58,17 +59,17 @@ namespace PurpleGlove.Editor
                 DialogueEvent.Line L(DialogueSpeaker s, string text) => new DialogueEvent.Line { speaker = s, text = text };
                 var intro = ScriptableObject.CreateInstance<DialogueEvent>();
                 intro.id = "act4_arrival"; intro.title = "第四幕 · 两份独立封件"; intro.initialVisitor = clerk;
-                intro.context = "第四幕淡入完成后，逐包说明来源与四张文书；关窗后送入两份独立封包，接收落桌后解锁。";
+                intro.context = "第四幕淡入完成后，逐包说明来源；关窗后送入两份独立封包，接收落桌后解锁三张文书与两张密文纸条。";
                 intro.closeShutterOnComplete = true;
                 intro.arrivalSound = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/PH/Doors/door_knock_pattern_01.wav");
                 intro.arrivalDelay = intro.arrivalSound ? intro.arrivalSound.length : 0.1f;
                 intro.lines = new[] {
-                    L(clerk, "卢卡，刚到了两份独立的封件。"),
-                    L(clerk, "灰白封套里是您申请调阅的内库原件，对应第17号委托，批号七二六。"),
-                    L(clerk, "里头似乎是商队通行协议一类的底稿。"),
-                    L(clerk, "另一个棕色封包来自城北的修道院。一名修士连夜送来，指名要交到您手里，放下东西便匆匆赶回去了。"),
-                    L(clerk, "我按规矩将棕色封包登记为“私人信件”了。"),
-                    L(luca, "有劳了，请一并送进来吧。") };
+                    L(clerk, "卢卡，这次有两份独立封件。"),
+                    L(clerk, "灰白色的是你调的对应第十七号委托，批号七二六的原件存档。"),
+                    L(clerk, "里面是商路通行协议之类的东西。"),
+                    L(clerk, "棕包来自城北修道院。一个修士带过来，指名道姓说要给你，把东西给我之后他就回去了。"),
+                    L(clerk, "我把棕包登记成“信件”了。"),
+                    L(luca, "好的，请送进来吧。") };
                 AssetDatabase.CreateAsset(intro, path); opening.introduction = intro;
             }
             if (!dialogue.events.Contains(opening.introduction)) dialogue.events = dialogue.events.Concat(new[] { opening.introduction }).ToArray();
@@ -81,9 +82,11 @@ namespace PurpleGlove.Editor
             for (int i = 0; i < archive.acts[3].documents.Length; i++)
             {
                 var paper = archive.acts[3].documents[i].transform;
-                // The two-column cipher occupies the lower-right slot next to the decoding tools.
+                // The affine slip stays on the mat; the longer rail slip uses the desk's front edge.
                 float x = i == 0 || i == 3 ? -0.23f : 0.23f;
-                paper.SetPositionAndRotation(mat.TransformPoint(V(x, 0.014f, i < 2 ? 0.275f : -0.165f)), mat.rotation);
+                float z = i < 2 ? 0.275f : i == 2 ? -0.075f : i == 4 ? -0.215f : -0.165f;
+                paper.SetPositionAndRotation(mat.TransformPoint(V(x, 0.014f, z)), mat.rotation);
+                if (i == 4) PositionRailCipherStrip(paper);
                 paper.localScale = Vector3.one; paper.gameObject.SetActive(false);
             }
         }
@@ -95,12 +98,18 @@ namespace PurpleGlove.Editor
             paper.transform.SetParent(parent, false);
             var item = paper.AddComponent<SceneObject>(); item.screenFill = 0.82f; item.minimumViewDistance = 0.18f;
             item.inspectionFill = new Color(0.85f, 0.78f, 0.64f);
-            var box = item.GetComponent<BoxCollider>(); box.center = V(0, 0.004f, 0); box.size = V(0.42f, 0.012f, 0.40f);
-            MeshObject(index < 2 ? "Act4_ArchivePaper" : "Act4_MasterLetterPaper", paper.transform,
-                m => m.Sheet(0.42f, 0.40f, M(index < 2 ? "Paper_RagIvory" : "Parchment_Aged"), 0.003f));
+            bool strip = index == 2 || index == 4;
+            float height = index == 4 ? RailStripHeight : strip ? 0.075f : 0.40f;
+            float width = index == 4 ? RailStripWidth : index == 2 ? AffineStripWidth : 0.42f;
+            var box = item.GetComponent<BoxCollider>(); box.center = V(0, 0.004f, 0); box.size = V(width, 0.012f, height);
+            MeshObject(index < 2 ? "Act4_ArchivePaper" : strip ? "Act4_CipherStrip" : "Act4_MasterLetterPaper", paper.transform,
+                m => m.Sheet(0.42f, strip ? 0.075f : height, M(index < 2 ? "Paper_RagIvory" : "Parchment_Aged"), 0.003f))
+                .transform.localScale = V(width / 0.42f, 1, strip ? height / 0.075f : 1);
             if (index < 2) BuildFourthActArchivePaper(paper.transform, index);
-            else if (index == 2) BuildFourthActCipher(paper.transform);
+            else if (strip) BuildFourthActCipher(paper.transform, index);
             else BuildFourthActLetter(paper.transform);
+            if (index == 2 && Camera.main && Camera.main.GetComponent<DialogueController>())
+                DeskObjectMemoryBuilder.InstallFourthActMemory(item, Camera.main.GetComponent<DialogueController>());
             foreach (var renderer in paper.GetComponentsInChildren<Renderer>()) renderer.shadowCastingMode = ShadowCastingMode.Off;
             paper.SetActive(false); return item;
         }
@@ -128,27 +137,16 @@ namespace PurpleGlove.Editor
             MeshObject("Act4_ArchiveHeaderRule", paper, m => m.Box(V(0, 0.009f, 0.101f), V(0.36f, 0.0006f, 0.0007f), M("Ink")));
         }
 
-        static void BuildFourthActCipher(Transform paper)
+        static void BuildFourthActCipher(Transform paper, int index)
         {
-            FirstActInk(paper, "Title", "卢卡亲启 · 双栏密信", HandwrittenChinese, 0, 0.178f, 0.32f, 0.023f, true);
-            FirstActInk(paper, "Left heading", "第一栏", HandwrittenChinese, -0.182f, 0.137f, 0.17f, 0.018f);
-            FirstActInk(paper, "Left key", "五个齿 · 八个点", HandwrittenChinese, -0.182f, 0.104f, 0.17f, 0.016f);
-            var left = FirstActInk(paper, "Affine cipher", ActDocumentPages[3][2][1], documentFont, -0.182f, 0.054f, 0.17f, 0.105f);
-            left.lineSpacing = 1.22f;
-            FirstActInk(paper, "Right heading", "第二栏 · 两行栅栏", HandwrittenChinese, 0.017f, 0.137f, 0.17f, 0.018f);
-            FirstActInk(paper, "Right rule", "上下往返，按行读出", HandwrittenChinese, 0.017f, 0.104f, 0.17f, 0.016f);
-            FirstActInk(paper, "Rail cipher", WrapCipher(ActDocumentPages[3][2][2], 12), documentFont, 0.017f, 0.054f, 0.17f, 0.177f);
-            FirstActInk(paper, "Signature", "Matteo", notesFont, 0.08f, -0.141f, 0.10f, 0.022f);
-            FirstActInk(paper, "Folio", "修补封套内件  /  IV · 03", HandwrittenChinese, 0, -0.181f, 0.28f, 0.012f, true);
-            MeshObject("Act4_CipherColumnRule", paper, m => m.Box(V(0, 0.009f, 0.012f), V(0.0007f, 0.0006f, 0.267f), M("Ink")));
+            CipherDocumentInk(paper, index == 2 ? "Affine cipher" : "Rail cipher",
+                ActDocumentPages[3][index][1], 0, 0, (index == 2 ? AffineStripWidth : RailStripWidth) - 0.04f, true, true);
         }
 
         static void BuildFourthActLetter(Transform paper)
         {
-            FirstActInk(paper, "Title", "给卢卡的信", HandwrittenChinese, 0, 0.179f, 0.27f, 0.024f, true);
-            FirstActInk(paper, "Body", ActDocumentPages[3][3][1], HandwrittenChinese, -0.18f, 0.135f, 0.36f, 0.281f);
+            FirstActInk(paper, "Body", ActDocumentPages[3][3][1], HandwrittenChinese, -0.18f, 0.165f, 0.36f, 0.281f);
             FirstActInk(paper, "Signature", "Matteo", notesFont, 0.075f, -0.151f, 0.10f, 0.021f);
-            FirstActInk(paper, "Folio", "随双栏密信一并缝入封套  /  IV · 04", HandwrittenChinese, 0, -0.182f, 0.34f, 0.011f, true);
         }
 
         public static void BuildFourthActPackets(SealedDeliveryController delivery)

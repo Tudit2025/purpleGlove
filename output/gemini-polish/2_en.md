@@ -82,11 +82,14 @@ This file contains the in-game documents, forms, prayers, and notebook pages for
 > sign in your stead. This right cannot settle their dispute, but
 > it keeps unresolved doubts on paper, safe from hasty pressure.
 >
-> I have instructed the repository to pull relevant files upon
-> your request, though sealed originals still require formal
-> clearance. If you need messages sent, handlers questioned, or
-> other aid, tell the Clerk. Our hands are few, but I will see
-> it arranged.
+> Should trouble arise tonight, I authorize you to decide whether
+> to entrust this case's archived documents to Milan, Venice, or
+> France. On the enclosed transfer application, list the archive
+> number, documents, and chosen recipient; sign it and give it to
+> the Clerk to arrange the handover. If no party can be trusted,
+> you may keep the files sealed. This is an emergency measure.
+> Watch closely who seeks the originals, choose with care, and
+> obtain a receipt for any handover.
 >
 > I know you worry for Matteo. May what you uncover tonight earn
 > him the chance to speak for himself. Where doubts remain, do

@@ -26,28 +26,28 @@ namespace PurpleGlove.Editor
             var carafa = dialogue.speakers.Single(s => s.id == "carafa");
             DialogueEvent.Line L(DialogueSpeaker s, string t) => new DialogueEvent.Line { speaker = s, text = t };
             if (!flow.signatureHint) flow.signatureHint = ThirdActEvent("act3_signature_hint", "第三幕 · 卢卡提示明文签名", null,
-                L(luca, "译文既已核对无误，我该先在军情核验表上签字，确认明文还原的结果。"));
+                L(luca, "我应该先在军情核验表上签名确保明文还原无误"));
             if (!flow.charles) flow.charles = ThirdActEvent("act3_charles", "第三幕 · 夏尔门边交谈", charles,
-                L(clerk, "卢卡，法国代表夏尔先生求见。"),
-                L(charles, "日安，大师。倘若那份密文声称法国将于六月十八日越境，请您切勿替它的来源作保。"),
-                L(charles, "只要您能找出确凿的物证，法方定会全力护住令师的周全。"),
-                L(luca, "原稿上不是有您的亲笔签名吗？倘若军令是伪造的，您为何不当众揭穿？"),
-                L(charles, "那确是我的笔迹。但我不便向外界透露自己曾私下与米兰人签署过“另一份”文件，因此不能直接出面否认。"),
-                L(charles, "方才的承诺，我会立下字据并亲笔署名。今夜所言，还望大师三思。"),
-                L(clerk, "补充凭条已登记，并入第17号委托、批号七二六卷宗。观察窗合上后，我从传物舱递进来。"));
+                L(clerk, "法国代表夏尔来找你。"),
+                L(charles, "你好，大师。如果那个密码说法国将于六月十八日越境，请你不要为它担保。"),
+                L(charles, "如果你能提供什么有利的物证给我，我会全力保护你的师傅的。"),
+                L(luca, "这上面不是你的签名吗？如果这是伪造的签名，你为什么不直接说？"),
+                L(charles, "这确实是我的签名，但是我不能让人知道我确实跟米兰人签了“某个”文件。所以我不能说。"),
+                L(charles, "我承诺的事情我会签名写给你，请你好好考虑一下我今天来说的事。"),
+                L(clerk, "凭条已登记，附入第十七号委托，批号七二六。合上观察窗后，从传物舱送入。"));
             if (!flow.secretary) flow.secretary = ThirdActEvent("act3_secretary", "第三幕 · 书记官要求归还原件", clerk,
-                L(clerk, "米兰代表又来了。"),
-                L(secretary, "卢卡大师，密文想来已经译出了吧？既然文字并无出入，还请将随附的原件交还敝方。"),
-                L(luca, "按规程，原件须留存至来源核验完毕。现在不能交还。"),
+                L(clerk, "米兰代表来找你了。"),
+                L(secretary, "卢卡大师，你已经完成破译了吧，既然没什么问题，把原件还给我们吧。"),
+                L(luca, "原件我需要留到来源核验环节结束。"),
                 L(secretary, "……"),
-                L(secretary, "孔蒂公爵正在等您的结论，还请大师加快进度，莫误了时辰。"));
+                L(secretary, "公爵在等着你的核验结果，麻烦你加快进度了。"));
             if (!flow.carafa) flow.carafa = ThirdActEvent("act3_carafa", "第三幕 · 卡拉法门边交谈", carafa,
-                L(clerk, "米兰方面的卡拉法先生到了。"),
-                L(carafa, "年轻人，何必把事情闹得这么复杂？不过是印坊里一笔排字换版的旧账，莫要写成外交风波。"));
+                L(clerk, "米兰代表卡拉法来了。"),
+                L(carafa, "没必要搞的这么复杂，年轻人，别把排字的旧账写成外交事件。"));
             if (!flow.summary) flow.summary = ThirdActEvent("act3_summary", "第三幕 · 卢卡幕末独白", null,
-                L(luca, "译录与加密确系师父手笔。可难道就没人提醒过他，那份所谓的法文原稿也有蹊跷吗？"),
-                L(luca, "还是说我猜错了，印坊换版只是一桩寻常差错？眼下只能等内库的原始档案调来，才能见分晓了。"),
-                L(luca, "米兰方面催得这样紧，不知天亮前还会使出什么手段。"));
+                L(luca, "确实是师傅做的军情译录和加密，没人提醒他这个法文件也不是原件吗？"),
+                L(luca, "难道我想的是错的，换档的事情其实没问题？只有档案到了才能确定了。"),
+                L(luca, "米兰来的人很急，不知道后面还会做什么。"));
             dialogue.events = dialogue.events.Where(e => e && e.id != "act3_ring_hint" && e.id != "act3_request").ToArray();
             foreach (var sequence in new[] { flow.signatureHint, flow.charles, flow.secretary, flow.carafa, flow.summary })
                 if (!dialogue.events.Contains(sequence)) dialogue.events = dialogue.events.Concat(new[] { sequence }).ToArray();

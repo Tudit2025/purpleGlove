@@ -162,8 +162,13 @@ namespace PurpleGlove
                 case CipherWorkbenchTarget.Kind.Keyword: EndWriting(); editingKeyword = true; BeginTyping(); break;
                 case CipherWorkbenchTarget.Kind.PreviousKey: EndWriting(); StepKeyword(-1); break;
                 case CipherWorkbenchTarget.Kind.NextKey: EndWriting(); StepKeyword(1); break;
+                case CipherWorkbenchTarget.Kind.AffineParameter:
+                    if (ActiveTool == Tool.Affine) BeginAffineInput(target.index);
+                    break;
                 case CipherWorkbenchTarget.Kind.Cell:
-                    EndWriting(); editingCell = target.index; BeginTyping(); break;
+                case CipherWorkbenchTarget.Kind.RailCipher:
+                    if (ActiveTool == Tool.RailFence) BeginRailCipherInput();
+                    break;
                 case CipherWorkbenchTarget.Kind.Letter:
                 case CipherWorkbenchTarget.Kind.Rotor:
                 case CipherWorkbenchTarget.Kind.Slide:
@@ -211,9 +216,10 @@ namespace PurpleGlove
             if (heldLetter)
             {
                 var target = PickTarget(pointer, true);
-                if (target && target.kind == CipherWorkbenchTarget.Kind.Cell)
+                if (target && (target.kind == CipherWorkbenchTarget.Kind.Cell || target.kind == CipherWorkbenchTarget.Kind.RailCipher)
+                    && ActiveTool == Tool.RailFence)
                 {
-                    SetCell(ActiveTool, target.index, heldLetter.Letter.ToString()); heldLetter.ReturnHome(); Play(paperSound);
+                    SetRailCiphertext(RailCiphertext + heldLetter.Letter); heldLetter.ReturnHome(); Play(paperSound);
                 }
                 else if (target && target.kind == CipherWorkbenchTarget.Kind.Keyword)
                 { SetKeyword(Keyword + heldLetter.Letter); heldLetter.ReturnHome(); }
@@ -236,7 +242,10 @@ namespace PurpleGlove
         void UpdateQuill()
         {
             if (!writingQuill || !typing) return;
-            Transform paper = editingCell >= 0 ? (ActiveTool == Tool.Affine ? affineLetters[editingCell] : railLetters[editingCell]).transform
+            var affineInk = editingAffineParameter == 0 ? affineAInk : affineBInk;
+            Transform paper = editingAffineParameter >= 0 && affineInk ? affineInk.transform
+                : editingRailCipher && railInputInk ? railInputInk.transform
+                : editingCell >= 0 ? railLetters[editingCell].transform
                 : editingKeyword && keywordInk ? keywordInk.transform : null;
             if (paper)
             {
@@ -259,7 +268,9 @@ namespace PurpleGlove
         {
             if (!typing || e.type != EventType.KeyDown) return;
             if (e.keyCode == KeyCode.Escape) { EndWriting(); e.Use(); return; }
-            if (editingCell >= 0) { HandleGridInput(e, ActiveTool == Tool.Affine ? 52 : 82); return; }
+            if (editingAffineParameter >= 0) { HandleAffineInput(e); return; }
+            if (editingRailCipher) { HandleRailCipherInput(e); return; }
+            if (editingCell >= 0) { HandleGridInput(e, 82); return; }
             if (!editingKeyword) return;
             string value = Keyword;
             if ((e.control || e.command) && e.keyCode == KeyCode.V) value += GUIUtility.systemCopyBuffer;

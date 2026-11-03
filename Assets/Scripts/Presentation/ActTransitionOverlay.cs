@@ -39,6 +39,7 @@ namespace PurpleGlove
             title = Element("Chapter title", root.transform).gameObject.AddComponent<Text>();
             title.font = font; title.fontSize = 56; title.alignment = TextAnchor.MiddleCenter;
             title.raycastTarget = false; title.supportRichText = false;
+            PixelText.Apply(title);
             Cancel();
         }
 

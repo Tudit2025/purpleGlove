@@ -25,7 +25,7 @@ namespace PurpleGlove
         void Awake()
         {
             sceneCamera = GetComponent<Camera>();
-            // Draw lettering after the room's low-resolution pass so Chinese strokes stay legible.
+            // Lettering has its own finer pixel grid so Chinese strokes stay legible.
             var cameraObject = new GameObject("Dialogue text camera");
             cameraObject.transform.SetParent(transform, false);
             overlayCamera = cameraObject.AddComponent<Camera>();
@@ -162,6 +162,7 @@ namespace PurpleGlove
             label.font = font; label.fontSize = size; label.raycastTarget = false;
             label.alignment = TextAnchor.MiddleLeft; label.supportRichText = false;
             label.horizontalOverflow = HorizontalWrapMode.Wrap; label.verticalOverflow = VerticalWrapMode.Truncate;
+            PixelText.Apply(label);
             return label;
         }
         static RectTransform Rect(string title, Transform parent)

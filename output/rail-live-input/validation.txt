@@ -1,0 +1,4 @@
+PASS: 204 checks in Unity Play Mode.
+Each typed/deleted letter immediately reflows both rails; even/odd examples and full story cipher verified.
+Auto input on takeout, real collider picking, normalization/paste, capacity, manual plaintext, tool switching and dialogue interruption.
+Affine decoding preserved. Synthetic pointer/key events; screenshots use the actual scene camera.

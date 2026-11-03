@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act6_open
   title: "\u7B2C\u516D\u5E55 \xB7 \u5F00\u95E8"
-  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,26 +22,14 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
-    text: "\u5362\u5361\u3002"
-    endEvent: 0
-    choices: []
+    text: "卢卡。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u5E08\u7236\uFF0C\u6211\u628A\u60A8\u7684\u81EA\u8FF0\u5448\u4EA4\u4E0A\u53BB\u4E86\u3002"
-    endEvent: 0
-    choices: []
+    text: "我把你的自述交上去了，老师。"
   - speaker: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
-    text: "\u505A\u5F97\u5BF9\u3002"
-    endEvent: 0
-    choices: []
+    text: "应该的。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u63A5\u4E0B\u6765\u7684\u5BA1\u67E5\uFF0C\u4ED6\u4EEC\u53EA\u6015\u8FD8\u4F1A\u5411\u60A8\u8FFD\u95EE\u8BB8\u591A\u7EC6\u8282\u3002"
-    endEvent: 0
-    choices: []
+    text: "他们应该还会问你很多事。"
   - speaker: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
-    text: "\u6211\u660E\u767D\u3002\u8C22\u8C22\u4F60\uFF0C\u5362\u5361\u3002"
-    endEvent: 0
-    choices: []
+    text: "我知道。谢谢你。"
   - speaker: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
-    text: "\u5F80\u540E\u7684\u8DEF\u8FD8\u957F\u7740\u5462\u2026\u2026"
-    endEvent: 0
-    choices: []
+    text: "以后的日子还长呢……"

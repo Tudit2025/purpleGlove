@@ -9,7 +9,7 @@ namespace PurpleGlove
     public sealed partial class CipherWorkbench : MonoBehaviour
     {
         public enum Tool { None = -1, Caesar, Pigpen, SaintCyr, Affine, RailFence }
-        public static readonly string[] ToolNames = { "凯撒密码转盘", "猪圈密码表", "维吉尼亚密码 · 圣西尔滑尺", "仿射密码 · 26 × 2 填字表", "栅栏密码纸条" };
+        public static readonly string[] ToolNames = { "凯撒密码转盘", "猪圈密码表", "维吉尼亚密码 · 圣西尔滑尺", "仿射密码 · 参数对照表", "栅栏密码纸条" };
         public Font uiFont;
         public SceneObject toolbox;
         public Transform lid, mat, caesarRotor, saintCyrSlide;
@@ -55,12 +55,8 @@ namespace PurpleGlove
             interactor = GetComponent<SceneObjectInteractor>(); sceneCamera = GetComponent<Camera>();
             viewHud = GetComponent<DeskViewHud>();
             sound = gameObject.AddComponent<AudioSource>(); sound.playOnAwake = false; sound.spatialBlend = 0; sound.volume = 0.42f;
-            for (int i = 0; i < Affine.Length; i++)
-            {
-                Affine[i] = i < 26 ? Alphabet[i].ToString() : "";
-                if (i < affineLetters.Length && affineLetters[i]) affineLetters[i].text = Affine[i];
-            }
-            for (int i = 0; i < Rails.Length; i++) Rails[i] = "";
+            RefreshAffineTable();
+            SetRailCiphertext("");
             if (writingQuill)
             {
                 quillPosition = writingQuill.position; quillRotation = writingQuill.rotation;
@@ -182,6 +178,7 @@ namespace PurpleGlove
             CloseToolbox();
             pendingFocus = true;
             requestedTool = tool;
+            railInputRequested = tool == Tool.RailFence;
             if (ActiveTool == tool) return true;
             if (ActiveTool != Tool.None) StartToolTransfer((int)ActiveTool, true);
             else if (tool != Tool.None) StartToolTransfer(index, false);
@@ -242,12 +239,10 @@ namespace PurpleGlove
         }
         public void SetCell(Tool tool, int index, string value)
         {
-            string[] data = tool == Tool.Affine ? Affine : tool == Tool.RailFence ? Rails : null;
-            TextMesh[] ink = tool == Tool.Affine ? affineLetters : railLetters;
-            if (data == null || index < 0 || index >= data.Length) return;
-            data[index] = LettersOnly(value, 1);
-            if (index < ink.Length && ink[index]) ink[index].text = data[index];
-            if (tool == Tool.Affine) { decodedStrokes.Clear(); RefreshKeyboardMapping(); }
+            // Affine cells are derived from A/B and never accept manual edits or letter drops.
+            if (tool != Tool.RailFence || index < 0 || index >= Rails.Length) return;
+            Rails[index] = LettersOnly(value, 1);
+            if (index < railLetters.Length && railLetters[index]) railLetters[index].text = Rails[index];
         }
         public void SetPlaintext(string value)
         {
@@ -281,6 +276,10 @@ namespace PurpleGlove
         void EndWriting()
         {
             editingCell = -1; editingKeyword = false;
+            editingAffineParameter = -1; replaceAffineInput = false;
+            RefreshAffineParameterInk();
+            editingRailCipher = railInputRequested = replaceRailInput = false;
+            RefreshRailInputInk();
             if (typing)
             {
                 if (gate) gate.SetWorkbenchTyping(false);

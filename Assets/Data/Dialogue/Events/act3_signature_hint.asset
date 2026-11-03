@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: act3_signature_hint
   m_EditorClassIdentifier: 
   id: act3_signature_hint
-  title: "\u7B2C\u4E09\u5E55 \xB7 \u5362\u5361\u63D0\u793A\u660E\u6587\u7B7E\u540D"
-  context: "\u7B2C\u4E09\u5E55\u660E\u6587\u5B9E\u9645\u7559\u5B58\u3001\u901A\u7528\u5B8C\u6210\u63D0\u793A\u8BFB\u5B8C\u540E\u64AD\u653E\uFF1B\u8BFB\u5B8C\u624D\u5F00\u653E\u660E\u6587\u8FD8\u539F\u7B7E\u540D\uFF0C\u6765\u6E90\u786E\u8BA4\u4ECD\u7559\u5F85\u7B2C\u4E94\u5E55\u3002"
+  title: "第三幕 · 卢卡提示明文签名"
+  context: "第三幕明文实际留存、通用完成提示读完后播放；读完才开放明文还原签名，来源确认仍留待第五幕。"
   testOnly: 0
   initialVisitor: {fileID: 0}
   arrivalSound: {fileID: 0}
@@ -22,6 +22,4 @@ MonoBehaviour:
   arrivalDelay: 0.1
   lines:
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u8BD1\u6587\u65E2\u5DF2\u6838\u5BF9\u65E0\u8BEF\uFF0C\u6211\u8BE5\u5148\u5728\u519B\u60C5\u6838\u9A8C\u8868\u4E0A\u7B7E\u5B57\uFF0C\u786E\u8BA4\u660E\u6587\u8FD8\u539F\u7684\u7ED3\u679C\u3002"
-    endEvent: 0
-    choices: []
+    text: "我应该先在军情核验表上签名确保明文还原无误"

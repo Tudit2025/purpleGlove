@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act3_arrival
   title: "\u7B2C\u4E09\u5E55 \xB7 \u6B63\u5F0F\u6838\u9A8C\u4EF6\u5230\u8FBE"
-  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,18 +22,10 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u5362\u5361\uFF0C\u4ECA\u591C\u59D4\u6258\u6838\u9A8C\u7684\u6B63\u4EF6\u2014\u2014\u519B\u60C5\u8BD1\u5F55\u4EF6\u9001\u5230\u4E86\u3002\u786E\u7CFB\u6211\u4EEC\u884C\u4F1A\u5370\u5236\u3002"
-    endEvent: 0
-    choices: []
+    text: "卢卡，这次核验委托的内容，军情译录件送到了。确实是我们行会印刷的。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u5C01\u5305\u5185\u5171\u6709\u56DB\u4EFD\u6587\u4E66\uFF1A\u884C\u4F1A\u627F\u63A5\u8BD1\u5F55\u65F6\u7684\u539F\u59CB\u59D4\u6258\u4E66\uFF0C\u4E0A\u9762\u6709\u4EE4\u5E08\u7684\u4EB2\u7B14\u7B7E\u540D\uFF1B\u4ED6\u8BD1\u51FA\u7684\u519B\u60C5\u5BC6\u6587\uFF1B\u8FD8\u6709\u4E00\u4EFD\u519B\u60C5\u6838\u9A8C\u8868\u3002"
-    endEvent: 0
-    choices: []
+    text: "封包里有五个文件：行会承办这次译录时的译录委托，上面有你师傅的亲笔签名；还有他译录的军情密文、工作纸；一张核验表。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u6700\u540E\u662F\u4E00\u4EFD\u5E26\u6709\u6CD5\u65B9\u7F72\u540D\u7684\u6CD5\u6587\u539F\u7A3F\uFF0C\u77A7\u7EB8\u5F20\u548C\u5370\u8FF9\uFF0C\u4E5F\u662F\u884C\u4F1A\u5370\u574A\u51FA\u6765\u7684\u3002"
-    endEvent: 0
-    choices: []
+    text: "最后还有带法方签名的法文原文，这张好像也是我们行会印刷的。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u77E5\u9053\u4E86\uFF0C\u8BF7\u9001\u8FDB\u6765\u5427\u3002"
-    endEvent: 0
-    choices: []
+    text: "好的，请送进来吧。"

@@ -10,6 +10,37 @@ namespace PurpleGlove.Editor
     {
         const string CipherGroup = "09 Decoding tools and writing mat";
 
+        [MenuItem("Purple Glove/Scene/Install Rail Cipher Input")]
+        public static void InstallRailCipherInput()
+        {
+            if (Application.isPlaying) throw new InvalidOperationException("Install rail input outside Play Mode.");
+            if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            var scene = EditorSceneManager.OpenScene(DeskSceneStartup.ScenePath);
+            LoadSavedSceneAssets();
+            var work = Camera.main.GetComponent<CipherWorkbench>();
+            if (!work || work.tools.Length <= 4 || !work.tools[4]) throw new InvalidOperationException("Install the cipher toolbox first.");
+            BuildRailCipherInput(work); work.SetRailCiphertext("");
+            EditorUtility.SetDirty(work);
+            AssetDatabase.SaveAssets(); EditorSceneManager.SaveScene(scene);
+            Debug.Log("RAIL_CIPHER_INPUT_INSTALLED");
+        }
+
+        [MenuItem("Purple Glove/Scene/Install Affine Parameters")]
+        public static void InstallAffineParameters()
+        {
+            if (Application.isPlaying) throw new InvalidOperationException("Install affine parameters outside Play Mode.");
+            if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            var scene = EditorSceneManager.OpenScene(DeskSceneStartup.ScenePath);
+            LoadSavedSceneAssets();
+            var work = Camera.main.GetComponent<CipherWorkbench>();
+            if (!work || work.tools.Length <= 3 || !work.tools[3]) throw new InvalidOperationException("Install the cipher toolbox first.");
+            BuildAffineParameterFields(work);
+            work.SetAffineParameter(0, ""); work.SetAffineParameter(1, "");
+            EditorUtility.SetDirty(work);
+            AssetDatabase.SaveAssets(); EditorSceneManager.SaveScene(scene);
+            Debug.Log("AFFINE_PARAMETERS_INSTALLED");
+        }
+
         [MenuItem("Purple Glove/Scene/Install Cipher Toolbox")]
         public static void InstallCipherToolbox()
         {
@@ -235,12 +266,54 @@ namespace PurpleGlove.Editor
             {
                 string initial = !rails && row == 0 ? ((char)('A' + col)).ToString() : "";
                 labels[row * columns + col] = CipherText(root, "Cell " + row + " " + col, initial, V(start + (col + 0.5f) * pitch, 0.003f, 0.02f - row * 0.04f), rails ? 0.0015f : 0.0019f, documentFont);
-                var cell = CipherHit(root, "Write cell " + row + " " + col, CipherWorkbenchTarget.Kind.Cell,
-                    V(start + (col + 0.5f) * pitch, 0.004f, 0.02f - row * 0.04f), V(pitch * 0.98f, 0.006f, 0.039f));
-                cell.index = row * columns + col;
                 if (row == 0 && (!rails || col % 5 == 0 || col == 40)) CipherText(root, "Index " + col, (rails ? col + 1 : col).ToString(), V(start + (col + 0.5f) * pitch, 0.003f, 0.053f), 0.0009f, documentFont);
             }
-            if (rails) work.railLetters = labels; else work.affineLetters = labels;
+            if (rails) { work.railLetters = labels; BuildRailCipherInput(work); }
+            else { work.affineLetters = labels; BuildAffineParameterFields(work); }
+        }
+
+        static void BuildRailCipherInput(CipherWorkbench work)
+        {
+            var root = work.tools[4].transform;
+            foreach (var target in root.GetComponentsInChildren<CipherWorkbenchTarget>(true))
+                if (target.kind == CipherWorkbenchTarget.Kind.Cell || target.kind == CipherWorkbenchTarget.Kind.RailCipher)
+                    UnityEngine.Object.DestroyImmediate(target.gameObject);
+            var old = root.Find("Rail input");
+            if (old) UnityEngine.Object.DestroyImmediate(old.gameObject);
+            var input = Child(root, "Rail input", Vector3.zero);
+            work.railInputInk = CipherText(input, "Cipher input status", "点击输入密文 · 0/82", V(0, 0.003f, -0.066f), 0.0015f, work.uiFont);
+            CipherHit(input, "Type ciphertext on grid", CipherWorkbenchTarget.Kind.RailCipher,
+                V(0, 0.004f, 0), V(0.55f, 0.006f, 0.08f)).tool = CipherWorkbench.Tool.RailFence;
+            CipherHit(input, "Type ciphertext", CipherWorkbenchTarget.Kind.RailCipher,
+                V(0, 0.004f, -0.066f), V(0.54f, 0.006f, 0.036f)).tool = CipherWorkbench.Tool.RailFence;
+            var instructions = root.Find("Instructions").GetComponent<TextMesh>();
+            instructions.transform.localPosition = V(0, 0.003f, -0.101f);
+            instructions.text = "前半上行、后半下行；按列上下交替读。";
+            instructions.characterSize = 0.0011f;
+            EditorUtility.SetDirty(instructions); EditorUtility.SetDirty(instructions.transform);
+        }
+
+        static void BuildAffineParameterFields(CipherWorkbench work)
+        {
+            var root = work.tools[3].transform;
+            foreach (var target in root.GetComponentsInChildren<CipherWorkbenchTarget>(true))
+                if (target.kind == CipherWorkbenchTarget.Kind.Cell) UnityEngine.Object.DestroyImmediate(target.gameObject);
+            var old = root.Find("Affine parameters");
+            if (old) UnityEngine.Object.DestroyImmediate(old.gameObject);
+            var fields = Child(root, "Affine parameters", Vector3.zero);
+            work.affineAInk = CipherText(fields, "Parameter A", "A = ?", V(-0.13f, 0.003f, -0.066f), 0.0019f, documentFont);
+            work.affineBInk = CipherText(fields, "Parameter B", "B = ?", V(0.13f, 0.003f, -0.066f), 0.0019f, documentFont);
+            for (int i = 0; i < 2; i++)
+            {
+                var hit = CipherHit(fields, "Write parameter " + (i == 0 ? "A" : "B"), CipherWorkbenchTarget.Kind.AffineParameter,
+                    V(i == 0 ? -0.13f : 0.13f, 0.004f, -0.066f), V(0.20f, 0.006f, 0.036f));
+                hit.tool = CipherWorkbench.Tool.Affine; hit.index = i;
+            }
+            var instructions = root.Find("Instructions").GetComponent<TextMesh>();
+            instructions.transform.localPosition = V(0, 0.003f, -0.101f);
+            instructions.text = "上行明文 · 下行密文    y = (A × x + B) mod 26";
+            instructions.characterSize = 0.00105f;
+            EditorUtility.SetDirty(instructions); EditorUtility.SetDirty(instructions.transform);
         }
 
         static Transform Child(Transform parent, string name, Vector3 position)

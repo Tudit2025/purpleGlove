@@ -1,0 +1,13 @@
+Unity 2022.3.62f2: shader compiled and both saved scenes render with enabled defaults.
+PASS PH_DeskRoom, 960x540, pixelate=True: center unchanged, four corners darkened equally, alpha preserved.
+PASS PH_DeskRoom, 960x540, pixelate=False: center unchanged, four corners darkened equally, alpha preserved.
+PASS PH_DeskRoom, 800x600, pixelate=True: center unchanged, four corners darkened equally, alpha preserved.
+PASS PH_DeskRoom, 800x600, pixelate=False: center unchanged, four corners darkened equally, alpha preserved.
+PASS PH_DeskRoom, 1260x540, pixelate=True: center unchanged, four corners darkened equally, alpha preserved.
+PASS PH_DeskRoom, 1260x540, pixelate=False: center unchanged, four corners darkened equally, alpha preserved.
+PASS PH_MainMenu, 960x540, pixelate=True: center unchanged, four corners darkened equally, alpha preserved.
+PASS PH_MainMenu, 960x540, pixelate=False: center unchanged, four corners darkened equally, alpha preserved.
+PASS PH_MainMenu, 800x600, pixelate=True: center unchanged, four corners darkened equally, alpha preserved.
+PASS PH_MainMenu, 800x600, pixelate=False: center unchanged, four corners darkened equally, alpha preserved.
+PASS PH_MainMenu, 1260x540, pixelate=True: center unchanged, four corners darkened equally, alpha preserved.
+PASS PH_MainMenu, 1260x540, pixelate=False: center unchanged, four corners darkened equally, alpha preserved.

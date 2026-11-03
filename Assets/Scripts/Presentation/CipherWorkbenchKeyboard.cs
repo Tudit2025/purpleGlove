@@ -102,11 +102,8 @@ namespace PurpleGlove
             }
             else if (ActiveTool == Tool.Affine)
             {
-                ready = TryBuildAffineMapping(Affine, out mapping);
-                // The preset A-Z plaintext row is not a configured substitution table.
-                affinePlaintextInput = true;
-                for (int i = 26; i < Affine.Length; i++)
-                    if (!string.IsNullOrEmpty(Affine[i])) { affinePlaintextInput = false; break; }
+                ready = AffineParametersValid && TryBuildAffineMapping(Affine, out mapping);
+                affinePlaintextInput = AffineA.Length == 0 && AffineB.Length == 0;
                 ready |= affinePlaintextInput;
             }
             KeyboardDecodeReady = ready; KeyboardMapping = mapping;
@@ -133,6 +130,8 @@ namespace PurpleGlove
             if (!trayInscription) return;
             string text = originalTrayInscription;
             if (BookTool) text = "书本 · 页—行—字母，直接键入明文 · Esc 放回";
+            else if (editingRailCipher) text = "输入密文逐字排布 · 退格修改 · Enter 誊写明文";
+            else if (editingAffineParameter >= 0) text = "输入 0–25 · Tab 切换 A/B · Enter 确认";
             else if (editingKeyword || editingCell >= 0) text = "Enter 完成填写 · 返回字母盘";
             else if (ActiveTool == Tool.Caesar) text = caesarConfigured ? "凯撒 · 键入密文 → 明文" : "拨动转盘后可键入密文";
             else if (ActiveTool == Tool.Pigpen) text = "猪圈 · 对照图形，直接键入明文";
@@ -142,14 +141,15 @@ namespace PurpleGlove
                 return;
             }
             else if (ActiveTool == Tool.SaintCyr) text = "填写密钥后可键入密文";
-            else if (ActiveTool == Tool.Affine) text = affinePlaintextInput ? "仿射 · 对照表为空，直接键入明文"
-                : KeyboardDecodeReady ? "仿射 · 键入密文 → 明文" : "填满两行，每行 A–Z 不重复";
-            else if (ActiveTool == Tool.RailFence) text = "栅栏 · 交错拼读两行，直接键入明文";
+            else if (ActiveTool == Tool.Affine) text = AffineStatus;
+            else if (ActiveTool == Tool.RailFence) text = "栅栏 · 按列上下读明文；点击纸条继续输入密文";
             Localization.SetText(trayInscription, text);
         }
 
         void UpdateDecodeKeyboard()
         {
+            // Wait for the tool to land and the camera to settle before taking writing focus.
+            if (railInputRequested && ActiveTool == Tool.RailFence && UsesDecodeKeyboard) BeginRailCipherInput();
             bool active = Application.isFocused && UsesDecodeKeyboard;
             if (active && !decoderOwnsIme)
             {

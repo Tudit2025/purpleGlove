@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act5_arrival
   title: "\u7B2C\u4E94\u5E55 \xB7 \u4E09\u4F4D\u4EE3\u8868\u7684\u4E66\u4FE1"
-  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,18 +22,10 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u5362\u5361\uFF0C\u7C73\u5170\u3001\u6CD5\u56FD\u3001\u5A01\u5C3C\u65AF\u4E09\u65B9\u4EE3\u8868\u5404\u81EA\u9012\u4E86\u4FE1\u51FD\u8FDB\u6765\u3002"
-    endEvent: 0
-    choices: []
+    text: "卢卡，米兰、法国、威尼斯三位代表给你送了信件来。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u5DF2\u7ECF\u4E94\u70B9\u4E86\uFF0C\u6668\u4F1A\u4EA4\u5377\u7684\u65F6\u8FB0\u5C06\u8FD1\uFF0C\u6211\u4E5F\u8BE5\u51C6\u5907\u6536\u53D6\u60A8\u7684\u6838\u9A8C\u62A5\u544A\u4E86\u3002"
-    endEvent: 0
-    choices: []
+    text: "时间差不多了，马上需要收你的核验报告送到会议那边去。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u4F1A\u957F\u6599\u5230\u60A8\u6216\u8BB8\u9700\u8981\u79FB\u4EA4\u90E8\u5206\u5173\u952E\u6863\u6848\uFF0C\u82E5\u6709\u6240\u9700\uFF0C\u586B\u59A5\u90A3\u5F20\u8F6C\u4EA4\u7533\u8BF7\u8868\u5373\u53EF\u3002"
-    endEvent: 0
-    choices: []
+    text: "会长说你可能会有移存一些文件的需要，你填写移存申请表就可以了。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u4E00\u5207\u5B9A\u59A5\u4E4B\u540E\uFF0C\u8BF7\u6447\u54CD\u624B\u94C3\uFF0C\u6211\u4FBF\u5C06\u5377\u5B97\u6536\u8D70\u5448\u4EA4\u6668\u4F1A\u3002"
-    endEvent: 0
-    choices: []
+    text: "如果你处理完了，就摇手铃，我会把文件送出去。"

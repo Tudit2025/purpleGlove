@@ -1,6 +1,6 @@
 # 《紫手套》演出与台词改稿包
 
-> 2026-11-03 润色稿已同步到游戏：00—07 的台词与选项按编号更新为 `output/gemini-polish/1_polished.md`，英文版 `1_en.md` 已作为游戏内英文本地化接入（F1 面板切换）。生成与回填工具见 `output/gemini-polish/build_localization.py`。
+> 2026-11-03 中文对白润色已撤回：00—07 的台词、独白、对话选项与结局动态台词恢复为 `62d7ba35` 的文字，与 `output/gemini-polish/1-台词.md` 一致。英文版 `1_en.md` 保留并映射到原版中文，仍可在 F1 面板切换；纸面文书与界面润色保留。生成与回填工具见 `output/gemini-polish/build_localization.py`。
 
 > 2026-11-02 返回改稿已同步到游戏。00—07 为当前实际台词与演出顺序，按资源重新编号；原始返回稿（包括重复编号与自由备注）保存在 `output/performance-sync/source`。封档号统一57、批号统一726，书本明文为 REQUEST CASE FIFTY SEVEN。
 >

@@ -1,0 +1,5 @@
+PASS: 861 assertions; Unity 2022.3.62f2 Play Mode.
+Real scene documents: wheel direction, 75%-200% bounds, smooth rack camera zoom, near clipping, rest poses and reset.
+Books: page turns, physical clicks, arrow input, retained page; 4:3, 16:9 and 21:9 framing.
+Modal/consumed-frame/pointer guards, rack choice hits, camera restoration and desk navigation.
+Synthetic input replay; OS mouse wheel was not exercised. Rendered screenshots exclude IMGUI hints.

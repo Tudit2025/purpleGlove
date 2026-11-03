@@ -1,0 +1,4 @@
+PASS: 56 assertions in Unity 2022.3.62f2.
+Single-line separate strips, exact double spaces, A/B decryption, no titles/footers/explanation, mat bounds, repeat installation.
+Play Mode: delivery locks, rail pickup, affine pickup with inspection, cancellation retry, no repeat after pickup or archive recall, both plaintext records.
+Chinese and English letter/key/hint checked; rendered previews included. Synthetic input/timing replay.

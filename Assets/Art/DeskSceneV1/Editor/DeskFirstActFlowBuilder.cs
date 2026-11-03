@@ -41,27 +41,27 @@ namespace PurpleGlove.Editor
             if (!dialogue.speakers.Contains(secretary)) dialogue.speakers = dialogue.speakers.Concat(new[] { secretary }).ToArray();
             DialogueEvent.Line L(DialogueSpeaker speaker, string text) => new DialogueEvent.Line { speaker = speaker, text = text };
             var opening = Event("act1_arrival", "第一幕 · 执事交付说明", clerk,
-                L(clerk, "卢卡，公爵府的核验委托送到了。另外还有马泰奥……马泰奥大师临行前寄存的信件。"),
-                L(clerk, "棕色封包里是会长为您备下的卷宗，他老人家特意叮嘱，请您务必过目。"),
-                L(clerk, "会长交代过，您若有任何需要，行会定当全力协助。有事唤我，摇响案头的手铃便是。"),
-                L(clerk, "两份物件都已登记在册，我这就从底下的传物舱递进来。"));
+                L(clerk, "卢卡，公爵的核验委托送到了，还有马泰奥……马泰奥大师离开前寄存的信件。"),
+                L(clerk, "棕色包裹里有会长给你准备的资料，会长让我嘱托你一定要看。"),
+                L(clerk, "会长说如果你有什么需求全力帮助你，如果你要找我，摇一下桌子上的手铃就可以了。"),
+                L(clerk, "两件都登记好了。我从下面这个活版门转进去给你。"));
             opening.closeShutterOnComplete = true;
             opening.context = "doc/ph-revised.md 第一幕开场；入场五秒后敲门，音效结束后交谈，观察窗完全关闭后送件。";
             EditorUtility.SetDirty(opening);
             var introduction = Event("act1_secretary_arrival", "执事介绍米兰代表", clerk,
-                L(clerk, "卢卡，米兰方面的代表，孔蒂公爵的书记官到了。"));
+                L(clerk, "卢卡，米兰代表，米兰公爵的书记官到了。"));
             introduction.closeShutterOnComplete = true;
             var visit = Event("act1_secretary", "第一幕 · 首次门边交谈", secretary,
-                new DialogueEvent.Line { speaker = secretary, text = "卢卡大师，待核验的公文稍后即到。此事干系重大，还请您务必确保文书内容与来路皆无纰漏。", choices = new[] { new DialogueEvent.Choice { id = "ask_matteo", text = "我师父马泰奥人在哪里？", nextLine = 1 }, new DialogueEvent.Choice { id = "no_guarantee", text = "文书尚未送到，我无法作保。", nextLine = 2 }, new DialogueEvent.Choice { id = "silence", text = "……", nextLine = 3 } } },
-                new DialogueEvent.Line { speaker = secretary, text = "马泰奥大师目前正在协助敝方处理机密要务。", endEvent = true },
-                new DialogueEvent.Line { speaker = secretary, text = "自然，自然。一切请按行会的规矩办。", endEvent = true },
-                new DialogueEvent.Line { speaker = secretary, text = "您没有异议，那就再好不过了。", endEvent = true });
+                new DialogueEvent.Line { speaker = secretary, text = "卢卡大师，需要核验的文件马上就到了，事关重大，请您务必确保文件内容和来路都没有问题。", choices = new[] { new DialogueEvent.Choice { id = "ask_matteo", text = "解密大师马泰奥现在在哪里？", nextLine = 1 }, new DialogueEvent.Choice { id = "no_guarantee", text = "我现在什么都没看到，不能给你保证。", nextLine = 2 }, new DialogueEvent.Choice { id = "silence", text = "……", nextLine = 3 } } },
+                new DialogueEvent.Line { speaker = secretary, text = "马泰奥大师现在在协助我们的保密工作。", endEvent = true },
+                new DialogueEvent.Line { speaker = secretary, text = "当然，当然，请您按规矩来。", endEvent = true },
+                new DialogueEvent.Line { speaker = secretary, text = "您没有意见自然是很好的。", endEvent = true });
             visit.arrivalSound = null; visit.arrivalDelay = 0.1f; visit.closeShutterOnComplete = true;
             EditorUtility.SetDirty(introduction); EditorUtility.SetDirty(visit);
             var summary = Event("act1_summary", "第一幕 · 卢卡桌前总结", null,
-                L(luca, "师父叮嘱我“保留原件”，指的会是那份还没送到的军令吗？"),
-                L(luca, "正件未至，米兰的人倒先来催促施压了。看来师父果真落在他们手里。"),
-                L(luca, "“七瓣花”指的应当是那册新装订的《祷文集》。既是特制版次，显然是作密码本用的。"));
+                L(luca, "师傅让我留下原件，是指还没送来的军令吗？"),
+                L(luca, "文件还没到米兰就派人来催了。师傅在他们手里。"),
+                L(luca, "七瓣花应该是指新装订的祷言集，特别装订版，显然是当作密码本用的。"));
             foreach (var sequence in new[] { opening, introduction, visit, summary })
                 if (!dialogue.events.Contains(sequence)) dialogue.events = dialogue.events.Concat(new[] { sequence }).ToArray();
             var flow = camera.GetComponent<FirstActFlow>();

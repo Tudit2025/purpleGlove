@@ -76,18 +76,18 @@ namespace PurpleGlove
             {
                 case FifthActFlow.Custody.Milan:
                     consequence = fifth.GuaranteesSource
-                        ? "公爵既收回了换版原件，又握有您的来源担保。依我看，在达成目的之前，他们是绝不会放马泰奥大师回来的。"
-                        : "按您的转交申请，换版原件已由米兰代表签收。"; break;
+                        ? "公爵收回了原件，也拿到了你的来源担保。我估计他们会扣马泰奥到自己的目的实现。"
+                        : "根据你的申请，换档事件原件已由米兰签收。"; break;
                 case FifthActFlow.Custody.Venice:
                     consequence = fifth.GuaranteesSource
-                        ? "威尼斯委员会虽拿到了换版原件，但因您签署了来源担保，他们在今早的晨会上依然十分被动。"
-                        : "换版原件已移交威尼斯委员会。贝阿特丽切女士带人接走了马泰奥大师，往后要见令师，恐怕得同威尼斯人交涉了。"; break;
+                        ? "威尼斯委员会拿到了换版原件，但他们在今早的会议中很被动。"
+                        : "换档事件原件已送交威尼斯委员会。贝阿特丽切带人把马泰奥接走了，之后我们可能得找威尼斯人谈这件事了。"; break;
                 case FifthActFlow.Custody.France:
                     consequence = fifth.GuaranteesSource
-                        ? "夏尔先生签收了换版原件，却并未将其公开；他反而质问行会，为何要替一份未经法方核签的军令作保。"
-                        : "换版原件已由夏尔先生签收。法方眼下急于追究署名被盗用一事，马泰奥大师只怕要过些时日才能被接回行会。"; break;
+                        ? "夏尔已签收原件，但是他没公开原件。他同时要求你说明为什么替未经法方核签的正文作保。"
+                        : "换档事件原件已由夏尔签收。法国人现在打算处理署名被冒用的问题，过段时间才会把马泰奥接回来。"; break;
                 default:
-                    consequence = "换版原件虽仍由行会封存，可供三方申请查验，但因那份来源担保，咱们忙活这一整夜，终究是徒劳无功……"; break;
+                    consequence = "原件仍由行会封存，三方可以申请查验。我们这一晚上没什么进展……"; break;
             }
             sequence.lines = sequence.lines.Select(line => new DialogueEvent.Line {
                 speaker = line.speaker, text = line.text.Replace("{原件}", custody).Replace("{去向后果}", consequence)

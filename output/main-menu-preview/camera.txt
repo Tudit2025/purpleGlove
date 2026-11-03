@@ -1,0 +1,8 @@
+Existing PH_DeskRoom scene; unsaved composition study.
+Camera position: (1.5500, 1.3500, 5.0500)
+Look at: (1.2500, 1.2500, 3.4000)
+Euler: (3.4124, 190.3049, 0.0000)
+Vertical FOV: 62
+Resolution: 1920 x 1080; scene sampled at 960 x 540; native-resolution title/menu.
+Title: project YinPinZhuSong; English: EB Garamond.
+Existing prologue light repositioned and dimmed for this preview only.

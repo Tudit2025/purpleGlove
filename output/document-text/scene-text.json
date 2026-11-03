@@ -43,23 +43,8 @@
             "deferred": false,
             "ink": [
                 {
-                    "path": "Address",
-                    "text": "卢卡：",
-                    "active": true
-                },
-                {
                     "path": "Cipher",
-                    "text": "NHHS WKH RULJLQDO",
-                    "active": true
-                },
-                {
-                    "path": "Seven petal note",
-                    "text": "七瓣花，新版。\n查账时切莫只认签名。",
-                    "active": true
-                },
-                {
-                    "path": "Master signature",
-                    "text": "Matteo",
+                    "text": "NHHS WKH RULJLQDO\nVHYHQ SHWDOV QHZ HGLWLRQ",
                     "active": true
                 }
             ],
@@ -76,7 +61,7 @@
             "ink": [
                 {
                     "path": "Body",
-                    "text": "卢卡：\n\n米兰欲凭这份越境军情接管边境粮站；威尼斯不肯将粮道与\n防务拱手让人，却也不敢轻忽战报；法国则绝不容旁人替自\n己宣告开战。三方都在等今夜的核验结果，也都盼着结果能\n替自己张目。\n\n行会替各方印制文书、保管契据，如今连核验的名义也成了\n他们博弈的筹码。迟迟不签，必被指责贻误军机；顺着签\n了，日后追究起来，又要归咎于行会失察。我们仰赖三方的\n生意糊口，谁也得罪不起，却断不能让手下工匠替他们背负\n罪责。\n\n正因三方彼此猜忌，才肯将此事交由共同登记的核验人裁\n夺。就这份文书而言，你是今夜唯一获三方公认、兼具调查\n之权与正式发言权的人。你可调阅旧档、质询各方，并将核\n验结论载入晨会卷宗；纵是我也不能代你落笔。这权力虽不\n足以平息争端，却能令未明之疑留在纸面，不致被几句催促\n抹去。\n\n我已吩咐库房，依你的申请抽调相关封档与旧账；唯封存之\n原件仍须备齐手续方能启封。若需递信、查问经手人，或遇\n其他难处，尽管托执事传话。行会能调动的人手有限，但我\n自当竭力周旋。\n\n我深知你记挂马泰奥。但愿你今夜查实的证据，能为他挣得\n亲口陈情的机会。凡未查清之事，切莫替任何人签字作保。",
+                    "text": "卢卡：\n\n米兰欲凭这份越境军情接管边境粮站；威尼斯不肯将粮道与防务\n拱手让人，却也不敢轻忽战报；法国则绝不容旁人替自己宣告开\n战。三方都在等今夜的核验结果，也都盼着结果能替自己张目。\n\n行会替各方印制文书、保管契据，如今连核验的名义也成了他们\n博弈的筹码。迟迟不签，必被指责贻误军机；顺着签了，日后追\n究起来，又要归咎于行会失察。我们仰赖三方的生意糊口，谁也\n得罪不起，却断不能让手下工匠替他们背负罪责。\n\n正因三方彼此猜忌，才肯将此事交由共同登记的核验人裁夺。就\n这份文书而言，你是今夜唯一获三方公认、兼具调查之权与正式\n发言权的人。你可调阅旧档、质询各方，并将核验结论载入晨会\n卷宗；纵是我也不能代你落笔。这权力虽不足以平息争端，却能\n令未明之疑留在纸面，不致被几句催促抹去。\n\n为防今夜生变，我已授权你在必要时决定，将本案存档文件交予\n米兰、威尼斯或法国中的一方。随信附上档案转交申请表，填明\n档案编号、转交清单及受领方，签名后交执事办理；若无稳妥人\n选，仍可继续封存。此为应急之法，务必留意各方索取原件的动\n向，慎择所托，交接须留凭据。\n\n我深知你记挂马泰奥。但愿你今夜查实的证据，能为他挣得亲口\n陈情的机会。凡未查清之事，切莫替任何人签字作保。",
                     "active": true
                 },
                 {
@@ -611,6 +596,23 @@
             "spreads": []
         },
         {
+            "id": "act3-6",
+            "category": "original",
+            "path": "07 Five act archive/Act documents - authored desk layout/Act3_06_师父的工作纸",
+            "answer": "",
+            "source": "",
+            "act": 3,
+            "deferred": false,
+            "ink": [
+                {
+                    "path": "Keyword",
+                    "text": "SOIE",
+                    "active": true
+                }
+            ],
+            "spreads": []
+        },
+        {
             "id": "act4-1",
             "category": "original",
             "path": "07 Five act archive/Act documents - authored desk layout/Act4_01_商业文件委托签收页",
@@ -727,55 +729,15 @@
         {
             "id": "act4-3",
             "category": "original",
-            "path": "07 Five act archive/Act documents - authored desk layout/Act4_03_师父双栏密信",
+            "path": "07 Five act archive/Act documents - authored desk layout/Act4_03_师父的仿射密码纸条",
             "answer": "",
             "source": "",
             "act": 4,
             "deferred": false,
             "ink": [
                 {
-                    "path": "Title",
-                    "text": "卢卡亲启 · 双栏密信",
-                    "active": true
-                },
-                {
-                    "path": "Left heading",
-                    "text": "第一栏",
-                    "active": true
-                },
-                {
-                    "path": "Left key",
-                    "text": "五个齿 · 八个点",
-                    "active": true
-                },
-                {
                     "path": "Affine cipher",
-                    "text": "VAPZR MIZC\n\nUIWVZ QIPZWV",
-                    "active": true
-                },
-                {
-                    "path": "Right heading",
-                    "text": "第二栏 · 两行栅栏",
-                    "active": true
-                },
-                {
-                    "path": "Right rule",
-                    "text": "上下往返，按行读出",
-                    "active": true
-                },
-                {
-                    "path": "Rail cipher",
-                    "text": "IINDHFLERETF\nEBROOFMLIAEO\nTEROADAHLDNT\nRSMNMSGETEAS\nODROREATLSAI\nYCMFRHPOFNWS\nEDOOEAEYAE",
-                    "active": true
-                },
-                {
-                    "path": "Signature",
-                    "text": "Matteo",
-                    "active": true
-                },
-                {
-                    "path": "Folio",
-                    "text": "修补封套内件  /  IV · 03",
+                    "text": "VAPZR  MIZC  UIWVZ  QIPZWV",
                     "active": true
                 }
             ],
@@ -791,23 +753,30 @@
             "deferred": false,
             "ink": [
                 {
-                    "path": "Title",
-                    "text": "给卢卡的信",
-                    "active": true
-                },
-                {
                     "path": "Body",
-                    "text": "卢卡：\n\n我原以为，先救人脱身，再取回底稿，\n便能将这桩伪案拆穿。是我高估了自己，\n反倒将棘手的后果推给了你。\n\n明早六点我将被转押。转押公文走的是\n米兰内廷渠道。须将‘争议证人留候共同\n核验’之文书送入该渠道，并由威尼斯与\n法国具名联保，监押的书记官才有借口\n暂缓执行。\n\n我所言之事，你也一并查验。若确有其事，\n必能找到独立于我的旁证记录。",
+                    "text": "卢卡：\n\n是我高估了自己，\n反倒将棘手的后果推给了你。\n\n明早六点我将被转押。转押公文走的是\n米兰内廷渠道。须将‘争议证人留候共同\n核验’之文书送入该渠道，并由威尼斯与\n法国具名联保，监押的书记官才有借口\n暂缓执行。\n\n我所言之事，你也一并查验。若确有其事，\n必能找到独立于我的旁证记录。\n\nA = 5    B = 8",
                     "active": true
                 },
                 {
                     "path": "Signature",
                     "text": "Matteo",
                     "active": true
-                },
+                }
+            ],
+            "spreads": []
+        },
+        {
+            "id": "act4-5",
+            "category": "original",
+            "path": "07 Five act archive/Act documents - authored desk layout/Act4_05_师父的栅栏密码纸条",
+            "answer": "",
+            "source": "",
+            "act": 4,
+            "deferred": false,
+            "ink": [
                 {
-                    "path": "Folio",
-                    "text": "随双栏密信一并缝入封套  /  IV · 04",
+                    "path": "Rail cipher",
+                    "text": "IINDHFLERETFEBROOFMLIAEOTEROADAHLDNTRSMNMSGETEASODROREATLSAIYCMFRHPOFNWSEDOOEAEYAE",
                     "active": true
                 }
             ],
@@ -898,19 +867,19 @@
             "id": "caesar",
             "category": "plaintext",
             "path": "07 Five act archive/Solved plaintext records/Act1_Plaintext_caesar",
-            "answer": "KEEP THE ORIGINAL",
+            "answer": "KEEP THE ORIGINAL SEVEN PETALS NEW EDITION",
             "source": "",
             "act": 1,
             "deferred": false,
             "ink": [
                 {
                     "path": "Preserved plaintext",
-                    "text": "KEEP THE ORIGINAL",
+                    "text": "KEEP THE ORIGINAL SEVEN PETALS NEW\nEDITION",
                     "active": true
                 },
                 {
                     "path": "Translation",
-                    "text": "保留原件。",
+                    "text": "保留原件。\n七瓣花，新版。",
                     "active": true
                 }
             ],
@@ -964,14 +933,14 @@
             "id": "vigenere",
             "category": "plaintext",
             "path": "07 Five act archive/Solved plaintext records/Act3_Plaintext_vigenere",
-            "answer": "FRANCE WILL CROSS ON JUNE EIGHTEEN",
+            "answer": "FRANCE WILL CROSS\nON JUNE EIGHTEEN",
             "source": "07 Five act archive/Act documents - authored desk layout/Act3_02_师父译录的军情密文",
             "act": 3,
             "deferred": false,
             "ink": [
                 {
                     "path": "Preserved plaintext",
-                    "text": "FRANCE WILL CROSS ON JUNE EIGHTEEN",
+                    "text": "FRANCE WILL CROSS\nON JUNE EIGHTEEN",
                     "active": true
                 },
                 {
@@ -987,7 +956,7 @@
             "category": "plaintext",
             "path": "07 Five act archive/Solved plaintext records/Act4_Plaintext_affine",
             "answer": "NORTH GATE SAINT MARTIN",
-            "source": "07 Five act archive/Act documents - authored desk layout/Act4_03_师父双栏密信",
+            "source": "07 Five act archive/Act documents - authored desk layout/Act4_03_师父的仿射密码纸条",
             "act": 4,
             "deferred": false,
             "ink": [
@@ -1009,7 +978,7 @@
             "category": "plaintext",
             "path": "05 Correspondence and original evidence/CorrespondenceRack/Working form slots/师父自述/Act4_Plaintext_rail",
             "answer": "I SIGNED THE FALSE ORDER TO FREE BARTOLOS FAMILY. I CAME FOR THE PROOF AND WAS HELD. DO NOT ERASE MY NAME.",
-            "source": "07 Five act archive/Act documents - authored desk layout/Act4_03_师父双栏密信",
+            "source": "07 Five act archive/Act documents - authored desk layout/Act4_05_师父的栅栏密码纸条",
             "act": 4,
             "deferred": false,
             "ink": [

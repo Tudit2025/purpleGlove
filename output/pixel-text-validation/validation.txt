@@ -1,0 +1,1 @@
+PASS: 111 checks. Unity 2022.3.62f2. Shader compile/render; Chinese/English title and dialogue; 720p, 4:3 and ultrawide captures; typewriter wrapping; choice hit targets; inactive row reactivation; chapter/end title; setting off/on and scene reload; document resolution preserved.

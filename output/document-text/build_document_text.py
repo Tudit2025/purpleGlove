@@ -86,7 +86,7 @@ def plaintext(pid, title, timing):
 
 
 heading(1, TITLE)
-add("按当前游戏流程整理，共 30 份／本文书与参考资料：19 份原始来件、6 份解密留档、2 本祷言集、1 本师父笔记、2 份结局回执。回执六之一另列出全部 8 种文字组合。")
+add("按当前游戏流程整理，共 31 份／本文书与参考资料：20 份原始来件、6 份解密留档、2 本祷言集、1 本师父笔记、2 份结局回执。回执六之一另列出全部 8 种文字组合。")
 add("文书正文、抬头、签名、页脚及编号均取自当前保存场景；解密明文与表单、回执的动态文字取自游戏实际逻辑。正文用引用块呈现，出现时机与空栏说明为整理标注。保留纸面的文字、标点与正文内换行，独立文字块按阅读顺序排列。封档号为 57，装订批号为 726。")
 add("剧情日期：六月十五日晚至六月十六日清晨。核验截止、晨会及转押均为六月十六日六点；争议军情声称的越境日期为六月十八日。后者是待核实的文件主张，不代表法方实际下令。")
 add("目录：第一幕来件 → 第二幕调档 → 第三幕军情核验 → 第四幕原件与密信 → 第五幕来信及最终处置 → 第六幕回执 → 两本祷言集 → 师父笔记 → 附记。")
@@ -108,9 +108,10 @@ plaintext("pigpen", "10 猪圈密文明文留档", "正确还原碎纸图形密�
 heading(2, "三、第三幕：军情译录与核验")
 paper("act3-1", "11 米兰与行会的译录委托", "第三幕正式核验封包。")
 paper("act3-2", "12 师父译录的军情密文", "第三幕正式核验封包。")
-paper("act3-5", "13 争议军情的法文原文", "第三幕正式核验封包。")
-plaintext("vigenere", "14 军情密文明文留档", "正确还原维吉尼亚密文后生成。")
-paper("act3-3", "15 军情核验表", "第三幕收到，明文还原与来源确认分别签署。")
+paper("act3-6", "13 师父的工作纸", "第三幕正式核验封包；独立纸条，纸面仅用师父笔迹写关键词。")
+paper("act3-5", "14 争议军情的法文原文", "第三幕正式核验封包。")
+plaintext("vigenere", "15 军情密文明文留档", "正确还原维吉尼亚密文后生成。")
+paper("act3-3", "16 军情核验表", "第三幕收到，明文还原与来源确认分别签署。")
 heading(4, "解密完成、尚未签名")
 v = variant("transcript", "restored")
 quote("还原文字：" + get(v, "Restored transcript"))
@@ -126,18 +127,19 @@ heading(4, "完成明文还原签名")
 v = variant("transcript", "signed")
 quote("还原文字：" + get(v, "Restored transcript") + "\n明文还原签名：" + get(v, "Luca transcript signature"))
 add("签署提示消失。来源确认的最终选择见第五幕。")
-paper("act3-4", "16 夏尔的补充凭条", "第三幕夏尔会面后补送；属于具名预备说明。")
+paper("act3-4", "17 夏尔的补充凭条", "第三幕夏尔会面后补送；属于具名预备说明。")
 
 heading(2, "四、第四幕：换版原件与师父来信")
-paper("act4-1", "17 商业文件委托签收页", "第四幕送达的第五十七号封档原件。")
-paper("act4-2", "18 换版记录", "第四幕与商业文件委托签收页一并送核。")
-paper("act4-3", "19 师父双栏密信", "第四幕修补封套内件；包含仿射与两行栅栏密码。")
-plaintext("affine", "20 第一栏：地点明文留档", "正确还原双栏密信第一栏后生成。")
-plaintext("rail", "21 第二栏：师父自述明文留档", "正确还原双栏密信第二栏后生成；第五幕可决定保留或焚毁。")
-paper("act4-4", "22 师父的明文书信", "第四幕，随双栏密信一并缝入封套。")
+paper("act4-1", "18 商业文件委托签收页", "第四幕送达的第五十七号封档原件。")
+paper("act4-2", "19 换版记录", "第四幕与商业文件委托签收页一并送核。")
+paper("act4-3", "20 师父的仿射密码纸条", "第四幕修补封套内件；横向纸条上只有一行密文，词间为两个空格。")
+paper("act4-5", "20a 师父的栅栏密码纸条", "第四幕修补封套内件；独立横向纸条上只有一行密文。")
+plaintext("affine", "21 地点明文留档", "正确还原仿射密码纸条后生成。")
+plaintext("rail", "22 师父自述明文留档", "正确还原栅栏密码纸条后生成；第五幕可决定保留或焚毁。")
+paper("act4-4", "23 师父的明文书信", "第四幕，随两张密文纸条一并缝入封套；信上明写 A、B 数值。")
 
 heading(2, "五、第五幕：三方来信与最终处置")
-for n, pid in enumerate(["act5-1", "act5-2", "act5-3"], 23):
+for n, pid in enumerate(["act5-1", "act5-2", "act5-3"], 24):
     paper(pid, f"{n:02d} " + get(PAPERS[pid], "Title"), "第五幕各方具名来信。")
 
 heading(3, "最终处置文书 A：军情核验表的来源确认")
@@ -174,7 +176,7 @@ destroyed = next(t["text"] for t in DATA["otherText"] if t["path"].endswith("/De
 quote(destroyed)
 
 heading(2, "六、第六幕：结果回执")
-heading(3, "26 行会 · 处理回执（回执六之一）")
+heading(3, "27 行会 · 处理回执（回执六之一）")
 included.add("report")
 add("出现时机：第六幕清晨六点的结果通报后送入。是否担保来源 × 原件四种去向，共有下列 8 种完整正文；是否烧毁自述不改变此回执的文字。")
 for guarantee in [False, True]:
@@ -182,11 +184,11 @@ for guarantee in [False, True]:
         heading(4, ("担保来源可靠" if guarantee else "不作来源担保") + "／" + label)
         quote(get(PAPERS["report"], "Title") + "\n\n" + variant("report", custody + f";guarantee={guarantee}")["body"] + "\n\n" + get(PAPERS["report"], "Folio"))
 handled.update(("report", t["path"]) for t in PAPERS["report"]["ink"])
-paper("reunion", "27 证人接回 · 交接凭据（回执六之二）", "仅“开门”“缺页”结局送达：未作来源担保且原件继续由行会封存；清晨六点半接回师父。")
+paper("reunion", "28 证人接回 · 交接凭据（回执六之二）", "仅“开门”“缺页”结局送达：未作来源担保且原件继续由行会封存；清晨六点半接回师父。")
 
 heading(2, "七、共用参考资料：两本祷言集")
 add("这两本书不随各幕卷宗收起。游戏可展开的文字为第 12、13 页，每页四行；下方“第几行”为查询标注。行内字母上方的小号数字按字母顺序从 1 开始，不计空格，每行重新编号。")
-for number, pid, edition in [(28, "prayer-old", "旧版"), (29, "prayer-flower", "七瓣花版")]:
+for number, pid, edition in [(29, "prayer-old", "旧版"), (30, "prayer-flower", "七瓣花版")]:
     p = PAPERS[pid]
     included.add(pid)
     heading(3, f"{number} 祷言集 · {edition}")
@@ -201,7 +203,7 @@ for number, pid, edition in [(28, "prayer-old", "旧版"), (29, "prayer-flower",
 
 heading(2, "八、共用参考资料：马泰奥的旧笔记")
 included.add("notebook")
-heading(3, "30 师父笔记（全部 14 页）")
+heading(3, "31 师父笔记（全部 14 页）")
 add("书中共 7 个对开。以下按实际页码列出全部正文；猪圈密码页的图形对照另作文字说明。")
 for spread_index, spread in enumerate(PAPERS["notebook"]["spreads"]):
     for side_index, side in enumerate(["left", "right"]):
@@ -260,7 +262,7 @@ for v in DATA["variants"]:
             if t["text"]:
                 assert normalize(t["text"]) in normalized, (v["kind"], v["condition"], t["path"])
                 checks += 1
-assert len(PAPERS) == 30
+assert len(PAPERS) == 32
 assert len([v for v in DATA["variants"] if v["kind"] == "report"]) == 8
 assert len(PAPERS["notebook"]["spreads"]) == 7
 assert not re.search(r"第七号封档|7—031|七—〇三一", content)
@@ -284,11 +286,11 @@ sources = [DATA["scene"], "Assets/Scripts/Presentation/ThirdActVerification.cs",
            "Assets/Art/DeskSceneV1/Editor/DeskSecondActBuilder.cs", "output/document-text/scene-text.json"]
 manifest = {
     "source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
-    "papers": len(PAPERS), "originals": 19, "plaintext_records": 6, "reference_books": 3, "receipt_objects": 2,
+    "papers": len(PAPERS), "originals": 21, "plaintext_records": 6, "reference_books": 3, "receipt_objects": 2,
     "report_variants": 8, "runtime_snapshots": len(DATA["variants"]), "coverage_checks": checks,
     "sources": {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in sources},
     "artifacts": [str(MD.relative_to(ROOT)).replace("\\", "/"), f"output/document-text/{TITLE}.txt", f"output/document-text/{TITLE}.docx"],
 }
 (OUT / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-(OUT / "validation.txt").write_text(f"PASS: {checks} text coverage checks; 30 documents/books; 20 runtime snapshots; 8 report variants; 14 notebook pages.\n", encoding="utf-8")
+(OUT / "validation.txt").write_text(f"PASS: {checks} text coverage checks; 32 documents/books; 20 runtime snapshots; 8 report variants; 14 notebook pages.\n", encoding="utf-8")
 print(json.dumps({"checks": checks, "papers": len(PAPERS), "characters": len(content), "artifacts": manifest["artifacts"]}, ensure_ascii=False, indent=2))

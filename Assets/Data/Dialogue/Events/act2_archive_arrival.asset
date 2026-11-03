@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: act2_archive_arrival
   m_EditorClassIdentifier: 
   id: act2_archive_arrival
-  title: "\u7B2C\u4E8C\u5E55 \xB7 \u7B2C\u4E94\u5341\u4E03\u53F7\u5C01\u6863\u9001\u8FBE"
-  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
+  title: "\u7B2C\u4E8C\u5E55 \xB7 \u7b2c\u4e94\u5341\u4e03\u53f7\u5C01\u6863\u9001\u8FBE"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,10 +22,6 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u7B2C\u4E94\u5341\u4E03\u53F7\u5C01\u6863\u8C03\u6765\u4E86\u3002\u4EA4\u5B58\u4EBA\u662F\u6392\u5B57\u5DE5\u5DF4\u5C14\u6258\u6D1B\uFF0C\u4E0E\u4EE4\u5E08\u7D20\u6709\u4EA4\u60C5\u3002"
-    endEvent: 0
-    choices: []
+    text: "五十七号封档到了，交存人是你师傅的熟人排字工巴尔托洛。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u91CC\u5934\u6709\u4E00\u4EFD\u53F0\u8D26\u6458\u8981\u548C\u4E00\u5F20\u88C1\u7EB8\u8FB9\u89D2\uFF0C\u8FD9\u5C31\u7ED9\u60A8\u9001\u8FDB\u6765\u3002"
-    endEvent: 0
-    choices: []
+    text: "内含台账摘要和一张裁纸边角，我给你送进去。"

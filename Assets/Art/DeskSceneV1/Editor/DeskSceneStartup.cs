@@ -22,7 +22,8 @@ namespace PurpleGlove.Editor
 
         static void OnSceneOpened(Scene scene, OpenSceneMode mode)
         {
-            if (scene.path == ScenePath) EditorApplication.delayCall += HidePreviewGizmos;
+            EditorApplication.delayCall += SetPlayStartScene;
+            if (scene.path == ScenePath || scene.path == MainMenuController.ScenePath) EditorApplication.delayCall += HidePreviewGizmos;
         }
 
         static void OnPlayModeStateChanged(PlayModeStateChange state)
@@ -34,7 +35,8 @@ namespace PurpleGlove.Editor
         [MenuItem("Purple Glove/Scene/Hide Preview Gizmos")]
         public static void HidePreviewGizmos()
         {
-            if (SceneManager.GetActiveScene().path != ScenePath) return;
+            var path = SceneManager.GetActiveScene().path;
+            if (path != ScenePath && path != MainMenuController.ScenePath) return;
 
             // Hide editor overlays without changing any lights, audio sources or scene objects.
             foreach (var view in Resources.FindObjectsOfTypeAll<SceneView>())
@@ -57,20 +59,25 @@ namespace PurpleGlove.Editor
         // Asset references are ready here, including fresh editor/batch launches before their first update.
         static void OnPostprocessAllAssets(string[] imported, string[] deleted, string[] moved, string[] movedFrom, bool didDomainReload)
         {
-            if (didDomainReload || imported.Contains(ScenePath)) SetPlayStartScene();
+            if (didDomainReload || imported.Contains(ScenePath) || imported.Contains(MainMenuController.ScenePath)) SetPlayStartScene();
         }
 
         static void SetPlayStartScene()
         {
-            var scene = AssetDatabase.LoadAssetAtPath<SceneAsset>(ScenePath);
+            // Opening the gameplay scene explicitly remains a direct debugging entry.
+            bool debugDesk = SceneManager.GetActiveScene().path == ScenePath;
+            var menu = AssetDatabase.LoadAssetAtPath<SceneAsset>(MainMenuController.ScenePath);
+            var scene = !debugDesk && menu ? menu : AssetDatabase.LoadAssetAtPath<SceneAsset>(ScenePath);
             if (scene) EditorSceneManager.playModeStartScene = scene;
         }
 
-        [MenuItem("Purple Glove/Scene/Set Desk Room as Default")]
+        [MenuItem("Purple Glove/Scene/Configure Startup Scenes")]
         public static void Configure()
         {
-            var remaining = EditorBuildSettings.scenes.Where(s => s.path != ScenePath);
-            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) }.Concat(remaining).ToArray();
+            var paths = AssetDatabase.LoadAssetAtPath<SceneAsset>(MainMenuController.ScenePath)
+                ? new[] { MainMenuController.ScenePath, ScenePath } : new[] { ScenePath };
+            var remaining = EditorBuildSettings.scenes.Where(s => !paths.Contains(s.path));
+            EditorBuildSettings.scenes = paths.Select(path => new EditorBuildSettingsScene(path, true)).Concat(remaining).ToArray();
             SetPlayStartScene();
         }
     }

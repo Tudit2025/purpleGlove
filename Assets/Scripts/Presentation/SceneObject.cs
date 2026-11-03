@@ -25,6 +25,7 @@ namespace PurpleGlove
         [ColorUsage(false)] public Color inspectionFill = new Color(0.3f, 0.26f, 0.2f);
 
         public ObjectState State { get; private set; }
+        public float InspectionZoom { get; private set; } = 1f;
 
         Camera viewCamera;
         BoxCollider hitBox;
@@ -71,11 +72,19 @@ namespace PurpleGlove
         {
             if (State == ObjectState.Resting) RememberRestPose();
             viewCamera = camera;
+            InspectionZoom = 1f;
             State = ObjectState.Inspecting;
+        }
+
+        internal void AdjustInspectionZoom(float scroll)
+        {
+            if (State != ObjectState.Inspecting) return;
+            InspectionZoom = Mathf.Clamp(InspectionZoom * Mathf.Exp(scroll * 1.2f), 0.75f, 2f);
         }
 
         internal void ReturnToRest()
         {
+            InspectionZoom = 1f;
             if (hasRestPose) State = ObjectState.Returning;
         }
 
@@ -88,6 +97,7 @@ namespace PurpleGlove
                 transform.localScale = restScale;
             }
             State = ObjectState.Resting;
+            InspectionZoom = 1f;
             viewCamera = null;
             var workingForm = GetComponent<DeskOperationalDocument>();
             if (workingForm) workingForm.EndInteraction();
@@ -178,6 +188,9 @@ namespace PurpleGlove
             float distance = Mathf.Max(extents.y, extents.x / Mathf.Max(0.01f, viewCamera.aspect))
                 / (tangent * Mathf.Clamp(screenFill, 0.2f, 0.85f)) + extents.z;
             distance = Mathf.Max(distance, minimumViewDistance, viewCamera.nearClipPlane + extents.z + 0.05f);
+            // Zoom from the fitted reading distance, keeping the front surface clear of the near plane.
+            distance = Mathf.Max((distance - extents.z) / InspectionZoom + extents.z,
+                viewCamera.nearClipPlane + extents.z + 0.05f);
             // Center the visible bounds, not the modelling pivot at the bottom of the book.
             position = viewCamera.transform.position + viewCamera.transform.forward * distance
                 - rotation * Vector3.Scale(hitBox.center, scale);

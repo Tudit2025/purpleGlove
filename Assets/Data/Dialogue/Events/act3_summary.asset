@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act3_summary
   title: "\u7B2C\u4E09\u5E55 \xB7 \u5362\u5361\u5E55\u672B\u72EC\u767D"
-  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 0}
   arrivalSound: {fileID: 0}
@@ -22,14 +22,8 @@ MonoBehaviour:
   arrivalDelay: 0.1
   lines:
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u8BD1\u5F55\u4E0E\u52A0\u5BC6\u786E\u7CFB\u5E08\u7236\u624B\u7B14\u3002\u53EF\u96BE\u9053\u5C31\u6CA1\u4EBA\u63D0\u9192\u8FC7\u4ED6\uFF0C\u90A3\u4EFD\u6240\u8C13\u7684\u6CD5\u6587\u539F\u7A3F\u4E5F\u6709\u8E4A\u8DF7\u5417\uFF1F"
-    endEvent: 0
-    choices: []
+    text: "确实是师傅做的军情译录和加密，没人提醒他这个法文件也不是原件吗？"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u8FD8\u662F\u8BF4\u6211\u731C\u9519\u4E86\uFF0C\u5370\u574A\u6362\u7248\u53EA\u662F\u4E00\u6869\u5BFB\u5E38\u5DEE\u9519\uFF1F\u773C\u4E0B\u53EA\u80FD\u7B49\u5185\u5E93\u7684\u539F\u59CB\u6863\u6848\u8C03\u6765\uFF0C\u624D\u80FD\u89C1\u5206\u6653\u4E86\u3002"
-    endEvent: 0
-    choices: []
+    text: "难道我想的是错的，换档的事情其实没问题？只有档案到了才能确定了。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u7C73\u5170\u65B9\u9762\u50AC\u5F97\u8FD9\u6837\u7D27\uFF0C\u4E0D\u77E5\u5929\u4EAE\u524D\u8FD8\u4F1A\u4F7F\u51FA\u4EC0\u4E48\u624B\u6BB5\u3002"
-    endEvent: 0
-    choices: []
+    text: "米兰来的人很急，不知道后面还会做什么。"

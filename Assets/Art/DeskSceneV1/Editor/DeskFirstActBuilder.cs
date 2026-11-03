@@ -74,9 +74,10 @@ namespace PurpleGlove.Editor
         {
             MeshObject("Act1_GuildLetterPaper", paper, m => m.Sheet(0.42f, 0.60f, M("Paper_AgedCream"), 0.003f));
             string body = string.Join("\n", ActDocumentPages[0][2][1].Split('\n').Select(WrapGuildParagraph));
-            var bodyInk = FirstActInk(paper, "Body", body, HandwrittenChinese, -0.176f, 0.244f, 0.352f, 0.420f);
+            var bodyInk = FirstActInk(paper, "Body", body, HandwrittenChinese,
+                -0.187f, 0.270f, 0.374f, 0.490f);
             var signature = FirstActInk(paper, "Signature", "印务行会会长", HandwrittenChinese,
-                0.176f, -0.228f, 0.14f, 0.018f);
+                0.187f, -0.255f, 0.14f, 0.018f);
             signature.anchor = TextAnchor.UpperRight;
             signature.characterSize = bodyInk.characterSize;
         }
@@ -86,7 +87,7 @@ namespace PurpleGlove.Editor
             var lines = new List<string>();
             for (int start = 0; start < paragraph.Length;)
             {
-                int count = Math.Min(26, paragraph.Length - start);
+                int count = Math.Min(28, paragraph.Length - start);
                 while (count > 1 && start + count < paragraph.Length
                     && "，。；：！？、）”’".IndexOf(paragraph[start + count]) >= 0) count--;
                 lines.Add(paragraph.Substring(start, count));
@@ -181,10 +182,7 @@ namespace PurpleGlove.Editor
                     m.Quad(b, c, c + down, b + down, M("PageEdge"), Vector3.right);
                 }
             });
-            FirstActInk(paper, "Address", "卢卡：", HandwrittenChinese, -0.124f, 0.087f, 0.043f, 0.018f);
-            FirstActInk(paper, "Cipher", ActDocumentPages[0][1][1], documentFont, 0, 0.037f, 0.278f, 0.025f, true);
-            FirstActInk(paper, "Seven petal note", "七瓣花，新版。\n查账时切莫只认签名。", HandwrittenChinese, -0.124f, -0.018f, 0.238f, 0.045f);
-            FirstActInk(paper, "Master signature", "Matteo", notesFont, 0.13f, -0.087f, 0.073f, 0.021f).anchor = TextAnchor.UpperRight;
+            CipherDocumentInk(paper, "Cipher", ActDocumentPages[0][1][1], 0, 0.085f, 0.29f);
             MeshObject("Act1_MasterPaperWear", paper, m =>
             {
                 // Wear stays along the edges and folds, away from cipher letters and the three cuts.

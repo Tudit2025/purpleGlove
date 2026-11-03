@@ -174,12 +174,19 @@ namespace PurpleGlove
         }
         public static string WrapAnswer(string text)
         {
-            var result = new StringBuilder(); int width = 0;
-            foreach (string word in (text ?? "").Split(new[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
+            var result = new StringBuilder();
+            var lines = (text ?? "").Replace("\r\n", "\n").Replace('\r', '\n').Split('\n');
+            for (int i = 0; i < lines.Length; i++)
             {
-                if (width > 0 && width + 1 + word.Length > 34) { result.Append('\n'); width = 0; }
-                else if (width > 0) { result.Append(' '); width++; }
-                result.Append(word); width += word.Length;
+                // Preserve authored line breaks on short slips, then wrap any longer lines.
+                if (i > 0) result.Append('\n');
+                int width = 0;
+                foreach (string word in lines[i].Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    if (width > 0 && width + 1 + word.Length > 34) { result.Append('\n'); width = 0; }
+                    else if (width > 0) { result.Append(' '); width++; }
+                    result.Append(word); width += word.Length;
+                }
             }
             return result.ToString();
         }

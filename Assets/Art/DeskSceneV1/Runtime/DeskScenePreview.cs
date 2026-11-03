@@ -23,6 +23,8 @@ namespace PurpleGlove
         [Header("Decoding mat (D)")]
         public Transform decodeFocusAnchor;
         public Transform decodeDetailAnchor;
+        [Tooltip("Keep a long source strip fully visible while it is on the desk, including at narrow aspect ratios.")]
+        public BoxCollider decodeReferencePaper;
         [Tooltip("Horizontal camera offset at every tool zoom level; negative moves left toward the cipher papers.")]
         public float decodeFocusHorizontalOffset = -0.24f;
         public float decodeFocusHeight = 1.06f;
@@ -150,6 +152,30 @@ namespace PurpleGlove
                 position = focus + Vector3.up * (decodeFocusHeight * decodeZoom);
                 viewEuler = new Vector3(90, decodeFocusAnchor.eulerAngles.y, 0);
                 fieldOfView = decodeFocusFieldOfView;
+                if (decodeReferencePaper && decodeReferencePaper.gameObject.activeInHierarchy)
+                {
+                    var paper = decodeReferencePaper.GetComponent<SceneObject>();
+                    if (!paper || paper.State == SceneObject.ObjectState.Resting || paper.State == SceneObject.ObjectState.Hovered)
+                    {
+                        // Leave room below the strip for the bottom navigation hint and return arrow.
+                        Vector3 offset = decodeFocusAnchor.forward * -0.10f;
+                        focus += offset;
+                        position += offset;
+                        float tangent = Mathf.Tan(fieldOfView * 0.5f * Mathf.Deg2Rad);
+                        Quaternion frame = Quaternion.Euler(0, decodeFocusAnchor.eulerAngles.y, 0);
+                        float height = position.y - focus.y;
+                        for (int i = 0; i < 8; i++)
+                        {
+                            var corner = decodeReferencePaper.center + Vector3.Scale(decodeReferencePaper.size * 0.5f,
+                                new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1));
+                            Vector3 delta = Quaternion.Inverse(frame) * (decodeReferencePaper.transform.TransformPoint(corner) - focus);
+                            float fitted = Mathf.Max((Mathf.Abs(delta.x) + 0.025f) / Mathf.Max(0.01f, sceneCamera.aspect),
+                                Mathf.Abs(delta.z) + 0.025f) / tangent + delta.y;
+                            height = Mathf.Max(height, fitted);
+                        }
+                        position.y = focus.y + height;
+                    }
+                }
             }
             // Always offset the authored view, so mouse movement cannot accumulate rotation.
             var target = Quaternion.Euler(viewEuler + new Vector3(-mouseAngles.y, mouseAngles.x, 0));

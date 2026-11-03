@@ -1,0 +1,5 @@
+PASS: 37 dialogue assets exactly match 62d7ba35.
+All 144 original dialogue entries restored; displayed Chinese has English mappings.
+Dialogue revision data preserves the originals; per-act document generation is idempotent.
+Scene, paper-text snapshot, UI, cipher interaction and language-switch runtime unchanged from 35e2c70d.
+Paper anthology regeneration passed 1223 coverage checks.

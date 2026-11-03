@@ -1,0 +1,4 @@
+PASS: Unity compilation and saved-scene rendering.
+Preserved plaintext has two lines, fits inside the paper and clears the Chinese translation.
+Original unbroken answer accepted; unsolved plaintext stays blank.
+Plaintext size: 0.3674 x 0.1058 m; translation gap: 0.0252 m.

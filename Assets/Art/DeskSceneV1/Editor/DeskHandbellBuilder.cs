@@ -35,7 +35,7 @@ namespace PurpleGlove.Editor
                 line.id = "handbell_not_needed"; line.title = "手摇铃 · 暂不需要";
                 line.context = "拿起手摇铃后原地独白，读完放回；不触发门口来访。";
                 line.arrivalDelay = 0;
-                line.lines = new[] { new DialogueEvent.Line { speaker = luca, text = "眼下还不必摇铃唤人。" } };
+                line.lines = new[] { new DialogueEvent.Line { speaker = luca, text = "现在不需要用这个。" } };
                 AssetDatabase.CreateAsset(line, linePath);
             }
             var existing = desk.transform.Find(HandbellName);

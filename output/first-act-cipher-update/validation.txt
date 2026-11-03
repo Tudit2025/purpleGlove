@@ -1,0 +1,4 @@
+PASS: Unity 2022.3.62f2 compilation and saved-scene update.
+Three Caesar lines decode to the complete answer; the old first line alone is rejected.
+Only cipher remains on the master slip; cipher and plaintext fit within paper bounds.
+Plaintext remains blank before solving.

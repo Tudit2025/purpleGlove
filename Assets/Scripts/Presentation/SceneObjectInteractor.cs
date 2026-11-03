@@ -13,6 +13,17 @@ namespace PurpleGlove
 
         public SceneObject InspectedObject => inspected;
         public bool BlocksSceneInput => isActiveAndEnabled && (inspected || (inputGate && inputGate.BlocksWorldInput));
+        public bool CanZoomInspection
+        {
+            get
+            {
+                if (!isActiveAndEnabled || !sceneCamera || !sceneCamera.isActiveAndEnabled || !inspected
+                    || !inspected.isActiveAndEnabled || inspected.State != SceneObject.ObjectState.Inspecting
+                    || (inputGate && inputGate.BlocksWorldInput)) return false;
+                var form = inspected.GetComponent<DeskOperationalDocument>();
+                return !form || !form.IsOpen || form.IsReady;
+            }
+        }
         SceneInputGate inputGate;
         CipherWorkbench workbench;
         DeskScenePreview view;
@@ -44,6 +55,13 @@ namespace PurpleGlove
                 && (!workbench || !workbench.BlocksPointer(Input.mousePosition))
                 && (!EventSystem.current || !EventSystem.current.IsPointerOverGameObject());
             ProcessInput(Input.mousePosition, canPoint, Input.GetMouseButtonDown(0), Input.GetKeyDown(KeyCode.Escape));
+            ProcessScroll(Input.mousePosition, canPoint, Input.GetAxis("Mouse ScrollWheel"));
+        }
+
+        void ProcessScroll(Vector2 position, bool canPoint, float scroll)
+        {
+            if (!canPoint || scroll == 0 || !CanZoomInspection || (viewHud && viewHud.BlocksPointer(position))) return;
+            inspected.AdjustInspectionZoom(scroll);
         }
 
         void ProcessInput(Vector2 position, bool canPoint, bool clicked, bool close)

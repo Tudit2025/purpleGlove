@@ -116,18 +116,26 @@ namespace PurpleGlove
         {
             DrawCommands();
             var book = InspectedBook;
-            if (!book && (!view || !view.CanNavigate)) return;
+            bool reading = interactor && interactor.CanZoomInspection;
+            if (!book && !reading && (!view || !view.CanNavigate)) return;
             Rect viewport = Viewport(out int scale);
             var panel = new Rect(Mathf.Floor(viewport.xMin + 12 * scale),
                 Mathf.Floor(viewport.yMax - 34 * scale), 220 * scale, 22 * scale);
             if (labelStyle == null) labelStyle = new GUIStyle { alignment = TextAnchor.MiddleLeft, font = labelFont };
             labelStyle.fontSize = 14 * scale;
             labelStyle.normal.textColor = Paper;
+            if (reading)
+            {
+                var zoomPanel = new Rect(panel.x, book ? panel.y - 24 * scale : panel.y, 340 * scale, panel.height);
+                GUI.Label(zoomPanel, Localization.Text("滚轮 缩放视角") + " · "
+                    + Mathf.RoundToInt(interactor.InspectedObject.InspectionZoom * 100) + "%", labelStyle);
+            }
             if (book)
             {
                 DrawBookNavigation(book, viewport, panel, scale);
                 return;
             }
+            if (reading) return;
             for (int i = 0; i < 4; i++)
             {
                 var direction = (DeskScenePreview.Direction)i;

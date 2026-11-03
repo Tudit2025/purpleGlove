@@ -88,9 +88,9 @@ namespace PurpleGlove
                     if (fourth && fourth.State == FourthActFlow.Phase.Suspended) return default;
                     if (!archive.IsAvailable(4)) return Wait("候执事送入文书");
                     bool affine = Saved("affine"), rail = Saved("rail");
-                    if (!affine && !rail) return Cipher(4, "破译师父双栏密信", "分别还原仿射与栅栏两段密文，将译文记在明文纸上。");
-                    if (!affine) return Cipher(4, "破译双栏密信中的仿射密文", "另一段译文已留档，继续还原仿射密文并记下明文。");
-                    if (!rail) return Cipher(4, "破译双栏密信中的栅栏密文", "另一段译文已留档，继续还原栅栏密文并记下明文。");
+                    if (!affine && !rail) return Cipher(4, "破译师父的两张密文纸条", "分别还原仿射与栅栏两段密文，将译文记在明文纸上。");
+                    if (!affine) return Cipher(4, "破译仿射密码纸条", "另一段译文已留档，继续还原仿射密文并记下明文。");
+                    if (!rail) return Cipher(4, "破译栅栏密码纸条", "另一段译文已留档，继续还原栅栏密文并记下明文。");
                     return Wait("两段译文已留档");
                 case 5:
                     if (!fifth || fifth.State == FifthActFlow.Phase.Suspended) return default;

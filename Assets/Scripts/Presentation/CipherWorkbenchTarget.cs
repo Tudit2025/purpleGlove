@@ -6,7 +6,7 @@ namespace PurpleGlove
     [DisallowMultipleComponent, RequireComponent(typeof(BoxCollider))]
     public sealed class CipherWorkbenchTarget : MonoBehaviour
     {
-        public enum Kind { StoredTool, ReturnTool, Rotor, Slide, Cell, Plaintext, Keyword, PreviousKey, NextKey, Letter, CloseBox }
+        public enum Kind { StoredTool, ReturnTool, Rotor, Slide, Cell, Plaintext, Keyword, PreviousKey, NextKey, Letter, CloseBox, AffineParameter, RailCipher }
         public Kind kind;
         public CipherWorkbench.Tool tool = CipherWorkbench.Tool.None;
         public int index;

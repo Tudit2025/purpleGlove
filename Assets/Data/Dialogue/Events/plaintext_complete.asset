@@ -11,17 +11,15 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 430074f4a7b53dd4796d71325b7b59c6, type: 3}
   m_Name: plaintext_complete
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   id: plaintext_complete
   title: "\u5362\u5361 \xB7 \u660E\u6587\u5B8C\u6210"
-  context: 
+  context:
   testOnly: 0
   initialVisitor: {fileID: 0}
   arrivalSound: {fileID: 0}
-  closeShutterOnComplete: 1
   arrivalDelay: 0.1
+  closeShutterOnComplete: 1
   lines:
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u8BD1\u51FA\u6765\u4E86\u3002\u5F97\u628A\u8FD9\u4EFD\u660E\u6587\u59A5\u5584\u7559\u6863\u3002"
-    endEvent: 0
-    choices: []
+    text: "完成了。我该把这份明文留好。"

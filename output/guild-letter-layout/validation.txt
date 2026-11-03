@@ -1,0 +1,5 @@
+PASS: Unity 2022.3.62f2 letter layout review.
+Body size: 0.00112930941 -> 0.00139136915 (123.2%).
+Body footprint: 0.3740 x 0.4789 m on a 0.42 x 0.60 m sheet.
+Chinese and English glyphs present; text within paper bounds; signature below body.
+Saved only Chinese. English capture uses the runtime translation table and FitScale.

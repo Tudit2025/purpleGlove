@@ -45,19 +45,7 @@
    "text": "Esc Return to Main Desk"
   },
   {
-   "zh": "“七瓣花”指的应当是那册新装订的《祷文集》。既是特制版次，显然是作密码本用的。",
-   "text": "\"Seven-petal\" must refer to the newly bound *Book of Prayers*. A custom edition—clearly meant to serve as a book cipher key."
-  },
-  {
-   "zh": "“圣马丁，北门”……看来师父就被扣押在圣马丁修道院。",
-   "text": "\"North Gate, Saint Martin\"... That must be where they are holding him."
-  },
-  {
-   "zh": "“左手手套”……巴尔托洛暗中记下了要求换版之人的特征。公爵的委托书上提过，替米兰内廷代领材料的卡拉法，左手常戴一只紫手套。",
-   "text": "\"Left glove\"... Bartolo noted the mark of the man who ordered the plate changes. The Duke's commission mentioned that Carafa, who collects materials for Milan, wears a purple glove on his left hand."
-  },
-  {
-   "zh": "“第五十七号封档”……译文已经记下。该摇铃请执事把这份档案调来了。",
+   "zh": "“五十七号封档”……明文留好了。现在我该摇手铃请执事把对应的档案调来。",
    "text": "\"Case File Fifty-Seven\"... The plaintext is recorded. Time to ring the bell and have the Clerk fetch that file."
   },
   {
@@ -117,8 +105,8 @@
    "text": "I. Plaintext Restoration"
   },
   {
-   "zh": "一切定妥之后，请摇响手铃，我便将卷宗收走呈交晨会。",
-   "text": "Once your decisions are finalized, ring the handbell and I will take the dossier to the council."
+   "zh": "七瓣花应该是指新装订的祷言集，特别装订版，显然是当作密码本用的。",
+   "text": "\"Seven-petal\" must refer to the newly bound *Book of Prayers*. A custom edition—clearly meant to serve as a book cipher key."
   },
   {
    "zh": "七瓣花版",
@@ -141,7 +129,11 @@
    "text": "Upper: Plain · Lower: Cipher    y = (a × x + b) mod 26"
   },
   {
-   "zh": "两份物件都已登记在册，我这就从底下的传物舱递进来。",
+   "zh": "不知道，我们还在查。",
+   "text": "We do not know yet. The Guild is making inquiries."
+  },
+  {
+   "zh": "两件都登记好了。我从下面这个活版门转进去给你。",
    "text": "Both items are logged. I will pass them through the hatch below."
   },
   {
@@ -165,8 +157,12 @@
    "text": "Neutral Exercise\n\nSuppose a given line reads:\nA SMALL LAMP\n\nCount without spaces:\nASMALLLAMP\nLetter 1 is A,\nLetter 3 is M.\n\nWrong editions still yield\nletters; always verify edition\nand line, never guess by sense."
   },
   {
-   "zh": "为何要烧？",
+   "zh": "为什么？",
    "text": "Why?"
+  },
+  {
+   "zh": "之后会怎么样呢？",
+   "text": "What will happen to my master now?"
   },
   {
    "zh": "书本 · 页—行—字母，直接键入明文 · Esc 放回",
@@ -193,6 +189,14 @@
    "text": "Five teeth · Eight dots"
   },
   {
+   "zh": "五十七号好像是印坊工作流程纠纷有关的存档，我去调取，你稍微等一会儿。",
+   "text": "File Fifty-Seven... I believe that concerns a workflow dispute in the print shop. I will fetch it at once; please wait a moment."
+  },
+  {
+   "zh": "五十七号封档到了，交存人是你师傅的熟人排字工巴尔托洛。",
+   "text": "Sealed File Fifty-Seven is here. It was deposited by Bartolo the typesetter, an old acquaintance of your master."
+  },
+  {
    "zh": "五月十九日 · 续\n第十二页第四行\n重排过字版，旧版\n已不可作查字依据。\n\n六月二日\n卢卡问我，受胁迫时\n签下的名字，还算不算\n自己的。我未答好。\n日后当补上这一课。\n\n后附：六种密码教案\n点击左右页翻阅",
    "text": "May 19 · Cont.\nPage 12, Line 4 has been\nreset; the old edition can\nno longer serve as key.\n\nJune 2\nMy student asked if a name\nsigned under duress still\ncounts as one's own. I had\nno good answer. I owe him\nthat lesson later.\n\nAppended: Six Cipher Lessons\nClick left/right pages to turn"
   },
@@ -205,10 +209,6 @@
    "text": "Handover completed; copy filed."
   },
   {
-   "zh": "交接手续都办妥了。卢卡，我这就为您启封开门。",
-   "text": "The formalities are complete, Luca. I am unsealing the door for you now."
-  },
-  {
    "zh": "交法国",
    "text": "Deliver to France"
   },
@@ -217,20 +217,28 @@
    "text": "Deliver to Milan"
   },
   {
-   "zh": "他们把师父押去哪里了？",
-   "text": "Where have they taken him?"
+   "zh": "他不想当证人牵扯进来，写的密码。你应该能够破解它。",
+   "text": "He feared being dragged in as a witness, so he wrote it in cipher. You should be able to break it."
   },
   {
-   "zh": "他们放弃转移师父了？",
-   "text": "So they called off his transfer?"
+   "zh": "他们应该还会问你很多事。",
+   "text": "They will likely subject you to many more questions."
   },
   {
-   "zh": "他在信里承认，自己明知军令是假，却还是为了救人签下了名字。",
+   "zh": "他在外面？",
+   "text": "He is right outside?"
+  },
+  {
+   "zh": "他承认自己知道文件是假的，还是签了名字。",
    "text": "He admits he knew the order was false, yet signed his name to save Bartolo's family."
   },
   {
-   "zh": "他怕惹祸上身，不肯出面作证，便用了密码。想来你应该能解开。",
-   "text": "He feared being dragged in as a witness, so he wrote it in cipher. You should be able to break it."
+   "zh": "他被送到哪里？",
+   "text": "Where have they taken him?"
+  },
+  {
+   "zh": "以后的日子还长呢……",
+   "text": "We still have a long road ahead of us..."
   },
   {
    "zh": "仿射",
@@ -249,19 +257,35 @@
    "text": "Affine Cipher · Mapping Table"
   },
   {
-   "zh": "会长交代过，您若有任何需要，行会定当全力协助。有事唤我，摇响案头的手铃便是。",
-   "text": "The Guildmaster said we are to assist you in every way. Should you need me, simply ring the handbell on your desk."
-  },
-  {
-   "zh": "会长料到您或许需要移交部分关键档案，若有所需，填妥那张转交申请表即可。",
+   "zh": "会长说你可能会有移存一些文件的需要，你填写移存申请表就可以了。",
    "text": "The Guildmaster anticipated you might need to transfer certain files. If so, simply fill out the Archive Transfer Request Form."
   },
   {
-   "zh": "伪造的军令移花接木，盗用了夏尔在商队通行协议上的真迹。怪不得法国人投鼠忌器，不敢公开声张。",
+   "zh": "会长说如果你有什么需求全力帮助你，如果你要找我，摇一下桌子上的手铃就可以了。",
+   "text": "The Guildmaster said we are to assist you in every way. Should you need me, simply ring the handbell on your desk."
+  },
+  {
+   "zh": "伪造的军令用了法国人在商路协议上的签名，这应该就是法国人不想让人看见的东西。",
    "text": "The forged military order reused Charles's genuine signature from the trade transit agreement. No wonder the French dared not speak out openly."
   },
   {
-   "zh": "你就是卢卡大师吧？这桩案子我已暗中查访数日，贵行会的一位同僚私下塞给我一张字条。",
+   "zh": "但是你还不能离开，我白天再来找你了。",
+   "text": "Per protocol, you must remain inside until the morning session concludes. I will return with word later today."
+  },
+  {
+   "zh": "你为军令来源作了担保。米兰人在今早的会议上很占优势。",
+   "text": "You vouched for the provenance of the military order. That gave Milan the upper hand at this morning's council."
+  },
+  {
+   "zh": "你们没拦住他们吗？",
+   "text": "What? Could you not stop them?"
+  },
+  {
+   "zh": "你好，大师。如果那个密码说法国将于六月十八日越境，请你不要为它担保。",
+   "text": "Good evening, Master Luca. If that cipher claims French troops will cross the border on June eighteenth, do not vouch for its provenance."
+  },
+  {
+   "zh": "你就是卢卡大师吧？我调查这个事情已经几天了，你的一个行会同事给了我一张字条。",
    "text": "So you are Master Luca. I have been looking into this affair for several days. One of your Guild colleagues slipped me a note."
   },
   {
@@ -273,12 +297,16 @@
    "text": "Keep the original."
   },
   {
-   "zh": "修补封套内件  /  IV · 03",
-   "text": "Patched Envelope Enclosure  /  IV · 03"
+   "zh": "保留原件。\n七瓣花，新版。",
+   "text": "Keep the original.\nSeven petals, new edition."
   },
   {
-   "zh": "倘若那份换版记录当真指向今夜待核的军令，米兰人的伎俩便昭然若揭了：先偷梁换柱伪造公文，再胁迫师父签字作保。",
-   "text": "If the plate-change record points to tonight's military order, Milan's scheme is clear: they forged the dispatch, then forced my master to sign as guarantor."
+   "zh": "保留，随核验文件一起递交。",
+   "text": "Keep it and submit it with the verification files."
+  },
+  {
+   "zh": "修补封套内件  /  IV · 03",
+   "text": "Patched Envelope Enclosure  /  IV · 03"
   },
   {
    "zh": "候执事收取文书",
@@ -293,15 +321,31 @@
    "text": "Await Clerk's delivery"
   },
   {
-   "zh": "做得对。",
-   "text": "As you should have."
+   "zh": "像素化：关",
+   "text": "Pixelation: Off"
+  },
+  {
+   "zh": "像素化：开",
+   "text": "Pixelation: On"
+  },
+  {
+   "zh": "全屏：关",
+   "text": "Fullscreen: Off"
+  },
+  {
+   "zh": "全屏：开",
+   "text": "Fullscreen: On"
+  },
+  {
+   "zh": "公爵在等着你的核验结果，麻烦你加快进度了。",
+   "text": "Duke Conti awaits your conclusion. Kindly expedite your work, Master Luca."
   },
   {
    "zh": "公爵授权的书记官\n\n请于核验表上明示是否愿为军令来源作保，\n并将换版原件交还米兰。\n里奇之签名确系真迹，日后追责亦难辞其咎。\n\n若行会立案启动共同争议审查，且有威尼斯、\n法国两方具名联署，监押书记官便会暂缓\n六点之转押，留里奇于圣马丁北门候审。",
    "text": "Secretary Authorized by the Duke\n\nState clearly on the form whether you vouch for the dispatch's\nprovenance, and return the plate-change originals to Milan.\nRicci's signature is genuine; he cannot escape accountability.\n\nIf the Guild logs a Joint Disputed Inquiry with Venice and\nFrance co-signing, the custodial secretary will stay the\nsix o'clock transfer and hold Ricci at Saint Martin North Gate."
   },
   {
-   "zh": "公爵既收回了换版原件，又握有您的来源担保。依我看，在达成目的之前，他们是绝不会放马泰奥大师回来的。",
+   "zh": "公爵收回了原件，也拿到了你的来源担保。我估计他们会扣马泰奥到自己的目的实现。",
    "text": "The Duke reclaimed the originals and secured your provenance guarantee. I fear they will hold Master Matteo until their ambitions are fully realized."
   },
   {
@@ -321,8 +365,8 @@
    "text": "Signed preliminary note, not formal counter-proof  /  III · 04"
   },
   {
-   "zh": "再斟酌片刻",
-   "text": "Not yet"
+   "zh": "内含台账摘要和一张裁纸边角，我给你送进去。",
+   "text": "It contains a ledger abstract and a trimmed paper scrap. Passing them in now."
   },
   {
    "zh": "军 情 核 验 表",
@@ -331,6 +375,10 @@
   {
    "zh": "军情译录件",
    "text": "Military Dispatch Transcription"
+  },
+  {
+   "zh": "凭条已登记，附入第十七号委托，批号七二六。合上观察窗后，从传物舱送入。",
+   "text": "The supplementary note is logged under Commission No. 17, Batch 726. Once the window is shut, I will pass it through the hatch."
   },
   {
    "zh": "凯撒 · 键入密文 → 明文",
@@ -357,7 +405,7 @@
    "text": "Click \"{0}\" on left shelf to return it to desk."
   },
   {
-   "zh": "前几日，师父应召去替米兰公爵办事，至今未归，下落不明。",
+   "zh": "前几天，师父去替米兰公爵办事，结果一直没有回来，下落不明。",
    "text": "Days ago, my master was summoned on business for the Duke of Milan. He has not returned, and his whereabouts remain unknown."
   },
   {
@@ -377,72 +425,60 @@
    "text": "For Luca's Eyes Only · Two-Column Cipher Letter"
   },
   {
-   "zh": "卢卡大师，密文想来已经译出了吧？既然文字并无出入，还请将随附的原件交还敝方。",
+   "zh": "卢卡大师，你已经完成破译了吧，既然没什么问题，把原件还给我们吧。",
    "text": "Master Luca, you must have completed the decryption by now. Since the text is in order, kindly return the accompanying originals to us."
   },
   {
-   "zh": "卢卡大师，待核验的公文稍后即到。此事干系重大，还请您务必确保文书内容与来路皆无纰漏。",
-   "text": "Master Luca, the documents for verification will arrive shortly. The matter is of grave importance; please ensure both the text and its provenance are found in order."
-  },
-  {
-   "zh": "卢卡大师，核验室已经备妥了。",
+   "zh": "卢卡大师，房间准备好了。",
    "text": "Master Luca, the verification chamber is ready."
   },
   {
-   "zh": "卢卡，三方见证人已经一同将马泰奥·里奇大师接回来了。",
-   "text": "Luca, witnesses from all three parties have jointly escorted Master Matteo Ricci back."
+   "zh": "卢卡大师，需要核验的文件马上就到了，事关重大，请您务必确保文件内容和来路都没有问题。",
+   "text": "Master Luca, the documents for verification will arrive shortly. The matter is of grave importance; please ensure both the text and its provenance are found in order."
   },
   {
-   "zh": "卢卡，今夜委托核验的正件——军情译录件送到了。确系我们行会印制。",
-   "text": "Luca, the main files for tonight's commission—the military dispatch transcription—have arrived. They were indeed printed by our Guild."
+   "zh": "卢卡，你把我给你的信交上去了吗？",
+   "text": "Luca, did you submit the confession I enclosed for you?"
   },
   {
-   "zh": "卢卡，公爵府的核验委托送到了。另外还有马泰奥……马泰奥大师临行前寄存的信件。",
+   "zh": "卢卡，你需要我做什么吗？",
+   "text": "Luca, how may I assist you?"
+  },
+  {
+   "zh": "卢卡，公爵的核验委托送到了，还有马泰奥……马泰奥大师离开前寄存的信件。",
    "text": "Luca, the Duke's verification commission has arrived, along with a letter Master Matteo... deposited before his departure."
-  },
-  {
-   "zh": "卢卡，刚到了两份独立的封件。",
-   "text": "Luca, two separate packets have just arrived."
-  },
-  {
-   "zh": "卢卡，威尼斯代表贝阿特丽切女士求见，随身带来了一份文件。",
-   "text": "Luca, Lady Beatrice, the representative from Venice, is here to see you. She brings a document."
   },
   {
    "zh": "卢卡，我回来了。",
    "text": "Luca, I have returned."
   },
   {
-   "zh": "卢卡，我来收取核验卷宗了。",
+   "zh": "卢卡，我来拿文件了。",
    "text": "Luca, I am here to collect the verification dossier."
   },
   {
-   "zh": "卢卡，我附在封套里的那封自述，你交上去了吗？",
-   "text": "Luca, did you submit the confession I enclosed for you?"
+   "zh": "卢卡，有什么事吗？",
+   "text": "Yes, Luca?"
   },
   {
-   "zh": "卢卡，有什么吩咐？",
-   "text": "Luca, how may I assist you?"
-  },
-  {
-   "zh": "卢卡，法国代表夏尔先生求见。",
-   "text": "Luca, Monsieur Charles, the representative from France, is here to see you."
-  },
-  {
-   "zh": "卢卡，米兰、法国、威尼斯三方代表各自递了信函进来。",
+   "zh": "卢卡，米兰、法国、威尼斯三位代表给你送了信件来。",
    "text": "Luca, the representatives of Milan, France, and Venice have each sent in a formal letter."
   },
   {
-   "zh": "卢卡，米兰人已经把马泰奥大师转移走了。",
+   "zh": "卢卡，米兰人把马泰奥接走了。",
    "text": "Luca, the Milanese have taken Master Matteo away."
   },
   {
-   "zh": "卢卡，米兰方面的代表，孔蒂公爵的书记官到了。",
+   "zh": "卢卡，米兰代表，米兰公爵的书记官到了。",
    "text": "Luca, the envoy from Milan—Secretary to Duke Conti—has arrived."
   },
   {
-   "zh": "卢卡，还有什么需要？",
-   "text": "Yes, Luca?"
+   "zh": "卢卡，这次有两份独立封件。",
+   "text": "Luca, two separate packets have just arrived."
+  },
+  {
+   "zh": "卢卡，这次核验委托的内容，军情译录件送到了。确实是我们行会印刷的。",
+   "text": "Luca, the main files for tonight's commission—the military dispatch transcription—have arrived. They were indeed printed by our Guild."
   },
   {
    "zh": "卢卡：",
@@ -453,8 +489,12 @@
    "text": "Luca:\n\nI thought that if I got them out first and retrieved the drafts\nafter, I could untangle this myself. I overestimated my reach,\nand left the consequences on your shoulders.\n\nThey transfer me at six. The transfer order goes through the\nMilanese court chancellery. Send notice that the \"disputed witness\nmust remain for joint inquiry\" through that channel, with Venice\nand France co-signing for my protection; only then will the\ncustodial secretary have grounds to stay the transfer.\n\nVerify my words as well. What is true will be supported\nby records independent of me."
   },
   {
-   "zh": "卢卡：\n\n米兰欲凭这份越境军情接管边境粮站；威尼斯不肯将粮道与\n防务拱手让人，却也不敢轻忽战报；法国则绝不容旁人替自\n己宣告开战。三方都在等今夜的核验结果，也都盼着结果能\n替自己张目。\n\n行会替各方印制文书、保管契据，如今连核验的名义也成了\n他们博弈的筹码。迟迟不签，必被指责贻误军机；顺着签\n了，日后追究起来，又要归咎于行会失察。我们仰赖三方的\n生意糊口，谁也得罪不起，却断不能让手下工匠替他们背负\n罪责。\n\n正因三方彼此猜忌，才肯将此事交由共同登记的核验人裁\n夺。就这份文书而言，你是今夜唯一获三方公认、兼具调查\n之权与正式发言权的人。你可调阅旧档、质询各方，并将核\n验结论载入晨会卷宗；纵是我也不能代你落笔。这权力虽不\n足以平息争端，却能令未明之疑留在纸面，不致被几句催促\n抹去。\n\n我已吩咐库房，依你的申请抽调相关封档与旧账；唯封存之\n原件仍须备齐手续方能启封。若需递信、查问经手人，或遇\n其他难处，尽管托执事传话。行会能调动的人手有限，但我\n自当竭力周旋。\n\n我深知你记挂马泰奥。但愿你今夜查实的证据，能为他挣得\n亲口陈情的机会。凡未查清之事，切莫替任何人签字作保。",
-   "text": "Luca:\n\nMilan seeks to seize the border granaries on the strength of\nthis dispatch; Venice refuses to yield its supply lines and\ngarrisons to a neighbor, yet dares not ignore a war report;\nFrance refuses to let others declare war in its name. All\nthree await your verification, each hoping it speaks for them.\n\nThe Guild prints their decrees and holds their deeds; now even\nour verification is a prize in their struggle. Delay, and they\naccuse us of obstructing military affairs; sign blindly, and\nthey will blame the Guild when the truth comes out. We rely on\nall three for our livelihood, yet our craftsmen must not become\ntheir scapegoats.\n\nBecause they distrust one another, they entrusted this to a\njointly registered Verifier. For this dispatch, you alone hold\nthree-party recognition, investigative authority, and a formal\nvoice tonight. You may requisition records, question the envoys,\nand enter your findings into the council roll; not even I may\nsign in your stead. This right cannot settle their dispute, but\nit keeps unresolved doubts on paper, safe from hasty pressure.\n\nI have instructed the repository to pull relevant files upon\nyour request, though sealed originals still require formal\nclearance. If you need messages sent, handlers questioned, or\nother aid, tell the Clerk. Our hands are few, but I will see\nit arranged.\n\nI know you worry for Matteo. May what you uncover tonight earn\nhim the chance to speak for himself. Where doubts remain, do\nnot sign a guarantee for anyone."
+   "zh": "卢卡：\n\n是我高估了自己，\n反倒将棘手的后果推给了你。\n\n明早六点我将被转押。转押公文走的是\n米兰内廷渠道。须将‘争议证人留候共同\n核验’之文书送入该渠道，并由威尼斯与\n法国具名联保，监押的书记官才有借口\n暂缓执行。\n\n我所言之事，你也一并查验。若确有其事，\n必能找到独立于我的旁证记录。\n\nA = 5    B = 8",
+   "text": "Luca,\n\nI overestimated myself and left you\nto bear the consequences.\n\nI am to be transferred at six tomorrow.\nThe order goes through Milan's inner court.\nA request to hold a disputed witness for\njoint examination must reach that office,\nwith Venice and France as named guarantors.\nOnly then will the custody clerk have\ngrounds to delay the transfer.\n\nVerify what I have told you as well.\nIf it is true, there will be records\nindependent of my own account.\n\nA = 5    B = 8"
+  },
+  {
+   "zh": "卢卡：\n\n米兰欲凭这份越境军情接管边境粮站；威尼斯不肯将粮道与防务\n拱手让人，却也不敢轻忽战报；法国则绝不容旁人替自己宣告开\n战。三方都在等今夜的核验结果，也都盼着结果能替自己张目。\n\n行会替各方印制文书、保管契据，如今连核验的名义也成了他们\n博弈的筹码。迟迟不签，必被指责贻误军机；顺着签了，日后追\n究起来，又要归咎于行会失察。我们仰赖三方的生意糊口，谁也\n得罪不起，却断不能让手下工匠替他们背负罪责。\n\n正因三方彼此猜忌，才肯将此事交由共同登记的核验人裁夺。就\n这份文书而言，你是今夜唯一获三方公认、兼具调查之权与正式\n发言权的人。你可调阅旧档、质询各方，并将核验结论载入晨会\n卷宗；纵是我也不能代你落笔。这权力虽不足以平息争端，却能\n令未明之疑留在纸面，不致被几句催促抹去。\n\n为防今夜生变，我已授权你在必要时决定，将本案存档文件交予\n米兰、威尼斯或法国中的一方。随信附上档案转交申请表，填明\n档案编号、转交清单及受领方，签名后交执事办理；若无稳妥人\n选，仍可继续封存。此为应急之法，务必留意各方索取原件的动\n向，慎择所托，交接须留凭据。\n\n我深知你记挂马泰奥。但愿你今夜查实的证据，能为他挣得亲口\n陈情的机会。凡未查清之事，切莫替任何人签字作保。",
+   "text": "Luca:\n\nMilan seeks to seize the border granaries on the strength of\nthis dispatch; Venice refuses to yield its supply lines and\ngarrisons to a neighbor, yet dares not ignore a war report;\nFrance refuses to let others declare war in its name. All\nthree await your verification, each hoping it speaks for them.\n\nThe Guild prints their decrees and holds their deeds; now even\nour verification is a prize in their struggle. Delay, and they\naccuse us of obstructing military affairs; sign blindly, and\nthey will blame the Guild when the truth comes out. We rely on\nall three for our livelihood, yet our craftsmen must not become\ntheir scapegoats.\n\nBecause they distrust one another, they entrusted this to a\njointly registered Verifier. For this dispatch, you alone hold\nthree-party recognition, investigative authority, and a formal\nvoice tonight. You may requisition records, question the envoys,\nand enter your findings into the council roll; not even I may\nsign in your stead. This right cannot settle their dispute, but\nit keeps unresolved doubts on paper, safe from hasty pressure.\n\nShould trouble arise tonight, I authorize you to decide whether\nto entrust this case's archived documents to Milan, Venice, or\nFrance. On the enclosed transfer application, list the archive\nnumber, documents, and chosen recipient; sign it and give it to\nthe Clerk to arrange the handover. If no party can be trusted,\nyou may keep the files sealed. This is an emergency measure.\nWatch closely who seeks the originals, choose with care, and\nobtain a receipt for any handover.\n\nI know you worry for Matteo. May what you uncover tonight earn\nhim the chance to speak for himself. Where doubts remain, do\nnot sign a guarantee for anyone."
   },
   {
    "zh": "印 务 行 会  ·  三 方 核 验 所",
@@ -481,12 +521,12 @@
    "text": "Master of the Printing Guild"
   },
   {
-   "zh": "印坊换版的内情已经传开。米兰方面拒绝公开对质，好在换版原件仍封存在咱们行会手里。",
-   "text": "Word of the plate switch is out. Milan refused public inspection, but the originals remain safely sealed with the Guild."
+   "zh": "原件仍由行会封存，三方可以申请查验。我们这一晚上没什么进展……",
+   "text": "The originals remain sealed with the Guild for the three parties to inspect, yet because of that guarantee, our entire night's work has come to naught..."
   },
   {
-   "zh": "印坊换版的内情已经传开，那份换版原件也已按您的申请转交出去了。",
-   "text": "Word of the plate switch is out, and the original files have been transferred according to your request."
+   "zh": "原件我需要留到来源核验环节结束。",
+   "text": "Protocol requires that I retain all originals until provenance verification is complete."
   },
   {
    "zh": "原始签收页",
@@ -497,10 +537,6 @@
    "text": "Original Job"
   },
   {
-   "zh": "原稿上不是有您的亲笔签名吗？倘若军令是伪造的，您为何不当众揭穿？",
-   "text": "Isn't that your signature on the French dispatch? If it is a forgery, why not denounce it openly?"
-  },
-  {
    "zh": "参看猪圈密码表，将碎纸符号还原至明文纸。",
    "text": "Use Pigpen key to transcribe scrap onto slip."
   },
@@ -509,24 +545,12 @@
    "text": "Retrieve current dossier"
   },
   {
-   "zh": "另一个棕色封包来自城北的修道院。一名修士连夜送来，指名要交到您手里，放下东西便匆匆赶回去了。",
-   "text": "The brown packet came from the monastery north of the city. A monk brought it in person, insisted it be handed to you, and left immediately."
-  },
-  {
    "zh": "另一段译文已留档，继续还原仿射密文并记下明文。",
    "text": "Other part filed; decrypt Affine column onto slip."
   },
   {
    "zh": "另一段译文已留档，继续还原栅栏密文并记下明文。",
    "text": "Other part filed; decrypt Rail Fence column onto slip."
-  },
-  {
-   "zh": "只要您能找出确凿的物证，法方定会全力护住令师的周全。",
-   "text": "Provide me with solid documentary proof, and France will do everything in its power to protect your master."
-  },
-  {
-   "zh": "只要能调出封档里提到的“原始签收页”，就能查明这两件事的关联。",
-   "text": "If I can retrieve that \"original receipt page,\" I can prove how these two matters connect."
   },
   {
    "zh": "可留存随卷递交，或点击纸上焚毁项；Esc 放回文书。",
@@ -561,6 +585,10 @@
    "text": "North Gate, Saint Martin."
   },
   {
+   "zh": "圣马丁，北门。这个应该就是他们关押他的地方。",
+   "text": "\"North Gate, Saint Martin\"... That must be where they are holding him."
+  },
+  {
    "zh": "在文书架核对来源担保、原件去向与自述处置；定妥后摇铃请执事收卷。",
    "text": "Check provenance, transfer & statement on rack; ring bell when ready."
   },
@@ -571,10 +599,6 @@
   {
    "zh": "在转交申请表上择定受领方；Esc 放回文书。",
    "text": "Select recipient on Transfer Form; Esc to put down."
-  },
-  {
-   "zh": "坊间传言他背叛行会，替公爵伪造了文书。",
-   "text": "Word on the street says he betrayed the Guild to forge documents for the Duke."
   },
   {
    "zh": "填写密钥后可键入密文",
@@ -593,20 +617,36 @@
    "text": "Charles · Supplementary Memorandum"
   },
   {
-   "zh": "夏尔先生签收了换版原件，却并未将其公开；他反而质问行会，为何要替一份未经法方核签的军令作保。",
+   "zh": "夏尔已签收原件，但是他没公开原件。他同时要求你说明为什么替未经法方核签的正文作保。",
    "text": "Monsieur Charles signed for the originals but declined to make them public. Instead, he demands to know why you vouched for a dispatch never countersigned by France."
   },
   {
-   "zh": "好，我派人去库房找。不过看这编号，原件应当封存在内库，调取手续繁琐，还请耐心等上一会儿。",
-   "text": "Understood. I will send someone to the vaults. Judging by the number, though, the originals are sealed in the inner repository—it will take some time."
-  },
-  {
-   "zh": "好，我这就进去。",
+   "zh": "好的，我要进去了。",
    "text": "Understood. I am going in."
   },
   {
-   "zh": "如今，行会接下一桩紧急委托，要核验一份牵涉多方的军令。米兰打算凭它接管威尼斯的边境粮站。",
-   "text": "Now, the Guild has received an urgent commission to verify a military order entangling several powers. Milan intends to use it to seize Venice's border granaries."
+   "zh": "好的，我让人去调一下这个档案，但是从编号来看这篇应该封在存放原始文献的地方，需要一点时间。",
+   "text": "Understood. I will send someone to the vaults. Judging by the number, though, the originals are sealed in the inner repository—it will take some time."
+  },
+  {
+   "zh": "好的，请送进来吧。",
+   "text": "Understood. Please send them through."
+  },
+  {
+   "zh": "如果你处理完了，就摇手铃，我会把文件送出去。",
+   "text": "Once your decisions are finalized, ring the handbell and I will take the dossier to the council."
+  },
+  {
+   "zh": "如果你能提供什么有利的物证给我，我会全力保护你的师傅的。",
+   "text": "Provide me with solid documentary proof, and France will do everything in its power to protect your master."
+  },
+  {
+   "zh": "如果能调到这个“原件”，应该能确定这两件事情的联系。",
+   "text": "If I can retrieve that \"original receipt page,\" I can prove how these two matters connect."
+  },
+  {
+   "zh": "如果这个换档记录指向了请我核验的军令，那米兰人所用的手段就很明确了：造了假的文件，然后让师傅签字作保。",
+   "text": "If the plate-change record points to tonight's military order, Milan's scheme is clear: they forged the dispatch, then forced my master to sign as guarantor."
   },
   {
    "zh": "委托方：米兰内廷\n原定项目：商队通行文件（商业文件）\n装订批号：726\n付款账户：米兰内廷第17号委托账户\n\n法方签收对象：商队通行文件原稿\n经手领取人：卡拉法",
@@ -621,11 +661,11 @@
    "text": "Venice and France have co-signed."
   },
   {
-   "zh": "威尼斯与法国代表见到您的核验报告后，当场要求暂停粮站表决。卡拉法已被责令留候彻查。",
+   "zh": "威尼斯人和法国人看到你的核验报告要求暂停表决，卡拉法已被要求留候调查。",
    "text": "Upon reading your report, Venice and France demanded an immediate halt to the granary vote. Carafa has been detained pending investigation."
   },
   {
-   "zh": "威尼斯代表交来的字条已登记入册，我这就递进来。",
+   "zh": "威尼斯代表带来的资料登记好了，我给你送进去。",
    "text": "The note from the Venetian representative is logged. Sending it in now."
   },
   {
@@ -633,7 +673,11 @@
    "text": "Letter from the Representative of Venice"
   },
   {
-   "zh": "威尼斯委员会虽拿到了换版原件，但因您签署了来源担保，他们在今早的晨会上依然十分被动。",
+   "zh": "威尼斯代表贝阿特丽切找你，她带了一份文件来。",
+   "text": "Luca, Lady Beatrice, the representative from Venice, is here to see you. She brings a document."
+  },
+  {
+   "zh": "威尼斯委员会拿到了换版原件，但他们在今早的会议中很被动。",
    "text": "The Venetian Committee received the plate-change originals, but because of your provenance guarantee, they were left on the defensive all morning."
   },
   {
@@ -641,16 +685,12 @@
    "text": "Duke Conti · Court of Milan"
   },
   {
-   "zh": "孔蒂公爵正在等您的结论，还请大师加快进度，莫误了时辰。",
-   "text": "Duke Conti awaits your conclusion. Kindly expedite your work, Master Luca."
-  },
-  {
    "zh": "字 母 盘",
    "text": "LETTER TRAY"
   },
   {
-   "zh": "字条上的内容我大致猜得到，但碍于威尼斯的立场，这条线我不便再查下去了。",
-   "text": "I have a fair idea of what it says, but given Venice's position, I cannot pursue this lead myself."
+   "zh": "完成了。我该把这份明文留好。",
+   "text": "It is done. I should file this plaintext away safely."
   },
   {
    "zh": "密文",
@@ -677,8 +717,12 @@
    "text": "Check Prayer Book; write plaintext on slip."
   },
   {
-   "zh": "封包内共有四份文书：行会承接译录时的原始委托书，上面有令师的亲笔签名；他译出的军情密文；还有一份军情核验表。",
-   "text": "The packet holds four items: the original transcription commission bearing your master's signature, his enciphered military dispatch, and the Verification Form."
+   "zh": "对，我把他叫过来。",
+   "text": "Yes. I will bring him to the window."
+  },
+  {
+   "zh": "封包里有五个文件：行会承办这次译录时的译录委托，上面有你师傅的亲笔签名；还有他译录的军情密文、工作纸；一张核验表。",
+   "text": "There are five documents in the packet: the guild's transcription commission, bearing your master's own signature; his encrypted military transcript and working note; and a verification form."
   },
   {
    "zh": "将此页自述明文移近烛火焚毁",
@@ -705,16 +749,16 @@
    "text": "Left glove."
   },
   {
+   "zh": "左手手套，巴尔托洛把委托换档的人记下来了。公爵的委托写过，替米兰代领材料的卡拉法他左手戴紫手套。",
+   "text": "\"Left glove\"... Bartolo noted the mark of the man who ordered the plate changes. The Duke's commission mentioned that Carafa, who collects materials for Milan, wears a purple glove on his left hand."
+  },
+  {
    "zh": "已归档",
    "text": "Archived"
   },
   {
    "zh": "已移交行会纠纷库另存",
    "text": "Filed separately in Guild Dispute Vault"
-  },
-  {
-   "zh": "已经五点了，晨会交卷的时辰将近，我也该准备收取您的核验报告了。",
-   "text": "It is five o'clock. The morning session is approaching, and I must soon collect your verification report."
   },
   {
    "zh": "已证实  /  待核  /  存在冲突",
@@ -725,19 +769,15 @@
    "text": "Bartolo · Deposited with Ledger"
   },
   {
-   "zh": "师父叮嘱我“保留原件”，指的会是那份还没送到的军令吗？",
+   "zh": "师傅的笔迹，侧面有三道很刻意的裁口，这个可能是凯撒密码。",
+   "text": "My master's hand. Three deliberate notches along the edge... This must be a Caesar cipher."
+  },
+  {
+   "zh": "师傅让我留下原件，是指还没送来的军令吗？",
    "text": "My master told me to \"keep the original.\" Does he mean the military order that hasn't arrived yet?"
   },
   {
-   "zh": "师父就在门外？",
-   "text": "He is right outside?"
-  },
-  {
-   "zh": "师父的自述与印坊换版的原件，都是铁证。接下来该如何落笔，全看我的决断了。",
-   "text": "My master's confession and the plate-change originals are the decisive proof. Now, the choice of how to conclude this falls to me."
-  },
-  {
-   "zh": "师父的自述虽是关键佐证，可一旦呈交上去，他私签假令的罪名便坐实了，处境只怕更加凶险。",
+   "zh": "师父的自白，可以当作证据，但是会把师父拖进不利的情况里。",
    "text": "My master's statement is vital evidence, yet submitting it will formally incriminate him and place him in grave danger."
   },
   {
@@ -745,20 +785,16 @@
    "text": "Master's Statement"
   },
   {
-   "zh": "师父，我把您的自述呈交上去了。",
-   "text": "Master, I turned in your written statement."
+   "zh": "应该的。",
+   "text": "As you should have."
   },
   {
-   "zh": "年轻人，何必把事情闹得这么复杂？不过是印坊里一笔排字换版的旧账，莫要写成外交风波。",
-   "text": "No need to make this so complicated, young man. Do not turn an old typesetting dispute into a diplomatic incident."
+   "zh": "开始游戏",
+   "text": "Begin"
   },
   {
    "zh": "开门",
    "text": "Open Door"
-  },
-  {
-   "zh": "当初师父迫于胁迫签下名字，酿成大祸；到头来，我竟也在纸上犯下了同样的错。",
-   "text": "My master signed his name under duress and invited disaster; in the end, I repeated the very same mistake."
   },
   {
    "zh": "当前安排：交威尼斯",
@@ -781,23 +817,27 @@
    "text": "Align current key letter with upper A"
   },
   {
-   "zh": "往后的路还长着呢……",
-   "text": "We still have a long road ahead of us..."
+   "zh": "当时老师签了一个后患无穷的名字，没想到我也犯了这样的错误。",
+   "text": "My master signed his name under duress and invited disaster; in the end, I repeated the very same mistake."
   },
   {
-   "zh": "怎么会？你们没拦住吗？",
-   "text": "What? Could you not stop them?"
+   "zh": "当然，当然，请您按规矩来。",
+   "text": "Of course, of course. Proceed according to Guild rules."
   },
   {
-   "zh": "您在核验表上替军令的来源签了担保。今早的晨会上，米兰方面占尽了上风。",
-   "text": "You vouched for the provenance of the military order. That gave Milan the upper hand at this morning's council."
+   "zh": "总音量：{0}%",
+   "text": "Master volume: {0}%"
   },
   {
-   "zh": "您没有异议，那就再好不过了。",
+   "zh": "您没有意见自然是很好的。",
    "text": "It is most reassuring that you have no objections."
   },
   {
-   "zh": "我不该替米兰人作保的……这一签，反倒让我们彻底落入被动了。",
+   "zh": "我一定要弄清楚事情的真相，把师傅救出来。",
+   "text": "I must uncover the truth and get my master out."
+  },
+  {
+   "zh": "我不应该为米兰人担保的，这下我们完全陷入被动了。",
    "text": "I should never have vouched for Milan... With that signature, we have lost all leverage."
   },
   {
@@ -805,40 +845,72 @@
    "text": "I signed the false order to free\nBartolo's family. I came for the\nproof and was held. Do not erase my name."
   },
   {
-   "zh": "我们在印务行会当差，日常译校书册，也经手往来密信。",
+   "zh": "我们为印刷行会工作，翻译书本，处理来往密信。",
    "text": "We serve the Printing Guild—translating books and handling confidential dispatches."
   },
   {
-   "zh": "我作为替补的“解密大师”，被临时调来接手这桩差事。",
+   "zh": "我作为替补“解密大师”，被调来处理这个委托。",
    "text": "As the substitute \"Master Cryptographer,\" I have been called in to handle this verification."
   },
   {
-   "zh": "我师父马泰奥人在哪里？",
-   "text": "Where is Master Matteo now?"
+   "zh": "我差不多知道里面会写什么，但是我的立场让我不能跟进这个线索了。",
+   "text": "I have a fair idea of what it says, but given Venice's position, I cannot pursue this lead myself."
   },
   {
-   "zh": "我必须查清真相，把师父救出来。",
-   "text": "I must uncover the truth and get my master out."
+   "zh": "我应该先在军情核验表上签名确保明文还原无误",
+   "text": "Now that the plaintext is confirmed, I should sign the Plaintext Restoration section on the Verification Form first."
   },
   {
-   "zh": "我按规矩将棕色封包登记为“私人信件”了。",
+   "zh": "我承诺的事情我会签名写给你，请你好好考虑一下我今天来说的事。",
+   "text": "I will put my promise in writing under my own hand. Please weigh my words carefully tonight."
+  },
+  {
+   "zh": "我把你的自述交上去了，老师。",
+   "text": "Master, I turned in your written statement."
+  },
+  {
+   "zh": "我把棕包登记成“信件”了。",
    "text": "I have logged the brown packet as \"personal correspondence.\""
-  },
-  {
-   "zh": "我明白。谢谢你，卢卡。",
-   "text": "I know. Thank you, Luca."
   },
   {
    "zh": "我是解密大师马泰奥·里奇的学生。",
    "text": "I am a student of Master Cryptographer Matteo Ricci."
   },
   {
-   "zh": "我最后把它烧了。",
+   "zh": "我最后烧掉了。",
    "text": "In the end, I burned it."
   },
   {
-   "zh": "我的解密工具箱。遇到常见的密码制式，借助里头的器具便能省去不少演算的工夫。",
+   "zh": "我现在什么都没看到，不能给你保证。",
+   "text": "I cannot guarantee anything unseen."
+  },
+  {
+   "zh": "我的解密工具盒，对于一些常见的密码，可以使用工具简化破译流程。",
    "text": "My decryption toolbox. For standard ciphers, these instruments spare me a great deal of manual calculation."
+  },
+  {
+   "zh": "我知道。谢谢你。",
+   "text": "I know. Thank you, Luca."
+  },
+  {
+   "zh": "我知道了，剩下的事我会自己说的。",
+   "text": "I understand. Whatever remains, I will answer for in person."
+  },
+  {
+   "zh": "我还带了一些回执文件来，我给你送进去。",
+   "text": "I have brought the council receipts—passing them in now."
+  },
+  {
+   "zh": "所有人都知道了原件换版的事情，现在原件按你的申请已经送走了。",
+   "text": "Word of the plate switch is out, and the original files have been transferred according to your request."
+  },
+  {
+   "zh": "所有人都知道了原件换版的事情，米兰拒绝公示，现在原件还在我们这里。",
+   "text": "Word of the plate switch is out. Milan refused public inspection, but the originals remain safely sealed with the Guild."
+  },
+  {
+   "zh": "手续已经办完了，卢卡，我来给你开门。",
+   "text": "The formalities are complete, Luca. I am unsealing the door for you now."
   },
   {
    "zh": "打开文书架上的军情核验表，点击明文还原签名栏。",
@@ -857,32 +929,12 @@
    "text": "Designated Recipient:"
   },
   {
-   "zh": "按您的转交申请，换版原件已由米兰代表签收。",
-   "text": "Per your request, the plate-change originals have been signed for by Milan."
-  },
-  {
-   "zh": "按行会规程，您入内后房门便要贴上封条，期间不得出入，直到明早表决结束方能启封。",
-   "text": "Per Guild protocol, the door will be sealed once you enter. You may not leave until tomorrow's vote concludes."
-  },
-  {
-   "zh": "按规程，原件须留存至来源核验完毕。现在不能交还。",
-   "text": "Protocol requires that I retain all originals until provenance verification is complete."
-  },
-  {
-   "zh": "按规程，在晨会表决结束前您还不能离开。待有了结果，我再来向您通报。",
-   "text": "Per protocol, you must remain inside until the morning session concludes. I will return with word later today."
-  },
-  {
-   "zh": "换版原件已由夏尔先生签收。法方眼下急于追究署名被盗用一事，马泰奥大师只怕要过些时日才能被接回行会。",
+   "zh": "换档事件原件已由夏尔签收。法国人现在打算处理署名被冒用的问题，过段时间才会把马泰奥接回来。",
    "text": "The plate-change originals have been signed for by Monsieur Charles. France is currently focused on addressing the misused signature, so it will be some time before Master Matteo is returned."
   },
   {
-   "zh": "换版原件已移交威尼斯委员会。贝阿特丽切女士带人接走了马泰奥大师，往后要见令师，恐怕得同威尼斯人交涉了。",
+   "zh": "换档事件原件已送交威尼斯委员会。贝阿特丽切带人把马泰奥接走了，之后我们可能得找威尼斯人谈这件事了。",
    "text": "The plate-change originals have been delivered to the Venetian Committee. Lady Beatrice took Master Matteo into her custody; we will have to negotiate with Venice to see him now."
-  },
-  {
-   "zh": "换版原件虽仍由行会封存，可供三方申请查验，但因那份来源担保，咱们忙活这一整夜，终究是徒劳无功……",
-   "text": "The originals remain sealed with the Guild for the three parties to inspect, yet because of that guarantee, our entire night's work has come to naught..."
   },
   {
    "zh": "换版原件：交威尼斯。",
@@ -917,11 +969,7 @@
    "text": "Abstracted from deposited ledger  ·  Guild Registry Copy"
   },
   {
-   "zh": "接下来的审查，他们只怕还会向您追问许多细节。",
-   "text": "They will likely subject you to many more questions."
-  },
-  {
-   "zh": "摇铃交卷",
+   "zh": "摇铃",
    "text": "Ring the bell"
   },
   {
@@ -937,24 +985,20 @@
    "text": "Collect packet from hatch"
   },
   {
-   "zh": "文书尚未送到，我无法作保。",
-   "text": "I cannot guarantee anything unseen."
+   "zh": "文件还没到米兰就派人来催了。师傅在他们手里。",
+   "text": "The dispatch isn't even here, yet Milan already sent someone to press me. They definitely have my master."
   },
   {
    "zh": "斟酌自述明文的处置",
    "text": "Decide fate of Master's Statement"
   },
   {
-   "zh": "方才的承诺，我会立下字据并亲笔署名。今夜所言，还望大师三思。",
-   "text": "I will put my promise in writing under my own hand. Please weigh my words carefully tonight."
-  },
-  {
-   "zh": "日安，大师。倘若那份密文声称法国将于六月十八日越境，请您切勿替它的来源作保。",
-   "text": "Good evening, Master Luca. If that cipher claims French troops will cross the border on June eighteenth, do not vouch for its provenance."
-  },
-  {
    "zh": "旧版",
    "text": "Old Edition"
+  },
+  {
+   "zh": "时间差不多了，马上需要收你的核验报告送到会议那边去。",
+   "text": "It is five o'clock. The morning session is approaching, and I must soon collect your verification report."
   },
   {
    "zh": "明文",
@@ -965,6 +1009,10 @@
    "text": "Plain · Inner"
   },
   {
+   "zh": "明文的谎言",
+   "text": "Lies in Plaintext"
+  },
+  {
    "zh": "明文誊写处",
    "text": "Plaintext Slip"
   },
@@ -973,24 +1021,24 @@
    "text": "Plaintext Signature:"
   },
   {
-   "zh": "是师父的笔迹。纸页侧边有三道刻意的裁口……应当是凯撒密码。",
-   "text": "My master's hand. Three deliberate notches along the edge... This must be a Caesar cipher."
+   "zh": "显然这个军令是伪造的，加密是障眼法，我应该为米兰人担保吗？",
+   "text": "This military order is clearly a spliced forgery, and the cipher is a smokescreen... Should I really vouch for Milan's provenance?"
   },
   {
-   "zh": "是的。另外还有几份晨会的处理回执，我这就递进来。",
-   "text": "They did. I also brought the council receipts—passing them in now."
+   "zh": "暂不摇铃",
+   "text": "Not yet"
   },
   {
    "zh": "暂存",
    "text": "Stashed"
   },
   {
-   "zh": "最后是一份带有法方署名的法文原稿，瞧纸张和印迹，也是行会印坊出来的。",
-   "text": "Lastly, there is the French source dispatch signed by the French envoy. By the look of the paper, it came from our presses as well."
+   "zh": "暂时无法开始，请重试。",
+   "text": "Unable to begin. Please try again."
   },
   {
-   "zh": "有劳了，请一并送进来吧。",
-   "text": "Thank you. Please send them both in."
+   "zh": "最后还有带法方签名的法文原文，这张好像也是我们行会印刷的。",
+   "text": "Lastly, there is the French source dispatch signed by the French envoy. By the look of the paper, it came from our presses as well."
   },
   {
    "zh": "未启封",
@@ -1061,6 +1109,14 @@
    "text": "Verification Form"
   },
   {
+   "zh": "根据你的申请，换档事件原件已由米兰签收。",
+   "text": "Per your request, the plate-change originals have been signed for by Milan."
+  },
+  {
+   "zh": "根据流程，你进去之后门会贴封条，届时你不能自由出入了。到明天表决结束才会开门。",
+   "text": "Per Guild protocol, the door will be sealed once you enter. You may not leave until tomorrow's vote concludes."
+  },
+  {
    "zh": "案头",
    "text": "On Desk"
   },
@@ -1077,7 +1133,11 @@
    "text": "Archive No.:"
   },
   {
-   "zh": "棕色封包里是会长为您备下的卷宗，他老人家特意叮嘱，请您务必过目。",
+   "zh": "棕包来自城北修道院。一个修士带过来，指名道姓说要给你，把东西给我之后他就回去了。",
+   "text": "The brown packet came from the monastery north of the city. A monk brought it in person, insisted it be handed to you, and left immediately."
+  },
+  {
+   "zh": "棕色包裹里有会长给你准备的资料，会长让我嘱托你一定要看。",
    "text": "The brown packet contains reference files prepared by the Guildmaster. He urged that you read them without fail."
   },
   {
@@ -1085,12 +1145,12 @@
    "text": "Settlement"
   },
   {
-   "zh": "正件未至，米兰的人倒先来催促施压了。看来师父果真落在他们手里。",
-   "text": "The dispatch isn't even here, yet Milan already sent someone to press me. They definitely have my master."
+   "zh": "没必要搞的这么复杂，年轻人，别把排字的旧账写成外交事件。",
+   "text": "No need to make this so complicated, young man. Do not turn an old typesetting dispute into a diplomatic incident."
   },
   {
-   "zh": "正是，我这就请他过来。",
-   "text": "Yes. I will bring him to the window."
+   "zh": "法国代表夏尔来找你。",
+   "text": "Luca, Monsieur Charles, the representative from France, is here to see you."
   },
   {
    "zh": "法国代表的书信",
@@ -1117,7 +1177,7 @@
    "text": "Calculation & Limits\n\nPlaintext A is 0.\n5×0+8 = 8, yielding I.\n\nInverse: 21×(8-8)=0,\nrestoring A.\n\nIf result is negative,\nadd 26 until positive.\n\nRetains monoalphabetic\nfrequency; not foolproof."
   },
   {
-   "zh": "灰白封套里是您申请调阅的内库原件，对应第17号委托，批号七二六。",
+   "zh": "灰白色的是你调的对应第十七号委托，批号七二六的原件存档。",
    "text": "The grey-white sleeve holds the original vault archive you requested for Commission No. 17, Batch 726."
   },
   {
@@ -1137,6 +1197,10 @@
    "text": "Click to sign Plaintext Restoration"
   },
   {
+   "zh": "烧毁这张自白明文。",
+   "text": "Hold it to the candle and burn the statement."
+  },
+  {
    "zh": "猪圈",
    "text": "Pigpen"
   },
@@ -1147,6 +1211,18 @@
   {
    "zh": "猪圈密码表 · 辨明圆点与朝向",
    "text": "Pigpen Key · Note Dots & Openings"
+  },
+  {
+   "zh": "现在不需要用这个。",
+   "text": "There is no need to ring the bell right now."
+  },
+  {
+   "zh": "现在摇铃，请执事按当前安排取走文件吗？",
+   "text": "Ring the bell now and have the Clerk collect the files as currently arranged?"
+  },
+  {
+   "zh": "现在，行会收到一个紧急核验委托，调查一份许多势力牵扯的军令。米兰要凭它接管威尼斯的边境粮站。",
+   "text": "Now, the Guild has received an urgent commission to verify a military order entangling several powers. Milan intends to use it to seize Venice's border granaries."
   },
   {
    "zh": "申请人签名：",
@@ -1169,24 +1245,20 @@
    "text": "If kept, submitted with dossier; if burned, irrecoverable."
   },
   {
-   "zh": "留存自述，随核验卷宗一并呈交。",
-   "text": "Keep it and submit it with the verification files."
-  },
-  {
    "zh": "登记原件去向",
    "text": "Log Original Custody"
+  },
+  {
+   "zh": "看到那些东西，你绝对走不了了，行会以后的事情也不好处理。",
+   "text": "If that page had been seen, they would never have let you go, and the Guild would have beencompromised as well."
   },
   {
    "zh": "真相易手",
    "text": "Truth Changes Hands"
   },
   {
-   "zh": "眼下还不必摇铃唤人。",
-   "text": "There is no need to ring the bell right now."
-  },
-  {
-   "zh": "知道了，请送进来吧。",
-   "text": "Understood. Please send them through."
+   "zh": "破译仿射密码纸条",
+   "text": "Decipher the affine cipher strip"
   },
   {
    "zh": "破译印坊数字便条",
@@ -1217,16 +1289,24 @@
    "text": "Decrypt Master's enclosed cipher"
   },
   {
+   "zh": "破译师父的两张密文纸条",
+   "text": "Decipher Master's two cipher strips"
+  },
+  {
    "zh": "破译师父译录的军情密文",
    "text": "Decrypt Master's military cipher"
   },
   {
-   "zh": "祷 文 集",
-   "text": "BOOK OF PRAYERS"
+   "zh": "破译栅栏密码纸条",
+   "text": "Decipher the rail-fence cipher strip"
   },
   {
-   "zh": "移向烛火，烧毁自述明文。",
-   "text": "Hold it to the candle and burn the statement."
+   "zh": "确实是师傅做的军情译录和加密，没人提醒他这个法文件也不是原件吗？",
+   "text": "The transcription and encryption are indeed my master's work. Did no one warn him that the French source sheet itself was suspect?"
+  },
+  {
+   "zh": "祷 文 集",
+   "text": "BOOK OF PRAYERS"
   },
   {
    "zh": "稍候片刻，留意门外动静。",
@@ -1325,14 +1405,6 @@
    "text": "Sealed File No. 57 · Printing Ledger Abstract"
   },
   {
-   "zh": "第五十七号封档……印象里似乎是一桩印坊工序纠纷的旧档。我这就去办，请稍候。",
-   "text": "File Fifty-Seven... I believe that concerns a workflow dispute in the print shop. I will fetch it at once; please wait a moment."
-  },
-  {
-   "zh": "第五十七号封档调来了。交存人是排字工巴尔托洛，与令师素有交情。",
-   "text": "Sealed File Fifty-Seven is here. It was deposited by Bartolo the typesetter, an old acquaintance of your master."
-  },
-  {
    "zh": "第五幕",
    "text": "Act V"
   },
@@ -1365,15 +1437,23 @@
    "text": "Milan  /  Venice  /  France"
   },
   {
-   "zh": "米兰、法国与威尼斯三方联名委托，要求行会核实密文与明文是否相符、来路是否可靠。六月十六日，也就是明早六点，核验结论将作为他们表决的凭据。",
+   "zh": "米兰、法兰西、威尼斯共同委托，要求行会确认密文明文匹配，流程来路可靠。六月十六日，也就是明早六点，核验结果将作为他们表决的凭据。",
    "text": "Milan, France, and Venice jointly commissioned the Guild to confirm that the ciphertext matches the plaintext and that its provenance is sound. At six tomorrow morning—June sixteenth—our findings will serve as the basis for their vote."
   },
   {
-   "zh": "米兰人松了口，承认马泰奥大师目前就在圣马丁修道院北门。",
+   "zh": "米兰人不打算把他带走了？",
+   "text": "So they called off his transfer?"
+  },
+  {
+   "zh": "米兰人说马泰奥在圣马丁北门。",
    "text": "Milan finally conceded that Master Matteo is being held at the North Gate of Saint Martin Monastery."
   },
   {
-   "zh": "米兰代表又来了。",
+   "zh": "米兰代表卡拉法来了。",
+   "text": "Signor Carafa, representing Milan, is here."
+  },
+  {
+   "zh": "米兰代表来找你了。",
    "text": "The representative from Milan has returned."
   },
   {
@@ -1389,12 +1469,8 @@
    "text": "Court of Milan Commission No. 17  /  Batch 726"
   },
   {
-   "zh": "米兰方面催得这样紧，不知天亮前还会使出什么手段。",
+   "zh": "米兰来的人很急，不知道后面还会做什么。",
    "text": "Milan's people are growing impatient. Who knows what else they might try before dawn."
-  },
-  {
-   "zh": "米兰方面的卡拉法先生到了。",
-   "text": "Signor Carafa, representing Milan, is here."
   },
   {
    "zh": "米兰监押书记官确认：",
@@ -1403,6 +1479,10 @@
   {
    "zh": "粮站表决暂停，转入共同审查。",
    "text": "Granary vote suspended; referred to joint inquiry."
+  },
+  {
+   "zh": "紫手套",
+   "text": "THE PURPLE GLOVE"
   },
   {
    "zh": "终",
@@ -1433,10 +1513,6 @@
    "text": "The Missing Page"
   },
   {
-   "zh": "罢了。缺失的那一页，日后我会亲自向审查会说明白。",
-   "text": "I understand. Whatever remains, I will answer for in person."
-  },
-  {
    "zh": "翻页 · ← / → · Esc 放回书册",
    "text": "Turn Page · ← / → · Esc Put Down Book"
   },
@@ -1445,12 +1521,12 @@
    "text": "Turning page…"
   },
   {
-   "zh": "背书",
-   "text": "Endorsement"
+   "zh": "老师的自白和换档的原件是重要证据，看来也到了我做选择的时候了。",
+   "text": "My master's confession and the plate-change originals are the decisive proof. Now, the choice of how to conclude this falls to me."
   },
   {
-   "zh": "自然，自然。一切请按行会的规矩办。",
-   "text": "Of course, of course. Proceed according to Guild rules."
+   "zh": "背书",
+   "text": "Endorsement"
   },
   {
    "zh": "自述明文已毁",
@@ -1469,8 +1545,12 @@
    "text": "Guild · Processing Receipt"
   },
   {
-   "zh": "行会会妥善留存这些交接回执。一旦有新的消息，我会再来通知您。",
+   "zh": "行会会留好这些回执。还有最新的消息的话，我们会再找你的。",
    "text": "The Guild will keep these receipts on file. Should there be further word, we will notify you."
+  },
+  {
+   "zh": "行会会继续追查他的去向。有后续的话我会再通知你的。",
+   "text": "The Guild will continue tracing his whereabouts. I will inform you if anything comes to light."
   },
   {
    "zh": "行会收件登记：第17号委托 / 批号726",
@@ -1497,60 +1577,44 @@
    "text": "Guild Registered Incoming Mail / V · 03"
   },
   {
-   "zh": "行会还会继续追查令师的下落。若有消息，我会再来告知。",
-   "text": "The Guild will continue tracing his whereabouts. I will inform you if anything comes to light."
-  },
-  {
-   "zh": "补充凭条已登记，并入第17号委托、批号七二六卷宗。观察窗合上后，我从传物舱递进来。",
-   "text": "The supplementary note is logged under Commission No. 17, Batch 726. Once the window is shut, I will pass it through the hatch."
+   "zh": "街上有人说他背叛了行会，为公爵伪造书信。",
+   "text": "Word on the street says he betrayed the Guild to forge documents for the Duke."
   },
   {
    "zh": "装订批号",
    "text": "Batch No."
   },
   {
-   "zh": "要现在摇铃，请执事按眼下的安排收走卷宗吗？",
-   "text": "Ring the bell now and have the Clerk collect the files as currently arranged?"
-  },
-  {
    "zh": "解密与核验\n\nDEF 向前逆移三位，\n即还原为 ABC。\n空格与标点照旧保留。\n\n常见疏漏：\n将解密方向算反。\n\n此法极易被试出。\n能读通文义，绝不可\n据此认定署名真伪。",
    "text": "Decryption & Verification\n\nShift DEF back by three\nto restore ABC.\nKeep spaces and punctuation.\n\nCommon mistake:\nReversing shift direction.\n\nEasily broken by trial.\nLegible plaintext never\nproves who signed it."
+  },
+  {
+   "zh": "解密大师马泰奥现在在哪里？",
+   "text": "Where is Master Matteo now?"
   },
   {
    "zh": "记下完整译文后，按 Esc 放下羽笔，留存译文。",
    "text": "Once complete, press Esc to set down quill and file."
   },
   {
+   "zh": "设置",
+   "text": "Settings"
+  },
+  {
    "zh": "证人接回 · 交接凭据",
    "text": "Witness Return · Handover Voucher"
-  },
-  {
-   "zh": "译出来了。得把这份明文妥善留档。",
-   "text": "It is done. I should file this plaintext away safely."
-  },
-  {
-   "zh": "译录与加密确系师父手笔。可难道就没人提醒过他，那份所谓的法文原稿也有蹊跷吗？",
-   "text": "The transcription and encryption are indeed my master's work. Did no one warn him that the French source sheet itself was suspect?"
   },
   {
    "zh": "译文已留档，候门外来人",
    "text": "Plaintext filed; await visitor"
   },
   {
-   "zh": "译文既已核对无误，我该先在军情核验表上签字，确认明文还原的结果。",
-   "text": "Now that the plaintext is confirmed, I should sign the Plaintext Restoration section on the Verification Form first."
-  },
-  {
-   "zh": "请帮我调取第五十七号封档提及的原始档案——对应第17号委托，批号七二六。",
-   "text": "Please retrieve the original archive referenced in Sealed File Fifty-Seven—Commission No. 17, Batch 726."
-  },
-  {
-   "zh": "请帮我调阅行会的第五十七号封档，本次核验需要用到。",
+   "zh": "请帮我调取行会五十七号封档，这次核验使用。",
    "text": "Please retrieve Guild Sealed File Fifty-Seven. I need it for tonight's verification."
   },
   {
-   "zh": "请把便条交给我吧，我会亲自核实。",
-   "text": "Pass the note through. I will verify it myself."
+   "zh": "请调第五十七号封档附件对应的原始档案，第十七号委托，批号七二六。",
+   "text": "Please retrieve the original archive referenced in Sealed File Fifty-Seven—Commission No. 17, Batch 726."
   },
   {
    "zh": "贝阿特丽切\n\n我方希望受领换版原件，并申请保护里奇。\n若核验结论不替军令来源作保，且附有可查验\n之换版记录、案号及原件去向，我将具名提请\n暂缓粮站表决，参与共同审查与证人保护。\n\n原件留存行会封存亦可，唯须保留我方查验权。\n保护证人周全，并非免除其经手之责。",
@@ -1573,12 +1637,12 @@
    "text": "Wheel"
   },
   {
-   "zh": "返回桌面中央，点击手铃唤来执事。",
-   "text": "Return to main desk; click handbell for Clerk."
+   "zh": "返回",
+   "text": "Back"
   },
   {
-   "zh": "还不清楚，行会正在设法打听。",
-   "text": "We do not know yet. The Guild is making inquiries."
+   "zh": "返回桌面中央，点击手铃唤来执事。",
+   "text": "Return to main desk; click handbell for Clerk."
   },
   {
    "zh": "还原排列\n\n先核定各行应有字数，\n将密文拆回上下各行，\n再依上下往返之序拼读。\n\n两行、十字母之例，\n上下两行各容五字。\n若总字数为奇，则上行\n较下行多出一字。\n\n解密绝不增删字母，\n唯恢复其本有之次序。",
@@ -1589,60 +1653,52 @@
    "text": "Restored Text:"
   },
   {
-   "zh": "还是说我猜错了，印坊换版只是一桩寻常差错？眼下只能等内库的原始档案调来，才能见分晓了。",
-   "text": "Or am I mistaken—was the plate change just an innocent print shop error? I won't know for certain until the original archive arrives from the vault."
+   "zh": "这上面不是你的签名吗？如果这是伪造的签名，你为什么不直接说？",
+   "text": "Isn't that your signature on the French dispatch? If it is a forgery, why not denounce it openly?"
   },
   {
-   "zh": "这个卡拉法必定与此案脱不了干系。看情形，他在行会里暗中活动已有段时日了……",
+   "zh": "这个叫卡拉法的绝对和这件事情有关，十有八九他已经在这里待了有一阵子了……",
    "text": "This Carafa is definitely mixed up in this. Chances are he has been operating around the Guild for quite some time..."
   },
   {
-   "zh": "这份军令分明是移花接木的伪作，加密不过是障眼法……我当真要替米兰人签字作保吗？",
-   "text": "This military order is clearly a spliced forgery, and the cipher is a smokescreen... Should I really vouch for Milan's provenance?"
-  },
-  {
-   "zh": "这册七瓣花版《祷文集》是师父特意定制的版次，此前只在行会内部小范围启用过。",
-   "text": "This Seven-Petal edition of the *Book of Prayers* was custom-commissioned by my master and used internally within the Guild."
-  },
-  {
-   "zh": "这册随处可见的旧版《祷文集》，是我初学密码时常用的参照书。许多书本密码都以它为底本。",
-   "text": "This common old edition of the *Book of Prayers* was my reference text when I first studied cryptography. Many book ciphers rely on it."
-  },
-  {
-   "zh": "这是师父留下的旧笔记，里头记着他当年授课时用的密码教案。",
-   "text": "My master's old notebook. It contains his lesson plans on cryptography."
-  },
-  {
-   "zh": "这是晨会的处理回执，您过目吧。",
+   "zh": "这些回执文件你看一下。",
    "text": "Here are the council receipts for your review."
   },
   {
-   "zh": "这里有几份晨会的处理回执，我给您递进来。",
-   "text": "I have brought the council receipts—passing them in now."
+   "zh": "这是仿射密码。加密用的 A、B 两个数，应该就在师父的信上。",
+   "text": "This is an affine cipher. The two encryption values, A and B, should be in Master's letter."
+  },
+  {
+   "zh": "这是老师的笔记本，应该是他的备课笔记。",
+   "text": "My master's old notebook. It contains his lesson plans on cryptography."
+  },
+  {
+   "zh": "这本七瓣花版《祷文集》是老师定制的版本，在行会内部使用过。",
+   "text": "This Seven-Petal edition of the *Book of Prayers* was custom-commissioned by my master and used internally within the Guild."
+  },
+  {
+   "zh": "这确实是我的签名，但是我不能让人知道我确实跟米兰人签了“某个”文件。所以我不能说。",
+   "text": "The signature is genuinely mine. However, I cannot let it be known that I privately signed *another* document with Milan—so I cannot disavow it without proof."
+  },
+  {
+   "zh": "这随处可以买到的《祷文集》是我学习密码时使用的密码本，有不少密码是使用书本的。",
+   "text": "This common old edition of the *Book of Prayers* was my reference text when I first studied cryptography. Many book ciphers rely on it."
+  },
+  {
+   "zh": "退出",
+   "text": "Quit"
   },
   {
    "zh": "逐字演算\n\nA=0    K=10\n0+10=10  →  K\n\nB=1    E=4\n1+4=5      →  F\n\nC=2    Y=24\n2+24=26  →  A\n\n篇幅过短之密文，难仅凭\n频率分析反推关键词。",
    "text": "Letter-by-Letter\n\nA=0    K=10\n0+10=10  →  K\n\nB=1    E=4\n1+4=5      →  F\n\nC=2    Y=24\n2+24=26  →  A\n\nShort ciphertexts cannot be\nbroken by frequency alone."
   },
   {
-   "zh": "那师父接下来会怎样？",
-   "text": "What will happen to my master now?"
+   "zh": "那把便条给我吧，我会自己确认的。",
+   "text": "Pass the note through. I will verify it myself."
   },
   {
-   "zh": "那张纸一旦公开，您就彻底脱不开身了，行会日后也难免受牵连。",
-   "text": "If that page had been seen, they would never have let you go, and the Guild would have beencompromised as well."
-  },
-  {
-   "zh": "那确是我的笔迹。但我不便向外界透露自己曾私下与米兰人签署过“另一份”文件，因此不能直接出面否认。",
-   "text": "The signature is genuinely mine. However, I cannot let it be known that I privately signed *another* document with Milan—so I cannot disavow it without proof."
-  },
-  {
-   "zh": "里头似乎是商队通行协议一类的底稿。",
+   "zh": "里面是商路通行协议之类的东西。",
    "text": "It appears to contain drafts of a trade transit agreement."
-  },
-  {
-   "zh": "里头有一份台账摘要和一张裁纸边角，这就给您送进来。",
-   "text": "It contains a ledger abstract and a trimmed paper scrap. Passing them in now."
   },
   {
    "zh": "附：裁纸边角一张。原始签收页事涉委托方私账，\n另存本库；对应第17号委托，批号726，可凭此调阅。",
@@ -1653,15 +1709,19 @@
    "text": "Sewn into patched envelope with two-column letter  /  IV · 04"
   },
   {
+   "zh": "难道我想的是错的，换档的事情其实没问题？只有档案到了才能确定了。",
+   "text": "Or am I mistaken—was the plate change just an innocent print shop error? I won't know for certain until the original archive arrives from the vault."
+  },
+  {
    "zh": "马泰奥 · 军情密文译录",
    "text": "Matteo · Enciphered Military Dispatch"
   },
   {
-   "zh": "马泰奥大师仍须留候审查。只是如今原件易手，日后若要核对底稿，都得看持有方的意思了。",
-   "text": "Master Matteo must remain in custody pending inquiry. And since the originals have changed hands, any future inspection will require the holder's consent."
+   "zh": "马泰奥·里奇，三方见证人员一起把他接回来了。",
+   "text": "Luca, witnesses from all three parties have jointly escorted Master Matteo Ricci back."
   },
   {
-   "zh": "马泰奥大师目前正在协助敝方处理机密要务。",
+   "zh": "马泰奥大师现在在协助我们的保密工作。",
    "text": "Master Matteo is presently assisting us with a matter of confidentiality."
   },
   {
@@ -1671,6 +1731,62 @@
   {
    "zh": "马泰奥的旧笔记\n\n五月十二日\n为米兰内廷拟定了\n新的文书加密体例。\n收件人能读通密文，\n不代表文书真出自\n署名者之手。加密与\n签名，不可混为一谈。\n\n五月十九日\n巴尔托洛送来\n七瓣花版样书。",
    "text": "Matteo's Old Notebook\n\nMay 12\nDrafted a new document\nsystem for Milan's court.\nThat a recipient can read\nit does not prove it came\nfrom the signer. Cipher and\nsignature are not the same.\n\nMay 19\nBartolo brought the sample\nSeven-Petal edition."
+  },
+  {
+   "zh": "马泰奥还要留候核验。以后如果要对照原件，都要向持有者提出申请。",
+   "text": "Master Matteo must remain in custody pending inquiry. And since the originals have changed hands, any future inspection will require the holder's consent."
+  },
+  {
+   "zh": "仿射密码 · 参数对照表",
+   "text": "Affine Cipher · Parameter Table"
+  },
+  {
+   "zh": "输入 0–25 · Tab 切换 A/B · Enter 确认",
+   "text": "Enter 0–25 · Tab: switch A/B · Enter: confirm"
+  },
+  {
+   "zh": "仿射 · 点击 A/B 填参数；未设置时可直接键入明文",
+   "text": "Affine · Click A/B to set values; type plaintext while unset"
+  },
+  {
+   "zh": "A 须在 1–25 内且与 26 互质",
+   "text": "A must be 1–25 and coprime to 26"
+  },
+  {
+   "zh": "B 须在 0–25 内",
+   "text": "B must be 0–25"
+  },
+  {
+   "zh": "填完 A、B 后自动生成对照表",
+   "text": "Fill in A and B to generate the table"
+  },
+  {
+   "zh": "上行明文 · 下行密文    y = (A × x + B) mod 26",
+   "text": "Top: plaintext · Bottom: ciphertext    y = (A × x + B) mod 26"
+  },
+  {
+   "zh": "点击输入密文 · 0/82",
+   "text": "Click to enter ciphertext · 0/82"
+  },
+  {
+   "zh": "点击输入密文 · {0}/82",
+   "text": "Click to enter ciphertext · {0}/82"
+  },
+  {
+   "zh": "密文 {0}/82 · Enter 誊写明文",
+   "text": "Ciphertext {0}/82 · Enter: transcribe plaintext"
+  },
+  {
+   "zh": "输入密文逐字排布 · 退格修改 · Enter 誊写明文",
+   "text": "Type ciphertext to arrange each letter · Backspace: edit · Enter: transcribe"
+  },
+  {
+   "zh": "栅栏 · 按列上下读明文；点击纸条继续输入密文",
+   "text": "Rails · Read top/bottom by column; click the strip to edit ciphertext"
+  },
+  {
+   "zh": "前半上行、后半下行；按列上下交替读。",
+   "text": "First half above, second half below; read top/bottom by column."
   }
  ]
 }

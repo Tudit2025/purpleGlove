@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Art/DeskSceneV1/Scenes/PH_MainMenu.unity
+    guid: f2861953c07be974b8392185d5a383a0
+  - enabled: 1
     path: Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity
     guid: 9cef694a068eb7b4d8373eb22ffdd867
   m_configObjects: {}

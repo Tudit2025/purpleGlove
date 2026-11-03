@@ -1,0 +1,6 @@
+PASS: 69 checks in Unity 2022.3.62f2 Play Mode.
+Main menu is build scene zero. Chinese/English titles, pointer hit targets, settings, volume persistence and keyboard submission.
+Begin fades, rejects duplicate activation, loads the real prologue, opens the door and schedules act one.
+No gameplay components in menu; one audio listener before/after load; language and preferences survive scene reload.
+Chapter jump still enters act two after starting from the menu, without replaying the prologue.
+Rendered 16:9, 4:3 and ultrawide compositions plus Chinese/English settings.

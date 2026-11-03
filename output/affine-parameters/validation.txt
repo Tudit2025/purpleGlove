@@ -1,0 +1,4 @@
+PASS: 545 checks in Unity Play Mode.
+Actual parameter collider picking, keyboard/keypad input, Tab/Enter/Escape, overwrite, paste and deletion.
+Automatic forward/inverse tables, story cipher, invalid/partial/reset states, read-only grid, tool switching and rail editing.
+Synthetic pointer/key events; screenshots use the actual scene camera.

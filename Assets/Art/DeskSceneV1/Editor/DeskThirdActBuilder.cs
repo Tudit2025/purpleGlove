@@ -9,6 +9,27 @@ namespace PurpleGlove.Editor
 {
     public static partial class DeskSceneBuilder
     {
+        [MenuItem("Purple Glove/Acts/Install Third Act Work Paper")]
+        public static void InstallThirdActWorkPaper()
+        {
+            if (Application.isPlaying) throw new InvalidOperationException("Install the work paper outside Play Mode.");
+            if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            var scene = EditorSceneManager.OpenScene(DeskSceneStartup.ScenePath);
+            LoadSavedSceneAssets();
+            var archive = UnityEngine.Object.FindFirstObjectByType<ActArchiveController>();
+            if (!archive || archive.acts[2].documents.Length < 5)
+                throw new InvalidOperationException("Install the third-act packet first.");
+            var layout = archive.transform.Find(ActDocumentGroup);
+            if (!layout) throw new InvalidOperationException("Missing authored document layout.");
+            var documents = archive.acts[2].documents.ToList();
+            if (documents.Count == 5) documents.Add(CreateThirdActDocument(layout, 5));
+            archive.acts[2].documents = documents.ToArray();
+            PositionThirdActDocument(documents[5], 5);
+            EditorUtility.SetDirty(archive);
+            AssetDatabase.SaveAssets(); EditorSceneManager.SaveScene(scene);
+            Debug.Log("THIRD_ACT_WORK_PAPER_INSTALLED");
+        }
+
         [MenuItem("Purple Glove/Acts/Install Third Act Packet")]
         [MenuItem("Purple Glove/Acts/Install Third Act Progression")]
         public static void InstallThirdActPacket()
@@ -36,7 +57,7 @@ namespace PurpleGlove.Editor
 
         static void ConfigureThirdActDocumentReferences(ActArchiveController archive)
         {
-            // Only Charles's later receipt is deferred; the signed French original arrives in the first packet.
+            // Only Charles's later receipt is deferred; the French original and work paper arrive in the first packet.
             archive.acts[2].deferredDocuments = new[] { archive.acts[2].documents[3] };
             var records = Camera.main.GetComponent<PlaintextArchiveController>();
             if (!records) return;
@@ -48,18 +69,22 @@ namespace PurpleGlove.Editor
 
         static void ArrangeThirdActDocuments(ActArchiveController archive)
         {
-            var mat = GameObject.Find("WritingMat").transform;
-            // Keep the lower-right cipher beside the tools, with the later receipt on its left.
-            var positions = new[] { V(-0.315f, 0.014f, 0.245f), V(0.235f, 0.014f, -0.225f),
-                V(0.315f, 0.014f, 0.245f), V(-0.235f, 0.014f, -0.225f), V(0, 0.014f, 0.245f) };
-            var angles = new[] { -1.5f, -3f, 1.5f, 2f, 0f };
             for (int i = 0; i < archive.acts[2].documents.Length; i++)
-            {
-                var paper = archive.acts[2].documents[i].transform;
-                paper.SetPositionAndRotation(mat.TransformPoint(positions[i]), mat.rotation * Quaternion.Euler(0, angles[i], 0));
-                paper.localScale = Vector3.one * (i == 1 || i == 3 ? 1f : 0.70f);
-                paper.gameObject.SetActive(false);
-            }
+                PositionThirdActDocument(archive.acts[2].documents[i], i);
+        }
+
+        static void PositionThirdActDocument(SceneObject document, int index)
+        {
+            var mat = GameObject.Find("WritingMat").transform;
+            // The small work paper sits just below the cipher without covering either line of ink.
+            var positions = new[] { V(-0.315f, 0.014f, 0.245f), V(0.235f, 0.014f, -0.225f),
+                V(0.315f, 0.014f, 0.245f), V(-0.235f, 0.014f, -0.225f), V(0, 0.014f, 0.245f),
+                V(0.235f, 0.014f, -0.435f) };
+            var angles = new[] { -1.5f, -3f, 1.5f, 2f, 0f, 4f };
+            var paper = document.transform;
+            paper.SetPositionAndRotation(mat.TransformPoint(positions[index]), mat.rotation * Quaternion.Euler(0, angles[index], 0));
+            paper.localScale = Vector3.one * (index == 1 || index == 3 || index == 5 ? 1f : 0.70f);
+            paper.gameObject.SetActive(false);
         }
 
         static SceneObject CreateThirdActDocument(Transform parent, int index)
@@ -71,15 +96,19 @@ namespace PurpleGlove.Editor
             item.screenFill = 0.82f; item.minimumViewDistance = 0.18f;
             item.inspectionFill = new Color(0.85f, 0.78f, 0.64f);
             var box = item.GetComponent<BoxCollider>(); box.center = V(0, 0.004f, 0);
-            bool slip = index == 1 || index == 3;
-            box.size = slip ? V(0.42f, 0.012f, 0.27f) : V(0.42f, 0.012f, 0.60f);
-            MeshObject(slip ? "Act3_CipherPaper" : "Act3_FormPaper", paper.transform,
-                m => m.Sheet(0.42f, slip ? 0.27f : 0.60f, M(slip ? "Paper_AgedCream" : "Paper_RagIvory"), 0.003f));
+            bool workPaper = index == 5;
+            bool slip = index == 1 || index == 3 || workPaper;
+            float width = workPaper ? 0.22f : 0.42f;
+            float depth = workPaper ? 0.12f : slip ? 0.27f : 0.60f;
+            box.size = V(width, 0.012f, depth);
+            MeshObject(workPaper ? "Act3_WorkPaper" : slip ? "Act3_CipherPaper" : "Act3_FormPaper", paper.transform,
+                m => m.Sheet(width, depth, M(slip ? "Paper_AgedCream" : "Paper_RagIvory"), 0.003f));
             if (index == 0) BuildThirdActCommission(paper.transform);
             else if (index == 1) BuildThirdActCipher(paper.transform);
             else if (index == 2) BuildThirdActVerification(paper.transform);
             else if (index == 3) BuildCharlesReceipt(paper.transform);
-            else BuildFrenchOriginal(paper.transform);
+            else if (index == 4) BuildFrenchOriginal(paper.transform);
+            else FirstActInk(paper.transform, "Keyword", ActDocumentPages[2][5][1], notesFont, 0, 0.015f, 0.13f, 0.032f, true);
             foreach (var renderer in paper.GetComponentsInChildren<Renderer>()) renderer.shadowCastingMode = ShadowCastingMode.Off;
             paper.SetActive(false); return item;
         }
@@ -103,7 +132,7 @@ namespace PurpleGlove.Editor
         {
             FirstActInk(paper, "Title", "马泰奥 · 军情密文译录", HandwrittenChinese, -0.18f, 0.111f, 0.25f, 0.020f);
             FirstActInk(paper, "Reference", "第17号委托 · 726 · 标称来源：法方", actDocumentFont, -0.18f, 0.078f, 0.36f, 0.016f);
-            FirstActInk(paper, "Cipher", ActDocumentPages[2][1][1], notesFont, 0, 0.010f, 0.36f, 0.028f, true);
+            CipherDocumentInk(paper, "Cipher", ActDocumentPages[2][1][1], 0, 0.020f, 0.36f);
             FirstActInk(paper, "Folio", "726  /  III · 02", PrintedChinese, 0, -0.106f, 0.17f, 0.014f, true);
         }
 

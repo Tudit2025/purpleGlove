@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act4_arrival
   title: "\u7B2C\u56DB\u5E55 \xB7 \u4E24\u4EFD\u72EC\u7ACB\u5C01\u4EF6"
-  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,26 +22,14 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u5362\u5361\uFF0C\u521A\u5230\u4E86\u4E24\u4EFD\u72EC\u7ACB\u7684\u5C01\u4EF6\u3002"
-    endEvent: 0
-    choices: []
+    text: "卢卡，这次有两份独立封件。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u7070\u767D\u5C01\u5957\u91CC\u662F\u60A8\u7533\u8BF7\u8C03\u9605\u7684\u5185\u5E93\u539F\u4EF6\uFF0C\u5BF9\u5E94\u7B2C17\u53F7\u59D4\u6258\uFF0C\u6279\u53F7\u4E03\u4E8C\u516D\u3002"
-    endEvent: 0
-    choices: []
+    text: "灰白色的是你调的对应第十七号委托，批号七二六的原件存档。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u91CC\u5934\u4F3C\u4E4E\u662F\u5546\u961F\u901A\u884C\u534F\u8BAE\u4E00\u7C7B\u7684\u5E95\u7A3F\u3002"
-    endEvent: 0
-    choices: []
+    text: "里面是商路通行协议之类的东西。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u53E6\u4E00\u4E2A\u68D5\u8272\u5C01\u5305\u6765\u81EA\u57CE\u5317\u7684\u4FEE\u9053\u9662\u3002\u4E00\u540D\u4FEE\u58EB\u8FDE\u591C\u9001\u6765\uFF0C\u6307\u540D\u8981\u4EA4\u5230\u60A8\u624B\u91CC\uFF0C\u653E\u4E0B\u4E1C\u897F\u4FBF\u5306\u5306\u8D76\u56DE\u53BB\u4E86\u3002"
-    endEvent: 0
-    choices: []
+    text: "棕包来自城北修道院。一个修士带过来，指名道姓说要给你，把东西给我之后他就回去了。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u6211\u6309\u89C4\u77E9\u5C06\u68D5\u8272\u5C01\u5305\u767B\u8BB0\u4E3A\u201C\u79C1\u4EBA\u4FE1\u4EF6\u201D\u4E86\u3002"
-    endEvent: 0
-    choices: []
+    text: "我把棕包登记成“信件”了。"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u6709\u52B3\u4E86\uFF0C\u8BF7\u4E00\u5E76\u9001\u8FDB\u6765\u5427\u3002"
-    endEvent: 0
-    choices: []
+    text: "好的，请送进来吧。"

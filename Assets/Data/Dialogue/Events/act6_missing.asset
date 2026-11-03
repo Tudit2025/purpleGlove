@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act6_missing
   title: "\u7B2C\u516D\u5E55 \xB7 \u7F3A\u9875"
-  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,30 +22,16 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
-    text: "\u5362\u5361\uFF0C\u6211\u9644\u5728\u5C01\u5957\u91CC\u7684\u90A3\u5C01\u81EA\u8FF0\uFF0C\u4F60\u4EA4\u4E0A\u53BB\u4E86\u5417\uFF1F"
-    endEvent: 0
-    choices: []
+    text: "卢卡，你把我给你的信交上去了吗？"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u6211\u6700\u540E\u628A\u5B83\u70E7\u4E86\u3002"
-    endEvent: 0
-    choices: []
+    text: "我最后烧掉了。"
   - speaker: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
-    text: "\u4E3A\u4F55\u8981\u70E7\uFF1F"
-    endEvent: 0
-    choices: []
+    text: "为什么？"
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "\u90A3\u5F20\u7EB8\u4E00\u65E6\u516C\u5F00\uFF0C\u60A8\u5C31\u5F7B\u5E95\u8131\u4E0D\u5F00\u8EAB\u4E86\uFF0C\u884C\u4F1A\u65E5\u540E\u4E5F\u96BE\u514D\u53D7\u7275\u8FDE\u3002"
-    endEvent: 0
-    choices: []
+    text: "看到那些东西，你绝对走不了了，行会以后的事情也不好处理。"
   - speaker: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
-    text: "\u2026\u2026"
-    endEvent: 0
-    choices: []
+    text: "……"
   - speaker: {fileID: 11400000, guid: 7a00ade9d6e452c4ba72f85697a011c7, type: 2}
-    text: "\u7F62\u4E86\u3002\u7F3A\u5931\u7684\u90A3\u4E00\u9875\uFF0C\u65E5\u540E\u6211\u4F1A\u4EB2\u81EA\u5411\u5BA1\u67E5\u4F1A\u8BF4\u660E\u767D\u3002"
-    endEvent: 0
-    choices: []
+    text: "我知道了，剩下的事我会自己说的。"
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u4EA4\u63A5\u624B\u7EED\u90FD\u529E\u59A5\u4E86\u3002\u5362\u5361\uFF0C\u6211\u8FD9\u5C31\u4E3A\u60A8\u542F\u5C01\u5F00\u95E8\u3002"
-    endEvent: 0
-    choices: []
+    text: "手续已经办完了，卢卡，我来给你开门。"

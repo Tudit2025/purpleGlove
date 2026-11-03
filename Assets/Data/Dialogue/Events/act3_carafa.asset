@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act3_carafa
   title: "\u7B2C\u4E09\u5E55 \xB7 \u5361\u62C9\u6CD5\u95E8\u8FB9\u4EA4\u8C08"
-  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
+  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 94175edd6df4cee43a29a74d19194265, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,10 +22,6 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "\u7C73\u5170\u65B9\u9762\u7684\u5361\u62C9\u6CD5\u5148\u751F\u5230\u4E86\u3002"
-    endEvent: 0
-    choices: []
+    text: "米兰代表卡拉法来了。"
   - speaker: {fileID: 11400000, guid: 94175edd6df4cee43a29a74d19194265, type: 2}
-    text: "\u5E74\u8F7B\u4EBA\uFF0C\u4F55\u5FC5\u628A\u4E8B\u60C5\u95F9\u5F97\u8FD9\u4E48\u590D\u6742\uFF1F\u4E0D\u8FC7\u662F\u5370\u574A\u91CC\u4E00\u7B14\u6392\u5B57\u6362\u7248\u7684\u65E7\u8D26\uFF0C\u83AB\u8981\u5199\u6210\u5916\u4EA4\u98CE\u6CE2\u3002"
-    endEvent: 0
-    choices: []
+    text: "没必要搞的这么复杂，年轻人，别把排字的旧账写成外交事件。"

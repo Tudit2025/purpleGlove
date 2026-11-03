@@ -265,7 +265,7 @@ Luca, the main files for tonight's commission—the military dispatch transcript
 
 #### act3_arrival.L02｜行会执事
 
-The packet holds four items: the original transcription commission bearing your master's signature, his enciphered military dispatch, and the Verification Form.
+There are five documents in the packet: the guild's transcription commission, bearing your master's own signature; his encrypted military transcript and working note; and a verification form.
 
 #### act3_arrival.L03｜行会执事
 

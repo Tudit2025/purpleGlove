@@ -1,10 +1,11 @@
 """Turn the polished Chinese and English packs into the game's text tables.
 
-Inputs (this folder): the exported packs 1-3 (current game text), *_polished.md (revised
-Chinese) and *_en.md (English). Outputs:
+Inputs (this folder): the exported packs 1-3, *_polished.md (revised Chinese) and
+*_en.md (English). Dialogue uses the original 1-台词.md; 1_polished.md is archived only.
+Paper and interface text still use the polished Chinese. Outputs:
   zh-revision.json        old Chinese -> polished Chinese, applied to scene/prefab text in Unity
-  dialogue-revision.json  polished dialogue by event, line and choice id
-  Assets/Resources/PHLocalization/English.json   polished Chinese -> English, loaded at runtime
+  dialogue-revision.json  original dialogue by event, line and choice id
+  Assets/Resources/PHLocalization/English.json   active Chinese -> English, loaded at runtime
 With --apply-code, Chinese literals in C# sources are revised in place.
 Run from the repository root:  python -X utf8 output/gemini-polish/build_localization.py [--apply-code]
 """
@@ -42,8 +43,42 @@ EXTRA_ENGLISH.update({f"尾声 · {zh}": f"Epilogue · {EXTRA_ENGLISH[zh]}" for 
 EXTRA_ENGLISH.update({"当前密钥对齐上行 A": "Align current key letter with upper A",
                       "已证实  /  待核  /  存在冲突": "Verified  /  Pending  /  In Conflict",
                       "米兰  /  威尼斯  /  法国": "Milan  /  Venice  /  France"})
+EXTRA_ENGLISH.update({"紫手套": "THE PURPLE GLOVE", "明文的谎言": "Lies in Plaintext",
+                      "开始游戏": "Begin", "设置": "Settings", "退出": "Quit", "返回": "Back",
+                      "总音量：{0}%": "Master volume: {0}%", "全屏：开": "Fullscreen: On", "全屏：关": "Fullscreen: Off",
+                      "像素化：开": "Pixelation: On", "像素化：关": "Pixelation: Off",
+                      "暂时无法开始，请重试。": "Unable to begin. Please try again."})
+EXTRA_ENGLISH["保留原件。\n七瓣花，新版。"] = "Keep the original.\nSeven petals, new edition."
+EXTRA_ENGLISH.update({
+    "这是仿射密码。加密用的 A、B 两个数，应该就在师父的信上。": "This is an affine cipher. The two encryption values, A and B, should be in Master's letter.",
+    "破译师父的两张密文纸条": "Decipher Master's two cipher strips",
+    "破译仿射密码纸条": "Decipher the affine cipher strip",
+    "破译栅栏密码纸条": "Decipher the rail-fence cipher strip",
+    "卢卡：\n\n是我高估了自己，\n反倒将棘手的后果推给了你。\n\n明早六点我将被转押。转押公文走的是\n米兰内廷渠道。须将‘争议证人留候共同\n核验’之文书送入该渠道，并由威尼斯与\n法国具名联保，监押的书记官才有借口\n暂缓执行。\n\n我所言之事，你也一并查验。若确有其事，\n必能找到独立于我的旁证记录。\n\nA = 5    B = 8":
+        "Luca,\n\nI overestimated myself and left you\nto bear the consequences.\n\nI am to be transferred at six tomorrow.\nThe order goes through Milan's inner court.\nA request to hold a disputed witness for\njoint examination must reach that office,\nwith Venice and France as named guarantors.\nOnly then will the custody clerk have\ngrounds to delay the transfer.\n\nVerify what I have told you as well.\nIf it is true, there will be records\nindependent of my own account.\n\nA = 5    B = 8",
+})
 # One text object serves as both the ledger field label and the plate-change record title.
-ENGLISH_OVERRIDES = {"换版记录": "Plate-Change Log"}
+EXTRA_ENGLISH.update({
+    "仿射密码 · 参数对照表": "Affine Cipher · Parameter Table",
+    "输入 0–25 · Tab 切换 A/B · Enter 确认": "Enter 0–25 · Tab: switch A/B · Enter: confirm",
+    "仿射 · 点击 A/B 填参数；未设置时可直接键入明文": "Affine · Click A/B to set values; type plaintext while unset",
+    "A 须在 1–25 内且与 26 互质": "A must be 1–25 and coprime to 26",
+    "B 须在 0–25 内": "B must be 0–25",
+    "填完 A、B 后自动生成对照表": "Fill in A and B to generate the table",
+    "上行明文 · 下行密文    y = (A × x + B) mod 26": "Top: plaintext · Bottom: ciphertext    y = (A × x + B) mod 26",
+})
+ENGLISH_OVERRIDES = {
+    "点击输入密文 · 0/82": "Click to enter ciphertext · 0/82",
+    "点击输入密文 · {0}/82": "Click to enter ciphertext · {0}/82",
+    "密文 {0}/82 · Enter 誊写明文": "Ciphertext {0}/82 · Enter: transcribe plaintext",
+    "输入密文逐字排布 · 退格修改 · Enter 誊写明文": "Type ciphertext to arrange each letter · Backspace: edit · Enter: transcribe",
+    "栅栏 · 按列上下读明文；点击纸条继续输入密文": "Rails · Read top/bottom by column; click the strip to edit ciphertext",
+    "前半上行、后半下行；按列上下交替读。": "First half above, second half below; read top/bottom by column.",
+    "换版记录": "Plate-Change Log",
+    # Restored dialogue reuses these sentences across events; use context-neutral translations.
+    "好的，请送进来吧。": "Understood. Please send them through.",
+    "我还带了一些回执文件来，我给你送进去。": "I have brought the council receipts—passing them in now.",
+}
 
 
 def unspace(text: str) -> str:
@@ -59,11 +94,11 @@ def unspace(text: str) -> str:
     return "\n".join(lines)
 
 
-def wrap_guild_paragraph(paragraph: str) -> str:
+def wrap_guild_paragraph(paragraph: str, width: int = 28) -> str:
     """Port of DeskSceneBuilder.WrapGuildParagraph: 26 characters, no punctuation at a line start."""
     lines, start = [], 0
     while start < len(paragraph):
-        count = min(26, len(paragraph) - start)
+        count = min(width, len(paragraph) - start)
         while count > 1 and start + count < len(paragraph) and paragraph[start + count] in "，。；：！？、）”’":
             count -= 1
         lines.append(paragraph[start:start + count])
@@ -76,8 +111,8 @@ def unwrap_letter(body: str) -> list[str]:
     return ["".join(block.split("\n")) for block in body.split("\n\n")]
 
 
-def wrap_letter(paragraphs: list[str]) -> str:
-    return "\n".join(wrap_guild_paragraph(line) for line in "\n\n".join(paragraphs).split("\n"))
+def wrap_letter(paragraphs: list[str], width: int = 28) -> str:
+    return "\n".join(wrap_guild_paragraph(line, width) for line in "\n\n".join(paragraphs).split("\n"))
 
 
 # ---------------------------------------------------------------- pack parsing
@@ -293,26 +328,27 @@ def build():
     events = review_pack.load_events()
 
     # Part 1: dialogue lines, choices, runtime prompts and epilogue substitutions.
-    old, new, eng = (pack_entries(PACK / name) for name in ("1-台词.md", "1_polished.md", "1_en.md"))
+    old, archived, eng = (pack_entries(PACK / name) for name in ("1-台词.md", "1_polished.md", "1_en.md"))
     for key in old:
-        revision.add(old[key], new[key])
-        english.add(new[key], eng[key])
+        # Keep the restored dialogue when rebuilding or reapplying localization data.
+        revision.add(old[key], old[key])
+        english.add(old[key], eng[key])
         event_id, _, item = key.partition(".")
         if event_id not in events:
             continue  # Runtime prompts and substitutions live in code.
-        # Assets hold either the exported text (before the sync) or the polished text (after it).
+        # Accept the archived polish while preparing a rollback, but always emit the original.
         match = re.fullmatch(r"L(\d+)", item)
         if match:
             index = int(match[1]) - 1
-            if events[event_id]["lines"][index]["text"] not in (old[key], new[key]):
+            if events[event_id]["lines"][index]["text"] not in (old[key], archived[key]):
                 raise ValueError(f"Pack differs from asset: {key}")
-            dialogue.append({"id": event_id, "line": index, "choice": "", "old": old[key], "text": new[key]})
+            dialogue.append({"id": event_id, "line": index, "choice": "", "old": old[key], "text": old[key]})
         else:
             index = next((i for i, l in enumerate(events[event_id]["lines"])
-                          for c in l["choices"] if c["id"] == item and c["text"] in (old[key], new[key])), None)
+                          for c in l["choices"] if c["id"] == item and c["text"] in (old[key], archived[key])), None)
             if index is None:
                 raise ValueError(f"Pack choice differs from asset: {key}")
-            dialogue.append({"id": event_id, "line": index, "choice": item, "old": old[key], "text": new[key]})
+            dialogue.append({"id": event_id, "line": index, "choice": item, "old": old[key], "text": old[key]})
 
     # Part 3: interface strings; ⟨…⟩ marks code values and becomes a format argument.
     old, new, eng = (pack_entries(PACK / name) for name in ("3-界面与物件文字.md", "3_polished.md", "3_en.md"))
@@ -347,7 +383,7 @@ def build():
     # The guild letter is authored as paragraphs and wrapped by the builder; keep scene and builder in step.
     letter = next(t["text"] for p in SCENE_TEXT["papers"] if p["id"] == "act1-3" for t in p["ink"] if t["path"] == "Body")
     old_paragraphs = unwrap_letter(letter)
-    if wrap_letter(old_paragraphs) != letter:
+    if wrap_letter(old_paragraphs, width=26) != letter:
         raise ValueError("WrapGuildParagraph port does not reproduce the saved guild letter")
     gemini_wrapped = revision.whole[letter]
     new_paragraphs = unwrap_letter(gemini_wrapped)
@@ -479,8 +515,8 @@ def check_display(english: Table) -> list[str]:
 
 
 def update_performance_docs():
-    """Bring the per-act scripts in doc/performance-edit up to the polished dialogue."""
-    old, new = pack_entries(PACK / "1-台词.md"), pack_entries(PACK / "1_polished.md")
+    """Keep the per-act scripts aligned with the restored, original Chinese dialogue."""
+    old, new = pack_entries(PACK / "1_polished.md"), pack_entries(PACK / "1-台词.md")
     found = set()
     for path in sorted((ROOT / "doc/performance-edit").glob("0[0-7]-*.md")):
         with open(path, encoding="utf-8", newline="") as handle:
@@ -492,8 +528,8 @@ def update_performance_docs():
             key = match["id"]
             if key not in new:
                 return match[0]
-            if match["text"] != old[key]:
-                raise ValueError(f"{path.name}: {key} differs from the exported pack")
+            if match["text"] not in (old[key], new[key]):
+                raise ValueError(f"{path.name}: {key} differs from both dialogue versions")
             found.add(key)
             return match["head"] + new[key]
 
@@ -502,15 +538,16 @@ def update_performance_docs():
             for label, kind in (("**真相易手**\n\n", "transferred"), ("**背书**\n\n", "endorsed")):
                 key = f"epilogue.{custody}.{kind}"
                 prefix = heading + "\n\n" if custody == "Guild" else label
-                if key in old and prefix + old[key] in text:
+                if key in old and any(prefix + value in text for value in (old[key], new[key])):
                     text = text.replace(prefix + old[key], prefix + new[key], 1)
                     found.add(key)
-        text = text.replace("版本：2026-11-02 返回改稿已接入后的游戏文本。", "版本：2026-11-03 润色稿已接入后的游戏文本。")
+        for version in ("版本：2026-11-02 返回改稿已接入后的游戏文本。", "版本：2026-11-03 润色稿已接入后的游戏文本。"):
+            text = text.replace(version, "版本：2026-11-03 中文对白已恢复为润色前版本。")
         with open(path, "w", encoding="utf-8", newline="") as handle:
             handle.write(text.replace("\n", eol))
     missing = sorted(set(old) - found)
     if missing:
-        raise ValueError(f"Per-act scripts lack polished entries: {missing}")
+        raise ValueError(f"Per-act scripts lack dialogue entries: {missing}")
     print(f"performance-edit: {len(found)} entries updated")
 
 
