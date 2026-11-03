@@ -95,7 +95,7 @@ namespace PurpleGlove
                 var image = choiceRows[i];
                 image.gameObject.SetActive(true);
                 var text = image.GetComponentInChildren<Text>();
-                text.text = choices[i].text; text.color = speaker.textColor;
+                text.text = Localization.Text(choices[i].text); text.color = speaker.textColor;
             }
             LayoutChoices(); HighlightChoice(-1);
         }

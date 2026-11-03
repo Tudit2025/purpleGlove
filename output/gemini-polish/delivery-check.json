@@ -1,0 +1,298 @@
+{
+  "result": "PASS",
+  "verified_files": 73,
+  "files": [
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskActDocumentBuilder.cs",
+      "sha256": "b648596158898279daea0cd18d0458582019af14dac26e0c05b749ed62a8c3ff"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskCipherWorkbenchBuilder.cs",
+      "sha256": "51222cfb2ec3889945d14ed762137265c7688645ee6d5ea6fa7a14b3e57be2eb"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskDialogueBuilder.cs",
+      "sha256": "818b5795df76160cc23e3650688bf8296bff5e29da049b6c7dbfb90ee806f89b"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskEpilogueBuilder.cs",
+      "sha256": "e2a78959f3c4d8f21835c0bd687aa1356f96e039be5cdc03a30626d8d55a3b60"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskFinalActsBuilder.cs",
+      "sha256": "67f62a08d419c493f4fdb736695e9817a52ecc84d57295e47228f1fe8a2e4d63"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskFirstActBuilder.cs",
+      "sha256": "561281587a71d2e8b629e680ff1b98e91fba734d837dbbf2b871f85c3f8b0fb8"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskFirstActFlowBuilder.cs",
+      "sha256": "c744d6b86d8b2608892ba2e6c10f68838c6fbebdae29ab7302255cee252b4726"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskFourthActBuilder.cs",
+      "sha256": "424cfa3d1f20be5a7c3043e62af325f85e711043ba127a0bb36128de14034c32"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskHandbellBuilder.cs",
+      "sha256": "238aa33b7d86a2b515dde6a315b9ff7d6608a5edbbdb823b32636948319257d4"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskNotebookBuilder.cs",
+      "sha256": "d8a5fae947f04091b064159a4a3447144b12d66e3cc44736718f4c2cccbf2e49"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskObjectMemoryBuilder.cs",
+      "sha256": "87d0b27921a4f9f48c60f71f0ff4e03eee99616d2e8668ea23bffe2f035afa91"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskOperationalDocumentsBuilder.cs",
+      "sha256": "91ef24e81d963d8e03ebd7288c466cf2b01157ebb065c3897d8964067dd0d341"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskPlaintextArchiveBuilder.cs",
+      "sha256": "c901489a913e96cf260eea01daabdc55777d7d091bec47615de73508bb1f7709"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskPrologueBuilder.cs",
+      "sha256": "3798ff0786e81296582bc7b3b8dd6132a7f71d50178bd9bd31d5250b87eb60f5"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskSecondActBuilder.cs",
+      "sha256": "32572848bbce4d747c7e16a7d468864b0554c04a18aeaf773f419a97de4530df"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Editor/DeskThirdActFlowBuilder.cs",
+      "sha256": "858bd346d603c0a8bca8299d86f12eb1ecc7b12c51fd8b49f65876562a454534"
+    },
+    {
+      "path": "Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity",
+      "sha256": "9a11dea3804cef00314134d6f641bef39d88e6d36ce649125179c1fc88fac449"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act1_arrival.asset",
+      "sha256": "2f6b2710371efeba18ae74c1a454c82c687d296a365f2161d4875a9588ea51e8"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act1_secretary.asset",
+      "sha256": "db64587f0f7f4d3596b87340fb1a717fd0162fe37f9c1c303127af2bc9039f2f"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act1_secretary_arrival.asset",
+      "sha256": "af0f7e367f758a5a103c019226956fa0a5e7c4579e8d6b7202a3775d09d6829e"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act1_summary.asset",
+      "sha256": "87d6f7fabe5011e268f8897362f857ab5ddab4893d7bb1660603453ab8cb7226"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act2_archive_arrival.asset",
+      "sha256": "c862934bae5ade6c3494d7f20d22faac3c8c6537927667ad724f4b53efbd6b79"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act2_original_request.asset",
+      "sha256": "0a0c9508242e1f26dc0e4572fb7f8f5bb11cf1c21ceb5c8b53cfed1e3c0fe884"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act2_request.asset",
+      "sha256": "f5e21f2d10211d4f721a0539076814fc31b72e9f2ad439386088e90c7f4474eb"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act2_ring_hint.asset",
+      "sha256": "6305fa8224c231b84a5d2f07a81839c5016c5cfdea767e4dd8a53fd6d9f72f82"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act2_summary.asset",
+      "sha256": "f3d6ceaa22f8929dce1957b1b77b0c39b2c788ee9d517a71e85c31c770348e8e"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act3_arrival.asset",
+      "sha256": "ebf145c58b91cc1e1586a92d709ae17c155d879090aada95650559cd933542ef"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act3_carafa.asset",
+      "sha256": "bff904cad132a43b42761b0caa50f868dd7dc4ec7b13e31cdb2882aaf700095f"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act3_charles.asset",
+      "sha256": "f7b0308c4538a87ee8c16ea8aa8a69ddb0e0134c821024c3d33c697aceee8d17"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act3_secretary.asset",
+      "sha256": "bbafb828b3ba416b8dac37d4016fbda38b6a42d4659871f57f0db03879bcf970"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act3_signature_hint.asset",
+      "sha256": "a0fec45b537c70d9d3bead564331808dc923f8b22a6d6fc463c0b266b324655b"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act3_summary.asset",
+      "sha256": "505a9e369b7b671464b6aee071f32d801f2c6b6ef252f0e4341a62f15f407280"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act4_arrival.asset",
+      "sha256": "d10e16acbd51dc21af1fa59248e349a5c541ef657641c469b4fc49fb6c9c4269"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act4_summary.asset",
+      "sha256": "5558cbae50888af54e67b6ba76a30314703b87afb4f685ddd24bf2f0d6923ac5"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act5_arrival.asset",
+      "sha256": "10ee50ab6092953f861440e24cfae11fba1ce766e3724445122530eba5d92cfa"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act5_handoff.asset",
+      "sha256": "a65aa3270906a79fc24bd0a99994f0059983337faff98cfbfe9f10fac016ade8"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act5_source_warning.asset",
+      "sha256": "dd2a5e93c3d5e50cc87763054e43df43324a82bb99dd4bf74e7cfe62fb4f17be"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act6_endorsed.asset",
+      "sha256": "e0d597fd70c4510d14d79e0ddf7e598f42ed8ed205cfc861fd2453c45dad7410"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act6_endorsed_report.asset",
+      "sha256": "99346fe4356d0adf9080996ce64a0edae40c0f6257ce2d0d460d2d530b8100e8"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act6_missing.asset",
+      "sha256": "8fd0ad1943c1572a2db173d5f380a8a3f854ac99d3ee7ac00c36843ede6b95c7"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act6_open.asset",
+      "sha256": "1ca07d16405d5706947b3a928d3668ae499ce8056c14a284f48bb48f1aaa1d82"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act6_reunion_arrival.asset",
+      "sha256": "4714ed11c7cf1175b99d46ffaf11c99263f7362af1a43a2ffd8dc21594677cce"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act6_saved_report.asset",
+      "sha256": "32dd9f2d5fc6b02b97c66ef7b9cae00bb4de11123c87012eb2b4f43c4beaac42"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act6_transfer_report.asset",
+      "sha256": "5fc77f5550868a539698e651d45754da1d12439063dd172c48f47d1b65c3ce73"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/act6_transferred.asset",
+      "sha256": "a452e1bef99d94bfd326cc25245bffe6ce2ecd6a3f2af0bc073921da22ce1ebe"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/beatrice.asset",
+      "sha256": "dfcf42cabe2c7b57886bac07672e38c2a6615a3659315febcda71d538e6dd428"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/handbell_not_needed.asset",
+      "sha256": "c745f72253abf94fe2cceeb5a918804950b94fa6d27fbd3b3f9a5f57f094ce38"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/memory_notebook.asset",
+      "sha256": "ed279d6d54f7a98a538bb0935ae980b4365a1d8ca92c7faec6fa71bdb52d6e5e"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/memory_prayer_flower.asset",
+      "sha256": "61b9c8e8767dc5f01605f37bf78f4198401daa704d5b0ab96a065b3127707b08"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/memory_prayer_old.asset",
+      "sha256": "3d1bb6c2e820215b13bd762847813a09771cc26792f2584ea82f486e9b09fb5d"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/memory_three_cuts.asset",
+      "sha256": "2852918321f95fa01a49a4f076a96ff3fc76ef46e6a1ea82793b9b473b2996d2"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/memory_toolbox.asset",
+      "sha256": "07f455149ead782e09f384d2e61b21d5fef50b7e85a097a34f9ede551e693307"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/plaintext_complete.asset",
+      "sha256": "bc2622db07b21eac9178912a986e7c6cc5abd405156b8dcedd0ce5a33d5fe7b5"
+    },
+    {
+      "path": "Assets/Data/Dialogue/Events/prologue.asset",
+      "sha256": "51ca96ffdccb50f367a2735dcf68443638e13c0190f0c3a1bedcff8f1271d5bd"
+    },
+    {
+      "path": "Assets/Resources/PHLocalization.meta",
+      "sha256": "5ba22d8566ae169df019da16b8fc39e360c63b7c57f3412cbc2bebad68182f10"
+    },
+    {
+      "path": "Assets/Resources/PHLocalization/English.json",
+      "sha256": "e477f81d91442a86cf818edf19e0d97c19589b5da6e1f8d5f713c202116aa79a"
+    },
+    {
+      "path": "Assets/Resources/PHLocalization/English.json.meta",
+      "sha256": "22f57a694b1586dd2ccd8ceb984c5c8b91e64531f830f53c27955df3c2024663"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/ActArchiveController.cs",
+      "sha256": "52a5a78b9f1a722b641b2566d86da8d12f672ace3e16072957ebf9f0794070a9"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/ActTransitionOverlay.cs",
+      "sha256": "3f5b4ea2b3cb694588e3cced836cb0251991e4afc304452c49adef7d61d88593"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/CipherWorkbenchKeyboard.cs",
+      "sha256": "3c3366025c228decb5aa7dd1a7e790ba3e5155a75115ca78b5a507b5d46ee712"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DeskCommandHints.cs",
+      "sha256": "59f1c2547028cdec1fe449ccfc59e06494214194e0f4a3c42c9aefe416182aa3"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DeskViewHud.Commands.cs",
+      "sha256": "12b69a9caa5590c179917c0525d3fee369a4657897eebb365b1123281fbb852f"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DeskViewHud.cs",
+      "sha256": "0088455839a6ac1aa7cf00550cb34106686538c94687b426fa48824e2364b28f"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DialogueController.cs",
+      "sha256": "cef2921cac89ce098d3266e474207e99b55de51971f811c5f19edb3e3924524f"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DialogueOverlay.cs",
+      "sha256": "76ade0d14918d03ce4f70b181db3a7268b9a84a1384a7b8b6e7d05997bd0d82e"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/DialogueTestConsole.cs",
+      "sha256": "a779d46f44661c97ca859f361a7ec6624c5007b9562aa353d130ef1931d041d0"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/EpilogueFlow.cs",
+      "sha256": "af9eb30c7ed9b4f2a78142d15c753ebfd0f67286a8e5c4b6e9b8a1e7b3dd5dd7"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/FifthActDocument.cs",
+      "sha256": "6e4960b704b644f6ba741da9c33eee934408a7d3859b30e9ecaed692ef94a567"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/FifthActFlow.cs",
+      "sha256": "8da959f0afb05d5d199843b491f9dfd201418536f94b6cd564a0597628e05d67"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/Localization.cs",
+      "sha256": "b675154aefcdd969ba9e9475f8e54e4f85e2fd986bde63fed49a405da2a3604f"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/Localization.cs.meta",
+      "sha256": "120a575dcf13fd096fb4fa82ad402bb2b1fee2fc75b3497428e7032b8af0b051"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/NotebookBook.cs",
+      "sha256": "3b396372f944b330ecbe02f47fa00ed91d201c3ebd95aa688c9a548505770a05"
+    },
+    {
+      "path": "Assets/Scripts/Presentation/ThirdActVerification.cs",
+      "sha256": "109d33b97af123325e03fc0b9256c70a479c38dbdb22096feecf095621b7652d"
+    }
+  ]
+}

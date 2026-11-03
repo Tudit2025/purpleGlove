@@ -2,6 +2,8 @@
 
 主场景：`Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity`。进入 Play Mode 后按 **F1** 或 **反引号** 打开章节测试面板，点击目标幕，从该幕开场开始。**Esc** 关闭面板，继续当前演出。
 
+面板顶部的 **语言 / Language** 行可切换中文与 English。切换立即生效、不重置进度：正在显示的台词改为完整显示新语言的整句，纸面、提示与幕名同步更新。选择保存在 PlayerPrefs 中，之后的章节跳转与下次进入 Play Mode 都沿用。英文文本表见 `Assets/Resources/PHLocalization/English.json`。
+
 ## 跳转到各幕开始
 
 | 入口 | 起点与准备的状态 |

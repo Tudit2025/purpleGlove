@@ -29,19 +29,19 @@ namespace PurpleGlove.Editor
             DialogueEvent.Line L(DialogueSpeaker s, string t) => new DialogueEvent.Line { speaker = s, text = t };
             flow.story = camera.GetComponent<PrologueSequence>();
             flow.deskSummary = SecondActEvent(dialogue, "act2_summary", "第二幕 · 卢卡等待原件", null,
-                L(luca, "左手手套，巴尔托洛把委托换档的人记下来了。公爵的委托写过，替米兰代领材料的卡拉法他左手戴紫手套。"),
-                L(luca, "这个叫卡拉法的绝对和这件事情有关，十有八九他已经在这里待了有一阵子了……"),
-                L(luca, "如果能调到这个“原件”，应该能确定这两件事情的联系。"),
-                L(luca, "如果这个换档记录指向了请我核验的军令，那米兰人所用的手段就很明确了：造了假的文件，然后让师傅签字作保。"));
+                L(luca, "“左手手套”……巴尔托洛暗中记下了要求换版之人的特征。公爵的委托书上提过，替米兰内廷代领材料的卡拉法，左手常戴一只紫手套。"),
+                L(luca, "这个卡拉法必定与此案脱不了干系。看情形，他在行会里暗中活动已有段时日了……"),
+                L(luca, "只要能调出封档里提到的“原始签收页”，就能查明这两件事的关联。"),
+                L(luca, "倘若那份换版记录当真指向今夜待核的军令，米兰人的伎俩便昭然若揭了：先偷梁换柱伪造公文，再胁迫师父签字作保。"));
             flow.thirdActIntro = SecondActEvent(dialogue, "act3_arrival", "第三幕 · 正式核验件到达", clerk,
-                L(clerk, "卢卡，这次核验委托的内容，军情译录件送到了。确实是我们行会印刷的。"),
-                L(clerk, "封包里有四个文件：行会承办这次译录时的译录委托，上面有你师傅的亲笔签名；还有他译录的军情密文；一张核验表。"),
-                L(clerk, "最后还有带法方签名的法文原文，这张好像也是我们行会印刷的。"),
-                L(luca, "好的，请送进来吧。"));
+                L(clerk, "卢卡，今夜委托核验的正件——军情译录件送到了。确系我们行会印制。"),
+                L(clerk, "封包内共有四份文书：行会承接译录时的原始委托书，上面有令师的亲笔签名；他译出的军情密文；还有一份军情核验表。"),
+                L(clerk, "最后是一份带有法方署名的法文原稿，瞧纸张和印迹，也是行会印坊出来的。"),
+                L(luca, "知道了，请送进来吧。"));
             flow.originalRequest = SecondActEvent(dialogue, "act2_original_request", "第二幕 · 申请原始档案", clerk,
-                L(clerk, "卢卡，有什么事吗？"),
-                L(luca, "请调第五十七号封档附件对应的原始档案，第十七号委托，批号七二六。"),
-                L(clerk, "好的，我让人去调一下这个档案，但是从编号来看这篇应该封在存放原始文献的地方，需要一点时间。"));
+                L(clerk, "卢卡，还有什么需要？"),
+                L(luca, "请帮我调取第五十七号封档提及的原始档案——对应第17号委托，批号七二六。"),
+                L(clerk, "好，我派人去库房找。不过看这编号，原件应当封存在内库，调取手续繁琐，还请耐心等上一会儿。"));
             flow.originalRequest.arrivalSound = null; flow.originalRequest.arrivalDelay = 0.1f;
             EditorUtility.SetDirty(flow.originalRequest);
             flow.deskSummary.context = "猪圈明文实际留存后回桌面独白；等待玩家摇铃申请原始档案，执事应允后进入第三幕。";
@@ -138,8 +138,8 @@ namespace PurpleGlove.Editor
             FirstActInk(paper, "Reference", "核验所调阅副本  /  交存人：巴尔托洛", actDocumentFont, -0.184f, 0.155f, 0.368f, 0.016f);
             string[][] rows = {
                 new[] { "装订批号", "726" }, new[] { "原定项目", "商队通行文件" }, new[] { "后改项目", "军情译录件" },
-                new[] { "换版记录", "两次换版均由同一名经手人带来" }, new[] { "款项结算", "米兰内廷印务账户" },
-                new[] { "原始签收页", "已交行会纠纷库另存" }
+                new[] { "换版记录", "两次换版均由同一经手人送交" }, new[] { "款项结算", "米兰内廷印务账户" },
+                new[] { "原始签收页", "已移交行会纠纷库另存" }
             };
             const float top = 0.122f, rowHeight = 0.044f;
             MeshObject("Act2_LedgerTableRules", paper, m =>
@@ -155,7 +155,7 @@ namespace PurpleGlove.Editor
                 var value = FirstActInk(paper, "Value " + i, rows[i][1], PrintedChinese, -0.055f, top - i * rowHeight - 0.008f, 0.225f, 0.033f);
                 value.characterSize = 0.0016f;
             }
-            FirstActInk(paper, "Custody note", "附：裁纸边角一张。原始签收页涉及委托方私账，\n另存本库；对应第17号委托，批号726，可据此调阅。", actDocumentFont, -0.183f, -0.166f, 0.366f, 0.041f);
+            FirstActInk(paper, "Custody note", "附：裁纸边角一张。原始签收页事涉委托方私账，\n另存本库；对应第17号委托，批号726，可凭此调阅。", actDocumentFont, -0.183f, -0.166f, 0.366f, 0.041f);
             FirstActInk(paper, "Footer", "据交存台账摘录  ·  行会登记存照", actDocumentFont, 0, -0.228f, 0.29f, 0.016f, true);
         }
 
@@ -182,7 +182,7 @@ namespace PurpleGlove.Editor
                 for (int i = 0; i < letters.Length; i++)
                     DrawNotebookGlyph(m, letters[i], V(-0.135f + i * 0.031f + (i >= 4 ? 0.016f : 0), 0.011f, 0.023f), 0.010f);
             });
-            FirstActInk(paper, "Handwritten note", "两次都是他亲手收的。\n姓名在原始签收页，\n不在这张摘要上。", HandwrittenChinese, -0.145f, -0.015f, 0.29f, 0.063f);
+            FirstActInk(paper, "Handwritten note", "两次皆由他亲手接领。\n其姓名载于原始签收页，\n未录于此份摘要。", HandwrittenChinese, -0.145f, -0.015f, 0.29f, 0.063f);
         }
 
         static void ConfigureSecondAct(Camera camera)
@@ -202,22 +202,22 @@ namespace PurpleGlove.Editor
             var beatrice = dialogue.speakers.Single(s => s.id == "beatrice");
             DialogueEvent.Line L(DialogueSpeaker s, string t) => new DialogueEvent.Line { speaker = s, text = t };
             SecondActEvent(dialogue, "beatrice", "第二幕 · 贝阿特丽切的便条", beatrice,
-                L(clerk, "威尼斯代表贝阿特丽切找你，她带了一份文件来。"),
-                L(beatrice, "你就是卢卡大师吧？我调查这个事情已经几天了，你的一个行会同事给了我一张字条。"),
-                L(beatrice, "他不想当证人牵扯进来，写的密码。你应该能够破解它。"),
-                L(beatrice, "我差不多知道里面会写什么，但是我的立场让我不能跟进这个线索了。"),
-                L(luca, "那把便条给我吧，我会自己确认的。"),
-                L(clerk, "威尼斯代表带来的资料登记好了，我给你送进去。"));
+                L(clerk, "卢卡，威尼斯代表贝阿特丽切女士求见，随身带来了一份文件。"),
+                L(beatrice, "你就是卢卡大师吧？这桩案子我已暗中查访数日，贵行会的一位同僚私下塞给我一张字条。"),
+                L(beatrice, "他怕惹祸上身，不肯出面作证，便用了密码。想来你应该能解开。"),
+                L(beatrice, "字条上的内容我大致猜得到，但碍于威尼斯的立场，这条线我不便再查下去了。"),
+                L(luca, "请把便条交给我吧，我会亲自核实。"),
+                L(clerk, "威尼斯代表交来的字条已登记入册，我这就递进来。"));
             flow.cue = SecondActEvent(dialogue, "act2_ring_hint", "卢卡 · 摇铃调档", null,
-                L(luca, "“五十七号封档”……明文留好了。现在我该摇手铃请执事把对应的档案调来。"));
+                L(luca, "“第五十七号封档”……译文已经记下。该摇铃请执事把这份档案调来了。"));
             flow.request = SecondActEvent(dialogue, "act2_request", "第二幕 · 门边调档", clerk,
-                L(clerk, "卢卡，你需要我做什么吗？"),
-                L(luca, "请帮我调取行会五十七号封档，这次核验使用。"),
-                L(clerk, "五十七号好像是印坊工作流程纠纷有关的存档，我去调取，你稍微等一会儿。"));
+                L(clerk, "卢卡，有什么吩咐？"),
+                L(luca, "请帮我调阅行会的第五十七号封档，本次核验需要用到。"),
+                L(clerk, "第五十七号封档……印象里似乎是一桩印坊工序纠纷的旧档。我这就去办，请稍候。"));
             flow.request.arrivalSound = null; flow.request.arrivalDelay = 0.15f;
             flow.arrival = SecondActEvent(dialogue, "act2_archive_arrival", "第二幕 · 第五十七号封档送达", clerk,
-                L(clerk, "五十七号封档到了，交存人是你师傅的熟人排字工巴尔托洛。"),
-                L(clerk, "内含台账摘要和一张裁纸边角，我给你送进去。"));
+                L(clerk, "第五十七号封档调来了。交存人是排字工巴尔托洛，与令师素有交情。"),
+                L(clerk, "里头有一份台账摘要和一张裁纸边角，这就给您送进来。"));
             flow.books = new[] { false, true }.Select(flower => BuildPrayerBookTool(work, archive, flower)).ToArray();
             ConfigureSecondActEnding(camera);
             EditorUtility.SetDirty(flow.request); EditorUtility.SetDirty(flow); EditorUtility.SetDirty(records);

@@ -133,15 +133,19 @@ namespace PurpleGlove
             if (!trayInscription) return;
             string text = originalTrayInscription;
             if (BookTool) text = "书本 · 页—行—字母，直接键入明文 · Esc 放回";
-            else if (editingKeyword || editingCell >= 0) text = "Enter 完成填写 · 返回字母键盘";
-            else if (ActiveTool == Tool.Caesar) text = caesarConfigured ? "凯撒 · 键入密文 → 明文" : "转动密码盘后可键入密文";
+            else if (editingKeyword || editingCell >= 0) text = "Enter 完成填写 · 返回字母盘";
+            else if (ActiveTool == Tool.Caesar) text = caesarConfigured ? "凯撒 · 键入密文 → 明文" : "拨动转盘后可键入密文";
             else if (ActiveTool == Tool.Pigpen) text = "猪圈 · 对照图形，直接键入明文";
-            else if (ActiveTool == Tool.SaintCyr) text = Keyword.Length > 0
-                ? "密钥 " + (KeywordIndex + 1) + "/" + Keyword.Length + " · 键入密文 → 明文" : "填写密钥后可键入密文";
-            else if (ActiveTool == Tool.Affine) text = affinePlaintextInput ? "仿射 · 表格为空，直接键入明文"
+            else if (ActiveTool == Tool.SaintCyr && Keyword.Length > 0)
+            {
+                Localization.SetFormat(trayInscription, "密钥 {0}/{1} · 键入密文 → 明文", KeywordIndex + 1, Keyword.Length);
+                return;
+            }
+            else if (ActiveTool == Tool.SaintCyr) text = "填写密钥后可键入密文";
+            else if (ActiveTool == Tool.Affine) text = affinePlaintextInput ? "仿射 · 对照表为空，直接键入明文"
                 : KeyboardDecodeReady ? "仿射 · 键入密文 → 明文" : "填满两行，每行 A–Z 不重复";
-            else if (ActiveTool == Tool.RailFence) text = "栅栏 · 交错读两行，直接键入明文";
-            if (trayInscription.text != text) trayInscription.text = text;
+            else if (ActiveTool == Tool.RailFence) text = "栅栏 · 交错拼读两行，直接键入明文";
+            Localization.SetText(trayInscription, text);
         }
 
         void UpdateDecodeKeyboard()

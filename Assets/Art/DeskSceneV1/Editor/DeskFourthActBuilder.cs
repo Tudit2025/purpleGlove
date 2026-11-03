@@ -63,12 +63,12 @@ namespace PurpleGlove.Editor
                 intro.arrivalSound = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/PH/Doors/door_knock_pattern_01.wav");
                 intro.arrivalDelay = intro.arrivalSound ? intro.arrivalSound.length : 0.1f;
                 intro.lines = new[] {
-                    L(clerk, "卢卡，这次有两份独立封件。"),
-                    L(clerk, "灰白色的是你调的对应第十七号委托，批号七二六的原件存档。"),
-                    L(clerk, "里面是商路通行协议之类的东西。"),
-                    L(clerk, "棕包来自城北修道院。一个修士带过来，指名道姓说要给你，把东西给我之后他就回去了。"),
-                    L(clerk, "我把棕包登记成“信件”了。"),
-                    L(luca, "好的，请送进来吧。") };
+                    L(clerk, "卢卡，刚到了两份独立的封件。"),
+                    L(clerk, "灰白封套里是您申请调阅的内库原件，对应第17号委托，批号七二六。"),
+                    L(clerk, "里头似乎是商队通行协议一类的底稿。"),
+                    L(clerk, "另一个棕色封包来自城北的修道院。一名修士连夜送来，指名要交到您手里，放下东西便匆匆赶回去了。"),
+                    L(clerk, "我按规矩将棕色封包登记为“私人信件”了。"),
+                    L(luca, "有劳了，请一并送进来吧。") };
                 AssetDatabase.CreateAsset(intro, path); opening.introduction = intro;
             }
             if (!dialogue.events.Contains(opening.introduction)) dialogue.events = dialogue.events.Concat(new[] { opening.introduction }).ToArray();
@@ -123,7 +123,7 @@ namespace PurpleGlove.Editor
                 FirstActInk(paper, "Change signatures", "I  Carafa    II  Carafa", notesFont, -0.18f, -0.108f, 0.35f, 0.020f);
                 FirstActInk(paper, "Transcriber signature", "Matteo Ricci", notesFont, 0.034f, -0.135f, 0.145f, 0.022f);
             }
-            FirstActInk(paper, "Custody record", "出库登记：两位保管见证人共同启封，原件送核。", PrintedChinese, -0.18f, -0.164f, 0.36f, 0.012f);
+            FirstActInk(paper, "Custody record", "出库登记：两名保管见证人会同启封，原件送核。", PrintedChinese, -0.18f, -0.164f, 0.36f, 0.012f);
             FirstActInk(paper, "Folio", "第五十七号封档  /  IV · 0" + (index + 1), actDocumentFont, 0, -0.184f, 0.24f, 0.010f, true);
             MeshObject("Act4_ArchiveHeaderRule", paper, m => m.Box(V(0, 0.009f, 0.101f), V(0.36f, 0.0006f, 0.0007f), M("Ink")));
         }

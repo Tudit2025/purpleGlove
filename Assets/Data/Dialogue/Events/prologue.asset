@@ -11,35 +11,57 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 430074f4a7b53dd4796d71325b7b59c6, type: 3}
   m_Name: prologue
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   id: prologue
   title: "\u7B2C\u96F6\u5E55 \xB7 \u95E8\u69DB"
-  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
+  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
   testOnly: 0
   initialVisitor: {fileID: 0}
   arrivalSound: {fileID: 0}
-  arrivalDelay: 0.65
   closeShutterOnComplete: 1
+  arrivalDelay: 0.65
   lines:
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "我是解密大师马泰奥·里奇的学生。"
+    text: "\u6211\u662F\u89E3\u5BC6\u5927\u5E08\u9A6C\u6CF0\u5965\xB7\u91CC\u5947\u7684\u5B66\u751F\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "我们为印刷行会工作，翻译书本，处理来往密信。"
+    text: "\u6211\u4EEC\u5728\u5370\u52A1\u884C\u4F1A\u5F53\u5DEE\uFF0C\u65E5\u5E38\u8BD1\u6821\u4E66\u518C\uFF0C\u4E5F\u7ECF\u624B\u5F80\u6765\u5BC6\u4FE1\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "前几天，师父去替米兰公爵办事，结果一直没有回来，下落不明。"
+    text: "\u524D\u51E0\u65E5\uFF0C\u5E08\u7236\u5E94\u53EC\u53BB\u66FF\u7C73\u5170\u516C\u7235\u529E\u4E8B\uFF0C\u81F3\u4ECA\u672A\u5F52\uFF0C\u4E0B\u843D\u4E0D\u660E\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "街上有人说他背叛了行会，为公爵伪造书信。"
+    text: "\u574A\u95F4\u4F20\u8A00\u4ED6\u80CC\u53DB\u884C\u4F1A\uFF0C\u66FF\u516C\u7235\u4F2A\u9020\u4E86\u6587\u4E66\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "现在，行会收到一个紧急核验委托，调查一份许多势力牵扯的军令。米兰要凭它接管威尼斯的边境粮站。"
+    text: "\u5982\u4ECA\uFF0C\u884C\u4F1A\u63A5\u4E0B\u4E00\u6869\u7D27\u6025\u59D4\u6258\uFF0C\u8981\u6838\u9A8C\u4E00\u4EFD\u7275\u6D89\u591A\u65B9\u7684\u519B\u4EE4\u3002\u7C73\u5170\u6253\u7B97\u51ED\u5B83\u63A5\u7BA1\u5A01\u5C3C\u65AF\u7684\u8FB9\u5883\u7CAE\u7AD9\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "米兰、法兰西、威尼斯共同委托，要求行会确认密文明文匹配，流程来路可靠。六月十六日，也就是明早六点，核验结果将作为他们表决的凭据。"
+    text: "\u7C73\u5170\u3001\u6CD5\u56FD\u4E0E\u5A01\u5C3C\u65AF\u4E09\u65B9\u8054\u540D\u59D4\u6258\uFF0C\u8981\u6C42\u884C\u4F1A\u6838\u5B9E\u5BC6\u6587\u4E0E\u660E\u6587\u662F\u5426\u76F8\u7B26\u3001\u6765\u8DEF\u662F\u5426\u53EF\u9760\u3002\u516D\u6708\u5341\u516D\u65E5\uFF0C\u4E5F\u5C31\u662F\u660E\u65E9\u516D\u70B9\uFF0C\u6838\u9A8C\u7ED3\u8BBA\u5C06\u4F5C\u4E3A\u4ED6\u4EEC\u8868\u51B3\u7684\u51ED\u636E\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "我作为替补“解密大师”，被调来处理这个委托。"
+    text: "\u6211\u4F5C\u4E3A\u66FF\u8865\u7684\u201C\u89E3\u5BC6\u5927\u5E08\u201D\uFF0C\u88AB\u4E34\u65F6\u8C03\u6765\u63A5\u624B\u8FD9\u6869\u5DEE\u4E8B\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "我一定要弄清楚事情的真相，把师傅救出来。"
+    text: "\u6211\u5FC5\u987B\u67E5\u6E05\u771F\u76F8\uFF0C\u628A\u5E08\u7236\u6551\u51FA\u6765\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "卢卡大师，房间准备好了。"
+    text: "\u5362\u5361\u5927\u5E08\uFF0C\u6838\u9A8C\u5BA4\u5DF2\u7ECF\u5907\u59A5\u4E86\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "根据流程，你进去之后门会贴封条，届时你不能自由出入了。到明天表决结束才会开门。"
+    text: "\u6309\u884C\u4F1A\u89C4\u7A0B\uFF0C\u60A8\u5165\u5185\u540E\u623F\u95E8\u4FBF\u8981\u8D34\u4E0A\u5C01\u6761\uFF0C\u671F\u95F4\u4E0D\u5F97\u51FA\u5165\uFF0C\u76F4\u5230\u660E\u65E9\u8868\u51B3\u7ED3\u675F\u65B9\u80FD\u542F\u5C01\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "好的，我要进去了。"
+    text: "\u597D\uFF0C\u6211\u8FD9\u5C31\u8FDB\u53BB\u3002"
+    endEvent: 0
+    choices: []

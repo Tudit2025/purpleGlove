@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act2_summary
   title: "\u7B2C\u4E8C\u5E55 \xB7 \u5362\u5361\u7B49\u5F85\u539F\u4EF6"
-  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
+  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
   testOnly: 0
   initialVisitor: {fileID: 0}
   arrivalSound: {fileID: 0}
@@ -22,10 +22,18 @@ MonoBehaviour:
   arrivalDelay: 0.1
   lines:
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "左手手套，巴尔托洛把委托换档的人记下来了。公爵的委托写过，替米兰代领材料的卡拉法他左手戴紫手套。"
+    text: "\u201C\u5DE6\u624B\u624B\u5957\u201D\u2026\u2026\u5DF4\u5C14\u6258\u6D1B\u6697\u4E2D\u8BB0\u4E0B\u4E86\u8981\u6C42\u6362\u7248\u4E4B\u4EBA\u7684\u7279\u5F81\u3002\u516C\u7235\u7684\u59D4\u6258\u4E66\u4E0A\u63D0\u8FC7\uFF0C\u66FF\u7C73\u5170\u5185\u5EF7\u4EE3\u9886\u6750\u6599\u7684\u5361\u62C9\u6CD5\uFF0C\u5DE6\u624B\u5E38\u6234\u4E00\u53EA\u7D2B\u624B\u5957\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "这个叫卡拉法的绝对和这件事情有关，十有八九他已经在这里待了有一阵子了……"
+    text: "\u8FD9\u4E2A\u5361\u62C9\u6CD5\u5FC5\u5B9A\u4E0E\u6B64\u6848\u8131\u4E0D\u4E86\u5E72\u7CFB\u3002\u770B\u60C5\u5F62\uFF0C\u4ED6\u5728\u884C\u4F1A\u91CC\u6697\u4E2D\u6D3B\u52A8\u5DF2\u6709\u6BB5\u65F6\u65E5\u4E86\u2026\u2026"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "如果能调到这个“原件”，应该能确定这两件事情的联系。"
+    text: "\u53EA\u8981\u80FD\u8C03\u51FA\u5C01\u6863\u91CC\u63D0\u5230\u7684\u201C\u539F\u59CB\u7B7E\u6536\u9875\u201D\uFF0C\u5C31\u80FD\u67E5\u660E\u8FD9\u4E24\u4EF6\u4E8B\u7684\u5173\u8054\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "如果这个换档记录指向了请我核验的军令，那米兰人所用的手段就很明确了：造了假的文件，然后让师傅签字作保。"
+    text: "\u5018\u82E5\u90A3\u4EFD\u6362\u7248\u8BB0\u5F55\u5F53\u771F\u6307\u5411\u4ECA\u591C\u5F85\u6838\u7684\u519B\u4EE4\uFF0C\u7C73\u5170\u4EBA\u7684\u4F0E\u4FE9\u4FBF\u662D\u7136\u82E5\u63ED\u4E86\uFF1A\u5148\u5077\u6881\u6362\u67F1\u4F2A\u9020\u516C\u6587\uFF0C\u518D\u80C1\u8FEB\u5E08\u7236\u7B7E\u5B57\u4F5C\u4FDD\u3002"
+    endEvent: 0
+    choices: []

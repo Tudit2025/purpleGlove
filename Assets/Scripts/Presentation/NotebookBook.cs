@@ -41,8 +41,13 @@ namespace PurpleGlove
         {
             item = GetComponent<SceneObject>();
             if (Camera.main) inputGate = Camera.main.GetComponent<SceneInputGate>();
+            // Pages fit their own sheet in SetPage, so the shared world-ink registry leaves them alone.
+            foreach (var page in new[] { leftPage, rightPage, leafFront, leafBack }) Localization.Exclude(page);
             RefreshPages();
         }
+
+        void OnEnable() => Localization.Changed += Relocalize;
+        void Relocalize() { if (IsTurning) FinishTurn(); else RefreshPages(); }
 
         void Update()
         {
@@ -117,6 +122,7 @@ namespace PurpleGlove
 
         void OnDisable()
         {
+            Localization.Changed -= Relocalize;
             if (IsTurning) FinishTurn();
             if (pageAudio) pageAudio.Stop();
         }
@@ -136,6 +142,7 @@ namespace PurpleGlove
         static void SetPage(TextMesh text, string content)
         {
             if (!text) return;
+            content = Localization.Text(content);
             text.text = content;
             text.characterSize = 0.0024f;
             text.font.RequestCharactersInTexture(content, text.fontSize);

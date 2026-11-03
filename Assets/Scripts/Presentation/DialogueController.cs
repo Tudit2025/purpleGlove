@@ -27,7 +27,7 @@ namespace PurpleGlove
         public string SelectedChoiceId { get; private set; }
         public bool IsTyping => IsActive && lineIndex >= 0 && visibleElements < textElements.Length;
         public int LineIndex => lineIndex;
-        public string VisibleText => lineIndex < 0 ? string.Empty : CurrentLine.text.Substring(0, VisibleLength);
+        public string VisibleText => lineIndex < 0 ? string.Empty : lineText.Substring(0, VisibleLength);
         public DialogueEvent.Line CurrentLine => IsActive && lineIndex >= 0 ? ActiveEvent.lines[lineIndex] : null;
         public DialogueVoice Voice { get; private set; }
         public DialogueOverlay Overlay { get; private set; }
@@ -44,7 +44,11 @@ namespace PurpleGlove
         int pendingLine = -1;
         DialogueSpeaker pendingVisitor;
         bool choicesVisible;
-        int VisibleLength => visibleElements >= textElements.Length ? CurrentLine.text.Length : textElements[visibleElements];
+        // The current line as shown: authored Chinese or its English translation.
+        string lineText = string.Empty;
+        // English carries two to three times as many letters per line as Chinese.
+        const float EnglishTypingRate = 2f;
+        int VisibleLength => visibleElements >= textElements.Length ? lineText.Length : textElements[visibleElements];
 
         void Awake()
         {
@@ -153,9 +157,10 @@ namespace PurpleGlove
             nextCharacter -= seconds;
             while (nextCharacter <= 0 && IsTyping)
             {
-                char character = CurrentLine.text[textElements[visibleElements++]];
+                char character = lineText[textElements[visibleElements++]];
                 Voice.Tick(character);
                 float rate = speedOverride > 0 ? speedOverride : CurrentLine.speaker.charactersPerSecond;
+                if (Localization.IsEnglish) rate *= EnglishTypingRate;
                 float punctuation = "，、；：,;:".IndexOf(character) >= 0 ? 2.8f
                     : "。！？.!?…".IndexOf(character) >= 0 ? 5 : 1;
                 nextCharacter += punctuation / Mathf.Clamp(rate, 8, 60);
@@ -245,13 +250,25 @@ namespace PurpleGlove
         {
             lineIndex = index;
             var line = CurrentLine;
-            textElements = StringInfo.ParseCombiningCharacters(line.text);
+            lineText = Localization.Text(line.text);
+            textElements = StringInfo.ParseCombiningCharacters(lineText);
             visibleElements = 0; nextCharacter = 0;
             choicesVisible = false;
             // Luca's confirmation prompts stay instant; a visitor must speak normally first.
             if (line.HasChoices && line.speaker.isProtagonist) ShowCurrentChoices();
-            else { Voice.BeginLine(line.speaker); Overlay.Show(line.speaker, line.text); }
+            else { Voice.BeginLine(line.speaker); Overlay.Show(line.speaker, lineText); }
             gate.ConsumeFrame();
+        }
+
+        // A language switch from the console shows the current sentence complete in the new language.
+        void Relocalize()
+        {
+            if (lineIndex < 0 || CurrentLine == null || IsChangingVisitor) return;
+            lineText = Localization.Text(CurrentLine.text);
+            textElements = StringInfo.ParseCombiningCharacters(lineText);
+            if (choicesVisible) { ShowCurrentChoices(); return; }
+            visibleElements = textElements.Length;
+            Voice.Stop(); Overlay.Show(CurrentLine.speaker, lineText); Overlay.Reveal(VisibleLength);
         }
 
         void ShowCurrentChoices()
@@ -262,7 +279,7 @@ namespace PurpleGlove
             if (arrivalAudio) arrivalAudio.Stop();
             var responder = line.speaker.isProtagonist ? line.speaker
                 : Array.Find(speakers, speaker => speaker && speaker.isProtagonist) ?? line.speaker;
-            Overlay.ShowChoices(responder, line.speaker.isProtagonist ? line.text : string.Empty, line.choices);
+            Overlay.ShowChoices(responder, line.speaker.isProtagonist ? lineText : string.Empty, line.choices);
             gate.ConsumeFrame();
         }
 
@@ -299,6 +316,7 @@ namespace PurpleGlove
             inPlace = false;
             if (completed) eventCompleted.Invoke(id); else eventCancelled.Invoke(id);
         }
-        void OnDisable() => Finish(false);
+        void OnEnable() => Localization.Changed += Relocalize;
+        void OnDisable() { Localization.Changed -= Relocalize; Finish(false); }
     }
 }

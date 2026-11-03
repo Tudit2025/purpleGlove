@@ -20,6 +20,7 @@ namespace PurpleGlove
         Canvas canvas;
         Image curtain;
         Text title;
+        string caption = string.Empty;
         float elapsed;
         Action covered, finished;
         bool finalFade;
@@ -67,7 +68,7 @@ namespace PurpleGlove
         {
             if (!isActiveAndEnabled || IsActive || !canvas) return false;
             finalFade = false;
-            title.text = caption; covered = whenCovered; finished = whenFinished;
+            ShowCaption(caption); covered = whenCovered; finished = whenFinished;
             State = Phase.FadeOut; elapsed = 0; canvas.enabled = true; SetOpacity(0, 0);
             return true;
         }
@@ -75,7 +76,7 @@ namespace PurpleGlove
         public bool BeginFinalFade(string caption, Action whenBlack)
         {
             if (!isActiveAndEnabled || IsActive || !canvas) return false;
-            finalFade = true; title.text = caption; covered = whenBlack; finished = null;
+            finalFade = true; ShowCaption(caption); covered = whenBlack; finished = null;
             State = Phase.FadeOut; elapsed = 0; canvas.enabled = true; SetOpacity(0, 0); return true;
         }
 
@@ -132,6 +133,10 @@ namespace PurpleGlove
         // The debug console must remain visible and operable even in the opaque-black phase.
         public void SetConsoleVisible(bool visible)
         { if (canvas) canvas.enabled = IsActive && !visible; }
-        void OnDisable() => Cancel();
+        // Captions are authored in Chinese; a console language switch re-reads the one on screen.
+        void ShowCaption(string value) { caption = value; title.text = Localization.Text(value); }
+        void Relocalize() { if (title) title.text = Localization.Text(caption); }
+        void OnEnable() => Localization.Changed += Relocalize;
+        void OnDisable() { Localization.Changed -= Relocalize; Cancel(); }
     }
 }

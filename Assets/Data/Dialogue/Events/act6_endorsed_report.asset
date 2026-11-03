@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act6_endorsed_report
   title: "\u7B2C\u516D\u5E55 \xB7 \u516D\u70B9\u7684\u8F6C\u62BC\u767B\u8BB0"
-  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
+  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,14 +22,26 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "卢卡，米兰人把马泰奥接走了。"
+    text: "\u5362\u5361\uFF0C\u7C73\u5170\u4EBA\u5DF2\u7ECF\u628A\u9A6C\u6CF0\u5965\u5927\u5E08\u8F6C\u79FB\u8D70\u4E86\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "你们没拦住他们吗？"
+    text: "\u600E\u4E48\u4F1A\uFF1F\u4F60\u4EEC\u6CA1\u62E6\u4F4F\u5417\uFF1F"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "你为军令来源作了担保。米兰人在今早的会议上很占优势。"
+    text: "\u60A8\u5728\u6838\u9A8C\u8868\u4E0A\u66FF\u519B\u4EE4\u7684\u6765\u6E90\u7B7E\u4E86\u62C5\u4FDD\u3002\u4ECA\u65E9\u7684\u6668\u4F1A\u4E0A\uFF0C\u7C73\u5170\u65B9\u9762\u5360\u5C3D\u4E86\u4E0A\u98CE\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "他被送到哪里？"
+    text: "\u4ED6\u4EEC\u628A\u5E08\u7236\u62BC\u53BB\u54EA\u91CC\u4E86\uFF1F"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "不知道，我们还在查。"
+    text: "\u8FD8\u4E0D\u6E05\u695A\uFF0C\u884C\u4F1A\u6B63\u5728\u8BBE\u6CD5\u6253\u542C\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "这些回执文件你看一下。"
+    text: "\u8FD9\u662F\u6668\u4F1A\u7684\u5904\u7406\u56DE\u6267\uFF0C\u60A8\u8FC7\u76EE\u5427\u3002"
+    endEvent: 0
+    choices: []

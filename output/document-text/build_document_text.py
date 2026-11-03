@@ -115,7 +115,11 @@ heading(4, "解密完成、尚未签名")
 v = variant("transcript", "restored")
 quote("还原文字：" + get(v, "Restored transcript"))
 add("明文还原签名栏仍为空。通用明文留存提示读完后，卢卡先自白：")
-quote("明文已经核对过了。该拿出立夹里的核验表，在“明文还原签名”一栏签上我的名字。\n\n这一栏只确认文字还原无误。军情的来路还没查清，“来源确认签名”先空着。")
+# Read the spoken reminder from its dialogue asset so revisions of the line reach this pack.
+spec = importlib.util.spec_from_file_location("review_pack", ROOT / "output/performance-edit/build_review_pack.py")
+review = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(review)
+quote("\n\n".join(line["text"] for line in review.load_events()["act3_signature_hint"]["lines"]))
 add("自白读完后才开放明文还原签名。纸面操作提示：")
 quote(get(v, "Sign transcript prompt"))
 heading(4, "完成明文还原签名")
@@ -228,9 +232,6 @@ content = "\n\n".join(p for p in parts if p) + "\n"
 MD.write_text(content, encoding="utf-8")
 
 # Reuse the repository's plain-text/Word formatter without running its dialogue exporter.
-spec = importlib.util.spec_from_file_location("review_pack", ROOT / "output/performance-edit/build_review_pack.py")
-review = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(review)
 (OUT / (TITLE + ".txt")).write_text(review.make_notes(content), encoding="utf-8-sig")
 review.make_docx([re.sub(r"^#### ", "### ", content, flags=re.M)], OUT / (TITLE + ".docx"))
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act6_transferred
   title: "\u7B2C\u516D\u5E55 \xB7 \u771F\u76F8\u6613\u624B"
-  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
+  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,10 +22,18 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "{去向后果}"
+    text: "{\u53BB\u5411\u540E\u679C}"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "之后会怎么样呢？"
+    text: "\u90A3\u5E08\u7236\u63A5\u4E0B\u6765\u4F1A\u600E\u6837\uFF1F"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "马泰奥还要留候核验。以后如果要对照原件，都要向持有者提出申请。"
+    text: "\u9A6C\u6CF0\u5965\u5927\u5E08\u4ECD\u987B\u7559\u5019\u5BA1\u67E5\u3002\u53EA\u662F\u5982\u4ECA\u539F\u4EF6\u6613\u624B\uFF0C\u65E5\u540E\u82E5\u8981\u6838\u5BF9\u5E95\u7A3F\uFF0C\u90FD\u5F97\u770B\u6301\u6709\u65B9\u7684\u610F\u601D\u4E86\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "行会会留好这些回执。还有最新的消息的话，我们会再找你的。"
+    text: "\u884C\u4F1A\u4F1A\u59A5\u5584\u7559\u5B58\u8FD9\u4E9B\u4EA4\u63A5\u56DE\u6267\u3002\u4E00\u65E6\u6709\u65B0\u7684\u6D88\u606F\uFF0C\u6211\u4F1A\u518D\u6765\u901A\u77E5\u60A8\u3002"
+    endEvent: 0
+    choices: []

@@ -108,7 +108,7 @@ namespace PurpleGlove.Editor
             for (int i = 0; i < labels.Length; i++)
                 FirstActInk(paper, "Field " + i, labels[i], actDocumentFont, -0.174f, rows[i], 0.21f, 0.017f);
             FirstActInk(paper, "Recipient choices", "米兰  /  威尼斯  /  法国", PrintedChinese, -0.04f, -0.053f, 0.21f, 0.016f);
-            FirstActInk(paper, "Footer", "申请不等同交接；以实际签收凭据为准。", actDocumentFont, 0, -0.272f, 0.34f, 0.014f, true);
+            FirstActInk(paper, "Footer", "申请非同正式交接；概以实际签收凭据为准。", actDocumentFont, 0, -0.272f, 0.34f, 0.014f, true);
             MeshObject("Act1_ArchiveTransferFormRules", paper, m =>
             {
                 foreach (float z in new[] { 0.122f, -0.251f }) m.Box(V(0, 0.009f, z), V(0.36f, 0.0006f, 0.0007f), M("Ink"));

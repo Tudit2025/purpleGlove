@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act6_reunion_arrival
   title: "\u7B2C\u516D\u5E55 \xB7 \u516D\u70B9\u534A\u7684\u63A5\u56DE\u51ED\u636E"
-  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
+  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,8 +22,14 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "马泰奥·里奇，三方见证人员一起把他接回来了。"
+    text: "\u5362\u5361\uFF0C\u4E09\u65B9\u89C1\u8BC1\u4EBA\u5DF2\u7ECF\u4E00\u540C\u5C06\u9A6C\u6CF0\u5965\xB7\u91CC\u5947\u5927\u5E08\u63A5\u56DE\u6765\u4E86\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "他在外面？"
+    text: "\u5E08\u7236\u5C31\u5728\u95E8\u5916\uFF1F"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "对，我把他叫过来。"
+    text: "\u6B63\u662F\uFF0C\u6211\u8FD9\u5C31\u8BF7\u4ED6\u8FC7\u6765\u3002"
+    endEvent: 0
+    choices: []

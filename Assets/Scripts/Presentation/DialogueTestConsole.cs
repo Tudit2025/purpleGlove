@@ -173,6 +173,16 @@ namespace PurpleGlove
             GUILayout.Label("紫手套 / 章节测试", titleStyle);
             if (GUILayout.Button("关闭 · F1 / Esc", buttonStyle, GUILayout.Width(190))) SetOpen(false);
             GUILayout.EndHorizontal();
+            GUILayout.Space(8);
+            // Switching keeps the current progress; every dialogue, paper and hint re-reads its text.
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("语言 / Language", labelStyle, GUILayout.Width(220), GUILayout.Height(48));
+            bool english = Localization.IsEnglish;
+            if (GUILayout.Button("中文", english ? buttonStyle : selectedStyle, GUILayout.Width(200)))
+                Localization.SetLanguage(Localization.Language.Chinese);
+            if (GUILayout.Button("English", english ? selectedStyle : buttonStyle, GUILayout.Width(200)))
+                Localization.SetLanguage(Localization.Language.English);
+            GUILayout.EndHorizontal();
             GUILayout.Space(12);
             GUILayout.Label("跳转会重置本次游玩，并准备前几幕的证据、译文和签名。\n目标幕从开场演出开始；可以重复进入同一幕。", labelStyle);
             GUILayout.Space(18);

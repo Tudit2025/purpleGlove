@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act6_saved_report
   title: "\u7B2C\u516D\u5E55 \xB7 \u516D\u70B9\u7684\u5904\u7406\u56DE\u6267"
-  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
+  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,14 +22,26 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "卢卡，我回来了。"
+    text: "\u5362\u5361\uFF0C\u6211\u56DE\u6765\u4E86\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "威尼斯人和法国人看到你的核验报告要求暂停表决，卡拉法已被要求留候调查。"
+    text: "\u5A01\u5C3C\u65AF\u4E0E\u6CD5\u56FD\u4EE3\u8868\u89C1\u5230\u60A8\u7684\u6838\u9A8C\u62A5\u544A\u540E\uFF0C\u5F53\u573A\u8981\u6C42\u6682\u505C\u7CAE\u7AD9\u8868\u51B3\u3002\u5361\u62C9\u6CD5\u5DF2\u88AB\u8D23\u4EE4\u7559\u5019\u5F7B\u67E5\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "所有人都知道了原件换版的事情，米兰拒绝公示，现在原件还在我们这里。"
+    text: "\u5370\u574A\u6362\u7248\u7684\u5185\u60C5\u5DF2\u7ECF\u4F20\u5F00\u3002\u7C73\u5170\u65B9\u9762\u62D2\u7EDD\u516C\u5F00\u5BF9\u8D28\uFF0C\u597D\u5728\u6362\u7248\u539F\u4EF6\u4ECD\u5C01\u5B58\u5728\u54B1\u4EEC\u884C\u4F1A\u624B\u91CC\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "米兰人说马泰奥在圣马丁北门。"
+    text: "\u7C73\u5170\u4EBA\u677E\u4E86\u53E3\uFF0C\u627F\u8BA4\u9A6C\u6CF0\u5965\u5927\u5E08\u76EE\u524D\u5C31\u5728\u5723\u9A6C\u4E01\u4FEE\u9053\u9662\u5317\u95E8\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "米兰人不打算把他带走了？"
+    text: "\u4ED6\u4EEC\u653E\u5F03\u8F6C\u79FB\u5E08\u7236\u4E86\uFF1F"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "我还带了一些回执文件来，我给你送进去。"
+    text: "\u662F\u7684\u3002\u53E6\u5916\u8FD8\u6709\u51E0\u4EFD\u6668\u4F1A\u7684\u5904\u7406\u56DE\u6267\uFF0C\u6211\u8FD9\u5C31\u9012\u8FDB\u6765\u3002"
+    endEvent: 0
+    choices: []

@@ -134,17 +134,18 @@ namespace PurpleGlove
                 if (view.TryGetNavigationTarget(direction, out _)) DrawArrow(direction, scale);
             }
             if (view.CurrentView == DeskScenePreview.View.MatFocus || view.CurrentView == DeskScenePreview.View.DecodeFocus)
-                GUI.Label(new Rect(panel.x, panel.y - 24 * scale, panel.width, panel.height), "滚轮 缩放视角", labelStyle);
+                GUI.Label(new Rect(panel.x, panel.y - 24 * scale, panel.width, panel.height), Localization.Text("滚轮 缩放视角"), labelStyle);
             if (view.CurrentView == DeskScenePreview.View.DecodeFocus)
             {
-                GUI.Label(panel, "Esc 返回中桌面视角", labelStyle);
+                GUI.Label(panel, Localization.Text("Esc 返回案头主视角"), labelStyle);
                 return;
             }
             Key(panel, scale, 0, 0, KeyCode.W);
             Key(panel, scale, 16, 1, KeyCode.A);
             Key(panel, scale, 32, 2, KeyCode.S);
             Key(panel, scale, 48, 3, KeyCode.D);
-            GUI.Label(new Rect(panel.x + 70 * scale, panel.y, 64 * scale, panel.height), "切换视角", labelStyle);
+            var hint = new GUIContent(Localization.Text("切换视角"));
+            GUI.Label(new Rect(panel.x + 70 * scale, panel.y, Mathf.Max(64 * scale, labelStyle.CalcSize(hint).x), panel.height), hint, labelStyle);
         }
 
         void DrawBookNavigation(NotebookBook book, Rect viewport, Rect panel, int scale)
@@ -154,8 +155,9 @@ namespace PurpleGlove
             Key(panel, scale, 0, 1, KeyCode.A);
             Key(panel, scale, 16, 3, KeyCode.D);
             GUI.Label(new Rect(panel.x + 38 * scale, panel.y, 310 * scale, panel.height),
-                "翻页 · ← / → · Esc 放回书本", labelStyle);
-            string pages = book.IsTurning ? "翻页中…" : $"第 {book.CurrentSpread * 2 + 1}–{book.CurrentSpread * 2 + 2} 页 / 共 {book.SpreadCount * 2} 页";
+                Localization.Text("翻页 · ← / → · Esc 放回书册"), labelStyle);
+            string pages = book.IsTurning ? Localization.Text("翻页中…")
+                : Localization.Format("第 {0}–{1} 页 / 共 {2} 页", book.CurrentSpread * 2 + 1, book.CurrentSpread * 2 + 2, book.SpreadCount * 2);
             float width = labelStyle.CalcSize(new GUIContent(pages)).x;
             GUI.Label(new Rect(viewport.xMax - width - 12 * scale, panel.y, width, panel.height), pages, labelStyle);
         }

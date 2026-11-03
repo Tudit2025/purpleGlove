@@ -24,13 +24,13 @@ namespace PurpleGlove.Editor
             if (!dialogue) throw new InvalidOperationException("Install dialogue before object memories.");
             var luca = dialogue.speakers.Single(s => s && s.id == "luca");
             Add("Book_Charcoal", "memory_prayer_old", "旧版祷文集",
-                "这随处可以买到的《祷文集》是我学习密码时使用的密码本，有不少密码是使用书本的。", dialogue, luca);
+                "这册随处可见的旧版《祷文集》，是我初学密码时常用的参照书。许多书本密码都以它为底本。", dialogue, luca);
             Add("Book_SevenPetal", "memory_prayer_flower", "七瓣花版祷文集",
-                "这本七瓣花版《祷文集》是老师定制的版本，在行会内部使用过。", dialogue, luca);
+                "这册七瓣花版《祷文集》是师父特意定制的版次，此前只在行会内部小范围启用过。", dialogue, luca);
             Add("Notebook_Open", "memory_notebook", "师父的旧笔记",
-                "这是老师的笔记本，应该是他的备课笔记。", dialogue, luca);
+                "这是师父留下的旧笔记，里头记着他当年授课时用的密码教案。", dialogue, luca);
             Add("PreservationBox", "memory_toolbox", "解密工具箱",
-                "我的解密工具盒，对于一些常见的密码，可以使用工具简化破译流程。", dialogue, luca);
+                "我的解密工具箱。遇到常见的密码制式，借助里头的器具便能省去不少演算的工夫。", dialogue, luca);
             var archive = UnityEngine.Object.FindFirstObjectByType<ActArchiveController>();
             if (archive && archive.acts[0].documents.Length == 2)
                 InstallFirstActMemory(archive.acts[0].documents[1], dialogue);
@@ -40,7 +40,7 @@ namespace PurpleGlove.Editor
         {
             if (!paper || !dialogue) return;
             Add(paper.gameObject, "memory_three_cuts", "师父的三道裁口",
-                "师傅的笔迹，侧面有三道很刻意的裁口，这个可能是凯撒密码。",
+                "是师父的笔迹。纸页侧边有三道刻意的裁口……应当是凯撒密码。",
                 dialogue, dialogue.speakers.Single(s => s && s.id == "luca"));
             paper.GetComponent<FirstInteractionMemory>().duringInspection = true;
         }

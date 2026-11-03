@@ -1,0 +1,21 @@
+PASS: 6938 checks in Unity 2022.3.62f2 Play Mode.
+155 Chinese world texts switch to English inside their Chinese footprint, with every glyph present, and restore exactly.
+Notebook pages, act captions, 8 receipts, 7 custody consequences, final cards and the desk-task hint resolve to English.
+Mid-line language switch, choice panel, chapter-jump reload with English kept, and return to Chinese.
+Screenshots: <name>-zh.png / <name>-en.png per reviewed paper or tool, notebook spreads, dialogue-en.png, choices-en.png.
+
+Width model: mesh width / predicted width over 82 visible texts = 1.00–1.00.
+Most reduced English world texts (character size relative to Chinese):
+  0.38  07 Five act archive/ActBookshelf/Act 2 storage/Act2_02_印务台账摘要/Value 2 | Military Dispatch Transcription
+  0.43  07 Five act archive/ActBookshelf/Act 1 storage/Act1_02_师父封袋里的纸/Seven petal note | Seven-Petal, new edition.
+  0.43  05 Correspondence and original evidence/CorrespondenceRack/Working form slots/核验签字/Act3_03_军情核验表/Source heading | II. Provenance Confirmation
+  0.44  07 Five act archive/ActBookshelf/Act 3 storage/Act3_01_米兰与行会的译录委托/Signer role | Contracted Transcriber
+  0.45  07 Five act archive/ActBookshelf/Act 1 storage/Act1_03_行会会长的信/Signature | Master of the Printing Guild
+  0.47  07 Five act archive/ActBookshelf/Act 2 storage/Act2_02_印务台账摘要/Field 3 | Plate-Change Log
+  0.47  05 Correspondence and original evidence/CorrespondenceRack/Working form slots/转交申请/Act1_04_行会档案转交申请表/Final disposition fields/Archive title | Commercial Receipt Page & Plate-Change Originals
+  0.47  07 Five act archive/ActBookshelf/Act 2 storage/Act2_02_印务台账摘要/Field 5 | Original Receipt Page
+  0.48  07 Five act archive/ActBookshelf/Act 3 storage/Act3_04_夏尔的补充凭条/Body | I am prepared to disavow this specific crossing order on behalf of France.
+  0.49  05 Correspondence and original evidence/CorrespondenceRack/Working form slots/转交申请/Act1_04_行会档案转交申请表/Final disposition fields/Custody 3 | ○ Deliver to France
+  0.49  07 Five act archive/ActBookshelf/Act 2 storage/Act2_02_印务台账摘要/Value 1 | Trade Caravan Transit Permit
+  0.50  05 Correspondence and original evidence/CorrespondenceRack/Working form slots/转交申请/Act1_04_行会档案转交申请表/Field 4 | Reason for Transfer:
+Dialogue: 128 story lines in 39 events translated, glyph-complete and unclipped at 1600x900.

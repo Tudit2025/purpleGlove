@@ -58,10 +58,10 @@ namespace PurpleGlove.Editor
             }).GetComponent<Renderer>().shadowCastingMode = ShadowCastingMode.Off;
             AddCipherAction(Child(work.mat, "Interaction surface", Vector3.zero).gameObject, work, CipherWorkbenchAction.ActionKind.Focus,
                 V(0, 0.005f, 0), V(0.76f, 0.01f, 0.68f));
-            CipherText(work.mat, "Mat label", "解码工具", V(0, 0.010f, 0.105f), 0.0016f, work.uiFont);
+            CipherText(work.mat, "Mat label", "破译工具", V(0, 0.010f, 0.105f), 0.0016f, work.uiFont);
             var slip = Child(work.mat, "Plaintext writing slip", V(0, 0.011f, 0.22f));
             BuildPlaintextWritingSurface(slip);
-            CipherText(slip, "Writing heading", "明文书写处", V(0, 0.002f, 0.062f), 0.0018f, work.uiFont);
+            CipherText(slip, "Writing heading", "明文誊写处", V(0, 0.002f, 0.062f), 0.0018f, work.uiFont);
             work.plaintextInk = CipherText(slip, "Plaintext ink", "", V(-0.275f, 0.002f, 0.039f), 0.0021f, work.uiFont);
             work.plaintextInk.anchor = TextAnchor.UpperLeft; work.plaintextInk.alignment = TextAlignment.Left;
             work.plaintextInk.lineSpacing = 1.05f;
@@ -172,7 +172,7 @@ namespace PurpleGlove.Editor
                 m.Box(Vector3.zero, V(0.57f, 0.004f, 0.29f), M("DecodeIvory"), 0.002f);
                 for (int i = 0; i < 26; i++) DrawNotebookGlyph(m, (char)('A' + i), V(-0.252f + i % 13 * 0.042f, 0.004f, 0.055f - i / 13 * 0.12f), 0.012f);
             }).GetComponent<Renderer>().shadowCastingMode = ShadowCastingMode.Off;
-            CipherText(root, "Title", "猪圈密码表 · 留意圆点与朝向", V(0, 0.004f, 0.118f), 0.0017f, work.uiFont);
+            CipherText(root, "Title", "猪圈密码表 · 辨明圆点与朝向", V(0, 0.004f, 0.118f), 0.0017f, work.uiFont);
             for (int i = 0; i < 26; i++) CipherText(root, "Letter " + i, ((char)('A' + i)).ToString(), V(-0.252f + i % 13 * 0.042f, 0.004f, 0.021f - i / 13 * 0.12f), 0.0022f, documentFont);
         }
 
@@ -227,8 +227,8 @@ namespace PurpleGlove.Editor
                 for (int i = 0; i <= columns; i++) CipherRule(m, V(start + i * pitch, 0.0025f, 0), 0.0009f, 0.08f, M("DecodeInk"));
                 for (int i = 0; i <= 2; i++) CipherRule(m, V(0, 0.0025f, 0.04f - i * 0.04f), width, 0.0009f, M("DecodeInk"));
             }).GetComponent<Renderer>().shadowCastingMode = ShadowCastingMode.Off;
-            CipherText(root, "Title", rails ? "栅栏密码 · 两行纸条" : "仿射密码 · 对照关系", V(0, 0.003f, 0.088f), 0.0018f, work.uiFont);
-            CipherText(root, "Instructions", rails ? "前半段填上行，后半段填下行；按列上下交替读。" : "上行明文 · 下行密文    y = (a × x + b) mod 26", V(0, 0.003f, -0.081f), 0.00125f, work.uiFont);
+            CipherText(root, "Title", rails ? "栅栏密码 · 双行纸条" : "仿射密码 · 映射关系", V(0, 0.003f, 0.088f), 0.0018f, work.uiFont);
+            CipherText(root, "Instructions", rails ? "前半填上行，后半填下行；按列上下交错拼读。" : "上行明文 · 下行密文    y = (a × x + b) mod 26", V(0, 0.003f, -0.081f), 0.00125f, work.uiFont);
             var labels = new TextMesh[columns * 2];
             for (int row = 0; row < 2; row++)
             for (int col = 0; col < columns; col++)

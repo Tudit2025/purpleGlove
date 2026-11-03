@@ -47,10 +47,10 @@ namespace PurpleGlove.Editor
             var luca = dialogue.speakers.Single(s => s.id == "luca"); var clerk = dialogue.speakers.Single(s => s.id == "clerk");
             DialogueEvent.Line L(DialogueSpeaker speaker, string text) => new DialogueEvent.Line { speaker = speaker, text = text };
             if (!fourth.summary) fourth.summary = FinalActEvent("act4_summary", "第四幕 · 两份明文后的独白", null,
-                L(luca, "圣马丁，北门。这个应该就是他们关押他的地方。"),
-                L(luca, "他承认自己知道文件是假的，还是签了名字。"),
-                L(luca, "伪造的军令用了法国人在商路协议上的签名，这应该就是法国人不想让人看见的东西。"),
-                L(luca, "老师的自白和换档的原件是重要证据，看来也到了我做选择的时候了。"));
+                L(luca, "“圣马丁，北门”……看来师父就被扣押在圣马丁修道院。"),
+                L(luca, "他在信里承认，自己明知军令是假，却还是为了救人签下了名字。"),
+                L(luca, "伪造的军令移花接木，盗用了夏尔在商队通行协议上的真迹。怪不得法国人投鼠忌器，不敢公开声张。"),
+                L(luca, "师父的自述与印坊换版的原件，都是铁证。接下来该如何落笔，全看我的决断了。"));
             // Retire the removed review events, including their entries in the test console.
             dialogue.events = dialogue.events.Where(e => e && !e.id.StartsWith("act4_review_", StringComparison.Ordinal)).ToArray();
             const string oldSummaryEnding = "先把手里能证实的事核清，再决定交出去什么，以及用我的名字担保什么。";
@@ -60,15 +60,15 @@ namespace PurpleGlove.Editor
                 EditorUtility.SetDirty(fourth.summary);
             }
             if (!fifth.introduction) fifth.introduction = FinalActEvent("act5_arrival", "第五幕 · 三位代表的书信", clerk,
-                L(clerk, "卢卡，米兰、法国、威尼斯三位代表给你送了信件来。"),
-                L(clerk, "时间差不多了，马上需要收你的核验报告送到会议那边去。"),
-                L(clerk, "会长说你可能会有移存一些文件的需要，你填写移存申请表就可以了。"),
-                L(clerk, "如果你处理完了，就摇手铃，我会把文件送出去。"));
+                L(clerk, "卢卡，米兰、法国、威尼斯三方代表各自递了信函进来。"),
+                L(clerk, "已经五点了，晨会交卷的时辰将近，我也该准备收取您的核验报告了。"),
+                L(clerk, "会长料到您或许需要移交部分关键档案，若有所需，填妥那张转交申请表即可。"),
+                L(clerk, "一切定妥之后，请摇响手铃，我便将卷宗收走呈交晨会。"));
             if (!fifth.handoff) fifth.handoff = FinalActEvent("act5_handoff", "第五幕 · 摇铃交卷", clerk,
-                L(clerk, "卢卡，我来拿文件了。"),
-                L(clerk, "但是你还不能离开，我白天再来找你了。"));
+                L(clerk, "卢卡，我来收取核验卷宗了。"),
+                L(clerk, "按规程，在晨会表决结束前您还不能离开。待有了结果，我再来向您通报。"));
             if (!fifth.guaranteeWarning) fifth.guaranteeWarning = FinalActEvent("act5_source_warning", "卢卡 · 来源担保", null,
-                L(luca, "显然这个军令是伪造的，加密是障眼法，我应该为米兰人担保吗？"));
+                L(luca, "这份军令分明是移花接木的伪作，加密不过是障眼法……我当真要替米兰人签字作保吗？"));
             foreach (var sequence in new[] { fourth.summary, fifth.introduction, fifth.handoff, fifth.guaranteeWarning })
             {
                 sequence.context = "doc/ph-revised.md 第四幕独白后直接转入第五幕，三份主动文件、摇铃交卷。";
@@ -134,7 +134,7 @@ namespace PurpleGlove.Editor
                 Ink(verification, "Refuse guarantee", "● 不作来源担保", -0.166f, -0.100f, 0.157f, 0.018f),
                 Ink(verification, "Guarantee source", "○ 担保来源可靠", 0.012f, -0.100f, 0.157f, 0.018f) };
             verification.areas = new[] { new Rect(-0.17f, -0.126f, 0.17f, 0.037f), new Rect(0.008f, -0.126f, 0.17f, 0.037f) };
-            verification.statusInk = Ink(verification, "Source evidence", "换版记录：法使尚未核签。\n已更正，以当前选择为准。", -0.164f, -0.157f, 0.326f, 0.035f);
+            verification.statusInk = Ink(verification, "Source evidence", "换版记录：法使尚未核签。\n经更正，以当前选择为准。", -0.164f, -0.157f, 0.326f, 0.035f);
             verification.signatureInk = Ink(verification, "Source guarantee signature", "Luca", -0.025f, -0.202f, 0.16f, 0.025f, notesFont);
             verification.signatureInk.text = "";
 
@@ -159,8 +159,8 @@ namespace PurpleGlove.Editor
             var translation = flow.confession.transform.Find("Translation");
             if (plaintext) plaintext.localPosition = V(plaintext.localPosition.x, plaintext.localPosition.y, 0.125f);
             if (translation) translation.localPosition = V(translation.localPosition.x, translation.localPosition.y, -0.006f);
-            confession.statusInk = Ink(confession, "Default disposition", "保留时随卷递交；焚毁后无法收回。", -0.275f, -0.132f, 0.55f, 0.016f);
-            confession.choices = new[] { Ink(confession, "Burn plaintext", "将这张自述明文移向烛火烧毁", -0.275f, -0.156f, 0.55f, 0.018f) };
+            confession.statusInk = Ink(confession, "Default disposition", "留存则随卷呈交；焚毁后不可复原。", -0.275f, -0.132f, 0.55f, 0.016f);
+            confession.choices = new[] { Ink(confession, "Burn plaintext", "将此页自述明文移近烛火焚毁", -0.275f, -0.156f, 0.55f, 0.018f) };
             confession.areas = new[] { new Rect(-0.28f, -0.18f, 0.56f, 0.030f) };
             foreach (var form in new[] { verification, transfer, confession })
             {

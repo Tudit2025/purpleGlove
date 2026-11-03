@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act6_endorsed
   title: "\u7B2C\u516D\u5E55 \xB7 \u80CC\u4E66"
-  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
+  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,10 +22,18 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "{去向后果}"
+    text: "{\u53BB\u5411\u540E\u679C}"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "我不应该为米兰人担保的，这下我们完全陷入被动了。"
+    text: "\u6211\u4E0D\u8BE5\u66FF\u7C73\u5170\u4EBA\u4F5C\u4FDD\u7684\u2026\u2026\u8FD9\u4E00\u7B7E\uFF0C\u53CD\u5012\u8BA9\u6211\u4EEC\u5F7B\u5E95\u843D\u5165\u88AB\u52A8\u4E86\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "当时老师签了一个后患无穷的名字，没想到我也犯了这样的错误。"
+    text: "\u5F53\u521D\u5E08\u7236\u8FEB\u4E8E\u80C1\u8FEB\u7B7E\u4E0B\u540D\u5B57\uFF0C\u917F\u6210\u5927\u7978\uFF1B\u5230\u5934\u6765\uFF0C\u6211\u7ADF\u4E5F\u5728\u7EB8\u4E0A\u72AF\u4E0B\u4E86\u540C\u6837\u7684\u9519\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "行会会继续追查他的去向。有后续的话我会再通知你的。"
+    text: "\u884C\u4F1A\u8FD8\u4F1A\u7EE7\u7EED\u8FFD\u67E5\u4EE4\u5E08\u7684\u4E0B\u843D\u3002\u82E5\u6709\u6D88\u606F\uFF0C\u6211\u4F1A\u518D\u6765\u544A\u77E5\u3002"
+    endEvent: 0
+    choices: []

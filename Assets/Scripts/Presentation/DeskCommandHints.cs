@@ -9,7 +9,8 @@ namespace PurpleGlove
         {
             public readonly string task, detail;
             public bool IsVisible => !string.IsNullOrEmpty(task);
-            public Hint(string task, string detail) { this.task = task; this.detail = detail; }
+            // Hints are authored in Chinese; already-translated text passes through unchanged.
+            public Hint(string task, string detail) { this.task = Localization.Text(task); this.detail = Localization.Text(detail); }
         }
 
         readonly PlaintextArchiveController records;
@@ -51,7 +52,7 @@ namespace PurpleGlove
             // Delivery owns the camera, but collecting the packet is still a player action.
             if (delivery && delivery.IsActive)
                 return delivery.State == SealedDeliveryController.Phase.AwaitingPickup && !view.IsEnteringDoorway
-                    ? new Hint("收取传递筒中的封套", "点击封套，移至案头拆阅。") : default;
+                    ? new Hint("收取传物舱中的封套", "点击封套，移至案头拆阅。") : default;
             if (gate.DeliveryActive) return default;
 
             int act = archive.CurrentAct;
@@ -60,8 +61,8 @@ namespace PurpleGlove
                 case 1:
                     if (first && first.State == FirstActFlow.Phase.Suspended) return default;
                     if (!archive.IsAvailable(1)) return Wait("候执事送入文书");
-                    if (!Saved("caesar")) return Cipher(1, "译出师父封袋里的密文", "依笔记校准转盘，将译文记在明文纸上。");
-                    return Wait("译文已留存，候门外来人");
+                    if (!Saved("caesar")) return Cipher(1, "破译师父封袋里的密文", "依笔记校准转盘，将译文誊于明文纸上。");
+                    return Wait("译文已留档，候门外来人");
                 case 2:
                     if (!second || second.State == SecondActFlow.Phase.Suspended) return default;
                     if (second.State == SecondActFlow.Phase.BellReady)
@@ -69,14 +70,14 @@ namespace PurpleGlove
                     if (second.State == SecondActFlow.Phase.OriginalBellReady)
                         return Ring("摇铃，请执事调取原始档案");
                     if (!archive.IsAvailable(2)) return Wait("候执事送入文书");
-                    if (!Saved("book")) return Cipher(2, "译出印坊数字便条", "对照祈祷书查字，在明文纸上记下译文。");
+                    if (!Saved("book")) return Cipher(2, "破译印坊数字便条", "对照祷文集查字，在明文纸上记下译文。");
                     if (archive.HasPendingSupplement(2)) return Wait("候执事调来封档");
-                    if (!Saved("pigpen")) return Cipher(2, "译出封档内的猪圈密文", "参看猪圈密码表，将碎纸上的符号还原到明文纸。");
+                    if (!Saved("pigpen")) return Cipher(2, "破译封档内的猪圈密文", "参看猪圈密码表，将碎纸符号还原至明文纸。");
                     return Wait("核对封档中留下的线索");
                 case 3:
                     if (!third || third.State == ThirdActFlow.Phase.Suspended) return default;
                     if (!archive.IsAvailable(3)) return Wait("候执事送入文书");
-                    if (!Saved("vigenere")) return Cipher(3, "译出师父译录的军情密文", "对照委托与师父笔记，在译码台还原并记下明文。");
+                    if (!Saved("vigenere")) return Cipher(3, "破译师父译录的军情密文", "对照委托与师父笔记，在译码台还原并记下明文。");
                     if (third.verification && third.verification.CanSign)
                         return new Hint("签署明文还原", Inspected == third.verification.GetComponent<SceneObject>()
                             ? "点击核验表上的「明文还原」签名栏。"
@@ -87,10 +88,10 @@ namespace PurpleGlove
                     if (fourth && fourth.State == FourthActFlow.Phase.Suspended) return default;
                     if (!archive.IsAvailable(4)) return Wait("候执事送入文书");
                     bool affine = Saved("affine"), rail = Saved("rail");
-                    if (!affine && !rail) return Cipher(4, "译出师父双栏密信", "分别还原仿射与栅栏两段密文，将译文记在明文纸上。");
-                    if (!affine) return Cipher(4, "译出双栏密信中的仿射密文", "另一段译文已留存，继续还原仿射密文并记下明文。");
-                    if (!rail) return Cipher(4, "译出双栏密信中的栅栏密文", "另一段译文已留存，继续还原栅栏密文并记下明文。");
-                    return Wait("两段译文已留存");
+                    if (!affine && !rail) return Cipher(4, "破译师父双栏密信", "分别还原仿射与栅栏两段密文，将译文记在明文纸上。");
+                    if (!affine) return Cipher(4, "破译双栏密信中的仿射密文", "另一段译文已留档，继续还原仿射密文并记下明文。");
+                    if (!rail) return Cipher(4, "破译双栏密信中的栅栏密文", "另一段译文已留档，继续还原栅栏密文并记下明文。");
+                    return Wait("两段译文已留档");
                 case 5:
                     if (!fifth || fifth.State == FifthActFlow.Phase.Suspended) return default;
                     if (fifth.CanChoose) return FinalPapers();
@@ -112,15 +113,15 @@ namespace PurpleGlove
         {
             if (archive.DeskAct != act)
                 return new Hint("取回当前案卷", Inspected ? "Esc 放回手中文书，再到左侧书架取回当前案卷。"
-                    : "到左侧书架点击「" + archive.acts[act - 1].title + "」，将文书放回案头。");
+                    : Localization.Format("到左侧书架点击「{0}」，将文书放回案头。", Localization.Text(archive.acts[act - 1].title)));
             if (gate.WorkbenchTyping) detail = "记下完整译文后，按 Esc 放下羽笔，留存译文。";
-            else if (Inspected) detail += " 阅读后按 Esc 放回。";
+            else if (Inspected) detail = Localization.Text(detail) + Localization.Text(" 阅毕按 Esc 放回。");
             return new Hint(task, detail);
         }
 
         Hint Ring(string task) => new Hint(task, Inspected ? "Esc 放回手中文书，再点击桌上的手铃。"
-            : gate.WorkbenchModal || gate.WorkbenchTyping ? "Esc 收起手边的工具，再回中桌面点击手铃。"
-            : view.CurrentView != DeskScenePreview.View.Desktop ? "返回中桌面，点击手铃呼叫执事。" : "点击桌上的手铃呼叫执事。");
+            : gate.WorkbenchModal || gate.WorkbenchTyping ? "Esc 收起手边工具，再回桌面中央点击手铃。"
+            : view.CurrentView != DeskScenePreview.View.Desktop ? "返回桌面中央，点击手铃唤来执事。" : "点击桌上的手铃唤来执事。");
 
         Hint Wait(string task) => new Hint(task, Inspected ? "Esc 放回手中文书，继续办理。"
             : gate.WorkbenchModal || gate.WorkbenchTyping ? "Esc 收起手边的工具，继续办理。" : "稍候片刻，留意门外动静。");
@@ -133,11 +134,11 @@ namespace PurpleGlove
                 switch (form.kind)
                 {
                     case FifthActDocument.Kind.Verification:
-                        return new Hint("核定来源担保", "在核验表上选择是否担保来源；Esc 放回文书。");
+                        return new Hint("核定来源担保", "在核验表上择定是否担保来源；Esc 放回文书。");
                     case FifthActDocument.Kind.Transfer:
-                        return new Hint("登记原件去向", "在转交申请表上选择保管方；Esc 放回文书。");
+                        return new Hint("登记原件去向", "在转交申请表上择定受领方；Esc 放回文书。");
                     case FifthActDocument.Kind.Confession:
-                        return new Hint("斟酌自述明文的处置", "可保留随卷递交，也可点击纸上焚毁项；Esc 放回文书。");
+                        return new Hint("斟酌自述明文的处置", "可留存随卷递交，或点击纸上焚毁项；Esc 放回文书。");
                 }
             }
             return new Hint("核定文书，摇铃交卷", Inspected ? "Esc 放回手中文书；定妥后点击手铃，请执事收卷。"

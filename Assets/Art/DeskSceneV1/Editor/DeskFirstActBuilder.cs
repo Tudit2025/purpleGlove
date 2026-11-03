@@ -183,7 +183,7 @@ namespace PurpleGlove.Editor
             });
             FirstActInk(paper, "Address", "卢卡：", HandwrittenChinese, -0.124f, 0.087f, 0.043f, 0.018f);
             FirstActInk(paper, "Cipher", ActDocumentPages[0][1][1], documentFont, 0, 0.037f, 0.278f, 0.025f, true);
-            FirstActInk(paper, "Seven petal note", "七瓣花，新版。\n查账时不要只认签名。", HandwrittenChinese, -0.124f, -0.018f, 0.238f, 0.045f);
+            FirstActInk(paper, "Seven petal note", "七瓣花，新版。\n查账时切莫只认签名。", HandwrittenChinese, -0.124f, -0.018f, 0.238f, 0.045f);
             FirstActInk(paper, "Master signature", "Matteo", notesFont, 0.13f, -0.087f, 0.073f, 0.021f).anchor = TextAnchor.UpperRight;
             MeshObject("Act1_MasterPaperWear", paper, m =>
             {

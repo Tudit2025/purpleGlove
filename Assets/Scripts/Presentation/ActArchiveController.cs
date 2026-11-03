@@ -258,7 +258,7 @@ namespace PurpleGlove
             {
                 var files = acts[i];
                 if (files.statusLabel)
-                    files.statusLabel.text = !files.available ? "未开始" : DeskAct == i + 1 ? "桌面" : files.completed ? "已归档" : "暂存";
+                    Localization.SetText(files.statusLabel, !files.available ? "未启封" : DeskAct == i + 1 ? "案头" : files.completed ? "已归档" : "暂存");
             }
         }
     }

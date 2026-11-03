@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act1_arrival
   title: "\u7B2C\u4E00\u5E55 \xB7 \u6267\u4E8B\u4EA4\u4ED8\u8BF4\u660E"
-  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
+  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
   testOnly: 0
   initialVisitor: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
   arrivalSound: {fileID: 8300000, guid: a90926b1834a5135a7889bc8801033ca, type: 3}
@@ -22,10 +22,18 @@ MonoBehaviour:
   arrivalDelay: 0.54485416
   lines:
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "卢卡，公爵的核验委托送到了，还有马泰奥……马泰奥大师离开前寄存的信件。"
+    text: "\u5362\u5361\uFF0C\u516C\u7235\u5E9C\u7684\u6838\u9A8C\u59D4\u6258\u9001\u5230\u4E86\u3002\u53E6\u5916\u8FD8\u6709\u9A6C\u6CF0\u5965\u2026\u2026\u9A6C\u6CF0\u5965\u5927\u5E08\u4E34\u884C\u524D\u5BC4\u5B58\u7684\u4FE1\u4EF6\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "棕色包裹里有会长给你准备的资料，会长让我嘱托你一定要看。"
+    text: "\u68D5\u8272\u5C01\u5305\u91CC\u662F\u4F1A\u957F\u4E3A\u60A8\u5907\u4E0B\u7684\u5377\u5B97\uFF0C\u4ED6\u8001\u4EBA\u5BB6\u7279\u610F\u53EE\u5631\uFF0C\u8BF7\u60A8\u52A1\u5FC5\u8FC7\u76EE\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "会长说如果你有什么需求全力帮助你，如果你要找我，摇一下桌子上的手铃就可以了。"
+    text: "\u4F1A\u957F\u4EA4\u4EE3\u8FC7\uFF0C\u60A8\u82E5\u6709\u4EFB\u4F55\u9700\u8981\uFF0C\u884C\u4F1A\u5B9A\u5F53\u5168\u529B\u534F\u52A9\u3002\u6709\u4E8B\u5524\u6211\uFF0C\u6447\u54CD\u6848\u5934\u7684\u624B\u94C3\u4FBF\u662F\u3002"
+    endEvent: 0
+    choices: []
   - speaker: {fileID: 11400000, guid: 99e1ffdb51533854ea9cf197f5a21f35, type: 2}
-    text: "两件都登记好了。我从下面这个活版门转进去给你。"
+    text: "\u4E24\u4EFD\u7269\u4EF6\u90FD\u5DF2\u767B\u8BB0\u5728\u518C\uFF0C\u6211\u8FD9\u5C31\u4ECE\u5E95\u4E0B\u7684\u4F20\u7269\u8231\u9012\u8FDB\u6765\u3002"
+    endEvent: 0
+    choices: []

@@ -37,7 +37,7 @@ namespace PurpleGlove.Editor
             {
                 line = ScriptableObject.CreateInstance<DialogueEvent>();
                 line.id = "plaintext_complete"; line.title = "卢卡 · 明文完成"; line.arrivalDelay = 0.1f;
-                line.lines = new[] { new DialogueEvent.Line { speaker = dialogue.speakers.Single(s => s.id == "luca"), text = "完成了。我该把这份明文留好。" } };
+                line.lines = new[] { new DialogueEvent.Line { speaker = dialogue.speakers.Single(s => s.id == "luca"), text = "译出来了。得把这份明文妥善留档。" } };
                 AssetDatabase.CreateAsset(line, path);
             }
             controller.completionLine = line;
@@ -50,7 +50,7 @@ namespace PurpleGlove.Editor
                 new[] { "3", "vigenere", "FRANCE WILL CROSS ON JUNE EIGHTEEN", "法国将于六月十八日越境。" },
                 new[] { "4", "affine", "NORTH GATE SAINT MARTIN", "圣马丁，北门。" },
                 new[] { "4", "rail", "I SIGNED THE FALSE ORDER TO FREE BARTOLOS FAMILY. I CAME FOR THE PROOF AND WAS HELD. DO NOT ERASE MY NAME.",
-                    "我在假命令上签了名，为了让\n巴尔托洛一家脱身。我为取回证据\n而来，随后被扣押。不要抹去我的名字。" }
+                    "我为救巴尔托洛一家脱身，在假命令上\n签了名。后为取回证据而来，反遭扣押。\n不要抹去我的名字。" }
             };
             var old = archive.transform.Find("Solved plaintext records");
             if (old) UnityEngine.Object.DestroyImmediate(old.gameObject);

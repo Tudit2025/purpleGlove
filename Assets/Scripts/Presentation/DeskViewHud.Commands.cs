@@ -30,7 +30,8 @@ namespace PurpleGlove
             commandTask.fontSize = Mathf.RoundToInt(20 * scale);
             commandDetail.fontSize = Mathf.RoundToInt(16 * scale);
             float inner = width - padding * 2;
-            float headingHeight = commandHeading.CalcHeight(new GUIContent("案头待办"), inner);
+            string heading = Localization.Text("案头待办");
+            float headingHeight = commandHeading.CalcHeight(new GUIContent(heading), inner);
             float taskHeight = commandTask.CalcHeight(new GUIContent(hint.task), inner);
             float detailHeight = commandDetail.CalcHeight(new GUIContent(hint.detail), inner);
             var panel = new Rect(viewport.xMax - margin - width, viewport.yMin + margin, width,
@@ -43,7 +44,7 @@ namespace PurpleGlove
             GUI.DrawTexture(new Rect(panel.x, panel.y, 2 * scale, panel.height), Texture2D.whiteTexture);
             GUI.color = previousColor;
             float x = panel.x + padding, y = panel.y + padding;
-            GUI.Label(new Rect(x, y, inner, headingHeight), "案头待办", commandHeading);
+            GUI.Label(new Rect(x, y, inner, headingHeight), heading, commandHeading);
             y += headingHeight + 9 * scale;
             GUI.Label(new Rect(x, y, inner, taskHeight), hint.task, commandTask);
             y += taskHeight + 7 * scale;

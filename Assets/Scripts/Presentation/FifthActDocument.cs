@@ -59,20 +59,25 @@ namespace PurpleGlove
             if (!fifth) return;
             if (kind == Kind.Verification)
             {
-                if (choices.Length >= 2) { choices[0].text = (flow.GuaranteesSource ? "○ " : "● ") + "不作来源担保"; choices[1].text = (flow.GuaranteesSource ? "● " : "○ ") + "担保来源可靠"; }
-                if (statusInk) statusInk.text = "换版记录：法使尚未核签。" + (flow.SourceRevised ? "\n已更正，以当前选择为准。" : "");
+                if (choices.Length >= 2)
+                {
+                    Localization.SetText(choices[0], (flow.GuaranteesSource ? "○ " : "● ") + "不作来源担保");
+                    Localization.SetText(choices[1], (flow.GuaranteesSource ? "● " : "○ ") + "担保来源可靠");
+                }
+                if (statusInk) Localization.SetText(statusInk, "换版记录：法使尚未核签。" + (flow.SourceRevised ? "\n经更正，以当前选择为准。" : ""));
                 if (signatureInk) signatureInk.text = flow.GuaranteesSource ? "Luca" : "";
             }
             else if (kind == Kind.Transfer)
             {
-                for (int i = 0; i < choices.Length; i++) choices[i].text = ((int)flow.OriginalCustody == i ? "● " : "○ ") + FifthActFlow.CustodyLabel((FifthActFlow.Custody)i);
-                if (statusInk) statusInk.text = "当前安排：" + FifthActFlow.CustodyLabel(flow.OriginalCustody);
+                for (int i = 0; i < choices.Length; i++)
+                    Localization.SetText(choices[i], ((int)flow.OriginalCustody == i ? "● " : "○ ") + FifthActFlow.CustodyLabel((FifthActFlow.Custody)i));
+                if (statusInk) Localization.SetText(statusInk, "当前安排：" + FifthActFlow.CustodyLabel(flow.OriginalCustody));
                 if (signatureInk) signatureInk.text = flow.OriginalCustody == FifthActFlow.Custody.Guild ? "" : "Luca";
             }
             else
             {
-                if (choices.Length > 0) choices[0].text = "将这张自述明文移向烛火烧毁";
-                if (statusInk) statusInk.text = "保留时随卷递交；焚毁后无法收回。";
+                if (choices.Length > 0) Localization.SetText(choices[0], "将此页自述明文移近烛火焚毁");
+                if (statusInk) Localization.SetText(statusInk, "留存则随卷呈交；焚毁后不可复原。");
             }
         }
     }

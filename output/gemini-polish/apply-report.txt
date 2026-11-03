@@ -1,0 +1,152 @@
+PASS: 131 dialogue lines/choices, 36 world texts (8 shrunk to fit), 14 other serialized strings.
+
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 02 Desk and writing area/WritingMat/Epilogue result position/Epilogue result receipt/Body | scale 0.929
+  第17号委托 · 回执六之一⏎清晨六点 / 行会登记送达⏎⏎威尼斯、法国已具名参与。⏎米兰监押书记官确认：⏎六点转押暂停，证人留候。⏎粮站表决暂停，转共同审查。⏎⏎换版原件：继续封存。⏎交接手续已办结，副本留档。
+  第17号委托 · 回执六之一⏎清晨六点 / 行会登记送达⏎⏎威尼斯、法国已具名联署。⏎米兰监押书记官确认：⏎六点转押暂缓，证人留候。⏎粮站表决暂停，转入共同审查。⏎⏎换版原件：继续封存。⏎交接手续办结，副本留档。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 02 Desk and writing area/WritingMat/Epilogue reunion position/Epilogue reunion receipt/Body | scale 0.929
+  第17号委托 · 回执六之二⏎清晨六点半 / 新收件⏎⏎马泰奥·里奇⏎已由三方见证人员共同接回。⏎⏎米兰、威尼斯、法国见证登记⏎行会执事核对并送达。⏎⏎接回不免除后续说明责任。
+  第17号委托 · 回执六之二⏎清晨六点半 / 新收件⏎⏎马泰奥·里奇⏎已由三方见证人会同接回。⏎⏎米兰、威尼斯、法国见证登记⏎行会执事核验并送达。⏎⏎证人接回不免除后续陈情之责。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[0].left
+  马泰奥的旧笔记⏎⏎五月十二日⏎给米兰内廷编了⏎新的文书体系。⏎收件人会读，不等于⏎读到的东西真的来自⏎署名者。加密与签名，⏎不能混为一谈。⏎⏎五月十九日⏎巴尔托洛送来⏎七瓣花版样书。
+  马泰奥的旧笔记⏎⏎五月十二日⏎为米兰内廷拟定了⏎新的文书加密体例。⏎收件人能读通密文，⏎不代表文书真出自⏎署名者之手。加密与⏎签名，不可混为一谈。⏎⏎五月十九日⏎巴尔托洛送来⏎七瓣花版样书。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[0].right
+  五月十九日 · 续⏎第十二页第四行⏎重新排过，旧版⏎不能再作查字依据。⏎⏎六月二日⏎学生问，受胁迫时⏎签下的名字还算不算⏎自己的。我没有答好。⏎以后该补这一课。⏎⏎后附：六种密码教案⏎点击左右页翻阅
+  五月十九日 · 续⏎第十二页第四行⏎重排过字版，旧版⏎已不可作查字依据。⏎⏎六月二日⏎卢卡问我，受胁迫时⏎签下的名字，还算不算⏎自己的。我未答好。⏎日后当补上这一课。⏎⏎后附：六种密码教案⏎点击左右页翻阅
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[1].left
+  一 · 凯撒密码⏎⏎字母循环平移。⏎加密加 k，解密减 k。⏎越过 Z 后回到 A。⏎⏎例：k = 3⏎ABC  →  DEF⏎XYZ  →  ABC⏎⏎三道裁口，是我⏎练习纸的位移三记号。
+  一 · 凯撒密码⏎⏎字母按序循环平移。⏎加密加 k，解密减 k。⏎越过 Z 后折返至 A。⏎⏎例：k = 3⏎ABC  →  DEF⏎XYZ  →  ABC⏎⏎纸侧三道裁口，是我⏎习字时的移位三记号。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[1].right
+  解密与核验⏎⏎DEF 向前移三位，⏎还原为 ABC。⏎空格与标点保留。⏎⏎常见错误：⏎把解密方向写反。⏎⏎这种密码容易被试出。⏎读通一段话，不能⏎据此确认署名者。
+  解密与核验⏎⏎DEF 向前逆移三位，⏎即还原为 ABC。⏎空格与标点照旧保留。⏎⏎常见疏漏：⏎将解密方向算反。⏎⏎此法极易被试出。⏎能读通文义，绝不可⏎据此认定署名真伪。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[2].left
+  二 · 书本密码⏎⏎先约定书名、版本、⏎计数单位。⏎⏎页—行—词与⏎页—行—字母，⏎是两种不同规则。⏎⏎本案用页—行—字母，⏎忽略空格与标点，⏎从一开始计数。
+  二 · 书本密码⏎⏎须先约定书名、版次⏎及计数规则。⏎⏎页—行—词与⏎页—行—字母，⏎系两种不同算法。⏎⏎本案取页—行—字母，⏎略去空格与标点，⏎自一始按序计数。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[2].right
+  中性练习⏎⏎假设约定某页某行：⏎A SMALL LAMP⏎⏎计数时写成：⏎ASMALLLAMP⏎第 1 个字母是 A，⏎第 3 个字母是 M。⏎⏎错版也可能查出字母，⏎必须对照版次和原行，⏎不能靠顺眼与否判断。
+  中性练习⏎⏎设约定某页某行为：⏎A SMALL LAMP⏎⏎计数时连写为：⏎ASMALLLAMP⏎第 1 个字母为 A，⏎第 3 个字母为 M。⏎⏎错版亦可能凑出字母，⏎务须核对版次与原行，⏎切忌仅凭文义通顺断案。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[3].left
+  三 · 猪圈对照⏎图形朝向与圆点固定
+  三 · 猪圈对照⏎图形开口与圆点固定
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[3].right
+  对照 · 续⏎⏎⏎⏎⏎⏎⏎⏎图形替换字母。⏎带点与不带点不同。⏎先辨开口，再认圆点；⏎不靠模糊墨迹猜字。
+  对照 · 续⏎⏎⏎⏎⏎⏎⏎⏎以几何图形代指字母。⏎有点与无点分属两列。⏎先辨边框开口，再认圆点；⏎切忌凭模糊墨迹臆测。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[4].left
+  四 · 维吉尼亚⏎⏎字母编号 A=0 … Z=25。⏎把关键词换成位移量，⏎循环重复使用。⏎⏎加密：明文加关键词，⏎结果对 26 取余。⏎解密：密文减关键词，⏎负数加 26。⏎⏎例：ABC 用 KEY⏎加密，得到 KFA。
+  四 · 维吉尼亚⏎⏎字母编号 A=0 … Z=25。⏎将关键词化作位移量，⏎首尾循环使用。⏎⏎加密：明文加关键词，⏎所得对 26 取余。⏎解密：密文减关键词，⏎若为负数则加 26。⏎⏎例：ABC 以 KEY⏎加密，即得 KFA。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[4].right
+  逐字演算⏎⏎A=0    K=10⏎0+10=10  →  K⏎⏎B=1    E=4⏎1+4=5      →  F⏎⏎C=2    Y=24⏎2+24=26  →  A⏎⏎短密文不保证能只靠⏎频率分析推出关键词。
+  逐字演算⏎⏎A=0    K=10⏎0+10=10  →  K⏎⏎B=1    E=4⏎1+4=5      →  F⏎⏎C=2    Y=24⏎2+24=26  →  A⏎⏎篇幅过短之密文，难仅凭⏎频率分析反推关键词。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[5].left
+  五 · 仿射密码⏎⏎A=0，B=1 … Z=25⏎y = (ax+b) mod 26⏎⏎a 必须与 26 互质，⏎才能唯一逆向还原。⏎⏎私人练习记号：⏎齿数为 a，点数为 b。⏎⏎例：a=5，b=8⏎x = 21(y-8) mod 26
+  五 · 仿射密码⏎⏎A=0，B=1 … Z=25⏎y = (ax+b) mod 26⏎⏎a 须与 26 互质，⏎方可唯一逆向还原。⏎⏎私用习字记号：⏎齿数记 a，点数记 b。⏎⏎例：a=5，b=8⏎x = 21(y-8) mod 26
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[5].right
+  演算与限制⏎⏎明文 A 的编号是 0。⏎5×0+8 = 8，得到 I。⏎⏎反算：21×(8-8)=0，⏎得到 A。⏎⏎若计算结果是负数，⏎加 26 直到回到范围内。⏎⏎它仍保留单表替换的⏎统计特征，并非绝对安全。
+  演算与限制⏎⏎明文 A 编号为 0。⏎5×0+8 = 8，得密文 I。⏎⏎反算：21×(8-8)=0，⏎还原得 A。⏎⏎若算得负数，则累加上⏎26 直至归入正数范围。⏎⏎此法仍留有单表替换之⏎统计特征，非万全之策。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[6].left
+  六 · 栅栏密码⏎⏎按约定行数来回填字，⏎再逐行读出。⏎⏎两行例题：⏎HELLOWORLD⏎⏎上行：H L O O L⏎下行：E L W R D⏎⏎按行读出：⏎HLOOLELWRD
+  六 · 栅栏密码⏎⏎依约定行数上下填字，⏎继而逐行横向读出。⏎⏎两行例题：⏎HELLOWORLD⏎⏎上行：H L O O L⏎下行：E L W R D⏎⏎按行读出：⏎HLOOLELWRD
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open | NotebookBook.spreads.Array.data[6].right
+  还原排列⏎⏎先确定每行的字数，⏎把密文分回各行，⏎再按上下往返顺序读。⏎⏎两行、十个字母时，⏎每行各有五个字母。⏎奇数长度时，上行⏎比下行多一个。⏎⏎解密不会创造或删除⏎字母，只恢复排列。
+  还原排列⏎⏎先核定各行应有字数，⏎将密文拆回上下各行，⏎再依上下往返之序拼读。⏎⏎两行、十字母之例，⏎上下两行各容五字。⏎若总字数为奇，则上行⏎较下行多出一字。⏎⏎解密绝不增删字母，⏎唯恢复其本有之次序。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open/Notebook contents/Left page | scale 1.000
+  马泰奥的旧笔记⏎⏎五月十二日⏎给米兰内廷编了⏎新的文书体系。⏎收件人会读，不等于⏎读到的东西真的来自⏎署名者。加密与签名，⏎不能混为一谈。⏎⏎五月十九日⏎巴尔托洛送来⏎七瓣花版样书。
+  马泰奥的旧笔记⏎⏎五月十二日⏎为米兰内廷拟定了⏎新的文书加密体例。⏎收件人能读通密文，⏎不代表文书真出自⏎署名者之手。加密与⏎签名，不可混为一谈。⏎⏎五月十九日⏎巴尔托洛送来⏎七瓣花版样书。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 03 Reference books and notebook/Notebook_Open/Notebook contents/Right page | scale 1.000
+  五月十九日 · 续⏎第十二页第四行⏎重新排过，旧版⏎不能再作查字依据。⏎⏎六月二日⏎学生问，受胁迫时⏎签下的名字还算不算⏎自己的。我没有答好。⏎以后该补这一课。⏎⏎后附：六种密码教案⏎点击左右页翻阅
+  五月十九日 · 续⏎第十二页第四行⏎重排过字版，旧版⏎已不可作查字依据。⏎⏎六月二日⏎卢卡问我，受胁迫时⏎签下的名字，还算不算⏎自己的。我未答好。⏎日后当补上这一课。⏎⏎后附：六种密码教案⏎点击左右页翻阅
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 05 Correspondence and original evidence/PreservationBox/Cipher tray/Stored Pigpen/Title | scale 1.000
+  猪圈密码表 · 留意圆点与朝向
+  猪圈密码表 · 辨明圆点与朝向
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 05 Correspondence and original evidence/PreservationBox/Cipher tray/Stored Affine/Title | scale 1.000
+  仿射密码 · 对照关系
+  仿射密码 · 映射关系
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 05 Correspondence and original evidence/PreservationBox/Cipher tray/Stored RailFence/Title | scale 1.000
+  栅栏密码 · 两行纸条
+  栅栏密码 · 双行纸条
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 05 Correspondence and original evidence/PreservationBox/Cipher tray/Stored RailFence/Instructions | scale 1.000
+  前半段填上行，后半段填下行；按列上下交替读。
+  前半填上行，后半填下行；按列上下交错拼读。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 05 Correspondence and original evidence/CorrespondenceRack/Working form slots/转交申请/Act1_04_行会档案转交申请表/Purpose | scale 1.000
+  申请将行会保管的档案转交指定受领方。⏎办理时须核对档案编号、清单与具名签收。
+  申请将行会封存之档案移交指定受领方。⏎办理时须核验档案编号、清单及具名签收。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 05 Correspondence and original evidence/CorrespondenceRack/Working form slots/转交申请/Act1_04_行会档案转交申请表/Footer | scale 0.900
+  申请不等同交接；以实际签收凭据为准。
+  申请非同正式交接；概以实际签收凭据为准。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 05 Correspondence and original evidence/CorrespondenceRack/Working form slots/核验签字/Act3_03_军情核验表/Final disposition fields/Source evidence | scale 1.000
+  换版记录：法使尚未核签。⏎已更正，以当前选择为准。
+  换版记录：法使尚未核签。⏎经更正，以当前选择为准。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 05 Correspondence and original evidence/CorrespondenceRack/Working form slots/师父自述/Act4_Plaintext_rail/Translation | scale 1.000
+  我在假命令上签了名，为了让⏎巴尔托洛一家脱身。我为取回证据⏎而来，随后被扣押。不要抹去我的名字。
+  我为救巴尔托洛一家脱身，在假命令上⏎签了名。后为取回证据而来，反遭扣押。⏎不要抹去我的名字。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 05 Correspondence and original evidence/CorrespondenceRack/Working form slots/师父自述/Act4_Plaintext_rail/Final disposition fields/Default disposition | scale 1.000
+  保留时随卷递交；焚毁后无法收回。
+  留存则随卷呈交；焚毁后不可复原。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 05 Correspondence and original evidence/CorrespondenceRack/Working form slots/师父自述/Act4_Plaintext_rail/Final disposition fields/Burn plaintext | scale 1.000
+  将这张自述明文移向烛火烧毁
+  将此页自述明文移近烛火焚毁
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act2_02_印务台账摘要/Value 3 | scale 1.000
+  两次换版均由同一名经手人带来
+  两次换版均由同一经手人送交
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act2_02_印务台账摘要/Value 5 | scale 0.900
+  已交行会纠纷库另存
+  已移交行会纠纷库另存
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act2_02_印务台账摘要/Custody note | scale 1.000
+  附：裁纸边角一张。原始签收页涉及委托方私账，⏎另存本库；对应第17号委托，批号726，可据此调阅。
+  附：裁纸边角一张。原始签收页事涉委托方私账，⏎另存本库；对应第17号委托，批号726，可凭此调阅。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act2_03_猪圈密文碎纸/Handwritten note | scale 0.909
+  两次都是他亲手收的。⏎姓名在原始签收页，⏎不在这张摘要上。
+  两次皆由他亲手接领。⏎其姓名载于原始签收页，⏎未录于此份摘要。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act1_01_公爵的核验委托/Body | scale 1.000
+  致行会核验人卢卡：⏎军情正文与附件今晚晚些时候送达。⏎请于六月十六日六点前核验文字及来源。⏎⏎若法方越境军情属实，晨会将表决⏎由米兰军队接管边境粮站。请分别⏎填写明文还原与来源确认，不得混签。⏎⏎卡拉法可代本公爵领取印务材料，⏎无权替法方确认军令。他常戴左手⏎紫手套，领取时仍须核对登记与签样。
+  致行会核验人卢卡：⏎军情正文及附件将于今夜稍晚送达。⏎务于六月十六日六点前核准文义与来源。⏎⏎若法方越境军情属实，晨会将表决⏎由米兰驻军接管边境粮站。明文还原⏎与来源确认须分栏签署，不得混同。⏎⏎卡拉法可代本公爵领受印务材料，⏎无权替法方核准军令。彼左手常戴⏎紫手套，领件时仍须核验登记与签样。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act1_02_师父封袋里的纸/Seven petal note | scale 1.000
+  七瓣花，新版。⏎查账时不要只认签名。
+  七瓣花，新版。⏎查账时切莫只认签名。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act1_03_行会会长的信/Body | scale 1.000
+  卢卡：⏎⏎米兰要凭这份越境军情接管边境粮站；威尼斯不肯把粮道和⏎驻防交到邻邦手里，却也不敢轻忽战报；法国则不愿由别人⏎替自己宣布开战。三方都在等核验结果，也都盼着结果能替⏎自己说话。⏎⏎行会替他们印文书、存契据，如今连核验的名义也成了他们⏎争夺的工具。迟迟不签，他们说我们耽误军务；顺着签了，⏎日后追究起来，又会说是行会验过的。我们靠三方的生意养⏎活工匠，谁也得罪不起，却不能让工匠替他们担下所有过⏎错。⏎⏎正因为他们互不信任，才肯把这件事交给共同登记的核验⏎人。就这份文书而言，你是今夜唯一同时获三方承认，既有⏎调查权、也有正式发言权的人。你可以调阅记录、向各方追⏎问，并把核验意见列入晨会卷宗；连我也不能代你署名。这⏎份权利不能替三方裁定争端，却能让尚未查清的问题留在纸⏎上，不被一句催促抹去。⏎⏎我已吩咐库房，按你的申请抽调有关档案与旧记录；封存原⏎件仍须备齐调阅手续。需要递信、查问经手人，或有别的难⏎处，便托执事告诉我。行会能调动的人手有限，我会尽力安⏎排。⏎⏎我知道你挂念马泰奥。愿你今夜查到的东西，能让他有机会⏎亲口说明。没有查清的，不必替任何人签下保证。
+  卢卡：⏎⏎米兰欲凭这份越境军情接管边境粮站；威尼斯不肯将粮道与⏎防务拱手让人，却也不敢轻忽战报；法国则绝不容旁人替自⏎己宣告开战。三方都在等今夜的核验结果，也都盼着结果能⏎替自己张目。⏎⏎行会替各方印制文书、保管契据，如今连核验的名义也成了⏎他们博弈的筹码。迟迟不签，必被指责贻误军机；顺着签⏎了，日后追究起来，又要归咎于行会失察。我们仰赖三方的⏎生意糊口，谁也得罪不起，却断不能让手下工匠替他们背负⏎罪责。⏎⏎正因三方彼此猜忌，才肯将此事交由共同登记的核验人裁⏎夺。就这份文书而言，你是今夜唯一获三方公认、兼具调查⏎之权与正式发言权的人。你可调阅旧档、质询各方，并将核⏎验结论载入晨会卷宗；纵是我也不能代你落笔。这权力虽不⏎足以平息争端，却能令未明之疑留在纸面，不致被几句催促⏎抹去。⏎⏎我已吩咐库房，依你的申请抽调相关封档与旧账；唯封存之⏎原件仍须备齐手续方能启封。若需递信、查问经手人，或遇⏎其他难处，尽管托执事传话。行会能调动的人手有限，但我⏎自当竭力周旋。⏎⏎我深知你记挂马泰奥。但愿你今夜查实的证据，能为他挣得⏎亲口陈情的机会。凡未查清之事，切莫替任何人签字作保。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act3_01_米兰与行会的译录委托/Body | scale 1.000
+  委托方：米兰内廷⏎登记承办：印务行会⏎案号：第17号 / 装订批号：726⏎⏎请马泰奥·里奇据所附来稿译录，⏎使用既定密码封存，交行会核验。⏎来稿标称法方军情，签发授权待核。⏎此页为原委托，随正文送核。
+  委托方：米兰内廷⏎登记承办：印务行会⏎案号：第17号 / 装订批号：726⏎⏎兹委托马泰奥·里奇依附稿译录，⏎以既定密码封存，送交行会核验。⏎来稿标称法方军情，签发授权待考。⏎此页即原委托书，随正文送核。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act3_04_夏尔的补充凭条/Body | scale 1.000
+  本人可以代表法方否认这条具体越境命令。⏎若核验所提供具有来源记录的争议文件，⏎法方将出具正式反证，并派见证人⏎共同保护相关证人。
+  本人可代表法方否认此项越境军令。⏎若核验所出示具来源记录之争议文书，⏎法方将具函正式反证，并派见证人⏎会同各方保护相关证人。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act4_01_商业文件委托签收页/Custody record | scale 1.000
+  出库登记：两位保管见证人共同启封，原件送核。
+  出库登记：两名保管见证人会同启封，原件送核。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act4_02_换版记录/Body | scale 1.000
+  第一次换版：商队通行文件改为军情译录件。⏎旧试印存根：法方尚未授权跨境行动。⏎⏎第二次换版：换成另附军情正文；⏎保留原封面法使栏位及夏尔签名。⏎备注：法使尚未核签，不另送法方；⏎旧试印缴回。⏎⏎两次指令均由卡拉法带来并签收。⏎军情译录承办：马泰奥·里奇。
+  第一次换版：商队通行文件改排军情译录件。⏎旧试印存根：法方尚未授权跨境行动。⏎⏎第二次换版：替换为另附之军情正文；⏎沿用原封面法使栏位及夏尔签名。⏎备注：法使尚未核签，毋须另送法方；⏎旧试印悉数缴回。⏎⏎两次指令均由卡拉法送交并签收。⏎军情译录承办：马泰奥·里奇。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act4_02_换版记录/Custody record | scale 1.000
+  出库登记：两位保管见证人共同启封，原件送核。
+  出库登记：两名保管见证人会同启封，原件送核。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act4_04_师父的明文书信/Body | scale 0.947
+  卢卡：⏎⏎我原以为，先让人出去，再拿回底稿，⏎就能把这件事拆开。我把自己估得太高，⏎也把后果推给了你。⏎⏎六点会转押。转押登记走米兰内廷的⏎文书渠道。把‘争议证人须留待共同核验’⏎的通知送到那条渠道，并让威尼斯和法国⏎具名加入保护，监押的书记官才有理由⏎暂停执行。⏎⏎我说的也请你查。能查到的，⏎应当有与我无关的记录。
+  卢卡：⏎⏎我原以为，先救人脱身，再取回底稿，⏎便能将这桩伪案拆穿。是我高估了自己，⏎反倒将棘手的后果推给了你。⏎⏎明早六点我将被转押。转押公文走的是⏎米兰内廷渠道。须将‘争议证人留候共同⏎核验’之文书送入该渠道，并由威尼斯与⏎法国具名联保，监押的书记官才有借口⏎暂缓执行。⏎⏎我所言之事，你也一并查验。若确有其事，⏎必能找到独立于我的旁证记录。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act5_01_米兰代表的书信/Body | scale 1.000
+  公爵授权的书记官⏎⏎请在核验表上明确是否愿为军令来源作保，⏎并将换版原件交回米兰。⏎里奇的签名是真迹，追责时他也不能置身事外。⏎⏎若行会登记共同争议审查，并附威尼斯、⏎法国两方具名参与确认，监押书记官将⏎暂停六点转押，保留里奇在圣马丁北门候核。
+  公爵授权的书记官⏎⏎请于核验表上明示是否愿为军令来源作保，⏎并将换版原件交还米兰。⏎里奇之签名确系真迹，日后追责亦难辞其咎。⏎⏎若行会立案启动共同争议审查，且有威尼斯、⏎法国两方具名联署，监押书记官便会暂缓⏎六点之转押，留里奇于圣马丁北门候审。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act5_02_威尼斯代表的书信/Body | scale 0.952
+  贝阿特丽切⏎⏎我希望取得换版原件，并申请保护里奇。⏎若核验结论不担保军令来源，附有可复核的⏎换版记录、案号与原件去向，我会具名申请⏎暂停粮站表决，参加共同审查与证人保护。⏎⏎原件继续由行会封存也可以，须保留查验权。⏎保护证人不等于免除他的责任。
+  贝阿特丽切⏎⏎我方希望受领换版原件，并申请保护里奇。⏎若核验结论不替军令来源作保，且附有可查验⏎之换版记录、案号及原件去向，我将具名提请⏎暂缓粮站表决，参与共同审查与证人保护。⏎⏎原件留存行会封存亦可，唯须保留我方查验权。⏎保护证人周全，并非免除其经手之责。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 07 Five act archive/Act documents - authored desk layout/Act5_03_法国代表的书信/Body | scale 0.909
+  夏尔⏎⏎我希望取得涉及法方署名的换版原件。⏎若核验结论不担保军令来源，附有具体军情、⏎换版记录与来源登记，我将正式否认该命令，⏎参加共同审查，并派见证人前往圣马丁北门。⏎⏎原件交给哪一方都应登记去向。⏎若仍由行会封存，请保留法方查验权。
+  夏尔⏎⏎我方希望受领涉及法方署名之换版原件。⏎若核验结论不替军令来源作保，且附有具体军情、⏎换版记录及来源登记，我将正式否认该项军令，⏎参与共同审查，并遣见证人赶赴圣马丁北门。⏎⏎原件无论移交何方，皆须登记去向。⏎若仍由行会封存，请保留法方查验之权。
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 09 Decoding tools and writing mat/DecodingMat/Mat label | scale 1.000
+  解码工具
+  破译工具
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 09 Decoding tools and writing mat/DecodingMat/Plaintext writing slip/Writing heading | scale 1.000
+  明文书写处
+  明文誊写处
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 09 Decoding tools and writing mat/DecodingMat/Tool Pigpen/Title | scale 1.000
+  猪圈密码表 · 留意圆点与朝向
+  猪圈密码表 · 辨明圆点与朝向
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 09 Decoding tools and writing mat/DecodingMat/Tool Affine/Title | scale 1.000
+  仿射密码 · 对照关系
+  仿射密码 · 映射关系
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 09 Decoding tools and writing mat/DecodingMat/Tool RailFence/Title | scale 1.000
+  栅栏密码 · 两行纸条
+  栅栏密码 · 双行纸条
+Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity | 09 Decoding tools and writing mat/DecodingMat/Tool RailFence/Instructions | scale 1.000
+  前半段填上行，后半段填下行；按列上下交替读。
+  前半填上行，后半填下行；按列上下交错拼读。

@@ -1,5 +1,5 @@
 {
-  "source_commit": "b1c623ad9c2ed7848d9224c1b01efe964a2bedd4",
+  "source_commit": "62d7ba354172fff5ece4fc2259e7951eb1286627",
   "papers": 30,
   "originals": 19,
   "plaintext_records": 6,
@@ -9,15 +9,15 @@
   "runtime_snapshots": 20,
   "coverage_checks": 1223,
   "sources": {
-    "Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity": "0e3b6e0abe7d72ceb088dd26227071c56aaf9d56e02f8fbf551a6fa4c23f24f2",
-    "Assets/Scripts/Presentation/ThirdActVerification.cs": "a5ec28d2c08f3fb208a8b421ecdd5ca9f46c7eafd29dafe2ef29c5eb07b37046",
-    "Assets/Scripts/Presentation/FifthActDocument.cs": "e8e9cbbea2fc8b96f70ec2870df456fe5aca669225d23106866c9c8751bc3ce0",
-    "Assets/Scripts/Presentation/FifthActFlow.cs": "4761ad0f8c223ed3fc59accdf00589c148726812aa807f7549a97cf2358e5550",
-    "Assets/Scripts/Presentation/EpilogueFlow.cs": "af7f64823cef5ebe58855deefab449e95c1300953eb921a532d82704e541b8a1",
-    "Assets/Scripts/Presentation/PlaintextArchiveController.cs": "a23e172ea7df7e8bd8307b554464ff212ca1923242e8bfa7c542b2c8bcf48a58",
-    "Assets/Art/DeskSceneV1/Editor/DeskNotebookBuilder.cs": "d369a15cba862c9acd59c9e443b5d41109636c3fef66c76664929fb38ef028a2",
-    "Assets/Art/DeskSceneV1/Editor/DeskSecondActBuilder.cs": "18ffaac0214bd554a1fc27ef6e04a4eec263abde4fe329e40045259766247658",
-    "output/document-text/scene-text.json": "8b7954c21ae2148739ccf4aa2fb9337cfda11516bdd1683eb5abcd224b8c8020"
+    "Assets/Art/DeskSceneV1/Scenes/PH_DeskRoom.unity": "9a11dea3804cef00314134d6f641bef39d88e6d36ce649125179c1fc88fac449",
+    "Assets/Scripts/Presentation/ThirdActVerification.cs": "109d33b97af123325e03fc0b9256c70a479c38dbdb22096feecf095621b7652d",
+    "Assets/Scripts/Presentation/FifthActDocument.cs": "6e4960b704b644f6ba741da9c33eee934408a7d3859b30e9ecaed692ef94a567",
+    "Assets/Scripts/Presentation/FifthActFlow.cs": "8da959f0afb05d5d199843b491f9dfd201418536f94b6cd564a0597628e05d67",
+    "Assets/Scripts/Presentation/EpilogueFlow.cs": "af9eb30c7ed9b4f2a78142d15c753ebfd0f67286a8e5c4b6e9b8a1e7b3dd5dd7",
+    "Assets/Scripts/Presentation/PlaintextArchiveController.cs": "6da3973762a409e187bdc8beb0158f1a0e4128685cf05174965a234e7aebc124",
+    "Assets/Art/DeskSceneV1/Editor/DeskNotebookBuilder.cs": "d8a5fae947f04091b064159a4a3447144b12d66e3cc44736718f4c2cccbf2e49",
+    "Assets/Art/DeskSceneV1/Editor/DeskSecondActBuilder.cs": "32572848bbce4d747c7e16a7d468864b0554c04a18aeaf773f419a97de4530df",
+    "output/document-text/scene-text.json": "70e2b2e6a5537f858c64bba6ec9013c805c6bf14ecdd92d9f0a181007c5e7e95"
   },
   "artifacts": [
     "doc/紫手套—流程文书全文.md",

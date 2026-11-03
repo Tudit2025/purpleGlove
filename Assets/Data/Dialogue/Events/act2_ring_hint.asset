@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: act2_ring_hint
   title: "\u5362\u5361 \xB7 \u6447\u94C3\u8C03\u6863"
-  context: "2026-11-02 返回改稿；见 doc/performance-edit。"
+  context: "2026-11-02 \u8FD4\u56DE\u6539\u7A3F\uFF1B\u89C1 doc/performance-edit\u3002"
   testOnly: 0
   initialVisitor: {fileID: 0}
   arrivalSound: {fileID: 0}
@@ -22,4 +22,6 @@ MonoBehaviour:
   arrivalDelay: 0.1
   lines:
   - speaker: {fileID: 11400000, guid: f79a256ca015acd40a1a1621c22a6779, type: 2}
-    text: "“五十七号封档”……明文留好了。现在我该摇手铃请执事把对应的档案调来。"
+    text: "\u201C\u7B2C\u4E94\u5341\u4E03\u53F7\u5C01\u6863\u201D\u2026\u2026\u8BD1\u6587\u5DF2\u7ECF\u8BB0\u4E0B\u3002\u8BE5\u6447\u94C3\u8BF7\u6267\u4E8B\u628A\u8FD9\u4EFD\u6863\u6848\u8C03\u6765\u4E86\u3002"
+    endEvent: 0
+    choices: []

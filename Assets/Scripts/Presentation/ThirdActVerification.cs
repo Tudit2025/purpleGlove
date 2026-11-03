@@ -63,9 +63,9 @@ namespace PurpleGlove
         public void RefreshInk()
         {
             bool restored = Signed || (flow && flow.records && flow.records.entries.Any(e => e.act == 3 && e.id == "vigenere" && e.saved));
-            if (transcriptInk) transcriptInk.text = restored ? "法国将于六月十八日越境。" : "";
+            if (transcriptInk) Localization.SetText(transcriptInk, restored ? "法国将于六月十八日越境。" : "");
             if (signatureInk) signatureInk.text = Signed ? "Luca" : "";
-            if (signPrompt) signPrompt.text = CanSign ? "点击签署明文还原" : "";
+            if (signPrompt) Localization.SetText(signPrompt, CanSign ? "点击签署明文还原" : "");
         }
     }
 }
